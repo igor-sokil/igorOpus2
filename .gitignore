@@ -1,0 +1,21 @@
+# ignore bak-files
+*.bak
+# ignore html-files
+*.html
+# ignore dep-files integrated dev. environment
+*.dep
+# ignore my.bat
+*.ses
+# *.txt
+log.txt
+trassirovka.txt
+*.log
+*.o
+*.Debug
+*.Release
+# ignore files from  folder settings/
+dll/
+release/
+debug/
+
+

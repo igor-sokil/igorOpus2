@@ -1,0 +1,437 @@
+/*
+ * Copyright 2013-2022 Step Function I/O, LLC
+ *
+ * Licensed to Green Energy Corp (www.greenenergycorp.com) and Step Function I/O
+ * LLC (https://stepfunc.io) under one or more contributor license agreements.
+ * See the NOTICE file distributed with this work for additional information
+ * regarding copyright ownership. Green Energy Corp and Step Function I/O LLC license
+ * this file to you under the Apache License, Version 2.0 (the "License"); you
+ * may not use this file except in compliance with the License. You may obtain
+ * a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+#include "log_info.h"
+#ifdef  LOG_INFO
+#include <iostream>
+#endif
+#include "header.h"
+#include "WriteHandler.h"
+
+////#include "logging/LogMacros.h"
+
+////namespace opendnp3
+////{
+
+void WriteHandler_in_WriteHandler(WriteHandler *pWriteHandler,
+                                  IOutstationApplication* application, TimeSyncState* timeSyncState, AppSeqNum seq, Timestamp now, IINField* writeIIN)
+{
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{WriteHandler_in_WriteHandler1"<<std::endl;
+#endif
+  IAPDUHandler_in_IAPDUHandler(&(pWriteHandler->iIAPDUHandler));
+
+  pWriteHandler->application = application;
+  pWriteHandler->timeSyncState = timeSyncState;
+  pWriteHandler->seq = seq;
+  pWriteHandler->now = now;
+  pWriteHandler->writeIIN = writeIIN;
+
+  pWriteHandler->wroteTime = false;
+  pWriteHandler->wroteIIN = false;
+
+//  (pWriteHandler->iIAPDUHandler).iIWhiteList.pIsAllowed_in_IWhiteList = IsAllowed_in_WriteHandler_override;
+  (pWriteHandler->iIAPDUHandler).pProcessHeader_RangeHeader_Indexed_for_IINValue_in_IAPDUHandler =
+    ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override;
+  (pWriteHandler->iIAPDUHandler).pProcessHeader_CountHeader_for_Group50Var1_in_IAPDUHandler =
+    ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override;
+  (pWriteHandler->iIAPDUHandler).pProcessHeader_CountHeader_for_Group50Var3_in_IAPDUHandler =
+    ProcessHeader_CountHeader_for_Group50Var3_in_WriteHandler_override;
+  (pWriteHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler =
+    ProcessHeader_PrefixHeader_for_TimeAndInterval_in_WriteHandler_override;
+
+  setParentPointer_in_IWhiteList(&((pWriteHandler->iIAPDUHandler).iIWhiteList), pWriteHandler, IWhiteListSELECTOR_for_WriteHandler);
+  setParentPointer_in_IAPDUHandler(&(pWriteHandler->iIAPDUHandler), pWriteHandler);
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}WriteHandler_in_WriteHandler_"<<std::endl;
+  decrement_stack_info();
+#endif
+}
+
+IINField ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override(void *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_IINValue* values)
+{
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override1"<<std::endl;
+#endif
+  UNUSED(header);
+  WriteHandler *parent =
+    (WriteHandler*)getParentPointer_in_IAPDUHandler((IAPDUHandler*)pIAPDUHandler);
+
+  Indexed_for_IINValue pair;
+  Indexed_for_IINValue_in_Indexed_for_IINValueOver1(&pair);
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override2a"<<std::endl;
+#endif
+////    if (!values.ReadOnlyValue(pair))
+  if (!ReadOnlyValue_in_ICollection_Indexed_for_IINValue(values, &pair))
+  {
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override1_"<<std::endl;
+  decrement_stack_info();
+#endif
+    return iIINField;
+  }
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override2"<<std::endl;
+#endif
+  if (parent->wroteIIN)
+  {
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override2_"<<std::endl;
+  decrement_stack_info();
+#endif
+    return iIINField;
+  }
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override3"<<std::endl;
+#endif
+////    if (pair.index != static_cast<uint16_t>(IINBit::DEVICE_RESTART))
+  if (pair.index != (uint16_t)(IINBit_DEVICE_RESTART))
+  {
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override3_"<<std::endl;
+  decrement_stack_info();
+#endif
+    return iIINField;
+  }
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override4"<<std::endl;
+#endif
+  if (pair.value.value)
+  {
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override4_"<<std::endl;
+  decrement_stack_info();
+#endif
+    return iIINField;
+  }
+
+  parent->wroteIIN = true;
+//    void ClearBit_in_IINField(IINField *, IINBit_uint8_t bit);
+////    parent->writeIIN->ClearBit(IINBit::DEVICE_RESTART);
+  ClearBit_in_IINField(parent->writeIIN, IINBit_DEVICE_RESTART);
+////    return IINField();
+  IINField iIINField;
+  IINField_in_IINFieldOver1(&iIINField);
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_RangeHeader_for_IINValue_in_WriteHandler_override5_"<<std::endl;
+  decrement_stack_info();
+#endif
+  return iIINField;
+}
+
+IINField ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override(void *pIAPDUHandler, CountHeader* header, ICollection_for_Group50Var1* values)
+{
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override1"<<std::endl;
+#endif
+  UNUSED(header);
+  WriteHandler *parent =
+    (WriteHandler*)getParentPointer_in_IAPDUHandler((IAPDUHandler*)pIAPDUHandler);
+
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override2"<<std::endl;
+#endif
+
+  if (parent->wroteTime)
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override1_"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+    return iIINField;
+  }
+
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override3"<<std::endl;
+#endif
+//    boolean SupportsWriteAbsoluteTime_in_IOutstationApplication(IOutstationApplication*);
+////    if (!application->SupportsWriteAbsoluteTime())
+  if (!SupportsWriteAbsoluteTime_in_IOutstationApplication(parent->application))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_FUNC_NOT_SUPPORTED"<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override2_"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::FUNC_NOT_SUPPORTED;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_FUNC_NOT_SUPPORTED);
+    return iIINField;
+  }
+
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"*ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override4"<<std::endl;
+#endif
+
+  Group50Var1 value;
+  Group50Var1_in_Group50Var1(&value);
+
+//boolean ReadOnlyValue_in_ICollection_for_Group50Var1(ICollection_for_Group50Var1 *pICollection_for_Group50Var1, Group50Var1* value);
+////    if (!values.ReadOnlyValue(value))
+  if (!ReadOnlyValue_in_ICollection_for_Group50Var1(values, &value))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override3_"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+    return iIINField;
+  }
+
+///#ifdef  LOG_INFO
+///  std::cout<<"*"<<getString_stack_info();
+///  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+///  decrement_stack_info();
+///#endif
+
+  parent->wroteTime = true;
+//void UTCTimestamp_in_UTCTimestampOver2(UTCTimestamp *pUTCTimestamp, uint64_t msSinceEpoch);
+//    boolean WriteAbsoluteTime_in_IOutstationApplication(IOutstationApplication*, UTCTimestamp* timestamp);
+////    return application->WriteAbsoluteTime(UTCTimestamp(value.time.value)) ? IINField::Empty() : IINBit::PARAM_ERROR;
+  UTCTimestamp uUTCTimestamp;
+  UTCTimestamp_in_UTCTimestampOver2(&uUTCTimestamp, value.timeDNPTime.value);
+  IINField iIINField1;
+  IINField_in_IINFieldOver2(&iIINField1, IINBit_PARAM_ERROR);
+//   IINField Empty_in_IINField_static(void);
+  IINField tmp = WriteAbsoluteTime_in_IOutstationApplication(parent->application, &uUTCTimestamp) ?
+         Empty_in_IINField_static() :
+         iIINField1;
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}ProcessHeader_CountHeader_for_Group50Var1_in_WriteHandler_override4_"<<std::endl;
+  decrement_stack_info();
+#endif
+  return tmp;
+}
+
+IINField ProcessHeader_CountHeader_for_Group50Var3_in_WriteHandler_override(void *pIAPDUHandler, CountHeader* header, ICollection_for_Group50Var3* values)
+{
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"ProcessHeader_CountHeader_for_Group50Var3_in_WriteHandler_override1"<<std::endl;
+#endif
+  UNUSED(header);
+  WriteHandler *parent =
+    (WriteHandler*)getParentPointer_in_IAPDUHandler((IAPDUHandler*)pIAPDUHandler);
+
+  if (parent->wroteTime)
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+    return iIINField;
+  }
+
+//    boolean SupportsWriteAbsoluteTime_in_IOutstationApplication(IOutstationApplication*);
+////    if (!application->SupportsWriteAbsoluteTime())
+  if (!SupportsWriteAbsoluteTime_in_IOutstationApplication(parent->application))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_FUNC_NOT_SUPPORTED"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::FUNC_NOT_SUPPORTED;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_FUNC_NOT_SUPPORTED);
+    return iIINField;
+  }
+
+  Group50Var3 value;
+  Group50Var3_in_Group50Var3(&value);
+
+////    if (!values.ReadOnlyValue(value))
+////        return IINBit::PARAM_ERROR;
+  if (!ReadOnlyValue_in_ICollection_for_Group50Var3(values, &value))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+    return iIINField;
+  }
+
+//boolean CalcTimeDifference_in_TimeSyncState(TimeSyncState *pTimeSyncState, AppSeqNum* seq, Timestamp* now);
+////    if (!this->timeSyncState->CalcTimeDifference(this->seq, this->now))
+  if (!CalcTimeDifference_in_TimeSyncState(parent->timeSyncState, &(parent->seq), &(parent->now)))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::PARAM_ERROR;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
+    return iIINField;
+  }
+
+//TimeDuration GetDifference_in_TimeSyncState(TimeSyncState *pTimeSyncState);
+////    const UTCTimestamp time(
+////        value.time.value
+////        + std::chrono::duration_cast<std::chrono::milliseconds>(this->timeSyncState->GetDifference().value).count());
+  UTCTimestamp timeUTCTimestamp;
+  UTCTimestamp_in_UTCTimestampOver2(&timeUTCTimestamp, value.timeDNPTime.value
+//        + std::chrono::duration_cast<std::chrono::milliseconds>////(this->timeSyncState->GetDifference().value).count());
+                                    + (GetDifference_in_TimeSyncState(parent->timeSyncState).duration_value));
+
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_PARAM_ERROR"<<std::endl;
+  decrement_stack_info();
+#endif
+
+  parent->wroteTime = true;
+////    return application->WriteAbsoluteTime(time) ? IINField::Empty() : IINBit::PARAM_ERROR;
+  IINField iIINField1;
+  IINField_in_IINFieldOver2(&iIINField1, IINBit_PARAM_ERROR);
+//   IINField Empty_in_IINField_static(void);
+  return WriteAbsoluteTime_in_IOutstationApplication(parent->application, &timeUTCTimestamp) ?
+         Empty_in_IINField_static() :
+         iIINField1;
+}
+
+IINField ProcessHeader_PrefixHeader_for_TimeAndInterval_in_WriteHandler_override(void* pIAPDUHandler, PrefixHeader* header,
+    ICollection_Indexed_for_TimeAndInterval* values)
+{
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"ProcessHeader_PrefixHeader_for_TimeAndInterval_in_WriteHandler_override1"<<std::endl;
+#endif
+  UNUSED(header);
+  WriteHandler *parent =
+    (WriteHandler*)getParentPointer_in_IAPDUHandler((IAPDUHandler*)pIAPDUHandler);
+
+//    boolean SupportsWriteTimeAndInterval_in_IOutstationApplication(IOutstationApplication*);
+////    if (!application->SupportsWriteTimeAndInterval())
+  if (!SupportsWriteTimeAndInterval_in_IOutstationApplication(parent->application))
+  {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*IINBit_FUNC_NOT_SUPPORTED"<<std::endl;
+  decrement_stack_info();
+#endif
+////        return IINBit::FUNC_NOT_SUPPORTED;
+    IINField iIINField;
+    IINField_in_IINFieldOver2(&iIINField, IINBit_FUNC_NOT_SUPPORTED);
+    return iIINField;
+  }
+
+//    boolean WriteTimeAndInterval_in_IOutstationApplication(IOutstationApplication*, ICollection_Indexed_for_TimeAndInterval* values);
+////    return application->WriteTimeAndInterval(values) ? IINField::Empty() : IINBit::PARAM_ERROR;
+  IINField iIINField1;
+  IINField_in_IINFieldOver2(&iIINField1, IINBit_PARAM_ERROR);
+//   IINField Empty_in_IINField_static(void);
+  return WriteTimeAndInterval_in_IOutstationApplication(parent->application, values) ?
+         Empty_in_IINField_static() :
+         iIINField1;
+}
+
+////} // namespace opendnp3
+
+boolean IsAllowed_in_WriteHandler_override(void* pIWhiteList, uint32_t headerCount, GroupVariation_uint16_t gv, QualifierCode_uint8_t qc)
+{
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{IsAllowed_in_WriteHandler_override1"<<std::endl;
+#endif
+  UNUSED(pIWhiteList);
+  UNUSED(headerCount);
+  UNUSED(gv);
+  UNUSED(qc);
+
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}IsAllowed_in_WriteHandler_override_"<<std::endl;
+  decrement_stack_info();
+#endif
+  return true;
+}
