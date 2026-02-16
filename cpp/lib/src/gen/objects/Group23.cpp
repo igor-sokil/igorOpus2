@@ -29,7 +29,7 @@
 // limitations under the License.
 //
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "Group23.h"
 
 ////#include "app/parsing/DNPTimeParsing.h"

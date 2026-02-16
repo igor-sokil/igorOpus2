@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticWriters_for_Analog.h"
 
 #include "Group1.h"

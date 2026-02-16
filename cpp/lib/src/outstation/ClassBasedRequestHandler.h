@@ -39,7 +39,7 @@
 ////class ClassBasedRequestHandler : public IAPDUHandler
 typedef struct
 {
-//  IAPDUHandler iIAPDUHandler;
+  IAPDUHandler iIAPDUHandler;
 /////public:
 /////    ClassBasedRequestHandler() {}
 

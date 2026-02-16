@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "ConstantCommandAction.h"
 
 void ConstantCommandAction_in_ConstantCommandAction(ConstantCommandAction *pConstantCommandAction, CommandStatus_uint8_t status_)

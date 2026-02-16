@@ -1,9 +1,11 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "IWhiteList.h"
 #include "CommandResponseHandler.h"
 #include "FreezeRequestHandler.h"
 #include "ReadHandler.h"
 #include "WriteHandler.h"
+#include "AssignClassHandler.h"
+#include "ClassBasedRequestHandler.h"
 
 boolean IsAllowed_in_IWhiteList(IWhiteList *pIWhiteList, uint32_t headerCount, GroupVariation_uint16_t gv, QualifierCode_uint8_t qc)
 {
@@ -18,6 +20,10 @@ boolean IsAllowed_in_IWhiteList(IWhiteList *pIWhiteList, uint32_t headerCount, G
        return IsAllowed_in_WriteHandler_override(pIWhiteList, headerCount, gv, qc);
     case IWhiteListSELECTOR_for_CommandResponseHandler:
        return IsAllowed_in_CommandResponseHandler_override(pIWhiteList, headerCount, gv, qc);
+    case IWhiteListSELECTOR_for_AssignClassHandler:
+       return IsAllowed_in_AssignClassHandler_override(pIWhiteList, headerCount, gv, qc);
+    case IWhiteListSELECTOR_for_ClassBasedRequestHandler:
+       return IsAllowed_in_ClassBasedRequestHandler_override(pIWhiteList, headerCount, gv, qc);
   }
   return false;
 }

@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Flags.h"
 
 void Flags_In_FlagsOver1(Flags *pFlags)

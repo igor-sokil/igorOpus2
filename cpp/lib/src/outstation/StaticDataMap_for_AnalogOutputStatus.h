@@ -563,5 +563,6 @@ Range assign_class_in_StaticDataMap_for_AnalogOutputStatusSpecOver2(StaticDataMa
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap_for_AnalogOutputStatusSpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec*);
+void setMapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec*, uint16_t size);
 
 #endif

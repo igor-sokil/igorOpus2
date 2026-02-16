@@ -1,5 +1,5 @@
 #include <string.h>
-#include "header.h"
+#include "header_dnp3.h"
 #include "ArrayView__for__Node_for_EventRecord.h"
 
 ArrayView__for__Node_for_EventRecord Empty_in_ArrayView__for__Node_for_EventRecord_static(void)

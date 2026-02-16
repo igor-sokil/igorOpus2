@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Settable_for_WSeq.h"
 
 void Settable_for_WSeq_t_in_Settable_for_WSeq_t(Settable_for_WSeq_t *pSettable_for_WSeq_t)

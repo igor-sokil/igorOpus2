@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "HeaderWriter_for_AnalogOutputStatus.h"
 
 //---------------------------------------------IterateOverRange_for_UInt8_AnalogOutputStatus_in_HeaderWriter--------------------------------------------

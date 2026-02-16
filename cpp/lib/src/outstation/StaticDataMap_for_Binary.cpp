@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_Binary.h"
 
 uint16_t MapSize_for_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec *pStaticDataMap_for_BinarySpec)
 {
   return pStaticDataMap_for_BinarySpec->db_config->binary_input_count;
+}
+void setMapSize_for_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec *pStaticDataMap_for_BinarySpec, uint16_t size)
+{
+  pStaticDataMap_for_BinarySpec->db_config->binary_input_count = size;
 }
 
 ////template<class Spec> StaticDataMap<Spec>::StaticDataMap(const std::map<uint16_t, typename Spec::config_t>& config)
@@ -46,8 +50,7 @@ void StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(StaticDat
 
   if(MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap) > SIZE_StaticDataMap_for_BinarySpec)
   {
-    pStaticDataMap->db_config->binary_input_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap, SIZE_StaticDataMap_for_BinarySpec);
   }//if
   for (int i=0; i<MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap); i++)
   {

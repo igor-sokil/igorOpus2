@@ -22,16 +22,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "ASDUEventWriteHandler.h"
 
 #include "EventWriters_for_Analog.h"
-//#include "EventWriters_for_AnalogOutputStatus.h"
+#include "EventWriters_for_AnalogOutputStatus.h"
 #include "EventWriters_for_Binary.h"
-//#include "EventWriters_for_BinaryOutputStatus.h"
-//#include "EventWriters_for_DoubleBitBinary.h"
-//#include "EventWriters_for_Counter.h"
-//#include "EventWriters_for_FrozenCounter.h"
+#include "EventWriters_for_BinaryOutputStatus.h"
+#include "EventWriters_for_DoubleBitBinary.h"
+#include "EventWriters_for_Counter.h"
+#include "EventWriters_for_FrozenCounter.h"
 //#include "EventWriters_for_OctetString.h"
 #include "Group2.h"
 #include "Group4.h"
@@ -120,7 +120,7 @@ uint16_t Write_for_Binary_in_ASDUEventWriteHandler_override(void *pIEventWriteHa
   }
 }
 
-/*
+
 //uint16_t Write_for_DoubleBitBinary_in_ASDUEventWriteHandler_override(void *pASDUEventWriteHandler,
 //    EventDoubleBinaryVariation variation,
 //    DoubleBitBinary* first,
@@ -155,8 +155,7 @@ uint16_t Write_for_DoubleBitBinary_in_ASDUEventWriteHandler_override(void *pIEve
   }
   }
 }
-*/
-/*
+
 uint16_t Write_for_Counter_in_ASDUEventWriteHandler_override(void *pIEventWriteHandler,
     EventCounterVariation_uint8_t variation,
     Counter* first,
@@ -227,7 +226,7 @@ uint16_t Write_for_FrozenCounter_in_ASDUEventWriteHandler_override(void *pIEvent
     return 0;
   }
 }
-*/
+
 uint16_t Write_for_Analog_in_ASDUEventWriteHandler_override(void *pIEventWriteHandler,
     EventAnalogVariation_uint8_t variation,
     Analog* first,
@@ -341,7 +340,7 @@ uint16_t Write_for_Analog_in_ASDUEventWriteHandler_override(void *pIEventWriteHa
   }
   }
 }
-/*
+
 uint16_t Write_for_BinaryOutputStatus_in_ASDUEventWriteHandler_override(void *pIEventWriteHandler,
     EventBinaryOutputStatusVariation_uint8_t variation,
     BinaryOutputStatus* first,
@@ -420,7 +419,7 @@ uint16_t Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override(void *pI
   }
   }
 }
-
+/*
 //uint16_t Write_for_OctetString_in_ASDUEventWriteHandler_override(void *pASDUEventWriteHandler,
 //    EventOctetStringVariation_uint8_t variation,
 //    OctetString* first,
@@ -445,51 +444,40 @@ void ASDUEventWriteHandler_in_ASDUEventWriteHandler(ASDUEventWriteHandler *pASDU
 
   setParentPointer_in_IEventWriteHandler(&(pASDUEventWriteHandler->iIEventWriteHandler), pASDUEventWriteHandler);
 
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Binary_in_IEventWriteHandler = Write_for_Binary_in_ASDUEventWriteHandler_override;
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Binary_in_IEventWriteHandler = Write_for_Binary_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventBinaryVariation variation,
 ////                           const Binary& first,
 ////                           IEventCollection<Binary>& items) override;
-  /*
-  ASDUEventWriteHandler.cpp:335:100: error: invalid conversion from
-   'short unsigned int (*)(void*, EventDoubleBinaryVariation, DoubleBitBinary*, IEventCollection_for_DoubleBitBinary*)' to
-   'short unsigned int (*)(void*, unsigned char,              DoubleBitBinary*, IEventCollection_for_DoubleBitBinary*)' [-fpermissive]
-  */
 //  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_DoubleBitBinary_in_IEventWriteHandler = Write_for_DoubleBitBinary_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventDoubleBinaryVariation variation,
 ////                           const DoubleBitBinary& first,
 ////                           IEventCollection<DoubleBitBinary>& items) override;
 
-  /*
-  invalid conversion from
-  'short unsigned int (*)(void*, EventCounterVariation, Counter*, IEventCollection_for_Counter*)' to
-  'short unsigned int (*)(void*, unsigned char,         Counter*, IEventCollection_for_Counter*)
-  */
-/*
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Counter_in_IEventWriteHandler = Write_for_Counter_in_ASDUEventWriteHandler_override;
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Counter_in_IEventWriteHandler = Write_for_Counter_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventCounterVariation variation,
 ////                           const Counter& first,
 ////                           IEventCollection<Counter>& items) override;
 
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_FrozenCounter_in_IEventWriteHandler = Write_for_FrozenCounter_in_ASDUEventWriteHandler_override;
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_FrozenCounter_in_IEventWriteHandler = Write_for_FrozenCounter_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventFrozenCounterVariation variation,
 ////                           const FrozenCounter& first,
 ////                           IEventCollection<FrozenCounter>& items) override;
-*/
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Analog_in_IEventWriteHandler = Write_for_Analog_in_ASDUEventWriteHandler_override;
+
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_Analog_in_IEventWriteHandler = Write_for_Analog_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventAnalogVariation variation,
 ////                           const Analog& first,
 ////                           IEventCollection<Analog>& items) override;
-/*
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_BinaryOutputStatus_in_IEventWriteHandler = Write_for_BinaryOutputStatus_in_ASDUEventWriteHandler_override;
+
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_BinaryOutputStatus_in_IEventWriteHandler = Write_for_BinaryOutputStatus_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventBinaryOutputStatusVariation variation,
 ////                           const BinaryOutputStatus& first,
 ////                           IEventCollection<BinaryOutputStatus>& items) override;
 
-  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_AnalogOutputStatus_in_IEventWriteHandler = Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override;
+//  (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_AnalogOutputStatus_in_IEventWriteHandler = Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventAnalogOutputStatusVariation variation,
 ////                           const AnalogOutputStatus& first,
 ////                           IEventCollection<AnalogOutputStatus>& items) override;
-
+/*
   (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_OctetString_in_IEventWriteHandler = Write_for_OctetString_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventOctetStringVariation variation,
 ////                           const OctetString& first,

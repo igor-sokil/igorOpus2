@@ -19,7 +19,7 @@
  */
 
 ////#include "opendnp3/app/BinaryCommandEvent.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "BinaryCommandEvent.h"
 
 ////namespace opendnp3

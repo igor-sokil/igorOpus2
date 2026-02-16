@@ -3,8 +3,8 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include <QApplication>
-#include "header.h"
+//#include <QApplication>
+#include "header_dnp3.h"
 #include "MockOutstationApplication.h"
 
 ////    MockOutstationApplication()
@@ -51,23 +51,24 @@ void MockOutstationApplication_in_MockOutstationApplication(MockOutstationApplic
   pMockOutstationApplication->iIOutstationApplication.iIDnpTimeSource.pNow_in_IDnpTimeSource_static = Now_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pSupportsWriteAbsoluteTime_in_IOutstationApplication = SupportsWriteAbsoluteTime_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWriteAbsoluteTime_in_IOutstationApplication = WriteAbsoluteTime_in_MockOutstationApplication_override;
-/*
+
   pMockOutstationApplication->iIOutstationApplication.pSupportsWriteTimeAndInterval_in_IOutstationApplication = SupportsWriteTimeAndInterval_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWriteTimeAndInterval_in_IOutstationApplication = WriteTimeAndInterval_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pSupportsAssignClass_in_IOutstationApplication = SupportsAssignClass_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_MockOutstationApplication_override;
-*/
+
   pMockOutstationApplication->iIOutstationApplication.pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_MockOutstationApplication_override;
 /*
   pMockOutstationApplication->iIOutstationApplication.pColdRestartSupport_in_IOutstationApplication = ColdRestartSupport_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWarmRestartSupport_in_IOutstationApplication = WarmRestartSupport_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pColdRestart_in_IOutstationApplication = ColdRestart_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWarmRestart_in_IOutstationApplication = WarmRestart_in_MockOutstationApplication_override;
+*/
   pMockOutstationApplication->iIOutstationApplication.pOnConfirmProcessed_in_IOutstationApplication = OnConfirmProcessed_in_MockOutstationApplication_override;
 
   setParentPointer_in_IDnpTimeSource(&(pMockOutstationApplication->iIOutstationApplication.iIDnpTimeSource), pMockOutstationApplication);
-  setParentPointer_in_ILinkListener(&(pMockOutstationApplication->iIOutstationApplication.iILinkListener), pMockOutstationApplication);
-*/
+//  setParentPointer_in_ILinkListener(&(pMockOutstationApplication->iIOutstationApplication.iILinkListener), pMockOutstationApplication);
+
   setParentPointer_in_IOutstationApplication(&(pMockOutstationApplication->iIOutstationApplication), pMockOutstationApplication);
 
 #ifdef  LOG_INFO
@@ -101,26 +102,25 @@ boolean WriteAbsoluteTime_in_MockOutstationApplication_override(void *pIOutstati
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return WriteAbsoluteTime_in_MockOutstationApplication(parent, timestamp);
 }
-/*
+
 boolean SupportsWriteTimeAndInterval_in_MockOutstationApplication_override(void *pIOutstationApplication)
 {
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return SupportsWriteTimeAndInterval_in_MockOutstationApplication(parent);
 }
-*/
+
 /*
 WriteTimeAndInterval_in_MockOutstationApplication
 `WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication*, ICollection_Indexed_for_TimeAndInterval*)
 */
-/*
+
 boolean WriteTimeAndInterval_in_MockOutstationApplication_override(void *pIOutstationApplication,
     ICollection_Indexed_for_TimeAndInterval* meas)
 {
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return __WriteTimeAndInterval_in_MockOutstationApplication(parent, meas);
 }
-*/
-/*
+
 boolean SupportsAssignClass_in_MockOutstationApplication_override(void *pIOutstationApplication)
 {
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
@@ -140,7 +140,7 @@ void RecordClassAssignment_in_MockOutstationApplication_override(void *pIOutstat
       start,
       stop);
 }
-*/
+
 ApplicationIIN GetApplicationIIN_in_MockOutstationApplication_override(void *pIOutstationApplication)
 {
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
@@ -170,7 +170,7 @@ uint16_t WarmRestart_in_MockOutstationApplication_override(void *pIOutstationApp
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return WarmRestart_in_MockOutstationApplication(parent);
 }
-
+*/
 void OnConfirmProcessed_in_MockOutstationApplication_override(void *pIOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
@@ -178,7 +178,7 @@ void OnConfirmProcessed_in_MockOutstationApplication_override(void *pIOutstation
   OnConfirmProcessed_in_MockOutstationApplication(parent,
       is_unsolicited, num_class1, num_class2, num_class3);
 }
-*/
+
 DNPTime Now_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
   return pMockOutstationApplication->currentTime;
@@ -192,6 +192,11 @@ void OnStateChange_in_MockOutstationApplication(MockOutstationApplication *pMock
 */
 boolean SupportsWriteAbsoluteTime_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
+#ifdef  LOG_INFO
+  std::cout<<"*"<<'\n';
+  std::cout<<"*SupportsWriteAbsoluteTime_in_MockOutstationApplication1"<<'\n';
+  std::cout<<"*pMockOutstationApplication->supportsTimeWrite = "<<pMockOutstationApplication->supportsTimeWrite<<'\n';
+#endif
   return pMockOutstationApplication->supportsTimeWrite;
 }
 
@@ -208,7 +213,7 @@ boolean WriteAbsoluteTime_in_MockOutstationApplication(MockOutstationApplication
 
   std::cout<<"*UTCTimestamp.msSinceEpoch= "<<std::hex<<Timestamp.msSinceEpoch<<std::dec<<'\n';
 
-    pMockOutstationApplication->timestamps.push_back(Timestamp);
+//    pMockOutstationApplication->timestamps.push_back(Timestamp);
 #ifdef  LOG_INFO
   std::cout<<"}WriteAbsoluteTime_in_MockOutstationApplication1_"<<'\n';
 #endif
@@ -222,7 +227,7 @@ boolean WriteAbsoluteTime_in_MockOutstationApplication(MockOutstationApplication
     return false;
   }
 }
-/*
+
 boolean SupportsWriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
   return pMockOutstationApplication->supportsWriteTimeAndInterval;
@@ -248,14 +253,14 @@ void __push_in_MockOutstationApplication(Indexed_for_TimeAndInterval value)
   std::cout<<"}__push_in_MockOutstationApplication_"<<'\n';
 #endif
 }
-*/
+
 //boolean __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
 //    ICollection_Indexed_for_TimeAndInterval* meas);
 
 /*
 __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication*, ICollection_Indexed_for_TimeAndInterval*)
 */
-/*
+
 boolean __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
     ICollection_Indexed_for_TimeAndInterval* meas)
 {
@@ -272,8 +277,8 @@ boolean __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplic
   ForeachItem_in_ICollection_Indexed_for_TimeAndInterval(meas, __push_in_MockOutstationApplication);
   return true;
 }
-*/
-/*
+
+
 boolean SupportsAssignClass_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
   return pMockOutstationApplication->supportsAssignClass;
@@ -293,7 +298,7 @@ void RecordClassAssignment_in_MockOutstationApplication(MockOutstationApplicatio
    std::cout<<"*uint16_t stop= "<<(uint16_t)stop<<'\n';
   pMockOutstationApplication->classAssignments.push_back(std::make_tuple(type, clazz, start, stop));
 }
-*/
+
 ApplicationIIN GetApplicationIIN_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
   return pMockOutstationApplication->appIIN;
@@ -318,7 +323,7 @@ uint16_t WarmRestart_in_MockOutstationApplication(MockOutstationApplication *pMo
 {
   return pMockOutstationApplication->warmRestartTimeDelay;
 }
-
+*/
 void OnConfirmProcessed_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
@@ -331,7 +336,7 @@ void OnConfirmProcessed_in_MockOutstationApplication(MockOutstationApplication *
   confirm.num_class3 = num_class3;
   pMockOutstationApplication->confirms.push_back(confirm);
 }
-*/
+
 ////    void SetTime(opendnp3::DNPTime time)
 void SetTime_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication, DNPTime timeDNPTime)
 {

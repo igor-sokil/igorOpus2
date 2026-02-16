@@ -32,7 +32,7 @@
 ////#include "opendnp3/gen/CommandStatus.h"
 ////#include <stdexcept>
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "CommandStatus.h"
 
 ////namespace opendnp3 {

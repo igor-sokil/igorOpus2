@@ -60,21 +60,29 @@ typedef struct
 
 ////public:
 ////    virtual void SelectDefaultVariation(EventRecord& record) const = 0;
-  void (*pSelectDefaultVariation_in_IEventType)(void *, EventRecord* record);
+//  void (*pSelectDefaultVariation_in_IEventType)(void *, EventRecord* record);
 
 ////    virtual uint16_t WriteSome(List<EventRecord>::Iterator& iterator,
 ////                               EventLists& lists,
 ////                               IEventWriteHandler& handler) const = 0;
-  uint16_t (*pWriteSome_in_IEventType)(void *,
-                                       Iterator_in_List_for_EventRecord* iterator,
-                                       EventLists* lists,
-                                       IEventWriteHandler* handler);// const = 0;
+//  uint16_t (*pWriteSome_in_IEventType)(void *, Iterator_in_List_for_EventRecord* iterator, EventLists* lists, IEventWriteHandler* handler);// const = 0;
 
 ////    virtual void RemoveTypeFromStorage(EventRecord& record, EventLists& lists) const = 0;
-  void (*pRemoveTypeFromStorage_in_IEventType)(void *, EventRecord* record, EventLists* lists);// const = 0;
+//  void (*pRemoveTypeFromStorage_in_IEventType)(void *, EventRecord* record, EventLists* lists);// const = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventType;
 } IEventType;
+
+enum {
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_AnalogSpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_BinarySpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_CounterSpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec
+};
 
 void SelectDefaultVariation_in_IEventType(IEventType *, EventRecord* record);
 uint16_t WriteSome_in_IEventType(IEventType *,
@@ -84,7 +92,7 @@ uint16_t WriteSome_in_IEventType(IEventType *,
 void RemoveTypeFromStorage_in_IEventType(IEventType *, EventRecord* record, EventLists* lists);
 
 void* getParentPointer_in_IEventType(IEventType*);
-void  setParentPointer_in_IEventType(IEventType*, void*);
+void  setParentPointer_in_IEventType(IEventType*, void*, uint16_t parentPointerSelector);
 
 void IEventType_in_IEventType(IEventType *pIEventType, EventType_uint16_t value);
 boolean IsEqual_in_IEventType(IEventType* pIEventType, EventType_uint16_t type);

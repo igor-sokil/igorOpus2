@@ -1,5 +1,4 @@
-//#include <QtWidgets>
-#include "header.h"
+#include "header_dnp3.h"
 #include "RSeq.h"
 #include <string.h>
 

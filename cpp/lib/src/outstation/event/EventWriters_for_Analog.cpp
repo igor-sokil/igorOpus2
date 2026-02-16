@@ -1,5 +1,4 @@
-#include "header.h"
-//#include "EventWriters_for_Analog.h"
+#include "header_dnp3.h"
 #include "EventWriters_for_Analog.h"
 #include "HeaderWriter_for_Analog.h"
 
@@ -32,8 +31,9 @@ void BasicEventWriter_for_Analog_in_BasicEventWriter_for_Analog(BasicEventWriter
   PrefixedWriteIterator_for_UInt16_Analog temp = IterateOverCountWithPrefix_for_UInt16_Analog_in_HeaderWriter(writer, QualifierCode_UINT16_CNT_UINT16_INDEX, serializer);
   pBasicEventWriter_for_Analog->iterator = temp;
 
-  (pBasicEventWriter_for_Analog->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_BasicEventWriter_for_Analog_override;
-  setParentPointer_in_IEventWriter_for_Analog(&(pBasicEventWriter_for_Analog->iIEventWriter_for_Analog), pBasicEventWriter_for_Analog);
+//  (pBasicEventWriter_for_Analog->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_BasicEventWriter_for_Analog_override;
+  setParentPointer_in_IEventWriter_for_Analog(&(pBasicEventWriter_for_Analog->iIEventWriter_for_Analog), 
+       pBasicEventWriter_for_Analog, IEventWriter_for_AnalogSELECTOR_for_BasicEventWriter_for_Analog);
 }
 
 ////        virtual bool Write(const T& meas, uint16_t index) override
@@ -68,8 +68,9 @@ void CTOEventWriter_for_Analog_Group51Var1_in_CTOEventWriter_for_Analog_Group51V
       );
 //  pCTOEventWriter_for_Analog_Group51Var1->iterator = temp;
 
-  (pCTOEventWriter_for_Analog_Group51Var1->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_CTOEventWriter_for_Analog_Group51Var1_override;
-  setParentPointer_in_IEventWriter_for_Analog(&(pCTOEventWriter_for_Analog_Group51Var1->iIEventWriter_for_Analog), pCTOEventWriter_for_Analog_Group51Var1);
+//  (pCTOEventWriter_for_Analog_Group51Var1->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_CTOEventWriter_for_Analog_Group51Var1_override;
+  setParentPointer_in_IEventWriter_for_Analog(&(pCTOEventWriter_for_Analog_Group51Var1->iIEventWriter_for_Analog), 
+    pCTOEventWriter_for_Analog_Group51Var1, IEventWriter_for_AnalogSELECTOR_for_CTOEventWriter_for_Analog_Group51Var1);
 }
 
 ////        virtual bool Write(const T& meas, uint16_t index) override
@@ -176,17 +177,16 @@ void CTOEventWriter_for_Analog_Group51Var2_in_CTOEventWriter_for_Analog_Group51V
 {
   DNPTime_in_DNPTimeOver2(&(pCTOEventWriter_for_Analog_Group51Var2->cto), (cto->timeDNPTime).value);
 
-  //PrefixedWriteIterator_for_UInt16_Analog temp
   pCTOEventWriter_for_Analog_Group51Var2->iterator = IterateOverCountWithPrefixAndCTO_for_UInt16_Analog_Group51Var2_in_HeaderWriter(
         writer,
         QualifierCode_UINT16_CNT_UINT16_INDEX,
         serializer,
         cto
       );
-//  pCTOEventWriter_for_Analog_Group51Var2->iterator = temp;
 
-  (pCTOEventWriter_for_Analog_Group51Var2->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_CTOEventWriter_for_Analog_Group51Var2_override;
-  setParentPointer_in_IEventWriter_for_Analog(&(pCTOEventWriter_for_Analog_Group51Var2->iIEventWriter_for_Analog), pCTOEventWriter_for_Analog_Group51Var2);
+//  (pCTOEventWriter_for_Analog_Group51Var2->iIEventWriter_for_Analog).pWrite_in_IEventWriter_for_Analog = Write_in_CTOEventWriter_for_Analog_Group51Var2_override;
+  setParentPointer_in_IEventWriter_for_Analog(&(pCTOEventWriter_for_Analog_Group51Var2->iIEventWriter_for_Analog), 
+        pCTOEventWriter_for_Analog_Group51Var2, IEventWriter_for_AnalogSELECTOR_for_CTOEventWriter_for_Analog_Group51Var2);
 }
 
 ////        virtual bool Write(const T& meas, uint16_t index) override

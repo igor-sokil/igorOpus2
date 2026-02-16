@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "DNP3Serializer.h"
 //-----------------------------DNP3Serializer_for_AnalogCommandEvent-------------------------------------------
 

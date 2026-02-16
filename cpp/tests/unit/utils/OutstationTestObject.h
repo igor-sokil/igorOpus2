@@ -35,9 +35,9 @@
 
 ////#include <functional>
 
-//#include "MockExecutorExe4cpp.h"
+#include "MockExecutorExe4cpp.h"
 #include "MockCommandHandler.h"
-//#include "MockLowerLayer.h"
+#include "MockLowerLayer.h"
 #include "MockOutstationApplication.h"
 #include "Database.h"
 #include "OutstationContext.h"
@@ -77,10 +77,10 @@ typedef struct
 
 ////private:
 ////    const std::shared_ptr<exe4cpp::MockExecutor> exe;
-//  MockExecutor  exe;
+  MockExecutor  exe;
 ////public:
 ////    const std::shared_ptr<MockLowerLayer> lower;
-//  MockLowerLayer lower;
+  MockLowerLayer lower;
 ////    const std::shared_ptr<MockCommandHandler> cmdHandler;
   MockCommandHandler cmdHandler;
 ////    const std::shared_ptr<MockOutstationApplication> application;
@@ -102,11 +102,12 @@ void Transaction_in_OutstationTestObject(OutstationTestObject *pOutstationTestOb
 uint16_t BroadcastToOutstation_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, LinkBroadcastAddress_uint16_t broadcast_address, std::string& hex);
 */
 uint16_t OnTxReady_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
-/*
+
 uint16_t AdvanceTime_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, TimeDuration* td);
 
 boolean AdvanceToNextTimer_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
 
 uint16_t NumPendingTimers_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
-*/
+void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);//std::string& arData)
+
 #endif

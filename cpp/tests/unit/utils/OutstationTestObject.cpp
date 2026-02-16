@@ -21,9 +21,8 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-//#include <QtWidgets>
-//#include <QApplication>
-#include "header.h"
+
+#include "header_dnp3.h"
 //#include "BufferHelpers.h"
 #include "OutstationTestObject.h"
 
@@ -50,10 +49,10 @@ void OutstationTestObject_in_OutstationTestObject(OutstationTestObject *pOutstat
   std::cout<<"{OutstationTestObject_in_OutstationTestObject1"<<'\n';
 #endif
 ////    : exe(std::make_shared<exe4cpp::MockExecutor>()),
-//  MockExecutor_in_MockExecutor(&(pOutstationTestObject->exe));
+  MockExecutor_in_MockExecutor(&(pOutstationTestObject->exe));
 
 ////      lower(std::make_shared<MockLowerLayer>()),
-//  MockLowerLayer_in_MockLowerLayer(&(pOutstationTestObject->lower));
+  MockLowerLayer_in_MockLowerLayer(&(pOutstationTestObject->lower));
 
 ////      cmdHandler(std::make_shared<MockCommandHandler>(CommandStatus::SUCCESS)),
   MockCommandHandler_in_MockCommandHandler(&(pOutstationTestObject->cmdHandler), CommandStatus_SUCCESS);
@@ -74,23 +73,21 @@ void OutstationTestObject_in_OutstationTestObject(OutstationTestObject *pOutstat
 ///             DatabaseConfig* db_config,
                        db_config,
 
-/*
 //             const Logger& logger,
 ///             IExecutorExe4cpp* executor,
                        &(pOutstationTestObject->exe.iIExecutorExe4cpp),
 ///             ILowerLayer* lower,
                        &(pOutstationTestObject->lower.iILowerLayer),
-*/
+
 ///             ICommandHandler* commandHandler,
                        &(pOutstationTestObject->cmdHandler.sSimpleCommandHandler.iICommandHandler),
 
 ///             IOutstationApplication* application);
                        &(pOutstationTestObject->application.iIOutstationApplication));
 
-
 //    void SetUpperLayer_in_HasUpperLayer(HasUpperLayer *pHasUpperLayer, IUpperLayer* upperLayer);
 ////    lower->SetUpperLayer(context);
-//  SetUpperLayer_in_HasUpperLayer(&(pOutstationTestObject->lower.hHasUpperLayer), &(pOutstationTestObject->context.iIUpperLayer));
+  SetUpperLayer_in_HasUpperLayer(&(pOutstationTestObject->lower.hHasUpperLayer), &(pOutstationTestObject->context.iIUpperLayer));
 
 #ifdef  LOG_INFO
   std::cout<<"}OutstationTestObject_in_OutstationTestObject_"<<'\n';
@@ -258,16 +255,16 @@ UNUSED(pOutstationTestObject);
 
    return true;//false;
 }
-
+*/
 uint16_t AdvanceTime_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, TimeDuration* td)
 {
 //uint16_t advance_time_in_MockExecutor(MockExecutor *pMockExecutor, uint32_t duration);
 ////    exe->advance_time(td.value);
-  advance_time_in_MockExecutor(&(pOutstationTestObject->exe), td->duration_value);
+//  advance_time_in_MockExecutor(&(pOutstationTestObject->exe), td->duration_value);
 ////    return exe->run_many();
-  return run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
 }
-
+/*
 ////size_t OutstationTestObject::NumPendingTimers() const
 uint16_t NumPendingTimers_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject)
 {
@@ -276,3 +273,59 @@ uint16_t NumPendingTimers_in_OutstationTestObject(OutstationTestObject *pOutstat
   return num_pending_timers_in_MockExecutor(&(pOutstationTestObject->exe));
 }
 */
+void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq)//std::string& arData)
+{
+////    HexSequence hs(arData);
+//  HexSequence hs;
+//  HexSequence_in_HexSequence(&hs, arData);
+
+  // validate the size of the data
+//uint16_t Size_in_CopyableBuffer(CopyableBuffer *pCopyableBuffer);
+////    REQUIRE(hs.Size() >= 10);
+  uint16_t sz = rseq->hHasLength.m_length;//Size_in_CopyableBuffer(&(hs.bByteStr.cCopyableBuffer));
+//  qDebug()<<"Size_in_CopyableBuffer= "<<sz;
+
+////    REQUIRE(hs.Size() <= 292);
+//  qDebug()<<"REQUIRE(hs.Size() >= 10)";
+//  qDebug()<<"REQUIRE(hs.Size() <= 292)";
+
+  // first determine how much user data is present
+  uint16_t full_blocks = (/*hs.Size()*/sz - 10) / 18;
+  uint16_t partial_size = (/*hs.Size()*/sz - 10) % 18;
+
+  // can't have a partial size < 3 since even 1 byte requires 2 CRC bytes
+  if (partial_size > 0)
+  {
+////        REQUIRE(partial_size >= 3);
+#ifdef  LOG_INFO
+    std::cout<<'\n';
+    std::cout<<"partial_size= "<<partial_size<<'\n';
+#endif
+  }
+
+  // repair the header crc
+//void AddCrc_in_CRC_static(uint8_t* input, uint16_t length);
+////    CRC::AddCrc(hs, 8);
+  AddCrc_in_CRC_static(rseq->buffer_, 8);//hs.bByteStr.cCopyableBuffer.buffer, 8);
+
+////    uint8_t* ptr = hs + 10;
+  uint8_t* ptr = rseq->buffer_ + 10;//hs.bByteStr.cCopyableBuffer.buffer + 10;
+
+  // repair the full blocks
+  for (uint16_t i = 0; i < full_blocks; i++)
+  {
+////        CRC::AddCrc(ptr, 16);
+    AddCrc_in_CRC_static(ptr, 16);
+    ptr += 18;
+  }
+
+  // repair the partial block
+  if (partial_size > 0)
+////        CRC::AddCrc(ptr, partial_size - 2);
+    AddCrc_in_CRC_static(ptr, partial_size - 2);
+
+//RSeq_for_Uint16_t ToRSeq_in_CopyableBuffer(CopyableBuffer *pCopyableBuffer);
+////    return HexConversions::to_hex(hs.ToRSeq(), true);
+//  RSeq_for_Uint16_t rseq = ToRSeq_in_CopyableBuffer(&(hs.bByteStr.cCopyableBuffer));
+//  return to_hex_in_HexConversionsOver2(&rseq, true);
+}

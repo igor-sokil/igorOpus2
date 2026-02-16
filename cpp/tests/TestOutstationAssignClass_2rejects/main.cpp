@@ -9,7 +9,7 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "header.h"
+#include "../../../header.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
@@ -44,15 +44,16 @@ qDebug()<<"********SUITE('2rejects with ParamError if type doesn't exist')******
 
     t.application.supportsAssignClass = true;
 
-    LowerLayerUp_in_OutstationTestObject(&t);
+//    LowerLayerUp_in_OutstationTestObject(&t);
 
-    std::string name("C0 16 3C 03 06 01 00 06");       
+//    std::string name("C0 16 3C 03 06 01 00 06");       
+    uint8_t name[] = {8, 0xC0, 0x16, 0x3C, 0x03, 0x06, 0x01, 0x00, 0x06};
     SendToOutstation_in_OutstationTestObject(&t, name);  
 
-    std::string temp = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == 'C0 81 80 04')";
-std::cout << "temp= " << temp<<'\n';
+//std::cout << "temp= " << temp<<'\n';
 
 /*
 TEST_CASE(SUITE("2rejects with ParamError if type doesn't exist"))

@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_DoubleBitBinary.h"
 
 uint16_t MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap_for_DoubleBitBinarySpec)
 {
   return pStaticDataMap_for_DoubleBitBinarySpec->db_config->double_binary_count;
+}
+void setMapSize_for_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap_for_DoubleBitBinarySpec, uint16_t size)
+{
+  pStaticDataMap_for_DoubleBitBinarySpec->db_config->double_binary_count = size;
 }
 
 void StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver1(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap)
@@ -32,8 +36,7 @@ void StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinaryS
   pStaticDataMap->db_config = config;
   if(MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap) > SIZE_StaticDataMap_for_DoubleBitBinarySpec)
   {
-    pStaticDataMap->db_config->double_binary_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap, SIZE_StaticDataMap_for_DoubleBitBinarySpec);
   }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap); i++)

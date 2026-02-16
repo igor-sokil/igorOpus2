@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "EventCollection.h"
 
 //---------------------------------Binary------------------------------------------
@@ -133,8 +133,8 @@ void  EventCollection_for_DoubleBitBinary_in_EventCollection_for_DoubleBitBinary
   pEventCollection_for_DoubleBitBinary->iteratorEv = iteratorEv;
   pEventCollection_for_DoubleBitBinary->counters = counters;
   pEventCollection_for_DoubleBitBinary->variation = variation;
-  (pEventCollection_for_DoubleBitBinary->iIEventCollection_for_DoubleBitBinary).pWriteSome_in_IEventCollection_for_DoubleBitBinary =
-    WriteSome_in_EventCollection_for_DoubleBitBinary_override;
+//  (pEventCollection_for_DoubleBitBinary->iIEventCollection_for_DoubleBitBinary).pWriteSome_in_IEventCollection_for_DoubleBitBinary =
+//    WriteSome_in_EventCollection_for_DoubleBitBinary_override;
   setParentPointer_in_IEventCollection_for_DoubleBitBinary(&(pEventCollection_for_DoubleBitBinary->iIEventCollection_for_DoubleBitBinary), pEventCollection_for_DoubleBitBinary);
 }
 
@@ -206,8 +206,8 @@ void  EventCollection_for_Analog_in_EventCollection_for_Analog(EventCollection_f
   pEventCollection_for_Analog->iteratorEv = iteratorEv;
   pEventCollection_for_Analog->counters = counters;
   pEventCollection_for_Analog->variation = variation;
-  (pEventCollection_for_Analog->iIEventCollection_for_Analog).pWriteSome_in_IEventCollection_for_Analog =
-    WriteSome_in_EventCollection_for_Analog_override;
+//  (pEventCollection_for_Analog->iIEventCollection_for_Analog).pWriteSome_in_IEventCollection_for_Analog =
+//    WriteSome_in_EventCollection_for_Analog_override;
   setParentPointer_in_IEventCollection_for_Analog(&(pEventCollection_for_Analog->iIEventCollection_for_Analog), pEventCollection_for_Analog);
 }
 
@@ -275,8 +275,8 @@ void  EventCollection_for_Counter_in_EventCollection_for_Counter(EventCollection
   pEventCollection_for_Counter->iteratorEv = iteratorEv;
   pEventCollection_for_Counter->counters = counters;
   pEventCollection_for_Counter->variation = variation;
-  (pEventCollection_for_Counter->iIEventCollection_for_Counter).pWriteSome_in_IEventCollection_for_Counter =
-    WriteSome_in_EventCollection_for_Counter_override;
+//  (pEventCollection_for_Counter->iIEventCollection_for_Counter).pWriteSome_in_IEventCollection_for_Counter =
+//    WriteSome_in_EventCollection_for_Counter_override;
   setParentPointer_in_IEventCollection_for_Counter(&(pEventCollection_for_Counter->iIEventCollection_for_Counter), pEventCollection_for_Counter);
 }
 
@@ -345,8 +345,8 @@ void  EventCollection_for_FrozenCounter_in_EventCollection_for_FrozenCounter(Eve
   pEventCollection_for_FrozenCounter->iteratorEv = iteratorEv;
   pEventCollection_for_FrozenCounter->counters = counters;
   pEventCollection_for_FrozenCounter->variation = variation;
-  (pEventCollection_for_FrozenCounter->iIEventCollection_for_FrozenCounter).pWriteSome_in_IEventCollection_for_FrozenCounter =
-    WriteSome_in_EventCollection_for_FrozenCounter_override;
+//  (pEventCollection_for_FrozenCounter->iIEventCollection_for_FrozenCounter).pWriteSome_in_IEventCollection_for_FrozenCounter =
+//    WriteSome_in_EventCollection_for_FrozenCounter_override;
   setParentPointer_in_IEventCollection_for_FrozenCounter(&(pEventCollection_for_FrozenCounter->iIEventCollection_for_FrozenCounter), pEventCollection_for_FrozenCounter);
 }
 
@@ -415,8 +415,8 @@ void  EventCollection_for_BinaryOutputStatus_in_EventCollection_for_BinaryOutput
   pEventCollection_for_BinaryOutputStatus->iteratorEv = iteratorEv;
   pEventCollection_for_BinaryOutputStatus->counters = counters;
   pEventCollection_for_BinaryOutputStatus->variation = variation;
-  (pEventCollection_for_BinaryOutputStatus->iIEventCollection_for_BinaryOutputStatus).pWriteSome_in_IEventCollection_for_BinaryOutputStatus =
-    WriteSome_in_EventCollection_for_BinaryOutputStatus_override;
+//  (pEventCollection_for_BinaryOutputStatus->iIEventCollection_for_BinaryOutputStatus).pWriteSome_in_IEventCollection_for_BinaryOutputStatus =
+//    WriteSome_in_EventCollection_for_BinaryOutputStatus_override;
   setParentPointer_in_IEventCollection_for_BinaryOutputStatus(&(pEventCollection_for_BinaryOutputStatus->iIEventCollection_for_BinaryOutputStatus), pEventCollection_for_BinaryOutputStatus);
 }
 
@@ -485,8 +485,8 @@ void  EventCollection_for_AnalogOutputStatus_in_EventCollection_for_AnalogOutput
   pEventCollection_for_AnalogOutputStatus->iteratorEv = iteratorEv;
   pEventCollection_for_AnalogOutputStatus->counters = counters;
   pEventCollection_for_AnalogOutputStatus->variation = variation;
-  (pEventCollection_for_AnalogOutputStatus->iIEventCollection_for_AnalogOutputStatus).pWriteSome_in_IEventCollection_for_AnalogOutputStatus =
-    WriteSome_in_EventCollection_for_AnalogOutputStatus_override;
+//  (pEventCollection_for_AnalogOutputStatus->iIEventCollection_for_AnalogOutputStatus).pWriteSome_in_IEventCollection_for_AnalogOutputStatus =
+//    WriteSome_in_EventCollection_for_AnalogOutputStatus_override;
   setParentPointer_in_IEventCollection_for_AnalogOutputStatus(&(pEventCollection_for_AnalogOutputStatus->iIEventCollection_for_AnalogOutputStatus), pEventCollection_for_AnalogOutputStatus);
 }
 

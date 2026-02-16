@@ -1,18 +1,17 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "IOutstationApplication.h"
 
 boolean SupportsWriteAbsoluteTime_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
 {
-//  return (pIOutstationApplication->pSupportsWriteAbsoluteTime_in_IOutstationApplication)(pIOutstationApplication);
-  return SupportsWriteAbsoluteTime_in_IOutstationApplication_override(pIOutstationApplication);
+  return (pIOutstationApplication->pSupportsWriteAbsoluteTime_in_IOutstationApplication)(pIOutstationApplication);
+//  return SupportsWriteAbsoluteTime_in_IOutstationApplication_override(pIOutstationApplication);
 }
 boolean SupportsWriteTimeAndInterval_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
 {
-//  return (pIOutstationApplication->pSupportsWriteTimeAndInterval_in_IOutstationApplication)(pIOutstationApplication);
-  return SupportsWriteTimeAndInterval_in_IOutstationApplication_override(pIOutstationApplication);
+  return (pIOutstationApplication->pSupportsWriteTimeAndInterval_in_IOutstationApplication)(pIOutstationApplication);
+//  return SupportsWriteTimeAndInterval_in_IOutstationApplication_override(pIOutstationApplication);
 }
 
-/*
 boolean SupportsAssignClass_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
 {
   return (pIOutstationApplication->pSupportsAssignClass_in_IOutstationApplication)(pIOutstationApplication);
@@ -22,12 +21,11 @@ void RecordClassAssignment_in_IOutstationApplication(IOutstationApplication* pIO
 {
   (pIOutstationApplication->pRecordClassAssignment_in_IOutstationApplication)(pIOutstationApplication, type, clazz, start, stop);
 }
-*/
 
 ApplicationIIN GetApplicationIIN_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
 {
-//  return (pIOutstationApplication->pGetApplicationIIN_in_IOutstationApplication)(pIOutstationApplication);
-  return GetApplicationIIN_in_IOutstationApplication_override(pIOutstationApplication);
+  return (pIOutstationApplication->pGetApplicationIIN_in_IOutstationApplication)(pIOutstationApplication);
+//  return GetApplicationIIN_in_IOutstationApplication_override(pIOutstationApplication);
 }
 
 /*
@@ -50,7 +48,7 @@ uint16_t WarmRestart_in_IOutstationApplication(IOutstationApplication* pIOutstat
 {
   return (pIOutstationApplication->pWarmRestart_in_IOutstationApplication)(pIOutstationApplication);
 }
-
+*/
 void OnConfirmProcessed_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication, boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
   (pIOutstationApplication->pOnConfirmProcessed_in_IOutstationApplication)(pIOutstationApplication, is_unsolicited, num_class1, num_class2, num_class3);
@@ -60,17 +58,17 @@ void IOutstationApplication_destr_IOutstationApplication(IOutstationApplication*
 {
   (pIOutstationApplication->pIOutstationApplication_destr_IOutstationApplication)(pIOutstationApplication);
 }
-*/
+
 boolean WriteAbsoluteTime_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication, UTCTimestamp* timestamp)
 {
-//  return (pIOutstationApplication->pWriteAbsoluteTime_in_IOutstationApplication)(pIOutstationApplication, timestamp);
-  return WriteAbsoluteTime_in_IOutstationApplication_override(pIOutstationApplication, timestamp);
+  return (pIOutstationApplication->pWriteAbsoluteTime_in_IOutstationApplication)(pIOutstationApplication, timestamp);
+//  return WriteAbsoluteTime_in_IOutstationApplication_override(pIOutstationApplication, timestamp);
 }
 
 boolean WriteTimeAndInterval_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication, ICollection_Indexed_for_TimeAndInterval* values)
 {
-//  return (pIOutstationApplication->pWriteTimeAndInterval_in_IOutstationApplication)(pIOutstationApplication, values);
-  return WriteTimeAndInterval_in_IOutstationApplication_override(pIOutstationApplication, values);
+  return (pIOutstationApplication->pWriteTimeAndInterval_in_IOutstationApplication)(pIOutstationApplication, values);
+//  return WriteTimeAndInterval_in_IOutstationApplication_override(pIOutstationApplication, values);
 }
 
 void IOutstationApplication_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
@@ -78,14 +76,14 @@ void IOutstationApplication_in_IOutstationApplication(IOutstationApplication* pI
  UNUSED(pIOutstationApplication);
  IDnpTimeSource_in_IDnpTimeSource(&(pIOutstationApplication->iIDnpTimeSource));
 
-//  pIOutstationApplication->pSupportsWriteAbsoluteTime_in_IOutstationApplication = SupportsWriteAbsoluteTime_in_IOutstationApplication_override;
-//  pIOutstationApplication->pWriteAbsoluteTime_in_IOutstationApplication = WriteAbsoluteTime_in_IOutstationApplication_override;
-//  pIOutstationApplication->pWriteTimeAndInterval_in_IOutstationApplication = WriteTimeAndInterval_in_IOutstationApplication_override;
+  pIOutstationApplication->pSupportsWriteAbsoluteTime_in_IOutstationApplication = SupportsWriteAbsoluteTime_in_IOutstationApplication_override;
+  pIOutstationApplication->pWriteAbsoluteTime_in_IOutstationApplication = WriteAbsoluteTime_in_IOutstationApplication_override;
+  pIOutstationApplication->pWriteTimeAndInterval_in_IOutstationApplication = WriteTimeAndInterval_in_IOutstationApplication_override;
 
-//  pIOutstationApplication->pSupportsWriteTimeAndInterval_in_IOutstationApplication = SupportsWriteTimeAndInterval_in_IOutstationApplication_override;
-//  pIOutstationApplication->pSupportsAssignClass_in_IOutstationApplication = SupportsAssignClass_in_IOutstationApplication_override;
-//  pIOutstationApplication->pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_IOutstationApplication_override;
-//  pIOutstationApplication->pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_IOutstationApplication_override;
+  pIOutstationApplication->pSupportsWriteTimeAndInterval_in_IOutstationApplication = SupportsWriteTimeAndInterval_in_IOutstationApplication_override;
+  pIOutstationApplication->pSupportsAssignClass_in_IOutstationApplication = SupportsAssignClass_in_IOutstationApplication_override;
+  pIOutstationApplication->pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_IOutstationApplication_override;
+  pIOutstationApplication->pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_IOutstationApplication_override;
 /*
   pIOutstationApplication->pColdRestartSupport_in_IOutstationApplication = ColdRestartSupport_in_IOutstationApplication_override;
   pIOutstationApplication->pWarmRestartSupport_in_IOutstationApplication = WarmRestartSupport_in_IOutstationApplication_override;
@@ -120,7 +118,7 @@ boolean WriteTimeAndInterval_in_IOutstationApplication_override(void* v, ICollec
   UNUSED(values);
   return false;
 }
-/*
+
 boolean SupportsAssignClass_in_IOutstationApplication_override(void* v)
 {
   UNUSED(v);
@@ -134,7 +132,7 @@ void RecordClassAssignment_in_IOutstationApplication_override(void* v, AssignCla
   UNUSED(stop);
   UNUSED(v);
 }
-*/
+
 ApplicationIIN GetApplicationIIN_in_IOutstationApplication_override(void* v)
 {
   UNUSED(v);

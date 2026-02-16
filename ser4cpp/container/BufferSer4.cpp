@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "BufferSer4.h"
 
 void  BufferSer4_in_BufferSer4Over1(BufferSer4 *pBufferSer4)

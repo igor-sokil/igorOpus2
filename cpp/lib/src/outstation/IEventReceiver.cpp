@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "IEventReceiver.h"
 #include "EventBuffer.h"
 

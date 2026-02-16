@@ -64,13 +64,19 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_Binary)(void*, Binary* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_Binary)(void*, Binary* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_Binary;
 } IEventWriter_for_Binary;
+enum {
+  IEventWriter_for_BinarySELECTOR_for_BasicEventWriter_for_Binary,
+  IEventWriter_for_BinarySELECTOR_for_CTOEventWriter_for_Binary_Group51Var1,
+  IEventWriter_for_BinarySELECTOR_for_CTOEventWriter_for_Binary_Group51Var2
+};
 boolean Write_in_IEventWriter_for_Binary(IEventWriter_for_Binary*, Binary* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_Binary(IEventWriter_for_Binary*);
-void  setParentPointer_in_IEventWriter_for_Binary(IEventWriter_for_Binary*, void*);
+void  setParentPointer_in_IEventWriter_for_Binary(IEventWriter_for_Binary*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
@@ -91,20 +97,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_DoubleBitBinary)(void*, DoubleBitBinary* meas, uint16_t index);// = 0;
-
+//  boolean (*pWrite_in_IEventWriter_for_DoubleBitBinary)(void*, DoubleBitBinary* meas, uint16_t index);// = 0;
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_DoubleBitBinary;
 } IEventWriter_for_DoubleBitBinary;
+enum {
+  IEventWriter_for_DoubleBitBinarySELECTOR_for_BasicEventWriter_for_DoubleBitBinary,
+  IEventWriter_for_DoubleBitBinarySELECTOR_for_CTOEventWriter_for_DoubleBitBinary_Group51Var1,
+  IEventWriter_for_DoubleBitBinarySELECTOR_for_CTOEventWriter_for_DoubleBitBinary_Group51Var2
+};
+
 boolean Write_in_IEventWriter_for_DoubleBitBinary(IEventWriter_for_DoubleBitBinary*, DoubleBitBinary* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_DoubleBitBinary(IEventWriter_for_DoubleBitBinary*);
-void  setParentPointer_in_IEventWriter_for_DoubleBitBinary(IEventWriter_for_DoubleBitBinary*, void*);
+void  setParentPointer_in_IEventWriter_for_DoubleBitBinary(IEventWriter_for_DoubleBitBinary*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_DoubleBitBinary)(void *, IEventWriter_for_DoubleBitBinary* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_DoubleBitBinary)(void *, IEventWriter_for_DoubleBitBinary* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_DoubleBitBinary;
 } IEventCollection_for_DoubleBitBinary;
@@ -118,20 +130,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_FrozenCounter)(void*, FrozenCounter* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_FrozenCounter)(void*, FrozenCounter* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_FrozenCounter;
 } IEventWriter_for_FrozenCounter;
+enum {
+  IEventWriter_for_FrozenCounterSELECTOR_for_BasicEventWriter_for_FrozenCounter,
+  IEventWriter_for_FrozenCounterSELECTOR_for_CTOEventWriter_for_FrozenCounter_Group51Var1,
+  IEventWriter_for_FrozenCounterSELECTOR_for_CTOEventWriter_for_FrozenCounter_Group51Var2
+};
 boolean Write_in_IEventWriter_for_FrozenCounter(IEventWriter_for_FrozenCounter*, FrozenCounter* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_FrozenCounter(IEventWriter_for_FrozenCounter*);
-void  setParentPointer_in_IEventWriter_for_FrozenCounter(IEventWriter_for_FrozenCounter*, void*);
+void  setParentPointer_in_IEventWriter_for_FrozenCounter(IEventWriter_for_FrozenCounter*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_FrozenCounter)(void *, IEventWriter_for_FrozenCounter* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_FrozenCounter)(void *, IEventWriter_for_FrozenCounter* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_FrozenCounter;
 } IEventCollection_for_FrozenCounter;
@@ -145,20 +163,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_Counter)(void*, Counter* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_Counter)(void*, Counter* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_Counter;
 } IEventWriter_for_Counter;
+enum {
+  IEventWriter_for_CounterSELECTOR_for_BasicEventWriter_for_Counter,
+  IEventWriter_for_CounterSELECTOR_for_CTOEventWriter_for_Counter_Group51Var1,
+  IEventWriter_for_CounterSELECTOR_for_CTOEventWriter_for_Counter_Group51Var2
+};
 boolean Write_in_IEventWriter_for_Counter(IEventWriter_for_Counter*, Counter* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_Counter(IEventWriter_for_Counter*);
-void  setParentPointer_in_IEventWriter_for_Counter(IEventWriter_for_Counter*, void*);
+void  setParentPointer_in_IEventWriter_for_Counter(IEventWriter_for_Counter*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_Counter)(void *, IEventWriter_for_Counter* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_Counter)(void *, IEventWriter_for_Counter* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_Counter;
 } IEventCollection_for_Counter;
@@ -172,20 +196,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_BinaryOutputStatus)(void*, BinaryOutputStatus* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_BinaryOutputStatus)(void*, BinaryOutputStatus* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_BinaryOutputStatus;
 } IEventWriter_for_BinaryOutputStatus;
+enum {
+  IEventWriter_for_BinaryOutputStatusSELECTOR_for_BasicEventWriter_for_BinaryOutputStatus,
+  IEventWriter_for_BinaryOutputStatusSELECTOR_for_CTOEventWriter_for_BinaryOutputStatus_Group51Var1,
+  IEventWriter_for_BinaryOutputStatusSELECTOR_for_CTOEventWriter_for_BinaryOutputStatus_Group51Var2
+};
 boolean Write_in_IEventWriter_for_BinaryOutputStatus(IEventWriter_for_BinaryOutputStatus*, BinaryOutputStatus* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_BinaryOutputStatus(IEventWriter_for_BinaryOutputStatus*);
-void  setParentPointer_in_IEventWriter_for_BinaryOutputStatus(IEventWriter_for_BinaryOutputStatus*, void*);
+void  setParentPointer_in_IEventWriter_for_BinaryOutputStatus(IEventWriter_for_BinaryOutputStatus*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_BinaryOutputStatus)(void *, IEventWriter_for_BinaryOutputStatus* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_BinaryOutputStatus)(void *, IEventWriter_for_BinaryOutputStatus* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_BinaryOutputStatus;
 } IEventCollection_for_BinaryOutputStatus;
@@ -199,20 +229,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_AnalogOutputStatus)(void*, AnalogOutputStatus* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_AnalogOutputStatus)(void*, AnalogOutputStatus* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_AnalogOutputStatus;
 } IEventWriter_for_AnalogOutputStatus;
+enum {
+  IEventWriter_for_AnalogOutputStatusSELECTOR_for_BasicEventWriter_for_AnalogOutputStatus,
+  IEventWriter_for_AnalogOutputStatusSELECTOR_for_CTOEventWriter_for_AnalogOutputStatus_Group51Var1,
+  IEventWriter_for_AnalogOutputStatusSELECTOR_for_CTOEventWriter_for_AnalogOutputStatus_Group51Var2
+};
 boolean Write_in_IEventWriter_for_AnalogOutputStatus(IEventWriter_for_AnalogOutputStatus*, AnalogOutputStatus* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_AnalogOutputStatus(IEventWriter_for_AnalogOutputStatus*);
-void  setParentPointer_in_IEventWriter_for_AnalogOutputStatus(IEventWriter_for_AnalogOutputStatus*, void*);
+void  setParentPointer_in_IEventWriter_for_AnalogOutputStatus(IEventWriter_for_AnalogOutputStatus*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_AnalogOutputStatus)(void *, IEventWriter_for_AnalogOutputStatus* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_AnalogOutputStatus)(void *, IEventWriter_for_AnalogOutputStatus* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_AnalogOutputStatus;
 } IEventCollection_for_AnalogOutputStatus;
@@ -226,20 +262,26 @@ typedef struct
 {
 ////public:
 ////  virtual
-  boolean (*pWrite_in_IEventWriter_for_Analog)(void*, Analog* meas, uint16_t index);// = 0;
+//  boolean (*pWrite_in_IEventWriter_for_Analog)(void*, Analog* meas, uint16_t index);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IEventWriter_for_Analog;
 } IEventWriter_for_Analog;
+enum {
+  IEventWriter_for_AnalogSELECTOR_for_BasicEventWriter_for_Analog,
+  IEventWriter_for_AnalogSELECTOR_for_CTOEventWriter_for_Analog_Group51Var1,
+  IEventWriter_for_AnalogSELECTOR_for_CTOEventWriter_for_Analog_Group51Var2
+};
 boolean Write_in_IEventWriter_for_Analog(IEventWriter_for_Analog*, Analog* meas, uint16_t index);
 void* getParentPointer_in_IEventWriter_for_Analog(IEventWriter_for_Analog*);
-void  setParentPointer_in_IEventWriter_for_Analog(IEventWriter_for_Analog*, void*);
+void  setParentPointer_in_IEventWriter_for_Analog(IEventWriter_for_Analog*, void*, uint16_t selector);
 
 ////template<class T> class IEventCollection
 typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWriteSome_in_IEventCollection_for_Analog)(void *, IEventWriter_for_Analog* handler);//// = 0;
+//  uint16_t (*pWriteSome_in_IEventCollection_for_Analog)(void *, IEventWriter_for_Analog* handler);//// = 0;
 
   void* pParentPointer_in_IEventCollection_for_Analog;
 } IEventCollection_for_Analog;
@@ -284,30 +326,30 @@ typedef struct
 {
 ////public:
 ////  virtual
-  uint16_t (*pWrite_for_Binary_in_IEventWriteHandler)(void *, EventBinaryVariation_uint8_t variation, Binary* first, IEventCollection_for_Binary* items);//// = 0;
+//  uint16_t (*pWrite_for_Binary_in_IEventWriteHandler)(void *, EventBinaryVariation_uint8_t variation, Binary* first, IEventCollection_for_Binary* items);//// = 0;
 ////  virtual
-  uint16_t (*pWrite_for_DoubleBitBinary_in_IEventWriteHandler)(void *, EventDoubleBinaryVariation_uint8_t variation,
-      DoubleBitBinary* first,
-      IEventCollection_for_DoubleBitBinary* items);
+//  uint16_t (*pWrite_for_DoubleBitBinary_in_IEventWriteHandler)(void *, EventDoubleBinaryVariation_uint8_t variation,
+//      DoubleBitBinary* first,
+//      IEventCollection_for_DoubleBitBinary* items);
 ////    = 0;
 ////  virtual
-  uint16_t (*pWrite_for_Counter_in_IEventWriteHandler)(void *, EventCounterVariation_uint8_t variation, Counter* first, IEventCollection_for_Counter* items);//// = 0;
+//  uint16_t (*pWrite_for_Counter_in_IEventWriteHandler)(void *, EventCounterVariation_uint8_t variation, Counter* first, IEventCollection_for_Counter* items);//// = 0;
 ////  virtual
-  uint16_t (*pWrite_for_FrozenCounter_in_IEventWriteHandler)(void *, EventFrozenCounterVariation_uint8_t variation,
-      FrozenCounter* first,
-      IEventCollection_for_FrozenCounter* items);
+//  uint16_t (*pWrite_for_FrozenCounter_in_IEventWriteHandler)(void *, EventFrozenCounterVariation_uint8_t variation,
+//      FrozenCounter* first,
+//      IEventCollection_for_FrozenCounter* items);
 ////    = 0;
 ////  virtual
-  uint16_t (*pWrite_for_Analog_in_IEventWriteHandler)(void *, EventAnalogVariation_uint8_t variation, Analog* first, IEventCollection_for_Analog* items);//// = 0;
+//  uint16_t (*pWrite_for_Analog_in_IEventWriteHandler)(void *, EventAnalogVariation_uint8_t variation, Analog* first, IEventCollection_for_Analog* items);//// = 0;
 ////  virtual
-  uint16_t (*pWrite_for_BinaryOutputStatus_in_IEventWriteHandler)(void *, EventBinaryOutputStatusVariation_uint8_t variation,
-      BinaryOutputStatus* first,
-      IEventCollection_for_BinaryOutputStatus* items);
+//  uint16_t (*pWrite_for_BinaryOutputStatus_in_IEventWriteHandler)(void *, EventBinaryOutputStatusVariation_uint8_t variation,
+//      BinaryOutputStatus* first,
+//      IEventCollection_for_BinaryOutputStatus* items);
 ////    = 0;
 ////  virtual
-  uint16_t (*pWrite_for_AnalogOutputStatus_in_IEventWriteHandler)(void *, EventAnalogOutputStatusVariation_uint8_t variation,
-      AnalogOutputStatus* first,
-      IEventCollection_for_AnalogOutputStatus* items);
+//  uint16_t (*pWrite_for_AnalogOutputStatus_in_IEventWriteHandler)(void *, EventAnalogOutputStatusVariation_uint8_t variation,
+//      AnalogOutputStatus* first,
+//      IEventCollection_for_AnalogOutputStatus* items);
 ////    = 0;
 ////  virtual
 /*

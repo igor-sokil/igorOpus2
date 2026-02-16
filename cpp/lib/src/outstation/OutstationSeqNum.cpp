@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationSeqNum.h"
 
 void OutstationSeqNum_in_OutstationSeqNum(OutstationSeqNum *pOutstationSeqNum)

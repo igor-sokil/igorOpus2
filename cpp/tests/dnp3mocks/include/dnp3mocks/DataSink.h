@@ -1,0 +1,70 @@
+/*
+ * Copyright 2013-2022 Step Function I/O, LLC
+ *
+ * Licensed to Green Energy Corp (www.greenenergycorp.com) and Step Function I/O
+ * LLC (https://stepfunc.io) under one or more contributor license agreements.
+ * See the NOTICE file distributed with this work for additional information
+ * regarding copyright ownership. Green Energy Corp and Step Function I/O LLC license
+ * this file to you under the Apache License, Version 2.0 (the "License"); you
+ * may not use this file except in compliance with the License. You may obtain
+ * a copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+#ifndef OPENDNP3_UNITTESTS_DATASINK_H
+#define OPENDNP3_UNITTESTS_DATASINK_H
+
+////#include <ser4cpp/container/SequenceTypes.h>
+
+////#include <cstdint>
+////#include <string>
+#include "RSeq.h"
+
+#include <vector>
+
+////class DataSink final
+typedef struct
+{
+////public:
+////    DataSink() = default;
+
+////    void Write(const ser4cpp::rseq_t& data);
+
+////    bool Equals(const ser4cpp::rseq_t& data) const;
+
+////    std::string AsHex(bool spaced = true) const;
+
+////    inline bool IsEmpty() const
+////    {
+////        return buffer.size() == 0;
+////    }
+
+////    void Clear();
+
+////    size_t Size() const
+////    {
+////        return buffer.size();
+////    }
+
+////private:
+  std::vector<uint8_t> buffer_in_DataSink;
+} DataSink;
+
+void Write_in_DataSink(DataSink *pDataSink, RSeq_for_Uint16_t* data);
+
+boolean Equals_in_DataSink(DataSink *pDataSink, RSeq_for_Uint16_t* data);
+boolean IsEmpty_in_DataSink(DataSink *pDataSink);
+void Clear_in_DataSink(DataSink *pDataSink);
+uint16_t Size_in_DataSink(DataSink *pDataSink);
+
+////    std::string AsHex(bool spaced = true) const;
+std::string AsHex_in_DataSink(DataSink *pDataSink, boolean spaced);
+
+
+#endif

@@ -44,6 +44,8 @@ typedef struct
 } IWhiteList;
 
 enum {
+  IWhiteListSELECTOR_for_AssignClassHandler,
+  IWhiteListSELECTOR_for_ClassBasedRequestHandler,
   IWhiteListSELECTOR_for_CommandResponseHandler,
   IWhiteListSELECTOR_for_FreezeRequestHandler,
   IWhiteListSELECTOR_for_ReadHandler,

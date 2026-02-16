@@ -36,7 +36,7 @@
 ////#include "app/MeasurementFactory.h"
 ////#include "app/WriteConversions.h"
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "Group1.h"
 
 //#include "parsing/DNPTimeParsing.h"

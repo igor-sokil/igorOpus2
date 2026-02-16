@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "EventUpdate.h"
 //----------------------------------BinarySpec-------------------------------------------
 boolean Update_BinarySpec_in_EventUpdate_static(EventLists* lists, Event_for_BinarySpec* event)

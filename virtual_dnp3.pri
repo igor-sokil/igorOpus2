@@ -18,14 +18,26 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 ser4cpp\container\Array__for__Node_TypedEventRecord_for_BinaryOutputStatusSpec.cpp \
                 ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_BinaryOutputStatusSpec.cpp \
                 ser4cpp\container\BufferSer4.cpp \
+                ser4cpp\container\BufferSer4_292.cpp \
+                ser4cpp\container\BufferSer4_Core.cpp \
                 ser4cpp\container\HasLength.cpp \
                 ser4cpp\container\Pair_for_IINField_AppControlField.cpp \
                 ser4cpp\container\RSeq.cpp \
-                ser4cpp\container\Settable_for_WSeq.cpp \
-                ser4cpp\container\Settable_for_LinkBroadcastAddress.cpp \
                 ser4cpp\container\WSeq.cpp \
+                ser4cpp\container\Settable_for_WSeq.cpp \
+                ser4cpp\container\Settable_for_RSeq.cpp \
+                ser4cpp\container\Settable_for_LinkBroadcastAddress.cpp \
+                ser4cpp\container\StaticBuffer_for_MAX_TPDU_LENGTH.cpp \
                 \
                 ser4cpp\util\Comparisons.cpp \
+                \
+                exe4cpp\IExecutorExe4cpp.cpp \
+                exe4cpp\ISteadyTimeSourceExe4cpp.cpp \
+                exe4cpp\ITimer.cpp \
+                exe4cpp\MockExecutorExe4cpp.cpp \
+                exe4cpp\TimerExe4cpp.cpp \
+                \
+                cpp\lib\include\opendnp3\StackStatistics.cpp \
                 \
                 cpp\lib\include\opendnp3\app\BaseMeasurementTypes.cpp \
                 cpp\lib\include\opendnp3\app\DNPTime.cpp \
@@ -58,6 +70,10 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_AnalogCommandEvent.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_DoubleBitBinary.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_BinaryOutputStatus.cpp \
+                \
+                cpp\lib\include\opendnp3\link\ILinkListener.cpp \
+                cpp\lib\include\opendnp3\link\LinkStatistics.cpp \
+                cpp\lib\include\opendnp3\link\LinkConfig.cpp \
                 \
                 cpp\lib\include\opendnp3\master\ResponseInfo.cpp \
                 \
@@ -159,14 +175,50 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\gen\IntervalUnits.cpp \
                 cpp\lib\src\gen\GroupVariation.cpp \
                 cpp\lib\src\gen\FunctionCode.cpp \
+                cpp\lib\src\gen\LinkFunction.cpp \
                 cpp\lib\src\gen\QualifierCode.cpp \
                 cpp\lib\src\gen\OperationType.cpp \
                 cpp\lib\src\gen\TripCloseCode.cpp \
                 \
+                cpp\lib\src\gen\objects\Group1.cpp \
+                cpp\lib\src\gen\objects\Group2.cpp \
+                cpp\lib\src\gen\objects\Group3.cpp \
+                cpp\lib\src\gen\objects\Group4.cpp \
+                cpp\lib\src\gen\objects\Group10.cpp \
+                cpp\lib\src\gen\objects\Group11.cpp \
+                cpp\lib\src\gen\objects\Group12.cpp \
+                cpp\lib\src\gen\objects\Group13.cpp \
+                cpp\lib\src\gen\objects\Group20.cpp \
+                cpp\lib\src\gen\objects\Group21.cpp \
+                cpp\lib\src\gen\objects\Group22.cpp \
+                cpp\lib\src\gen\objects\Group23.cpp \
+                cpp\lib\src\gen\objects\Group30.cpp \
+                cpp\lib\src\gen\objects\Group32.cpp \
+                cpp\lib\src\gen\objects\Group40.cpp \
+                cpp\lib\src\gen\objects\Group41.cpp \
+                cpp\lib\src\gen\objects\Group42.cpp \
+                cpp\lib\src\gen\objects\Group43.cpp \
+                cpp\lib\src\gen\objects\Group50.cpp \
+                cpp\lib\src\gen\objects\Group51.cpp \
+                cpp\lib\src\gen\objects\Group52.cpp \
+                cpp\lib\src\gen\objects\Group60.cpp \
+                \
                 cpp\lib\src\link\Addresses.cpp \
                 cpp\lib\src\link\CRC.cpp \
+                cpp\lib\src\link\IFrameSink.cpp \
+                cpp\lib\src\link\ILinkSession.cpp \
+                cpp\lib\src\link\ILinkLayer.cpp \
+                cpp\lib\src\link\ILinkTx.cpp \
+                cpp\lib\src\link\ITransportSegment.cpp \
+                cpp\lib\src\link\LinkHeader.cpp \
+                cpp\lib\src\link\LinkHeaderFields.cpp \
+                cpp\lib\src\link\LinkFrame.cpp \
+                cpp\lib\src\link\LinkLayerParser.cpp \
+                cpp\lib\src\link\ShiftableBuffer.cpp \
                 \
                 cpp\lib\src\outstation\ApplicationIIN.cpp \
+                cpp\lib\src\outstation\AssignClassHandler.cpp \
+                cpp\lib\src\outstation\ClassBasedRequestHandler.cpp \
                 cpp\lib\src\outstation\CommandActionAdapter.cpp \
                 cpp\lib\src\outstation\CommandResponseHandler.cpp \
                 cpp\lib\src\outstation\CommandResponseHandler_for_AnalogOutputFloat32.cpp \
@@ -241,6 +293,11 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\event\EventWriting.cpp \
                 cpp\lib\src\outstation\event\EventWriters_for_Analog.cpp \
                 cpp\lib\src\outstation\event\EventWriters_for_Binary.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_DoubleBitBinary.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_AnalogOutputStatus.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_BinaryOutputStatus.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_Counter.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_FrozenCounter.cpp \
                 cpp\lib\src\outstation\event\IEventType.cpp \
                 cpp\lib\src\outstation\event\IEventWriteHandler.cpp \
                 cpp\lib\src\outstation\event\List_for_EventRecord_part1.cpp \
@@ -263,35 +320,21 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\event\TypedEventRecord.cpp \
                 cpp\lib\src\outstation\event\TypedStorage.cpp \
                 \
-                cpp\lib\src\gen\objects\Group1.cpp \
-                cpp\lib\src\gen\objects\Group2.cpp \
-                cpp\lib\src\gen\objects\Group3.cpp \
-                cpp\lib\src\gen\objects\Group4.cpp \
-                cpp\lib\src\gen\objects\Group10.cpp \
-                cpp\lib\src\gen\objects\Group11.cpp \
-                cpp\lib\src\gen\objects\Group12.cpp \
-                cpp\lib\src\gen\objects\Group13.cpp \
-                cpp\lib\src\gen\objects\Group20.cpp \
-                cpp\lib\src\gen\objects\Group21.cpp \
-                cpp\lib\src\gen\objects\Group22.cpp \
-                cpp\lib\src\gen\objects\Group23.cpp \
-                cpp\lib\src\gen\objects\Group30.cpp \
-                cpp\lib\src\gen\objects\Group32.cpp \
-                cpp\lib\src\gen\objects\Group40.cpp \
-                cpp\lib\src\gen\objects\Group41.cpp \
-                cpp\lib\src\gen\objects\Group42.cpp \
-                cpp\lib\src\gen\objects\Group43.cpp \
-                cpp\lib\src\gen\objects\Group50.cpp \
-                cpp\lib\src\gen\objects\Group51.cpp \
-                cpp\lib\src\gen\objects\Group52.cpp \
-                cpp\lib\src\gen\objects\Group60.cpp \
+                cpp\lib\src\transport\TransportRx.cpp \
+                cpp\lib\src\transport\TransportHeader.cpp \
+                cpp\lib\src\transport\TransportTx.cpp \
                 \
                 cpp\lib\src\util\TimeDuration.cpp \
                 cpp\lib\src\util\Timestamp.cpp \
                 \
                 cpp\tests\unit\utils\OutstationTestObject.cpp \
+                cpp\tests\unit\utils\LinkParserTest.cpp \
                 \
                 cpp\tests\dnp3mocks\include\dnp3mocks\MockOutstationApplication.cpp \
                 cpp\tests\dnp3mocks\include\dnp3mocks\MockCommandHandler.cpp \
+                \
+                cpp\tests\dnp3mocks\src\DataSink.cpp \
+                cpp\tests\dnp3mocks\src\MockFrameSink.cpp \
+                cpp\tests\dnp3mocks\src\MockLowerLayer.cpp \
                 \
                 cpp\inspect\Inspect_display.cpp 

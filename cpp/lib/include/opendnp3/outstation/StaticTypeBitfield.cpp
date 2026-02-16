@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticTypeBitfield.h"
 
 void StaticTypeBitField_in_StaticTypeBitFieldOver1(StaticTypeBitField *pStaticTypeBitField)

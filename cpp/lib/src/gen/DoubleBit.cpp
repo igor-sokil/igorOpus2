@@ -31,7 +31,7 @@
 
 ////#include "opendnp3/gen/DoubleBit.h"
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "DoubleBit.h"
 ////#include <stdexcept>
 

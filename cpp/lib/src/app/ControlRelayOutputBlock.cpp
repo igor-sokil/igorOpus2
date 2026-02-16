@@ -22,7 +22,7 @@
 //#include <iostream>
 //#endif
 ////#include "opendnp3/app/ControlRelayOutputBlock.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "ControlRelayOutputBlock.h"
 
 ////namespace opendnp3

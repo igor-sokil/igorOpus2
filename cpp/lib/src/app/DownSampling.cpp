@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "DownSampling.h"
 
 boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target)

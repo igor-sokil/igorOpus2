@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "HeaderWriter_for_BinaryOutputStatus.h"
 
 //---------------------------------------------IterateOverRange_for_UInt8_BinaryOutputStatus_in_HeaderWriter--------------------------------------------

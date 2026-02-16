@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include <QApplication>
-#include "header.h"
+#include "header_dnp3.h"
 #include "MockCommandHandler.h"
 
 void  MockCommandHandler_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler, CommandStatus_uint8_t status)/// = opendnp3::CommandStatus::SUCCESS)

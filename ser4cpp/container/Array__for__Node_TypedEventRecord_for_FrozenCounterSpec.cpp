@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Array__for__Node_TypedEventRecord_for_FrozenCounterSpec.h"
 
 ////    Array(W size) : HasLength<W>(size), buffer(new T[size]()) {}

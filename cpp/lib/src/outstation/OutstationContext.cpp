@@ -21,7 +21,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationContext.h"
 
 ////#include "app/APDUBuilders.h"
@@ -91,8 +91,9 @@ void OContext_in_OContext(OContext *pOContext,
                           OutstationConfig* config,
                           DatabaseConfig* db_config,
 ////                   const Logger& logger,
-//                          IExecutorExe4cpp* executor,
-//                          ILowerLayer* lower
+//                          MockExecutor* executor,
+                          IExecutorExe4cpp* executor,
+                          ILowerLayer* lower,
                           ICommandHandler* commandHandler,
                           IOutstationApplication* application)
 //                           )
@@ -108,8 +109,8 @@ void OContext_in_OContext(OContext *pOContext,
 
   pOContext->addresses_in_OContext = *addresses;
 ////      logger(logger),
-//  pOContext->executor = executor;
-//  pOContext->lower = lower;
+  pOContext->executor = executor;
+  pOContext->lower = lower;
   pOContext->commandHandler = commandHandler;
   pOContext->application = application;
 
@@ -171,7 +172,7 @@ void OContext_in_OContext(OContext *pOContext,
   Settable_for_LinkBroadcastAddress_in_Settable_for_LinkBroadcastAddress(&(pOContext->lastBroadcastMessageReceived_in_OContext));
 
   setParentPointer_in_IUpDown(&(pOContext->iIUpperLayer.iIUpDown), pOContext);
-  setParentPointer_in_IUpperLayer(&(pOContext->iIUpperLayer), pOContext);
+  setParentPointer_in_IUpperLayer(&(pOContext->iIUpperLayer), pOContext, IUpperLayerSELECTOR_for_OContext);
 
 //  pOContext->iIUpperLayer.iIUpDown.pOnLowerLayerUp_in_IUpDown = OnLowerLayerUp_in_OContext_override;
 //  pOContext->iIUpperLayer.iIUpDown.pOnLowerLayerDown_in_IUpDown = OnLowerLayerDown_in_OContext_override;
@@ -348,7 +349,7 @@ boolean OnLowerLayerDown_in_OContext_override(void* pIUpDown)
 
   return OnLowerLayerDown_in_OContext(parent);
 }
-
+*/
 ////bool OContext::OnTxReady()
 boolean OnTxReady_in_OContext_override(void* pIUpperLayer)
 {
@@ -366,7 +367,7 @@ boolean OnReceive_in_OContext_override(void* pIUpperLayer, Message* message)
 
   return OnReceive_in_OContext(parent, message);
 }
-*/
+
 ////OutstationState& OContext::OnReceiveSolRequest(const ParsedRequest& request)
 OutstationState* OnReceiveSolRequest_in_OContext(OContext *pOContext, ParsedRequest* request)
 {
@@ -380,7 +381,7 @@ OutstationState* OnReceiveSolRequest_in_OContext(OContext *pOContext, ParsedRequ
   std::cout<<getString_stack_info();
   std::cout<<"{OnReceiveSolRequest_in_OContext1"<<std::endl;
 #endif
-/*
+
   if (HasLastRequest_in_RequestHistory(&(pOContext->history_in_OContext)))
   {
 //boolean Equals_in_SequenceNum_for_uint8_Modulus16(SequenceNum_for_uint8_Modulus16 *pSequenceNum_for_uint8_Modulus16, uint8_t other);
@@ -441,7 +442,6 @@ OutstationState* OnReceiveSolRequest_in_OContext(OContext *pOContext, ParsedRequ
     }
   }
   else
-*/
   {
 ////        return this->ProcessNewRequest(request);
     OutstationState* tmp = ProcessNewRequest_in_OContext(pOContext, request);
@@ -507,7 +507,6 @@ boolean ProcessObjects_in_OContext(OContext *pOContext, ParsedRequest* request)
 #endif
 //    boolean IsBroadcast_in_Addresses(Addresses *pAddresses);
 ////    if (request.addresses.IsBroadcast())
-/*
   if (IsBroadcast_in_Addresses(&(request->addresses)))
   {
 //    OutstationState* OnBroadcastMessage_in_OutstationState(OutstationState*, void* pOContext, ParsedRequest* request);
@@ -521,7 +520,7 @@ boolean ProcessObjects_in_OContext(OContext *pOContext, ParsedRequest* request)
 #endif
     return true;
   }
-*/
+
 //    boolean IsNoAckFuncCode_in_Functions_static(FunctionCode_uint8_t code);
 ////    if (Functions::IsNoAckFuncCode(request.header.function))
   if (IsNoAckFuncCode_in_Functions_static(request->header.function))
@@ -685,7 +684,7 @@ OutstationState* BeginResponseTx_in_OContext(OContext *pOContext, uint16_t desti
 //   void BeginTx_in_OContext(OContext *pOContext, uint16_t destination, RSeq_for_Uint16_t* message);
 ////    this->BeginTx(destination, data);
   BeginTx_in_OContext(pOContext, destination, &data);
-/*
+
 ////    if (response.GetControl().CON)
   if (GetControl_in_APDUWrapper(&(response->aAPDUWrapper)).CON)
   {
@@ -702,7 +701,7 @@ OutstationState* BeginResponseTx_in_OContext(OContext *pOContext, uint16_t desti
 #endif
     return tmp;
   }
-*/
+
 ////    return StateIdle::Inst();
   OutstationState* tmp = Inst_in_StateIdle_static();
 #ifdef  LOG_INFO
@@ -820,7 +819,7 @@ void BeginTx_in_OContext(OContext *pOContext, uint16_t destination, RSeq_for_Uin
   Message mMessage;
   Message_in_Message(&mMessage, &aAddresses, message);
 
-//  BeginTransmit_in_ILowerLayer(pOContext->lower, &mMessage);
+  BeginTransmit_in_ILowerLayer(pOContext->lower, &mMessage);
 
 #ifdef  LOG_INFO
   inspect_Message(&mMessage);
@@ -1156,7 +1155,6 @@ boolean ProcessDeferredRequest_in_OContext(OContext *pOContext, ParsedRequest* r
   }
 }
 
-/*
 void *pPointerGlobal1_in_RestartSolConfirmTimer;
 void timeout_RestartSolConfirmTimer_in_OContext(void);
 
@@ -1197,18 +1195,17 @@ void RestartSolConfirmTimer_in_OContext(OContext *pOContext)
 ////    };
 
 ////    this->confirmTimer.cancel();
-  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
+//  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
 
   pPointerGlobal1_in_RestartSolConfirmTimer = pOContext;
 ////    this->confirmTimer = this->executor->start(this->params.solConfirmTimeout.value, timeout);
-  pOContext->confirmTimer_in_OContext =  Start_in_IExecutorExe4cpp(pOContext->executor, pOContext->params_in_OContext.solConfirmTimeout.duration_value, timeout_RestartSolConfirmTimer_in_OContext);
+//  pOContext->confirmTimer_in_OContext =  Start_in_IExecutorExe4cpp(pOContext->executor, pOContext->params_in_OContext.solConfirmTimeout.duration_value, timeout_RestartSolConfirmTimer_in_OContext);
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
   std::cout<<"}RestartSolConfirmTimer_in_OContext_"<<std::endl;
   decrement_stack_info();
 #endif
 }
-*/
 
 void timeout_RestartUnsolConfirmTimer_in_OContext(void);
 
@@ -1391,7 +1388,7 @@ OutstationState* RespondToReadRequest_in_OContext(OContext *pOContext, ParsedReq
 #endif
   return tmp;
 }
-/*
+
 ////OutstationState& OContext::ContinueMultiFragResponse(const Addresses& addresses, const AppSeqNum& seq)
 OutstationState* ContinueMultiFragResponse_in_OContext(OContext *pOContext, Addresses* addresses, AppSeqNum* seq)
 {
@@ -1433,7 +1430,7 @@ OutstationState* ContinueMultiFragResponse_in_OContext(OContext *pOContext, Addr
 #endif
   return tmp;
 }
-*/
+
 boolean CanTransmit_in_OContext(OContext *pOContext)
 {
 #ifdef  LOG_INFO
@@ -1582,7 +1579,7 @@ void UpdateLastBroadcastMessageReceived_in_OContext(OContext *pOContext, uint16_
 #endif
   switch (destination)
   {
-/*
+
   case LinkBroadcastAddress_DontConfirm:
   {
 #ifdef  LOG_INFO
@@ -1617,7 +1614,7 @@ void UpdateLastBroadcastMessageReceived_in_OContext(OContext *pOContext, uint16_
     set_in_Settable_for_LinkBroadcastAddress(&(pOContext->lastBroadcastMessageReceived_in_OContext), &temp);
   }
   break;
-*/
+
   default:
 //void clear_in_Settable_for_LinkBroadcastAddress(Settable_for_LinkBroadcastAddress *pSettable_for_LinkBroadcastAddress);
 ////        lastBroadcastMessageReceived.clear();
@@ -1933,7 +1930,7 @@ boolean ProcessBroadcastRequest_in_OContext(OContext *pOContext, ParsedRequest* 
     decrement_stack_info();
 #endif
     return true;
-/*
+
   case (FunctionCode_ASSIGN_CLASS):
   {
 #ifdef  LOG_INFO
@@ -2053,7 +2050,7 @@ boolean ProcessBroadcastRequest_in_OContext(OContext *pOContext, ParsedRequest* 
       return false;
     }
   }
-*/
+
   default:
 ////        FORMAT_LOG_BLOCK(this->logger, flags::WARN, "Ignoring broadcast on function code: %s",
 ////                         FunctionCodeSpec::to_string(request.header.function));
@@ -2259,7 +2256,6 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
     return tmp;
   }
 */
-/*
   case (FunctionCode_ASSIGN_CLASS):
   {
 //   IINField HandleAssignClass_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects);
@@ -2276,7 +2272,7 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
 #endif
     return tmp;
   }
-*/
+
   case (FunctionCode_DELAY_MEASURE):
   {
 //   IINField HandleDelayMeasure_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, HeaderWriter* writer);
@@ -2293,7 +2289,6 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
 #endif
     return tmp;
   }
-/*
   case (FunctionCode_RECORD_CURRENT_TIME):
   {
 #ifdef  LOG_INFO
@@ -2362,7 +2357,7 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
 #endif
     return tmp;
   }
-*/
+
   case (FunctionCode_IMMED_FREEZE):
   {
 #ifdef  LOG_INFO
@@ -2781,7 +2776,7 @@ IINField HandleSelect_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* object
 //      Timestamp tTimestamp;
 //      Timestamp_in_TimestampOver2(&tTimestamp, temp);
   Timestamp tTimestamp;
-  Timestamp_in_TimestampOver2(&tTimestamp, 333);//get_time_in_IExecutorExe4cpp(pOContext->executor));
+  Timestamp_in_TimestampOver2(&tTimestamp, get_time_in_IExecutorExe4cpp(pOContext->executor));
       Select_in_ControlState(&(pOContext->control_in_OContext), &(pOContext->sol_in_OContext.seq.num), &tTimestamp, objects);
     }
 
@@ -2843,7 +2838,7 @@ IINField HandleOperate_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objec
 //  Timestamp now;
 //  Timestamp_in_TimestampOver2(&now, temp);
   Timestamp now;
-  Timestamp_in_TimestampOver2(&now, 334);//get_time_in_IExecutorExe4cpp(pOContext->executor));
+  Timestamp_in_TimestampOver2(&now, get_time_in_IExecutorExe4cpp(pOContext->executor));
 
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -2976,7 +2971,7 @@ IINField HandleDelayMeasure_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* 
   IINField_in_IINFieldOver2(&iIINField, IINBit_PARAM_ERROR);
   return iIINField;
 }
-/*
+
 ////IINField OContext::HandleRecordCurrentTime()
 IINField HandleRecordCurrentTime_in_OContext(OContext *pOContext)
 {
@@ -2993,7 +2988,7 @@ IINField HandleRecordCurrentTime_in_OContext(OContext *pOContext)
 ////    return IINField::Empty();
   return Empty_in_IINField_static();
 }
-
+/*
 ////IINField OContext::HandleRestart(const ser4cpp::rseq_t& objects, bool isWarmRestart, HeaderWriter* pWriter)
 IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, boolean isWarmRestart, HeaderWriter* pWriter)
 {
@@ -3112,7 +3107,7 @@ IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objec
   }
   }
 }
-
+*/
 ////IINField OContext::HandleAssignClass(const ser4cpp::rseq_t& objects)
 IINField HandleAssignClass_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects)
 {
@@ -3262,7 +3257,7 @@ IINField HandleEnableUnsolicited_in_OContext(OContext *pOContext, RSeq_for_Uint1
 #endif
   return IINFromParseResult(result);
 }
-*/
+
 ////IINField OContext::HandleCommandWithConstant(const ser4cpp::rseq_t& objects, HeaderWriter& writer, CommandStatus status)
 IINField HandleCommandWithConstant_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, HeaderWriter* writer, CommandStatus_uint8_t status)
 {

@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "PrefixedWriteIterator_for_ControlRelayOutputBlock.h"
 #include "SerializationTemplates.h"
 #include <string.h>

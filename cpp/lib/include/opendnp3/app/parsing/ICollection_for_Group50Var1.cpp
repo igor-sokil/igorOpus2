@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "ICollection_for_Group50Var1.h"
 
 //--------------------------------ICollection_for_Group50Var1--------------------------------

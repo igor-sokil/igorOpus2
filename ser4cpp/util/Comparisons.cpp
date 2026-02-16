@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Comparisons.h"
 
 uint16_t min_for_Uint16_t(uint16_t a, uint16_t b)

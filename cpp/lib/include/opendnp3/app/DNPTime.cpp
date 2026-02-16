@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "DNPTime.h"
 
 void DNPTime_in_DNPTimeOver1(DNPTime *pDNPTime)

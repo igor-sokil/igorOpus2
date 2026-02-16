@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "Database.h"
 
 ////template<class Spec> bool load_type(StaticDataMap<Spec>& map, HeaderWriter& writer)

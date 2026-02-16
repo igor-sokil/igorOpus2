@@ -1,14 +1,7 @@
 
-//#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
-//#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "LayerInterfaces.h"
+#include "OutstationContext.h"
 #include <string.h>
 
 boolean OnLowerLayerUp_in_IUpDown(IUpDown *pIUpDown)
@@ -31,31 +24,29 @@ void  setParentPointer_in_IUpDown(IUpDown* pIUpDown, void* pParentPointer)
 
 boolean OnReceive_in_IUpperLayer(IUpperLayer *pIUpperLayer, Message* message)
 {
-  return (pIUpperLayer->pOnReceive_in_IUpperLayer)(pIUpperLayer, message);
+//  return (pIUpperLayer->pOnReceive_in_IUpperLayer)(pIUpperLayer, message);
+  return OnReceive_in_OContext_override(pIUpperLayer, message);
 }
 boolean OnTxReady_in_IUpperLayer(IUpperLayer *pIUpperLayer)
 {
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  increment_stack_info();
-  std::cout<<getString_stack_info();
-  std::cout<<"{OnTxReady_in_IUpperLayer1"<<'\n';
-#endif
-  boolean tmp = (pIUpperLayer->pOnTxReady_in_IUpperLayer)(pIUpperLayer);
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}OnTxReady_in_IUpperLayer_"<<'\n';
-  decrement_stack_info();
-#endif
-  return tmp;
+//  return (pIUpperLayer->pOnTxReady_in_IUpperLayer)(pIUpperLayer);
+  switch(pIUpperLayer->parentPointerSelector)
+  {
+    case IUpperLayerSELECTOR_for_OContext:
+     return OnTxReady_in_OContext_override(pIUpperLayer);
+//    case IUpperLayerSELECTOR_for_TransportLayer:
+//     return OnTxReady_in_TransportLayer_override(pIUpperLayer);
+  }//switch
+  return false;
 }
 
 void* getParentPointer_in_IUpperLayer(IUpperLayer* pIUpperLayer)
 {
   return pIUpperLayer->pParentPointer_in_IUpperLayer;
 }
-void  setParentPointer_in_IUpperLayer(IUpperLayer* pIUpperLayer, void* pParentPointer)
+void  setParentPointer_in_IUpperLayer(IUpperLayer* pIUpperLayer, void* pParentPointer, uint16_t parentPointerSelector)
 {
+  pIUpperLayer->parentPointerSelector = parentPointerSelector;
   pIUpperLayer->pParentPointer_in_IUpperLayer = pParentPointer;
 }
 

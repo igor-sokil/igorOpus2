@@ -30,7 +30,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationStates.h"
 
 #include "OutstationContext.h"
@@ -317,7 +317,6 @@ void* OnConfirm_in_StateSolicitedConfirmWait_override(void* pOutstationState, vo
   std::cout<<getString_stack_info();
   std::cout<<"{OnConfirm_in_StateSolicitedConfirmWait_override1"<<std::endl;
 #endif
-/*
   StateSolicitedConfirmWait *parent =
     (StateSolicitedConfirmWait*)getParentPointer_in_OutstationState((OutstationState*)pOutstationState);
 
@@ -360,7 +359,7 @@ void* OnConfirm_in_StateSolicitedConfirmWait_override(void* pOutstationState, vo
   Reset_in_RequestHistory(&(((OContext*)ctx)->history_in_OContext));
 //boolean cancel_in_TimerExe4cpp(TimerExe4cpp *pTimerExe4cpp);
 ////    ctx.confirmTimer.cancel();
-  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    ctx.eventBuffer.ClearWritten();
   ClearWritten_in_EventBuffer(&(((OContext*)ctx)->eventBuffer_in_OContext)); // called when a transmission succeeds
 ////    ctx.lastBroadcastMessageReceived.clear();
@@ -400,17 +399,15 @@ void* OnConfirm_in_StateSolicitedConfirmWait_override(void* pOutstationState, vo
 #endif
     return tmp;
   }
-
 //     OutstationState* Inst_in_StateIdle_static(void);
 ////    return StateIdle::Inst();
   void *tmp = Inst_in_StateIdle_static();
-*/
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
   std::cout<<"}OnConfirm_in_StateSolicitedConfirmWait_override4_"<<std::endl;
   decrement_stack_info();
 #endif
-  return 0;//tmp;
+  return tmp;
 }
 
 ////OutstationState& StateSolicitedConfirmWait::OnConfirmTimeout(OContext& ctx)
@@ -483,7 +480,7 @@ void* OnNewNonReadRequest_in_StateSolicitedConfirmWait_override(void* pOutstatio
   std::cout<<"}OnNewNonReadRequest_in_StateSolicitedConfirmWait_override_"<<std::endl;
   decrement_stack_info();
 #endif
-  return 0;//RespondToNonReadRequest_in_OContext((OContext *)ctx, request);
+  return RespondToNonReadRequest_in_OContext((OContext *)ctx, request);
 }
 
 ////OutstationState& StateSolicitedConfirmWait::OnRepeatNonReadRequest(OContext& ctx, const ParsedRequest& request)
@@ -508,7 +505,6 @@ void* OnRepeatReadRequest_in_StateSolicitedConfirmWait_override(void* pOutstatio
   std::cout<<getString_stack_info();
   std::cout<<"{OnRepeatReadRequest_in_StateSolicitedConfirmWait_override1"<<std::endl;
 #endif
-/*
   StateSolicitedConfirmWait *parent =
     (StateSolicitedConfirmWait*)getParentPointer_in_OutstationState((OutstationState*)pOutstationState);
 //    void RestartSolConfirmTimer_in_OContext(OContext *pOContext);
@@ -517,14 +513,14 @@ void* OnRepeatReadRequest_in_StateSolicitedConfirmWait_override(void* pOutstatio
 ////    ctx.BeginRetransmitLastResponse(request.addresses.source);
 ////    return *this;
   BeginRetransmitLastResponse_in_OContext((OContext *)ctx, (request->addresses).source);
-*/
+
 #ifdef  LOG_INFO
   std::cout<<std::endl;
   std::cout<<getString_stack_info();
   std::cout<<"}OnRepeatReadRequest_in_StateSolicitedConfirmWait_override1"<<std::endl;
   decrement_stack_info();
 #endif
-  return 0;//&(parent->oOutstationState);
+  return &(parent->oOutstationState);
 }
 
 ////OutstationState& StateSolicitedConfirmWait::OnBroadcastMessage(OContext& ctx, const ParsedRequest& request)

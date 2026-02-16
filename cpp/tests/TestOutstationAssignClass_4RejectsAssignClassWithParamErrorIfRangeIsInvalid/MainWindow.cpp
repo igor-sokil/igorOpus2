@@ -3,7 +3,7 @@
 #include <QtWidgets>
 #include "key_filter.h"
 
-#include "header.h"
+#include "../../../header.h"
 
 #include "MainWindow.h"
 //#include "loghandler.h"

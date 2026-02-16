@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Settable_for_LinkBroadcastAddress.h"
 
 void Settable_for_LinkBroadcastAddress_in_Settable_for_LinkBroadcastAddress(Settable_for_LinkBroadcastAddress *pSettable_for_LinkBroadcastAddress)

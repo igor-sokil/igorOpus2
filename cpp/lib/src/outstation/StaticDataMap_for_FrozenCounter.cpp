@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_FrozenCounter.h"
 
 uint16_t MapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap_for_FrozenCounterSpec)
 {
   return pStaticDataMap_for_FrozenCounterSpec->db_config->frozen_counter_count;
+}
+void setMapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap_for_FrozenCounterSpec, uint16_t size)
+{
+  pStaticDataMap_for_FrozenCounterSpec->db_config->frozen_counter_count = size;
 }
 
 void StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver1(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap)
@@ -27,10 +31,10 @@ void StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecO
 
   StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
+
   if(MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap) > SIZE_StaticDataMap_for_FrozenCounterSpec)
   {
-    pStaticDataMap->db_config->frozen_counter_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap, SIZE_StaticDataMap_for_FrozenCounterSpec);
   }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap); i++)

@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 ////#include "opendnp3/outstation/ApplicationIIN.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "ApplicationIIN.h"
 
 ////namespace opendnp3

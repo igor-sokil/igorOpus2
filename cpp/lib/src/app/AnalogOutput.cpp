@@ -1,5 +1,5 @@
 ////#include "opendnp3/app/AnalogOutput.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "AnalogOutput.h"
 
 //-----------------------------------------AnalogOutput_for_Int16-------------------------------------------

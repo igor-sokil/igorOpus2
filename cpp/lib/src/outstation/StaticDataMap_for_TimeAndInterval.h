@@ -542,5 +542,6 @@ boolean update_in_StaticDataMap_for_TimeAndIntervalSpecOver2(StaticDataMap_for_T
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap_for_TimeAndIntervalSpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec*);
+void setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec*, uint16_t size);
 
 #endif

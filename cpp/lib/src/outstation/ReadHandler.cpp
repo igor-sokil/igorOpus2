@@ -21,7 +21,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "ReadHandler.h"
 
 ////namespace opendnp3
@@ -35,14 +35,14 @@ void ReadHandler_in_ReadHandler(ReadHandler *pReadHandler, IStaticSelector* stat
   pReadHandler->pEventSelector  = eventSelector;
 
 //  (pReadHandler->iIAPDUHandler).iIWhiteList.pIsAllowed_in_IWhiteList = IsAllowed_in_ReadHandler_override;
-  (pReadHandler->iIAPDUHandler).pProcessHeader_AllObjectsHeader_in_IAPDUHandler = ProcessHeader_AllObjectsHeader_in_ReadHandler_override;
-  (pReadHandler->iIAPDUHandler).pProcessHeader_RangeHeader_in_IAPDUHandler = ProcessHeader_RangeHeader_in_ReadHandler_override;
+//  (pReadHandler->iIAPDUHandler).pProcessHeader_AllObjectsHeader_in_IAPDUHandler = ProcessHeader_AllObjectsHeader_in_ReadHandler_override;
+//  (pReadHandler->iIAPDUHandler).pProcessHeader_RangeHeader_in_IAPDUHandler = ProcessHeader_RangeHeader_in_ReadHandler_override;
 
-  (pReadHandler->iIAPDUHandler).pProcessHeader_CountHeader_in_IAPDUHandler = ProcessHeader_CountHeader_in_ReadHandler_override;
-  (pReadHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_for_uint16_in_IAPDUHandler = ProcessHeader_PrefixHeader_for_uint16_in_ReadHandler_override;
+//  (pReadHandler->iIAPDUHandler).pProcessHeader_CountHeader_in_IAPDUHandler = ProcessHeader_CountHeader_in_ReadHandler_override;
+//  (pReadHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_for_uint16_in_IAPDUHandler = ProcessHeader_PrefixHeader_for_uint16_in_ReadHandler_override;
 
   setParentPointer_in_IWhiteList(&((pReadHandler->iIAPDUHandler).iIWhiteList), pReadHandler, IWhiteListSELECTOR_for_ReadHandler);
-  setParentPointer_in_IAPDUHandler(&(pReadHandler->iIAPDUHandler), pReadHandler);
+  setParentPointer_in_IAPDUHandler(&(pReadHandler->iIAPDUHandler), pReadHandler, IAPDUHandlerSELECTOR_for_ReadHandler);
 }
 
 IINField ProcessHeader_AllObjectsHeader_in_ReadHandler_override(void *pIAPDUHandler, AllObjectsHeader* header)

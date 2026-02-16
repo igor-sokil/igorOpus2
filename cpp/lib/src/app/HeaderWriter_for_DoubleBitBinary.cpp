@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "HeaderWriter_for_DoubleBitBinary.h"
 
 //---------------------------------------------IterateOverRange_for_UInt8_DoubleBitBinary_in_HeaderWriter--------------------------------------------

@@ -3,7 +3,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticWriters_for_Binary.h"
 
 #include "Group1.h"
@@ -40,7 +40,7 @@ boolean LoadWithRangeIterator_BinarySpec_for_UInt8_in_StaticWriters(StaticDataMa
 //   int i = next_index;
 //  while(i < map->db_config->binary_input_count)
   int i = KeyMap2IndexMass_for_BinarySpec(map->db_config, next_index);
-  while(i < map->db_config->binary_input_count)
+  while(i < MapSize_for_StaticDataMap_for_BinarySpec(map))
   {
     SelectedValue_for_BinarySpec elem = map->map[i].selection_in_StaticDataCell_for_Binary;
 #ifdef  LOG_INFO
@@ -140,7 +140,7 @@ boolean LoadWithRangeIterator_BinarySpec_for_UInt16_in_StaticWriters(StaticDataM
 //  for (const auto& elem : map)
 //  int i = next_index;
   int i = KeyMap2IndexMass_for_BinarySpec(map->db_config, next_index);
-  while(i < map->db_config->binary_input_count)
+  while(i < MapSize_for_StaticDataMap_for_BinarySpec(map))
   {
 
     SelectedValue_for_BinarySpec elem = map->map[i].selection_in_StaticDataCell_for_Binary;
@@ -243,7 +243,7 @@ boolean LoadWithBitfieldIterator_BinarySpec_for_UInt8_in_StaticWriters(StaticDat
 //  for (const auto& elem : map)
 //  int i = next_index;
   int i = KeyMap2IndexMass_for_BinarySpec(map->db_config, next_index);
-  while(i < map->db_config->binary_input_count)
+  while(i < MapSize_for_StaticDataMap_for_BinarySpec(map))
   {
     SelectedValue_for_BinarySpec elem = map->map[i].selection_in_StaticDataCell_for_Binary;
 #ifdef  LOG_INFO
@@ -376,7 +376,7 @@ boolean LoadWithBitfieldIterator_BinarySpec_for_UInt16_in_StaticWriters(StaticDa
 //  for (const auto& elem : map)
 //  int i = next_index;
   int i = KeyMap2IndexMass_for_BinarySpec(map->db_config, next_index);
-  while(i < map->db_config->binary_input_count)
+  while(i < MapSize_for_StaticDataMap_for_BinarySpec(map))
   {
     SelectedValue_for_BinarySpec elem = map->map[i].selection_in_StaticDataCell_for_Binary;
 #ifdef  LOG_INFO

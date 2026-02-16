@@ -9,7 +9,7 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "../../../header.h"
+#include "../../../header_dnp3.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"

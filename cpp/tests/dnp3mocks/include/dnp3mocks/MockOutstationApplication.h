@@ -165,7 +165,7 @@ typedef struct
 
   std::deque<UTCTimestamp> timestamps;
   std::deque<std::tuple<AssignClassType_uint8_t, PointClass_uint8_t, uint16_t, uint16_t>> classAssignments;
-//  std::deque<Indexed_for_TimeAndInterval> timeAndIntervals;
+  std::deque<Indexed_for_TimeAndInterval> timeAndIntervals;
   std::deque<ConfirmResult> confirms;
 } MockOutstationApplication;
 
@@ -187,10 +187,10 @@ boolean WriteAbsoluteTime_in_MockOutstationApplication_override(void *pIOutstati
 boolean SupportsWriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication);
 boolean SupportsWriteTimeAndInterval_in_MockOutstationApplication_override(void *pIOutstationApplication);
 
-//boolean __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
-//    ICollection_Indexed_for_TimeAndInterval* meas);
-//boolean WriteTimeAndInterval_in_MockOutstationApplication_override(void *pIOutstationApplication,
-//    ICollection_Indexed_for_TimeAndInterval* meas);
+boolean __WriteTimeAndInterval_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
+    ICollection_Indexed_for_TimeAndInterval* meas);
+boolean WriteTimeAndInterval_in_MockOutstationApplication_override(void *pIOutstationApplication,
+    ICollection_Indexed_for_TimeAndInterval* meas);
 
 boolean SupportsAssignClass_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication);
 boolean SupportsAssignClass_in_MockOutstationApplication_override(void *pIOutstationApplication);

@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Node_for_int.h"
 #include "Node_for_EventRecord.h"
 #include "Node_TypedEventRecord_for_AnalogOutputStatusSpec.h"

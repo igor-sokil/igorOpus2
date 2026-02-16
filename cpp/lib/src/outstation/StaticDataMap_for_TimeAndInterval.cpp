@@ -2,13 +2,17 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap.h"
 #include "StaticDataMap_for_TimeAndInterval.h"
 
 uint16_t MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap_for_TimeAndIntervalSpec)
 {
   return pStaticDataMap_for_TimeAndIntervalSpec->db_config->time_and_interval_count;
+}
+void setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap_for_TimeAndIntervalSpec, uint16_t size)
+{
+  pStaticDataMap_for_TimeAndIntervalSpec->db_config->time_and_interval_count = size;
 }
 
 void StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap)
@@ -28,10 +32,10 @@ void StaticDataMap_for_TimeAndIntervalSpec_in_StaticDataMap_for_TimeAndIntervalS
 
   StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
+
   if(MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap) > SIZE_StaticDataMap_for_TimeAndIntervalSpec)
   {
-    pStaticDataMap->db_config->time_and_interval_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap, SIZE_StaticDataMap_for_TimeAndIntervalSpec);
   }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap); i++)

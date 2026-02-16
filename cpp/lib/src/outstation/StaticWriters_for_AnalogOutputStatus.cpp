@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticWriters_for_AnalogOutputStatus.h"
 
 #include "Group1.h"
@@ -29,7 +29,7 @@ boolean LoadWithRangeIterator_AnalogOutputStatusSpec_for_UInt8_in_StaticWriters(
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_AnalogOutputStatusSpec(map->db_config, next_index);
-  while(i < map->db_config->analog_output_status_count)
+  while(i < MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(map))
   {
     SelectedValue_for_AnalogOutputStatusSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)
@@ -75,7 +75,7 @@ boolean LoadWithRangeIterator_AnalogOutputStatusSpec_for_UInt16_in_StaticWriters
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_AnalogOutputStatusSpec(map->db_config, next_index);
-  while(i < map->db_config->analog_output_status_count)
+  while(i < MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(map))
   {
     SelectedValue_for_AnalogOutputStatusSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)

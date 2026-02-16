@@ -44,7 +44,7 @@
 ////class AssignClassHandler : public IAPDUHandler
 typedef struct
 {
-//  IAPDUHandler iIAPDUHandler;
+  IAPDUHandler iIAPDUHandler;
 ////public:
 ////    AssignClassHandler(IOutstationApplication& application, IClassAssigner& assigner);
 
@@ -72,11 +72,11 @@ typedef struct
   int32_t classHeader;
   PointClass_uint8_t clazz;
 
-//  IOutstationApplication* pApplication;
+  IOutstationApplication* pApplication;
   IClassAssigner* pAssigner;
 } AssignClassHandler;
 
-//void AssignClassHandler_in_AssignClassHandler(AssignClassHandler *pAssignClassHandler, IOutstationApplication* application, IClassAssigner* assigner);
+void AssignClassHandler_in_AssignClassHandler(AssignClassHandler *pAssignClassHandler, IOutstationApplication* application, IClassAssigner* assigner);
 boolean IsAllowed_in_AssignClassHandler_override(void *pIWhiteList, uint32_t headerCount, GroupVariation_uint16_t gv, QualifierCode_uint8_t qc);
 
 //    IINField (*pProcessHeader_AllObjectsHeader_in_IAPDUHandler)(void*, AllObjectsHeader* record);

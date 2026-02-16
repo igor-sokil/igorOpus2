@@ -20,7 +20,7 @@
 ////#include "opendnp3/link/Addresses.h"
 
 ////#include "link/LinkLayerConstants.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "Addresses.h"
 
 #include "LinkLayerConstants.h"

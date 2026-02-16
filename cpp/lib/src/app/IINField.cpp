@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 ////#include "opendnp3/app/IINField.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "IINField.h"
 
 ////namespace opendnp3

@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationChannelStates.h"
 
 void Reset_in_OutstationSolState(OutstationSolState *pOutstationSolState)

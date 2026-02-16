@@ -1,5 +1,5 @@
 #include <string.h>
-#include "header.h"
+#include "header_dnp3.h"
 #include "ArrayView__for__Node_TypedEventRecord_for_CounterSpec.h"
 
 ArrayView__for__Node_TypedEventRecord_for_CounterSpec Empty_in_ArrayView__for__Node_TypedEventRecord_for_CounterSpec_static(void)

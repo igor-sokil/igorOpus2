@@ -8,7 +8,7 @@
 #include "ClassField.h"
 #include "Addresses.h"
 #include "Range.h"
-//#include "LinkHeaderFields.h"
+#include "LinkHeaderFields.h"
 #include "Message.h"
 #include "APDUHeader.h"
 #include "AppControlField.h"
@@ -27,7 +27,7 @@ void inspect_Analog(Analog *b);
 void inspect_Binary(Binary *b);
 void inspect_Counter(Counter *b);
 void inspect_FrozenCounter(FrozenCounter *b);
-//void inspect_LinkHeaderFields(LinkHeaderFields *b);
+void inspect_LinkHeaderFields(LinkHeaderFields *b);
 void inspect_Message(Message *b);
 void inspect_AppControlField(AppControlField *b);
 void inspect_ParsedRequest(ParsedRequest *b);

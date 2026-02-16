@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationConfig.h"
 
 void OutstationConfig_in_OutstationConfig(OutstationConfig *pOutstationConfig)

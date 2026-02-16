@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "IClassAssigner.h"
 
 Range AssignClassToAll_in_IClassAssigner(IClassAssigner *pIClassAssigner, AssignClassType_uint8_t type, PointClass_uint8_t clazz)

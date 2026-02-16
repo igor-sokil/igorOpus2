@@ -21,7 +21,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "ObjectHeaderParser.h"
 
 #include "GroupVariationRecord.h"

@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "Indexed.h"
 
 //------------------------------------Indexed_for_AnalogOutputInt16---------------------------------------------------------

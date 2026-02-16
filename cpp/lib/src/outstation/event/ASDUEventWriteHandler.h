@@ -71,7 +71,6 @@ typedef struct
 } ASDUEventWriteHandler;
 
 void ASDUEventWriteHandler_in_ASDUEventWriteHandler(ASDUEventWriteHandler *pASDUEventWriteHandler, HeaderWriter* writer);
-/*
 uint16_t Write_for_Binary_in_ASDUEventWriteHandler_override(void *pIEventWriteHandler,
     EventBinaryVariation_uint8_t variation,
     Binary* first,
@@ -100,7 +99,7 @@ uint16_t Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override(void *pI
     EventAnalogOutputStatusVariation_uint8_t variation,
     AnalogOutputStatus* first,
     IEventCollection_for_AnalogOutputStatus* items);
-*/
+
 /*
 undefined reference to
         `Write_for_OctetString_in_ASDUEventWriteHandler_override(void*, unsigned char, OctetString*, IEventCollection_for_OctetString*)'

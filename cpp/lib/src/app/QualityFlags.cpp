@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "QualityFlags.h"
 
 ////namespace opendnp3

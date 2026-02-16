@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticWriters_for_BinaryOutputStatus.h"
 
 #include "Group1.h"
@@ -29,7 +29,7 @@ boolean LoadWithRangeIterator_BinaryOutputStatusSpec_for_UInt8_in_StaticWriters(
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_BinaryOutputStatusSpec(map->db_config, next_index);
-  while(i < map->db_config->binary_output_status_count)
+  while(i < MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(map))
   {
     SelectedValue_for_BinaryOutputStatusSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)
@@ -75,7 +75,7 @@ boolean LoadWithRangeIterator_BinaryOutputStatusSpec_for_UInt16_in_StaticWriters
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_BinaryOutputStatusSpec(map->db_config, next_index);
-  while(i < map->db_config->binary_output_status_count)
+  while(i < MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(map))
   {
     SelectedValue_for_BinaryOutputStatusSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)

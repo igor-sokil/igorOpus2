@@ -556,5 +556,6 @@ Range assign_class_in_StaticDataMap_for_BinaryOutputStatusSpecOver2(StaticDataMa
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap_for_BinaryOutputStatusSpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec*);
+void setMapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec*, uint16_t size);
 
 #endif

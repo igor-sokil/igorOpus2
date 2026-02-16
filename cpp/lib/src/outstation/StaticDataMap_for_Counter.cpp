@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_Counter.h"
 
 uint16_t MapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec)
 {
   return pStaticDataMap_for_CounterSpec->db_config->counter_count;
+}
+void setMapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, uint16_t size)
+{
+  pStaticDataMap_for_CounterSpec->db_config->counter_count = size;
 }
 
 void StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap)
@@ -27,10 +31,10 @@ void StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(StaticD
 
   StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
+
   if(MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap) > SIZE_StaticDataMap_for_CounterSpec)
   {
-    pStaticDataMap->db_config->counter_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap, SIZE_StaticDataMap_for_CounterSpec);
   }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap); i++)

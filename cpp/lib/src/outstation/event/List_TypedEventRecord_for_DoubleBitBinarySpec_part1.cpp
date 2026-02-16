@@ -1,5 +1,5 @@
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "List_TypedEventRecord_for_DoubleBitBinarySpec.h"
 #include <string.h>
 

@@ -19,7 +19,7 @@
  */
 
 ////#include "opendnp3/outstation/NumRetries.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "NumRetries.h"
 
 ////namespace opendnp3

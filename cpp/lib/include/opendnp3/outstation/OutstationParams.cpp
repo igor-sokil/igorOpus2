@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "OutstationParams.h"
 
 void OutstationParams_in_OutstationParams(OutstationParams *pOutstationParams)

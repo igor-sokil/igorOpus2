@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "Group60.h"
 
 // Class Data - Class 0

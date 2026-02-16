@@ -27,7 +27,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "FreezeRequestHandler.h"
 
 ////namespace opendnp3
@@ -41,13 +41,13 @@ void FreezeRequestHandler_in_FreezeRequestHandler(FreezeRequestHandler *pFreezeR
   pFreezeRequestHandler->clear = clear;
   pFreezeRequestHandler->database = database;
   
-  (pFreezeRequestHandler->iIAPDUHandler).pProcessHeader_AllObjectsHeader_in_IAPDUHandler = ProcessHeader_AllObjectsHeader_in_FreezeRequestHandler_override;
-  (pFreezeRequestHandler->iIAPDUHandler).pProcessHeader_RangeHeader_in_IAPDUHandler = ProcessHeader_RangeHeader_in_FreezeRequestHandler_override;
+//  (pFreezeRequestHandler->iIAPDUHandler).pProcessHeader_AllObjectsHeader_in_IAPDUHandler = ProcessHeader_AllObjectsHeader_in_FreezeRequestHandler_override;
+//  (pFreezeRequestHandler->iIAPDUHandler).pProcessHeader_RangeHeader_in_IAPDUHandler = ProcessHeader_RangeHeader_in_FreezeRequestHandler_override;
   
 //  (pFreezeRequestHandler->iIAPDUHandler).iIWhiteList.pIsAllowed_in_IWhiteList = IsAllowed_in_FreezeRequestHandler_override;
 
   setParentPointer_in_IWhiteList(&((pFreezeRequestHandler->iIAPDUHandler).iIWhiteList), pFreezeRequestHandler, IWhiteListSELECTOR_for_FreezeRequestHandler);
-  setParentPointer_in_IAPDUHandler(&(pFreezeRequestHandler->iIAPDUHandler), pFreezeRequestHandler);
+  setParentPointer_in_IAPDUHandler(&(pFreezeRequestHandler->iIAPDUHandler), pFreezeRequestHandler, IAPDUHandlerSELECTOR_for_FreezeRequestHandler);
 }
 
 //     boolean (*pIsAllowed_in_IWhiteList)(void*, uint32_t headerCount, GroupVariation_uint16_t gv, QualifierCode_uint8_t qc);

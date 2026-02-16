@@ -9,7 +9,7 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "header.h"
+#include "../../../header.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
@@ -39,7 +39,7 @@ qDebug()<<"********SUITE('2UnknownCodeIsEchoed')********";
     OutstationTestObject t;
     OutstationTestObject_in_OutstationTestObject(&t, &config, &tmp);
 
-    LowerLayerUp_in_OutstationTestObject(&t);
+//    LowerLayerUp_in_OutstationTestObject(&t);
 
 //void SetResponse_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler, CommandStatus status_);
 ////    t.cmdHandler.SetResponse(CommandStatus_NOT_SUPPORTED);
@@ -48,13 +48,14 @@ qDebug()<<"********SUITE('2UnknownCodeIsEchoed')********";
     // Select group 12 Var 1, count = 1, index = 3
 ////    t.SendToOutstation("C0 03 0C 01 17 01 03 AA 01 01 00 00 00 01 00 00 00 00");
 
-    std::string name("C0 03 0C 01 17 01 03 AA 01 01 00 00 00 01 00 00 00 00");       
+//    std::string name("C0 03 0C 01 17 01 03 AA 01 01 00 00 00 01 00 00 00 00");       
+    uint8_t name[] = {18, 0xC0, 0x03, 0x0C, 0x01, 0x17, 0x01, 0x03, 0xAA, 0x01, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00};
     SendToOutstation_in_OutstationTestObject(&t, name);  
 
-    std::string temp = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == 'C0 81 80 04 0C 01 17 01 03 AA 01 01 00 00 00 01 00 00 00 04')";
-std::cout << "temp= " << temp<<'\n';
+//std::cout << "temp= " << temp<<'\n';
 
 qDebug()<<"";
 

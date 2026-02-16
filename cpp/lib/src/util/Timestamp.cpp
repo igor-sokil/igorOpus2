@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 ////#include "opendnp3/util/Timestamp.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "Timestamp.h"
 
 ////#include <exe4cpp/Typedefs.h>

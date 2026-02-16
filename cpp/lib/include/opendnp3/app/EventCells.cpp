@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "EventCells.h"
 #include "MeasurementTypeSpecs.h"
 #include <string.h>

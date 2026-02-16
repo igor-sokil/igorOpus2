@@ -30,7 +30,7 @@
 //
 
 ////#include "opendnp3/gen/FunctionCode.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "FunctionCode.h"
 ////#include <stdexcept>
 

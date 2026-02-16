@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "ICommandAction.h"
 
 CommandStatus_uint8_t Action_ControlRelayOutputBlock_in_ICommandAction(ICommandAction * pICommandAction, ControlRelayOutputBlock* arCommand, uint16_t aIndex)

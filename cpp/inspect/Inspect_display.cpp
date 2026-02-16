@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include "log_info.h"
-//#include "loghandler.h"
 
-#include "header.h"
+#include "header_dnp3.h"
 
 static int16_t stack_info = -1;//рівень стеку для info
 
@@ -31,7 +30,7 @@ std::string getString_stack_info(void)
   for(int i=0; i<stack_info; i++) res = res + name;
   return res;
 }
-/*
+
 void inspect_LinkHeaderFields(LinkHeaderFields *b)
 {
   std::cout<<"*"<<getString_stack_info();
@@ -49,7 +48,7 @@ void inspect_LinkHeaderFields(LinkHeaderFields *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*Addresses addresses.destination= "<<(uint16_t)b->addresses.destination<<'\n';
 }
-*/
+
 void inspect_ClassField(ClassField *b)
 {
   std::cout<<"*"<<getString_stack_info();
@@ -148,29 +147,13 @@ void inspect_FrozenCounter(FrozenCounter *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime.quality<<'\n';
 }
-/*
-void inspect_StaticDataMap_for_AnalogMrzs(StaticDataMap_for_AnalogMrzs *b)
-{
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"**inspect_StaticDataMap_for_AnalogMrzs**"<<'\n';
-  for(int i=0; i<b->sizeMap_for_AnalogMrzs; i++)
-  {
-    StaticDataRecord_for_Analog dataRecord = b->map_StaticDataMap_for_AnalogMrzs[i];
-    std::cout<<"*"<<getString_stack_info();
-    std::cout<<"@*uint16_t index_in_StaticDataRecord_for_Analog= "<<(uint16_t)dataRecord.index_in_StaticDataRecord_for_Analog<<'\n';
-    std::cout<<"*"<<getString_stack_info();
-    std::cout<<"@*boolean selected_in_SelectedValue_for_AnalogSpec= "<<(uint16_t)dataRecord.sStaticDataCell_for_Analog.selection_in_StaticDataCell.selected_in_SelectedValue_for_AnalogSpec<<'\n';
-    std::cout<<'\n';
-  }
-}
-*/
 
 void inspect_RSeq(RSeq_for_Uint16_t *buffer)
 {
  if(!buffer) return;
-  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"+"<<getString_stack_info();
   std::cout<<"**inspect_RSeq**"<<'\n';
-  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"+"<<getString_stack_info();
   std::cout<<"@*buffer->buffer_[i]= "<<(uint32_t)&(buffer->buffer_[0])<<"<-";
   for(int i=0; i<length_in_HasLength_for_Uint16_t(&(buffer->hHasLength)); i++)
  {

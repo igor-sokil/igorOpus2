@@ -1,5 +1,5 @@
 #include <string.h>
-#include "header.h"
+#include "header_dnp3.h"
 #include "ArrayView__for__Node_TypedEventRecord_for_AnalogOutputStatusSpec.h"
 
 ArrayView__for__Node_TypedEventRecord_for_AnalogOutputStatusSpec Empty_in_ArrayView__for__Node_TypedEventRecord_for_AnalogOutputStatusSpec_static(void)

@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_AnalogOutputStatus.h"
 
 uint16_t MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap_for_AnalogOutputStatusSpec)
 {
   return pStaticDataMap_for_AnalogOutputStatusSpec->db_config->analog_output_status_count;
+}
+void setMapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap_for_AnalogOutputStatusSpec, uint16_t size)
+{
+  pStaticDataMap_for_AnalogOutputStatusSpec->db_config->analog_output_status_count = size;
 }
 
 void StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver1(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap)
@@ -31,8 +35,7 @@ void StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputS
   pStaticDataMap->db_config = config;
   if(MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap) > SIZE_StaticDataMap_for_AnalogOutputStatusSpec)
   {
-    pStaticDataMap->db_config->analog_output_status_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap, SIZE_StaticDataMap_for_AnalogOutputStatusSpec);
   }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap); i++)

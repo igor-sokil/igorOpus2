@@ -1,5 +1,5 @@
 #include <string.h>
-#include "header.h"
+#include "header_dnp3.h"
 #include "ArrayView__for__Node_TypedEventRecord_for_DoubleBitBinarySpec.h"
 
 ArrayView__for__Node_TypedEventRecord_for_DoubleBitBinarySpec Empty_in_ArrayView__for__Node_TypedEventRecord_for_DoubleBitBinarySpec_static(void)

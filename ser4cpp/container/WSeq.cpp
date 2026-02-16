@@ -5,7 +5,7 @@
 //#endif
 #include <string.h>
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "WSeq.h"
 
 WSeq_for_Uint16_t empty_in_WSeq_for_Uint16_t_static(void)

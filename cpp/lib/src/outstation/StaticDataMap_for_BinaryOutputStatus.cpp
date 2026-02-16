@@ -2,12 +2,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_BinaryOutputStatus.h"
 
 uint16_t MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap_for_BinaryOutputStatusSpec)
 {
   return pStaticDataMap_for_BinaryOutputStatusSpec->db_config->binary_output_status_count;
+}
+void setMapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap_for_BinaryOutputStatusSpec, uint16_t size)
+{
+  pStaticDataMap_for_BinaryOutputStatusSpec->db_config->binary_output_status_count = size;
 }
 
 void StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver1(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap)
@@ -27,6 +31,11 @@ void StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputS
 
   StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
+
+  if(MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap) > SIZE_StaticDataMap_for_BinaryOutputStatusSpec)
+  {
+    setMapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap, SIZE_StaticDataMap_for_BinaryOutputStatusSpec);
+  }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap); i++)
   {

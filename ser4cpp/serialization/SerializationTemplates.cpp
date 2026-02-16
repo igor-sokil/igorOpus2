@@ -4,7 +4,7 @@
 #include <iostream>
 #endif
 #include <math.h>
-#include "header.h"
+#include "header_dnp3.h"
 #include "SerializationTemplates.h"
 float to_Float32_static(uint32_t value);
 uint32_t to_uint32_static(float value);

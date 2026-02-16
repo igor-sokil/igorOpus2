@@ -557,5 +557,6 @@ Range assign_class_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_Count
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_CounterSpec(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec*);
+void setMapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec*, uint16_t size);
 
 #endif

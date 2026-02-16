@@ -52,12 +52,12 @@ typedef struct
   /**
    * called when a command APDU begins processing
    */
-  void (*pBegin_in_ICommandHandler)(void*);// = 0;
+//  void (*pBegin_in_ICommandHandler)(void*);// = 0;
 
   /**
    * called when a command APDU ends processing
    */
-  void (*pEnd_in_ICommandHandler)(void*);// = 0;
+//  void (*pEnd_in_ICommandHandler)(void*);// = 0;
 
   /**
    * Ask if the application supports a ControlRelayOutputBlock - group 12 variation 1
@@ -66,7 +66,7 @@ typedef struct
    * @param index index of the command
    * @return result of request
    */
-  CommandStatus_uint8_t (*pSelect_ControlRelayOutputBlock_in_ICommandHandler)(void*, ControlRelayOutputBlock* command, uint16_t index);// = 0;
+//  CommandStatus_uint8_t (*pSelect_ControlRelayOutputBlock_in_ICommandHandler)(void*, ControlRelayOutputBlock* command, uint16_t index);// = 0;
 
   /**
    * Operate a ControlRelayOutputBlock - group 12 variation 1
@@ -77,10 +77,10 @@ typedef struct
    * @param opType the operation type the outstation received.
    * @return result of request
    */
-  CommandStatus_uint8_t (*pOperate_ControlRelayOutputBlock_in_ICommandHandler)(void*, ControlRelayOutputBlock* command,
-      uint16_t index,
-      IUpdateHandler* handler,
-      OperateType_uint8_t opType);
+//  CommandStatus_uint8_t (*pOperate_ControlRelayOutputBlock_in_ICommandHandler)(void*, ControlRelayOutputBlock* command,
+//      uint16_t index,
+//      IUpdateHandler* handler,
+//      OperateType_uint8_t opType);
 //        = 0;
 
   /**
@@ -90,7 +90,7 @@ typedef struct
    * @param index index of the command
    * @return result of request
    */
-  CommandStatus_uint8_t (*pSelect_AnalogOutputInt16_in_ICommandHandler)(void*, AnalogOutputInt16* command, uint16_t index);// = 0;
+//  CommandStatus_uint8_t (*pSelect_AnalogOutputInt16_in_ICommandHandler)(void*, AnalogOutputInt16* command, uint16_t index);// = 0;
 
   /**
    * Ask if the application supports a 16 bit analog output - group 41 variation 2
@@ -101,10 +101,10 @@ typedef struct
    * @param opType the operation type the outstation received.
    * @return result of request
    */
-  CommandStatus_uint8_t (*pOperate_AnalogOutputInt16_in_ICommandHandler)(void*, AnalogOutputInt16* command,
-      uint16_t index,
-      IUpdateHandler* handler,
-      OperateType_uint8_t opType);
+//  CommandStatus_uint8_t (*pOperate_AnalogOutputInt16_in_ICommandHandler)(void*, AnalogOutputInt16* command,
+//      uint16_t index,
+//      IUpdateHandler* handler,
+//      OperateType_uint8_t opType);
 //        = 0;
 
   /**
@@ -114,7 +114,7 @@ typedef struct
    * @param index index of the command
    * @return result of request
    */
-  CommandStatus_uint8_t (*pSelect_AnalogOutputInt32_in_ICommandHandler)(void*, AnalogOutputInt32* command, uint16_t index);// = 0;
+//  CommandStatus_uint8_t (*pSelect_AnalogOutputInt32_in_ICommandHandler)(void*, AnalogOutputInt32* command, uint16_t index);// = 0;
 
   /**
    * Operate a 32 bit analog output - group 41 variation 1
@@ -125,10 +125,10 @@ typedef struct
    * @param opType the operation type the outstation received.
    * @return result of request
    */
-  CommandStatus_uint8_t (*pOperate_AnalogOutputInt32_in_ICommandHandler)(void*, AnalogOutputInt32* command,
-      uint16_t index,
-      IUpdateHandler* handler,
-      OperateType_uint8_t opType);
+//  CommandStatus_uint8_t (*pOperate_AnalogOutputInt32_in_ICommandHandler)(void*, AnalogOutputInt32* command,
+//      uint16_t index,
+//      IUpdateHandler* handler,
+//      OperateType_uint8_t opType);
 //        = 0;
 
   /**
@@ -138,7 +138,7 @@ typedef struct
    * @param index index of the command
    * @return result of request
    */
-  CommandStatus_uint8_t (*pSelect_AnalogOutputFloat32_in_ICommandHandler)(void*, AnalogOutputFloat32* command, uint16_t index);// = 0;
+//  CommandStatus_uint8_t (*pSelect_AnalogOutputFloat32_in_ICommandHandler)(void*, AnalogOutputFloat32* command, uint16_t index);// = 0;
 
   /**
    * Operate a single precision, floating point analog output - group 41 variation 3
@@ -149,10 +149,10 @@ typedef struct
    * @param opType the operation type the outstation received.
    * @return result of request
    */
-  CommandStatus_uint8_t (*pOperate_AnalogOutputFloat32_in_ICommandHandler)(void*, AnalogOutputFloat32* command,
-      uint16_t index,
-      IUpdateHandler* handler,
-      OperateType_uint8_t opType);
+//  CommandStatus_uint8_t (*pOperate_AnalogOutputFloat32_in_ICommandHandler)(void*, AnalogOutputFloat32* command,
+//      uint16_t index,
+//      IUpdateHandler* handler,
+//      OperateType_uint8_t opType);
 //        = 0;
 
   /**
@@ -162,7 +162,7 @@ typedef struct
    * @param index index of the command
    * @return result of request
    */
-  CommandStatus_uint8_t (*pSelect_AnalogOutputDouble64_in_ICommandHandler)(void*, AnalogOutputDouble64* command, uint16_t index);// = 0;
+//  CommandStatus_uint8_t (*pSelect_AnalogOutputDouble64_in_ICommandHandler)(void*, AnalogOutputDouble64* command, uint16_t index);// = 0;
 
   /**
    * Operate a double precision, floating point analog output - group 41 variation 4
@@ -173,10 +173,10 @@ typedef struct
    * @param opType the operation type the outstation received.
    * @return result of request
    */
-  CommandStatus_uint8_t (*pOperate_AnalogOutputDouble64_in_ICommandHandler)(void*, AnalogOutputDouble64* command,
-      uint16_t index,
-      IUpdateHandler* handler,
-      OperateType_uint8_t opType);
+//  CommandStatus_uint8_t (*pOperate_AnalogOutputDouble64_in_ICommandHandler)(void*, AnalogOutputDouble64* command,
+//      uint16_t index,
+//      IUpdateHandler* handler,
+//      OperateType_uint8_t opType);
 //        = 0;
   void* pParentPointer_in_ICommandHandler;
 

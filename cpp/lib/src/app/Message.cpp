@@ -1,5 +1,5 @@
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "Message.h"
 
 void  Message_in_MessageOver1(Message *pMessage)

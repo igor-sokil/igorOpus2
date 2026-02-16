@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticWriters_for_TimeAndInterval.h"
 
 #include "Group1.h"
@@ -29,7 +29,7 @@ boolean LoadWithRangeIterator_TimeAndIntervalSpec_for_UInt8_in_StaticWriters(Sta
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_TimeAndIntervalSpec(map->db_config, next_index);
-  while(i < map->db_config->time_and_interval_count)
+  while(i < MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(map))
   {
     SelectedValue_for_TimeAndIntervalSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)
@@ -75,7 +75,7 @@ boolean LoadWithRangeIterator_TimeAndIntervalSpec_for_UInt16_in_StaticWriters(St
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_TimeAndIntervalSpec(map->db_config, next_index);
-  while(i < map->db_config->time_and_interval_count)
+  while(i < MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(map))
   {
     SelectedValue_for_TimeAndIntervalSpec elem = map->map[i].selection_in_StaticDataCell;
 //    if (elem.second.variation != variation)

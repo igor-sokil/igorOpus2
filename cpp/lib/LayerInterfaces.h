@@ -73,17 +73,20 @@ typedef struct
   // return false if the layer is down
 // ¬ызываетс€ нижним уровнем при поступлении данных
    // возвращаем false, если слой не работает
-  boolean (*pOnReceive_in_IUpperLayer)(void*, Message* message);// = 0;
+//  boolean (*pOnReceive_in_IUpperLayer)(void*, Message* message);// = 0;
 
   // Called by the lower layer when it is ready to transmit more data
 // ¬ызываетс€ нижним уровнем, когда он готов передать больше данных
-  boolean (*pOnTxReady_in_IUpperLayer)(void*);// = 0;
+//  boolean (*pOnTxReady_in_IUpperLayer)(void*);// = 0;
 
+  uint16_t parentPointerSelector;
   void* pParentPointer_in_IUpperLayer;
 } IUpperLayer;
-
+enum {
+  IUpperLayerSELECTOR_for_OContext
+};
 void* getParentPointer_in_IUpperLayer(IUpperLayer*);
-void  setParentPointer_in_IUpperLayer(IUpperLayer*, void*);
+void  setParentPointer_in_IUpperLayer(IUpperLayer*, void*, uint16_t Selector);
 
 boolean OnReceive_in_IUpperLayer(IUpperLayer *, Message* message);
 boolean OnTxReady_in_IUpperLayer(IUpperLayer *);

@@ -30,7 +30,7 @@
 //
 
 ////#include "opendnp3/gen/IntervalUnits.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "IntervalUnits.h"
 ////#include <stdexcept>
 

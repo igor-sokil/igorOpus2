@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 ////#include "opendnp3/util/TimeDuration.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "TimeDuration.h"
 
 ////#include <exe4cpp/Typedefs.h>

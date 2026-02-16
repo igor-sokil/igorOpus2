@@ -1,0 +1,270 @@
+********SUITE('3BodyCRCError')********
+
+{LinkLayerParser_in_LinkLayerParser1
+**rxBuffer_in_LinkLayerParser[LPDU_MAX_FRAME_SIZE]=6398100
+**sizeof(rxBuffer_in_LinkLayerParser)=292
+}LinkLayerParser_in_LinkLayerParser_
+
+    {TransportLayer_in_TransportLayer1
+
+        {TransportRx_in_TransportRx1
+
+            BufferSer4_292_in_BufferSer4_292Over2_1
+*            *uint16_t length=292
+*            *sizeof(BufferSer4_292)=292
+*            *uint8_t bytes[SIZE_BufferSer4_292]=6398436
+
+            BufferSer4_Core_in_BufferSer4_CoreOver2_1
+        }TransportRx_in_TransportRx_
+    }TransportLayer_in_TransportLayer_
+
+    DatabaseConfig_in_DatabaseConfig1
+
+    {OutstationMrzsObject_in_OutstationMrzsObject1
+
+        {MrzsOutstationApplication_in_MrzsOutstationApplication1
+
+        }MrzsOutstationApplication_in_MrzsOutstationApplication_
+
+        {OContext_in_OContext1
+
+            EventLists_in_EventLists1
+
+            List_for_EventRecord_in_List_for_EventRecordOver2_1
+*            *uint32_t maxSize= 0
+
+            List_for_EventRecord_in_List_for_EventRecordOver1_1
+
+            {Database_in_Database1
+
+                {StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+*                *StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_3
+*                *pStaticDataMap->selected.start= 1
+*                *pStaticDataMap->selected.stop= 0
+
+*                *StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_2
+*                **config->binary_input_count= 2
+
+                }StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2__
+
+                StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+                {StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+*                *StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_3
+*                *pStaticDataMap->selected.start= 1
+*                *pStaticDataMap->selected.stop= 0
+
+*                *StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_2
+*                **config->analog_input_count= 2
+*                *pStaticDataMap->map[0].selection_in_StaticDataCell.variation= 0
+                }StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_1
+
+                StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+                StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+                StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+                StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+
+                StaticDataMap_for_TimeAndIntervalSpec_in_StaticDataMap_for_TimeAndIntervalSpecOver2_1
+
+                    {Range_in_RangeOver1_1*
+                    }Range_in_RangeOver1__*
+*            *(pDatabase->analog_input).map[0].selection_in_StaticDataCell.variation= 0
+            }Database_in_Database_
+
+            DeferredRequest_in_DeferredRequest1
+*            *uint32_t maxAPDUSize =292
+
+            BufferSer4_in_BufferSer4Over2_1
+*            *uint16_t length=292
+*            *sizeof(BufferSer4)=2048
+*            *uint8_t bytes[SIZE_BufferSer4]=6415890
+
+            {OutstationSolState_in_OutstationSolState1
+
+                TxBuffer_in_TxBuffer1
+*                *uint32_t maxTxSize =292
+
+                BufferSer4_in_BufferSer4Over2_1
+*                *uint16_t length=292
+*                *sizeof(BufferSer4)=2048
+*                *uint8_t bytes[SIZE_BufferSer4]=6418026
+            }OutstationSolState_in_OutstationSolState_
+
+            {Inst_in_StateIdle_static1
+
+                {StateIdle_in_StateIdle1
+
+                    {OutstationState_in_OutstationState1
+
+                    }OutstationState_in_OutstationState_
+                }StateIdle_in_StateIdle_
+            }Inst_in_StateIdle_static_
+*        *((pOContext->database_in_OContext).analog_input).map[0].selection_in_StaticDataCell.variation= 0
+        }OContext_in_OContext_
+}OutstationMrzsObject_in_OutstationMrzsObject_
+
+{MrzsFrameSink_in_MrzsFrameSink1
+
+}MrzsFrameSink_in_MrzsFrameSink_
+
+{WriteData_in_LinkParserMrzsOver2_1
+
+    {OnRead_in_LinkLayerParser1
+*    *uint16_t numBytes= 10
+*    *Complete_State_LinkLayerParser= 3
+
+        {AdvanceWrite_in_ShiftableBuffer1
+*        *uint16_t aNumBytes= 10
+        }AdvanceWrite_in_ShiftableBuffer_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+
+        {Sync_in_ShiftableBuffer1
+
+            {NumBytesRead_in_ShiftableBuffer1
+*            *pShiftableBuffer->writePos= 10
+*            *pShiftableBuffer->readPos= 0
+*            *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+            }NumBytesRead_in_ShiftableBuffer_
+
+            {NumBytesRead_in_ShiftableBuffer1
+*            *pShiftableBuffer->writePos= 10
+*            *pShiftableBuffer->readPos= 0
+*            *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+            }NumBytesRead_in_ShiftableBuffer_
+        }Sync_in_ShiftableBuffer1_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+@@@@    *read_from_in_UInt16_static = 6398104<-1
+@@@@    *read_from_in_UInt16_static = 6398106<-2
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+@@@@    *read_from_in_UInt16_static = 6398108<-58228
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+*    ***FORMAT_HEX_BLOCK(logger, flags::LINK_RX_HEX, buffer.ReadBuffer().take(frameSize), 10, 18)***
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 0
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 10
+        }NumBytesRead_in_ShiftableBuffer_
+
+        {PushFrame_in_LinkLayerParser1
+
+{OnFrame_in_MrzsFrameSink1
+FinalDestination_in_MrzsFrameSink:
+*        **inspect_LinkHeaderFields**
+*        @*LinkFunction_uint8_t func= 64
+*        @*boolean isFromMaster= 1
+*        @*boolean fcb= 0
+*        @*boolean fcvdfc= 0
+*        @*Addresses addresses.source= 2
+*        @*Addresses addresses.destination= 1
+
+}OnFrame_in_MrzsFrameSink2_
+        }PushFrame_in_LinkLayerParser_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 10
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 0
+        }NumBytesRead_in_ShiftableBuffer_
+
+        {NumBytesRead_in_ShiftableBuffer1
+*        *pShiftableBuffer->writePos= 10
+*        *pShiftableBuffer->readPos= 10
+*        *return pShiftableBuffer->writePos - pShiftableBuffer->readPos= 0
+        }NumBytesRead_in_ShiftableBuffer_
+    }OnRead_in_LinkLayerParser_
+}WriteData_in_LinkParserMrzsOver2__
+
++***LinkFunction_PRI_RESET_LINK_STATES***
+
+    {FormatHeader_in_LinkFrame_static1
+
+        {ControlByte_in_LinkHeader_static1
+*        *boolean aIsMaster= 0
+*        *boolean aFcb= 0
+*        *boolean aFcvDfc= 0
+*        *LinkFunction_uint8_t aFunc= 0
+        }ControlByte_in_LinkHeader_static_
+*        *uint8_t ret= 0
+    *FormatHeader_in_LinkFrame_static2
+*    *LinkHeader header.ctrl= 0
+*    ***FORMAT_LOGGER_BLOCK(pLogger, flags::LINK_TX, 'Function: %s Dest: %u Source: %u Length: %u')***
+
+        {Write_in_LinkHeader1
+@@@@        *write_to 6397912->5
+@@@@        *write_to 6397913->100
+@@@@        *write_to 6397914->5
+@@@@        *write_in_UInt16_static = 6397916->1024
+@@@@        *write_in_UInt16_static = 6397918->1
+@@@@        *write_to 6397915->0
+
+            {AddCrc_in_CRC_static1
+*            *uint16_t length =8
+@@@@            *write_in_UInt16_static = 6397920->42521
+            }AddCrc_in_CRC_static_
+        }Write_in_LinkHeader_
+    }FormatHeader_in_LinkFrame_static2_
++**inspect_RSeq**
++@*buffer->buffer_[i]= 6397912<- 5 64 5 0 0 4 1 0 19 a6
+REQUIRE(t.sink.m_num_frames == 0)
+REQUIRE(t.parser.Statistics().numHeaderCrcError == 1)
+parser.Statistics().numBodyCrcError=  0
+parser.Statistics().numHeaderCrcError=  0

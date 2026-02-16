@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "EventTypeImpl.h"
 
 //EventTypeImpl_TypedEventRecord_for_OctetStringSpec instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec;
@@ -24,13 +24,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_static(voi
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType, EventType_Binary);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_BinarySpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_BinarySpec.iIEventType);
 }
 
@@ -122,13 +124,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_s
   std::cout<<getString_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType, EventType_DoubleBitBinary);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_DoubleBitBinarySpec.iIEventType);
 }
 
@@ -205,13 +209,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_static(voi
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType, EventType_Analog);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_AnalogSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec.iIEventType);
 }
 
@@ -304,7 +310,6 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogSpec_ov
 }
 //----------------------------------Analog-------------------------------------------
 //----------------------------------Counter-------------------------------------------
-
 IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_static(void)
 {
 #ifdef  LOG_INFO
@@ -315,13 +320,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_static(vo
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType, EventType_Counter);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_CounterSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_CounterSpec.iIEventType);
 }
 
@@ -385,7 +392,6 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_o
 }
 //----------------------------------Counter-------------------------------------------
 //----------------------------------FrozenCounter-------------------------------------------
-
 IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_static(void)
 {
 #ifdef  LOG_INFO
@@ -396,13 +402,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_sta
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType, EventType_FrozenCounter);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec.iIEventType);
 }
 
@@ -466,7 +474,6 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_FrozenCounter
 }
 //----------------------------------FrozenCounter-------------------------------------------
 //----------------------------------BinaryOutputStatus-------------------------------------------
-
 IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_static(void)
 {
 #ifdef  LOG_INFO
@@ -477,13 +484,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpe
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType, EventType_BinaryOutputStatus);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec.iIEventType);
 }
 
@@ -547,7 +556,6 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputS
 }
 //----------------------------------BinaryOutputStatus-------------------------------------------
 //----------------------------------AnalogOutputStatus-------------------------------------------
-
 IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_static(void)
 {
 #ifdef  LOG_INFO
@@ -558,13 +566,15 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpe
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType, EventType_AnalogOutputStatus);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override;
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType);
 }
 
@@ -640,6 +650,7 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_stati
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType, EventType_OctetString);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType, &instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec);
 
   instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
     SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;

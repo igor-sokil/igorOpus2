@@ -21,7 +21,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "CommandResponseHandler.h"
 
 #include "Group12.h"
@@ -53,20 +53,20 @@ void CommandResponseHandler_in_CommandResponseHandler(CommandResponseHandler *pC
 
 //  (pCommandResponseHandler->iIAPDUHandler).iIWhiteList.pIsAllowed_in_IWhiteList = IsAllowed_in_CommandResponseHandler_override;
 
-  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_ControlRelayOutputBlock_in_IAPDUHandler =
-    ProcessHeader_PrefixHeader_Indexed_for_ControlRelayOutputBlock_in_CommandResponseHandler_override;
+//  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_ControlRelayOutputBlock_in_IAPDUHandler =
+//    ProcessHeader_PrefixHeader_Indexed_for_ControlRelayOutputBlock_in_CommandResponseHandler_override;
 
-  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt16_in_IAPDUHandler =
-    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt16_in_CommandResponseHandler_override;
-  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt32_in_IAPDUHandler =
-    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt32_in_CommandResponseHandler_override;
-  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputFloat32_in_IAPDUHandler =
-    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputFloat32_in_CommandResponseHandler_override;
+//  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt16_in_IAPDUHandler =
+//    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt16_in_CommandResponseHandler_override;
+//  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt32_in_IAPDUHandler =
+//    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputInt32_in_CommandResponseHandler_override;
+//  (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_Indexed_for_AnalogOutputFloat32_in_IAPDUHandler =
+//    ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputFloat32_in_CommandResponseHandler_override;
 //      (pCommandResponseHandler->iIAPDUHandler).pProcessHeader_PrefixHeader_for_Indexed_AnalogOutputDouble64_in_IAPDUHandler =
 //                                     ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputDouble64_in_CommandResponseHandler_override;
 
   setParentPointer_in_IWhiteList(&((pCommandResponseHandler->iIAPDUHandler).iIWhiteList), pCommandResponseHandler, IWhiteListSELECTOR_for_CommandResponseHandler);
-  setParentPointer_in_IAPDUHandler(&(pCommandResponseHandler->iIAPDUHandler), pCommandResponseHandler);
+  setParentPointer_in_IAPDUHandler(&(pCommandResponseHandler->iIAPDUHandler), pCommandResponseHandler, IAPDUHandlerSELECTOR_for_CommandResponseHandler);
 }
 
 boolean IsAllowed_in_CommandResponseHandler_override(void *v, uint32_t headerCount, GroupVariation_uint16_t gv, QualifierCode_uint8_t qc)

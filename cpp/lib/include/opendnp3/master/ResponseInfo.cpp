@@ -1,5 +1,5 @@
 
-#include "header.h"
+#include "header_dnp3.h"
 #include "ResponseInfo.h"
 
 void ResponseInfo_in_ResponseInfo(ResponseInfo *pResponseInfo, boolean unsolicited, boolean fir, boolean fin)

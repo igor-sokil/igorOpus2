@@ -68,7 +68,8 @@
 #include "IOutstationApplication.h"
 
 //#include "TimerExe4cpp.h"
-//#include "IExecutorExe4cpp.h"
+#include "MockExecutorExe4cpp.h"
+#include "IExecutorExe4cpp.h"
 #include "Settable_for_LinkBroadcastAddress.h"
 #include "Pair_for_IINField_AppControlField.h"
 
@@ -208,7 +209,8 @@ typedef struct
   Addresses addresses_in_OContext;
 ////    Logger logger;
 ////    const std::shared_ptr<exe4cpp::IExecutor> executor;
-//  IExecutorExe4cpp* executor;
+//  MockExecutor*  executor;
+  IExecutorExe4cpp* executor;
 ////    const std::shared_ptr<ILowerLayer> lower;
   ILowerLayer* lower;
 ////    const std::shared_ptr<ICommandHandler> commandHandler;
@@ -262,8 +264,9 @@ void OContext_in_OContext(OContext *pOContext,
                           OutstationConfig* config,
                           DatabaseConfig* db_config,
 //             const Logger& logger,
-//                          IExecutorExe4cpp* executor,
-//                          ILowerLayer* lower
+//                          MockExecutor* executor,
+                          IExecutorExe4cpp* executor,
+                          ILowerLayer* lower,
                           ICommandHandler* commandHandler,
                           IOutstationApplication* application
                           );

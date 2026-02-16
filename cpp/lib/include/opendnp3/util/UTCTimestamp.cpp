@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "UTCTimestamp.h"
 
 void UTCTimestamp_in_UTCTimestampOver1(UTCTimestamp *pUTCTimestamp)

@@ -3,12 +3,16 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "StaticDataMap_for_Analog.h"
 
 uint16_t MapSize_for_StaticDataMap_for_AnalogSpec(StaticDataMap_for_AnalogSpec *pStaticDataMap_for_AnalogSpec)
 {
   return pStaticDataMap_for_AnalogSpec->db_config->analog_input_count;
+}
+void setMapSize_for_StaticDataMap_for_AnalogSpec(StaticDataMap_for_AnalogSpec *pStaticDataMap_for_AnalogSpec, uint16_t size)
+{
+  pStaticDataMap_for_AnalogSpec->db_config->analog_input_count = size;
 }
 
 ////template<class Spec> StaticDataMap<Spec>::StaticDataMap(const std::map<uint16_t, typename Spec::config_t>& config)
@@ -42,10 +46,9 @@ void StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(StaticDat
   std::cout<<"*"<<"*config->analog_input_count= "<<MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap)<<'\n';
 //  std::cout<<"*config.size()= "<<config.size()<<'\n';
 #endif
-  if(pStaticDataMap->db_config->analog_input_count > SIZE_StaticDataMap_for_AnalogSpec)
+  if(MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap) > SIZE_StaticDataMap_for_AnalogSpec)
   {
-    pStaticDataMap->db_config->analog_input_count = 0;
-    return;
+    setMapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap, SIZE_StaticDataMap_for_AnalogSpec);
   }//if
   for (int i=0; i<MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap); i++)
   {

@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "GroupVariationID.h"
 
 void GroupVariationID_in_GroupVariationIDOver1(GroupVariationID *pGroupVariationID)

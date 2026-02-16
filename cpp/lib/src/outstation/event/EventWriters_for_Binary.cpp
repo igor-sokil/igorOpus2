@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "EventWriters_for_Binary.h"
 #include "HeaderWriter_for_Binary.h"
 
@@ -56,8 +56,9 @@ void BasicEventWriter_for_Binary_in_BasicEventWriter_for_Binary(BasicEventWriter
   PrefixedWriteIterator_for_UInt16_Binary temp = IterateOverCountWithPrefix_for_UInt16_Binary_in_HeaderWriter(writer, QualifierCode_UINT16_CNT_UINT16_INDEX, serializer);
   pBasicEventWriter_for_Binary->iterator = temp;
 
-  (pBasicEventWriter_for_Binary->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_BasicEventWriter_for_Binary_override;
-  setParentPointer_in_IEventWriter_for_Binary(&(pBasicEventWriter_for_Binary->iIEventWriter_for_Binary), pBasicEventWriter_for_Binary);
+//  (pBasicEventWriter_for_Binary->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_BasicEventWriter_for_Binary_override;
+  setParentPointer_in_IEventWriter_for_Binary(&(pBasicEventWriter_for_Binary->iIEventWriter_for_Binary),
+           pBasicEventWriter_for_Binary, IEventWriter_for_BinarySELECTOR_for_BasicEventWriter_for_Binary);
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -103,17 +104,16 @@ void CTOEventWriter_for_Binary_Group51Var1_in_CTOEventWriter_for_Binary_Group51V
 
   pCTOEventWriter_for_Binary_Group51Var1->cto = cto->timeDNPTime;
 
-  //PrefixedWriteIterator_for_UInt16_Binary temp
   pCTOEventWriter_for_Binary_Group51Var1->iterator = IterateOverCountWithPrefixAndCTO_for_UInt16_Binary_Group51Var1_in_HeaderWriter(
         writer,
         QualifierCode_UINT16_CNT_UINT16_INDEX,
         serializer,
         cto
       );
-//  pCTOEventWriter_for_Binary_Group51Var1->iterator = temp;
 
-  (pCTOEventWriter_for_Binary_Group51Var1->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_CTOEventWriter_for_Binary_Group51Var1_override;
-  setParentPointer_in_IEventWriter_for_Binary(&(pCTOEventWriter_for_Binary_Group51Var1->iIEventWriter_for_Binary), pCTOEventWriter_for_Binary_Group51Var1);
+//  (pCTOEventWriter_for_Binary_Group51Var1->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_CTOEventWriter_for_Binary_Group51Var1_override;
+  setParentPointer_in_IEventWriter_for_Binary(&(pCTOEventWriter_for_Binary_Group51Var1->iIEventWriter_for_Binary), 
+        pCTOEventWriter_for_Binary_Group51Var1, IEventWriter_for_BinarySELECTOR_for_CTOEventWriter_for_Binary_Group51Var1);
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -309,17 +309,16 @@ void CTOEventWriter_for_Binary_Group51Var2_in_CTOEventWriter_for_Binary_Group51V
 #endif
   pCTOEventWriter_for_Binary_Group51Var2->cto = cto->timeDNPTime;
 
-  //PrefixedWriteIterator_for_UInt16_Binary temp
   pCTOEventWriter_for_Binary_Group51Var2->iterator = IterateOverCountWithPrefixAndCTO_for_UInt16_Binary_Group51Var2_in_HeaderWriter(
         writer,
         QualifierCode_UINT16_CNT_UINT16_INDEX,
         serializer,
         cto
       );
-//  pCTOEventWriter_for_Binary_Group51Var2->iterator = temp;
 
-  (pCTOEventWriter_for_Binary_Group51Var2->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_CTOEventWriter_for_Binary_Group51Var2_override;
-  setParentPointer_in_IEventWriter_for_Binary(&(pCTOEventWriter_for_Binary_Group51Var2->iIEventWriter_for_Binary), pCTOEventWriter_for_Binary_Group51Var2);
+//  (pCTOEventWriter_for_Binary_Group51Var2->iIEventWriter_for_Binary).pWrite_in_IEventWriter_for_Binary = Write_in_CTOEventWriter_for_Binary_Group51Var2_override;
+  setParentPointer_in_IEventWriter_for_Binary(&(pCTOEventWriter_for_Binary_Group51Var2->iIEventWriter_for_Binary), 
+           pCTOEventWriter_for_Binary_Group51Var2, IEventWriter_for_BinarySELECTOR_for_CTOEventWriter_for_Binary_Group51Var2);
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif

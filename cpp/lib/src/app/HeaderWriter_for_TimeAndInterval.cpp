@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "HeaderWriter_for_TimeAndInterval.h"
 
 ////template<class CountType, class ValueType>

@@ -22,7 +22,7 @@
 #include <iostream>
 #endif
 ////#include "opendnp3/outstation/SimpleCommandHandler.h"
-#include "header.h"
+#include "header_dnp3.h"
 #include "SimpleCommandHandler.h"
 
 ////namespace opendnp3
@@ -53,23 +53,23 @@ void SimpleCommandHandler_in_SimpleCommandHandler(SimpleCommandHandler *pSimpleC
 
   setParentPointer_in_SimpleCommandHandler(pSimpleCommandHandler, pSimpleCommandHandler);
 
-  (pSimpleCommandHandler->iICommandHandler).pBegin_in_ICommandHandler = Begin_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pEnd_in_ICommandHandler = End_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pSelect_ControlRelayOutputBlock_in_ICommandHandler = Select_ControlRelayOutputBlock_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pOperate_ControlRelayOutputBlock_in_ICommandHandler = Operate_ControlRelayOutputBlock_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pBegin_in_ICommandHandler = Begin_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pEnd_in_ICommandHandler = End_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pSelect_ControlRelayOutputBlock_in_ICommandHandler = Select_ControlRelayOutputBlock_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pOperate_ControlRelayOutputBlock_in_ICommandHandler = Operate_ControlRelayOutputBlock_in_SimpleCommandHandler_override;
 
-  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputInt16_in_ICommandHandler = Select_AnalogOutputInt16_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputInt16_in_ICommandHandler = Select_AnalogOutputInt16_in_SimpleCommandHandler_override;
 
-  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputInt16_in_ICommandHandler = Operate_AnalogOutputInt16_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputInt16_in_ICommandHandler = Operate_AnalogOutputInt16_in_SimpleCommandHandler_override;
 
-  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputInt32_in_ICommandHandler = Select_AnalogOutputInt32_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputInt32_in_ICommandHandler = Operate_AnalogOutputInt32_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputInt32_in_ICommandHandler = Select_AnalogOutputInt32_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputInt32_in_ICommandHandler = Operate_AnalogOutputInt32_in_SimpleCommandHandler_override;
 
-  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputFloat32_in_ICommandHandler = Select_AnalogOutputFloat32_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputFloat32_in_ICommandHandler = Operate_AnalogOutputFloat32_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputFloat32_in_ICommandHandler = Select_AnalogOutputFloat32_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputFloat32_in_ICommandHandler = Operate_AnalogOutputFloat32_in_SimpleCommandHandler_override;
 
-  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputDouble64_in_ICommandHandler = Select_AnalogOutputDouble64_in_SimpleCommandHandler_override;
-  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputDouble64_in_ICommandHandler = Operate_AnalogOutputDouble64_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pSelect_AnalogOutputDouble64_in_ICommandHandler = Select_AnalogOutputDouble64_in_SimpleCommandHandler_override;
+//  (pSimpleCommandHandler->iICommandHandler).pOperate_AnalogOutputDouble64_in_ICommandHandler = Operate_AnalogOutputDouble64_in_SimpleCommandHandler_override;
 
   setParentPointer_in_ICommandHandler(&(pSimpleCommandHandler->iICommandHandler), pSimpleCommandHandler);
 }

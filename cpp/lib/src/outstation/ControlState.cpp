@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "ControlState.h"
 
 void ControlState_in_ControlStateOver1(ControlState *pControlState)

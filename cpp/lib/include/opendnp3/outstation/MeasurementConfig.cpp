@@ -1,4 +1,4 @@
-#include "header.h"
+#include "header_dnp3.h"
 #include "MeasurementConfig.h"
 
 void TimeAndIntervalConfig_in_TimeAndIntervalConfig(TimeAndIntervalConfig *pTimeAndIntervalConfig)

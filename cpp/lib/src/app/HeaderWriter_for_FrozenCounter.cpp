@@ -2,7 +2,7 @@
 #ifdef  LOG_INFO
 #include <iostream>
 #endif
-#include "header.h"
+#include "header_dnp3.h"
 #include "HeaderWriter_for_FrozenCounter.h"
 
 //---------------------------------------------IterateOverRange_for_UInt8_FrozenCounter_in_HeaderWriter--------------------------------------------
