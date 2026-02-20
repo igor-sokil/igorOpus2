@@ -65,8 +65,10 @@ typedef struct
 ////    static CommandStatus GetStatusFromFlags(Flags flags);
 } BinaryCommandEvent;
 
-const uint8_t ValueMask_in_BinaryCommandEvent = 0x80;
-const uint8_t StatusMask_in_BinaryCommandEvent = 0x7F;
+//const uint8_t ValueMask_in_BinaryCommandEvent = 0x80;
+//const uint8_t StatusMask_in_BinaryCommandEvent = 0x7F;
+#define  ValueMask_in_BinaryCommandEvent 0x80
+#define  StatusMask_in_BinaryCommandEvent 0x7F
 
 boolean GetValueFromFlags_In_BinaryCommandEvent_static(Flags flags);
 CommandStatus_uint8_t GetStatusFromFlags_In_BinaryCommandEvent_static(Flags flags);

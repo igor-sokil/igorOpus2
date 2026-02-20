@@ -305,6 +305,16 @@ boolean ReadTarget_in_Group43Var7_static(RSeq_for_Uint16_t*, AnalogCommandEvent*
 boolean WriteTarget_in_Group43Var7_static(AnalogCommandEvent*, WSeq_for_Uint16_t*);
 
 DNP3Serializer_for_AnalogCommandEvent  Inst_in_Group43Var7_static(void);
+GroupVariationID ID_in_Group43Var1_static(void);
+GroupVariationID ID_in_Group43Var4_static(void);
+GroupVariationID ID_in_Group43Var5_static(void);
+GroupVariationID ID_in_Group43Var7_static(void);
+GroupVariationID ID_in_Group43Var2_static(void);
+GroupVariationID ID_in_Group43Var3_static(void);
+
+
+
+
 
 /*
 // Analog Command Event - Double-precision With Time

@@ -84,8 +84,8 @@ void  Database_in_Database(Database *pDatabase,
   setParentPointer_in_IStaticSelector(&(pDatabase->iIStaticSelector), pDatabase);
   // ------- IStaticSelector -------------
   // ------- IClassAssigner -------------
-  pDatabase->iIClassAssigner.pAssignClassToRange_in_IClassAssigner = AssignClassToRange_in_Database_override;
-  pDatabase->iIClassAssigner.pAssignClassToAll_in_IClassAssigner   = AssignClassToAll_in_Database_override;
+//  pDatabase->iIClassAssigner.pAssignClassToRange_in_IClassAssigner = AssignClassToRange_in_Database_override;
+//  pDatabase->iIClassAssigner.pAssignClassToAll_in_IClassAssigner   = AssignClassToAll_in_Database_override;
   setParentPointer_in_IClassAssigner(&(pDatabase->iIClassAssigner), pDatabase);
   // ------- IClassAssigner -------------
   // ------- IResponseLoader -------------

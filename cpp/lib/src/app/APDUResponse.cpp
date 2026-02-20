@@ -48,21 +48,21 @@ void SetIIN_in_APDUResponse(APDUResponse *pAPDUResponse, IINField *indications)
   std::cout<<getString_stack_info();
   std::cout<<"{SetIIN_in_APDUResponse1"<<'\n';
   std::cout<<"@@@@"<<getString_stack_info();
-  std::cout<<"*write_uint8="<<(uint32_t)((pAPDUResponse -> aAPDUWrapper).buffer.buffer_+2)<<"->"<<(uint16_t)indications->LSB<<'\n';
+  std::cout<<"*write_uint8="<<(uint32_t)((pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_+2)<<"->"<<(uint16_t)indications->LSB<<'\n';
   std::cout<<"@@@@"<<getString_stack_info();
-  std::cout<<"*write_uint8="<<(uint32_t)((pAPDUResponse -> aAPDUWrapper).buffer.buffer_+3)<<"->"<<(uint16_t)indications->MSB<<'\n';
+  std::cout<<"*write_uint8="<<(uint32_t)((pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_+3)<<"->"<<(uint16_t)indications->MSB<<'\n';
   std::cout<<getString_stack_info();
   std::cout<<"}SetIIN_in_APDUResponse_"<<'\n';
   decrement_stack_info();
 #endif
-  (pAPDUResponse -> aAPDUWrapper).buffer.buffer_[2] = indications->LSB;
-  (pAPDUResponse -> aAPDUWrapper).buffer.buffer_[3] = indications->MSB;
+  (pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_[2] = indications->LSB;
+  (pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_[3] = indications->MSB;
 }
 
 IINField GetIIN_in_APDUResponse(APDUResponse *pAPDUResponse)
 {
   IINField iIINField;
-  IINField_in_IINFieldOver3(&iIINField, (pAPDUResponse -> aAPDUWrapper).buffer.buffer_[2], (pAPDUResponse -> aAPDUWrapper).buffer.buffer_[3]);
+  IINField_in_IINFieldOver3(&iIINField, (pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_[2], (pAPDUResponse -> aAPDUWrapper).buffer_in_APDUWrapper.buffer_[3]);
   return iIINField;
 }
 

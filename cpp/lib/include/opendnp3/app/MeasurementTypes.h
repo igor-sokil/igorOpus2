@@ -103,8 +103,10 @@ void DoubleBitBinary_in_DoubleBitBinaryOver4(DoubleBitBinary *pDoubleBitBinary, 
 void DoubleBitBinary_in_DoubleBitBinaryOver5(DoubleBitBinary *pDoubleBitBinary, DoubleBit_uint8_t value, Flags flags);
 void DoubleBitBinary_in_DoubleBitBinaryOver6(DoubleBitBinary *pDoubleBitBinary, DoubleBit_uint8_t value, Flags flags, DNPTime timeDNPTime);
 
-const uint8_t ValueMask_in_DoubleBitBinary = 0xC0;
-const uint8_t QualityMask_in_DoubleBitBinary = 0x3F;
+//const uint8_t ValueMask_in_DoubleBitBinary = 0xC0;
+//const uint8_t QualityMask_in_DoubleBitBinary = 0x3F;
+#define  ValueMask_in_DoubleBitBinary 0xC0
+#define  QualityMask_in_DoubleBitBinary 0x3F
 
 DoubleBit_uint8_t GetValue_in_DoubleBitBinary_static(Flags flags);
 

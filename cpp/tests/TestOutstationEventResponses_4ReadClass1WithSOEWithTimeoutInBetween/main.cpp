@@ -143,9 +143,9 @@ qDebug()<<"{------------too late";
 //
 //std::string name2 = SolicitedConfirm_in_APDUHexBuilders(0);
 // std::cout << "name2= " << name2<<'\n';
-    uint8_t name2[] = {2, 0xC0, 0x00};
-    SendToOutstation_in_OutstationTestObject(&t, name2);  
-//
+//    uint8_t name2[] = {2, 0xC0, 0x00};
+//    SendToOutstation_in_OutstationTestObject(&t, name2);  
+
 qDebug()<<"}------------too late";
 
     // Generate another event

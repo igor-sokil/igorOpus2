@@ -21,7 +21,7 @@ IINField SelectIndices_in_IStaticSelector(IStaticSelector *pIStaticSelector, Gro
 void Unselect_in_IStaticSelector(IStaticSelector *pIStaticSelector)
 {
 //  (pIStaticSelector->pUnselect_in_IStaticSelector)(pIStaticSelector);
-  return Unselect_in_Database_override(pIStaticSelector);
+   Unselect_in_Database_override(pIStaticSelector);
 }
 
 void* getParentPointer_in_IStaticSelector(IStaticSelector* pIStaticSelector)

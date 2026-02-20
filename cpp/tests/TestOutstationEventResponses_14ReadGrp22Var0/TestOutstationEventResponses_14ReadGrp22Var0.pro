@@ -8,10 +8,10 @@ TARGET = TestOutstationEventResponses_14ReadGrp22Var0
 QT += widgets
 
 
-HEADERS       = ..\..\..\qtsrc\key_filter.h \
-                ..\..\..\qtsrc\MainWindow.h 
+HEADERS       = key_filter.h \
+                MainWindow.h 
 
-LIBS += "D:\MRZV_HOME\Xtended\dnp3\CODE_opendnp3-mrzs\opendnp3-mrzs\dll\libqt_dnp3.a"
+LIBS += "D:\MRZV_HOME\Xtended\dnp3\qtvirtual_dnp3\dll\libqt_dnp3.a"
 
 include(../../../include_tests.pri)
 

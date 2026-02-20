@@ -140,6 +140,8 @@ void SequenceNum_for_uint8_Modulus64_in_SequenceNum_for_uint8_Modulus64Over2(Seq
 void Increment_in_SequenceNum_for_uint8_Modulus64(SequenceNum_for_uint8_Modulus64 *pSequenceNum_for_uint8_Modulus64);
 boolean Equals_in_SequenceNum_for_uint8_Modulus64(SequenceNum_for_uint8_Modulus64 *pSequenceNum_for_uint8_Modulus64, uint8_t other);
 SequenceNum_for_uint8_Modulus64 Next_in_SequenceNum_for_uint8_Modulus64Over1(SequenceNum_for_uint8_Modulus64 *pSequenceNum_for_uint8_Modulus64);
+void Reset_in_SequenceNum_for_uint8_Modulus16(SequenceNum_for_uint8_Modulus16 *pSequenceNum_for_uint8_Modulus16);
+void Reset_in_SequenceNum_for_uint8_Modulus64(SequenceNum_for_uint8_Modulus64 *pSequenceNum_for_uint8_Modulus64);
 //----------------------------------Modulus64---------------------------------------
 
 ////} // namespace opendnp3

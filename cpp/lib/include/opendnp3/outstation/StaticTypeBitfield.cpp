@@ -14,7 +14,8 @@ void StaticTypeBitField_in_StaticTypeBitFieldOver2(StaticTypeBitField *pStaticTy
 StaticTypeBitField AllTypes_in_StaticTypeBitField_static(void)
 {
   StaticTypeBitField sStaticTypeBitField;
-  StaticTypeBitField_in_StaticTypeBitFieldOver2(&sStaticTypeBitField, ~0);
+//void StaticTypeBitField_in_StaticTypeBitFieldOver2(StaticTypeBitField *pStaticTypeBitField, uint16_t mask);
+  StaticTypeBitField_in_StaticTypeBitFieldOver2(&sStaticTypeBitField, (uint16_t)(~0));
 ////        return StaticTypeBitField(~0);
   return sStaticTypeBitField;
 }
@@ -27,7 +28,8 @@ boolean IsSet_in_StaticTypeBitField(StaticTypeBitField *pStaticTypeBitField, Sta
 StaticTypeBitField Except_in_StaticTypeBitField(StaticTypeBitField *pStaticTypeBitField, StaticTypeBitmask_uint16_t type)
 {
   StaticTypeBitField sStaticTypeBitField;
-  StaticTypeBitField_in_StaticTypeBitFieldOver2(&sStaticTypeBitField, pStaticTypeBitField->mask & ~((uint16_t)(type)));
+  uint16_t tmp = ~(int)type;
+  StaticTypeBitField_in_StaticTypeBitFieldOver2(&sStaticTypeBitField, (uint16_t)(pStaticTypeBitField->mask) & tmp); 
 ////        return StaticTypeBitField(mask & ~static_cast<uint16_t>(type));
   return sStaticTypeBitField;
 }

@@ -89,7 +89,7 @@ boolean Write_in_Group30Var1_static(Group30Var1*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group30Var1_static(RSeq_for_Uint16_t*, Analog*);
 boolean WriteTarget_in_Group30Var1_static(Analog*, WSeq_for_Uint16_t*);
 
-const StaticAnalogVariation_uint8_t svariation_in_Group30Var1 = StaticAnalogVariation_Group30Var1;
+#define svariation_in_Group30Var1  StaticAnalogVariation_Group30Var1
 
 // Analog Input - 16-bit With Flag
 ////struct Group30Var2
@@ -126,7 +126,7 @@ boolean Write_in_Group30Var2_static(Group30Var2*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group30Var2_static(RSeq_for_Uint16_t*, Analog*);
 boolean WriteTarget_in_Group30Var2_static(Analog*, WSeq_for_Uint16_t*);
 
-const StaticAnalogVariation_uint8_t svariation_in_Group30Var2 = StaticAnalogVariation_Group30Var2;
+#define svariation_in_Group30Var2  StaticAnalogVariation_Group30Var2
 
 // Analog Input - 32-bit Without Flag
 ////struct Group30Var3
@@ -162,7 +162,7 @@ boolean Write_in_Group30Var3_static(Group30Var3*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group30Var3_static(RSeq_for_Uint16_t*, Analog*);
 boolean WriteTarget_in_Group30Var3_static(Analog*, WSeq_for_Uint16_t*);
 
-const StaticAnalogVariation_uint8_t svariation_in_Group30Var3 = StaticAnalogVariation_Group30Var3;
+#define svariation_in_Group30Var3  StaticAnalogVariation_Group30Var3
 
 // Analog Input - 16-bit Without Flag
 ////struct Group30Var4
@@ -198,7 +198,7 @@ boolean Write_in_Group30Var4_static(Group30Var4*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group30Var4_static(RSeq_for_Uint16_t*, Analog*);
 boolean WriteTarget_in_Group30Var4_static(Analog*, WSeq_for_Uint16_t*);
 
-const StaticAnalogVariation_uint8_t svariation_in_Group30Var4 = StaticAnalogVariation_Group30Var4;
+#define svariation_in_Group30Var4  StaticAnalogVariation_Group30Var4
 
 // Analog Input - Single-precision With Flag
 ////struct Group30Var5
@@ -235,7 +235,7 @@ boolean Write_in_Group30Var5_static(Group30Var5*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group30Var5_static(RSeq_for_Uint16_t*, Analog*);
 boolean WriteTarget_in_Group30Var5_static(Analog*, WSeq_for_Uint16_t*);
 
-const StaticAnalogVariation_uint8_t svariation_in_Group30Var5 = StaticAnalogVariation_Group30Var5;
+#define svariation_in_Group30Var5  StaticAnalogVariation_Group30Var5
 
 // Analog Input - Double-precision With Flag
 ////struct Group30Var6

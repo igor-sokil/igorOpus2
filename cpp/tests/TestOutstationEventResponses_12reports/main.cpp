@@ -9,13 +9,13 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "header.h"
+#include "../../../header_dnp3.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
-#include "APDUHexBuilders.h"
-#include "DatabaseHelpers.h"
-#include "TestOutstationEventResponses.h"
+//#include "APDUHexBuilders.h"
+//#include "DatabaseHelpers.h"
+//#include "TestOutstationEventResponses.h"
 
 #define UNUSED(x) (void)(x)
 
@@ -24,11 +24,13 @@ key_filter *pkf;
 
 MainWindow *mainWindow;
 
+DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num);
+
 void configure_in_12reports(DatabaseConfig*);
 void configure_in_12reports(DatabaseConfig* db)
 {
 ////    auto configure = [](DatabaseConfig& db) { db.counter[0].evariation = EventCounterVariation::Group22Var6; };
-        db->counter[0].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var6;
+        db->counter_config[0].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var6;
 }
 
 void update_in_12reports(IUpdateHandler*);
@@ -59,7 +61,7 @@ int main(int argc, char *argv[])
 
 qDebug()<<"********SUITE('12reports')********";
 ////    TestEventRead("C0 01 3C 02 06", "E0 81 80 00 16 06 28 01 00 00 00 01 17 00 78 E6 B7 2D 60 01", update, configure);
-
+/*
  std::string request("C0 01 3C 02 06");       
  std::string response("E0 81 80 00 16 06 28 01 00 00 00 01 17 00 78 E6 B7 2D 60 01");       
  TestEventRead(request, response,
@@ -67,6 +69,37 @@ qDebug()<<"********SUITE('12reports')********";
                    update_in_12reports,
                    ////const std::function<void(DatabaseConfig& db)>& configure = [](DatabaseConfig& view) {})
                    configure_in_12reports);
+*/
+    OutstationConfig config;
+    OutstationConfig_in_OutstationConfig(&config);
+////    OutstationConfig config;
+////    config.eventBufferConfig = EventBufferConfig::AllTypes(10);
+   EventBufferConfig etemp = AllTypes_in_EventBufferConfig_static(10);
+   config.eventBufferConfig = etemp;
+
+////    DatabaseConfig database = configure::by_count_of::all_types(5);
+////    configure(database);
+  getDataMapKeys_for_CounterSpec()[0] = 0;
+////    OutstationTestObject t(config, configure::by_count_of::all_types(100));
+//    DatabaseConfig tmp = binary_input_in_DatabaseHelpers(1);
+  DatabaseConfig database = all_types_in_DatabaseHelpers(1);
+
+  configure_in_12reports(&database);
+
+////    OutstationTestObject t(config, std::move(database));
+    OutstationTestObject t;
+    OutstationTestObject_in_OutstationTestObject(&t, &config, &database);
+
+////    t.LowerLayerUp();
+
+////    t.Transaction([&](IUpdateHandler& db) { loadFun(db); });
+    Transaction_in_OutstationTestObject(&t, update_in_12reports);//void (*apply)(IUpdateHandler*));
+
+////    t.SendToOutstation(request);
+    uint8_t name1[] = {5, 0xC0, 0x01, 0x3C, 0x02, 0x06};
+    SendToOutstation_in_OutstationTestObject(&t, name1);  
+////    REQUIRE(t.lower->PopWriteAsHex() == response);
+qDebug()<<"REQUIRE('E0 81 80 00 16 06 28 01 00 00 00 01 17 00 78 E6 B7 2D 60 01' == t.lower->PopWriteAsHex())";
 
 /*
 TEST_CASE(SUITE("12reports g22v6 correctly"))
@@ -222,3 +255,11 @@ bool key_filter::eventFilter(QObject *obj, QEvent *event)
   return false;
 }
 
+DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num)
+{
+//void DatabaseConfig_in_DatabaseConfig(uint16_t all_types);
+////        return opendnp3::DatabaseConfig(num);
+  DatabaseConfig dDatabaseConfig;
+  DatabaseConfig_in_DatabaseConfig(&dDatabaseConfig, num);
+  return dDatabaseConfig;
+}

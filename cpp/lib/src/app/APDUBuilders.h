@@ -37,7 +37,7 @@ boolean WriteClassHeaders_in_APDUBuilders_static(HeaderWriter* writer, ClassFiel
 
 void ReadIntegrity_in_APDUBuilders_static(APDURequest* request, ClassField* classes, uint8_t seq);// = 0);
 
-void ReadAllObjects_in_APDUBuilders_static(APDURequest& request, GroupVariationID gvId, uint8_t seq);// = 0);
+void ReadAllObjects_in_APDUBuilders_static(APDURequest* request, GroupVariationID gvId, uint8_t seq);// = 0);
 
 void DisableUnsolicited_in_APDUBuilders_static(APDURequest* request, uint8_t seq);// = 0);
 

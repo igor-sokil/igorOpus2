@@ -91,6 +91,7 @@ AppControlField LoadResponse_in_ResponseContext(ResponseContext *pResponseContex
     AppControlField aAppControlField;
     AppControlField_in_AppControlFieldOver3(&aAppControlField, fir, fin, con, false);
 #ifdef  LOG_INFO
+  inspect_AppControlField(&aAppControlField);
   std::cout<<'\n';
   std::cout<<getString_stack_info();
   std::cout<<"}LoadResponse_in_ResponseContext1_"<<'\n';

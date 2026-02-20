@@ -500,7 +500,7 @@ boolean ReadTarget_in_Group32Var5_static(RSeq_for_Uint16_t* buff, Analog* output
   if(Read_in_Group32Var5_static(buff, &value))
   {
 ////    output = AnalogFactory::From(value.flags, value.value);
-    Analog temp = From_in_AnalogFactory_staticOver2(value.flags, value.value);
+    Analog temp = From_in_AnalogFactory_staticOver2(value.flags, (double)value.value);
     *output = temp;
     return true;
   }
@@ -694,7 +694,7 @@ boolean ReadTarget_in_Group32Var7_static(RSeq_for_Uint16_t* buff, Analog* output
   Group32Var7_in_Group32Var7(&value);
   if(Read_in_Group32Var7_static(buff, &value))
   {
-    Analog temp = From_in_AnalogFactory_staticOver3(value.flags, value.value, value.timeDNPTime);
+    Analog temp = From_in_AnalogFactory_staticOver3(value.flags, (double)value.value, value.timeDNPTime);
     *output = temp;
     return true;
   }

@@ -15,9 +15,14 @@ boolean LoadWithRangeIterator_BinarySpec_for_UInt16_in_StaticWriters(StaticDataM
 
 //----------------------------------------LoadWithRangeIterator_BinarySpec_for_UInt---------------------------------------------------------
 
-boolean LoadWithBitfieldIterator_BinarySpec_for_UInt8(StaticDataMap_for_BinarySpec* map, BitfieldRangeWriteIterator_for_UInt8 *iter, StaticBinaryVariation_uint8_t variation);
-boolean LoadWithBitfieldIterator_BinarySpec_for_UInt16(StaticDataMap_for_BinarySpec* map, BitfieldRangeWriteIterator_for_UInt16 *iter, StaticBinaryVariation_uint8_t variation);
+//boolean LoadWithBitfieldIterator_BinarySpec_for_UInt8(StaticDataMap_for_BinarySpec* map, BitfieldRangeWriteIterator_for_UInt8 *iter, StaticBinaryVariation_uint8_t variation);
+boolean LoadWithBitfieldIterator_BinarySpec_for_UInt8_in_StaticWriters(StaticDataMap_for_BinarySpec* map,
+    BitfieldRangeWriteIterator_for_UInt8 *iter, StaticBinaryVariation_uint8_t variation);
+//boolean LoadWithBitfieldIterator_BinarySpec_for_UInt16(StaticDataMap_for_BinarySpec* map, BitfieldRangeWriteIterator_for_UInt16 *iter, StaticBinaryVariation_uint8_t variation);
+boolean LoadWithBitfieldIterator_BinarySpec_for_UInt16_in_StaticWriters(StaticDataMap_for_BinarySpec* map,
+    BitfieldRangeWriteIterator_for_UInt16 *iter, StaticBinaryVariation_uint8_t variation);
 
+boolean WriteWithSerializer_BinarySpec_for_Group1Var2_in_StaticWriters_static(StaticDataMap_for_BinarySpec* map, HeaderWriter* writer);
 
 
 #endif

@@ -159,6 +159,7 @@ void StateIdle_in_StateIdle(StateIdle *pStateIdle)
 void* OnConfirm_in_StateIdle_override(void* pOutstationState, void *pOContext, ParsedRequest* request)
 {
   UNUSED(pOutstationState);
+  UNUSED(pOContext);
 //  UNUSED(pOContext);
   UNUSED(request);
 ////    FORMAT_LOG_BLOCK(ctx.logger, flags::WARN, "unexpected confirm while IDLE with sequence: %u",
@@ -574,6 +575,9 @@ void* OnConfirm_in_StateUnsolicitedConfirmWait_override(void* pOutstationState, 
   std::cout<<getString_stack_info();
   std::cout<<"{OnConfirm_in_StateUnsolicitedConfirmWait_override1"<<std::endl;
 #endif
+  UNUSED(pOutstationState);
+  UNUSED(ctx);
+  UNUSED(request);
 /*
   StateUnsolicitedConfirmWait *parent =
     (StateUnsolicitedConfirmWait*)getParentPointer_in_OutstationState((OutstationState*)pOutstationState);

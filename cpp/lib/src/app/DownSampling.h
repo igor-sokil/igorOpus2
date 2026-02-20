@@ -62,17 +62,25 @@ boolean Apply_in_DownSampling_for_Float32(double src, float *target);
 
 ////template<class Source, class Target>
 ////const Target DownSampling<Source, Target>::TARGET_MAX(std::numeric_limits<Target>::max());
-const double TARGET_MAX_for_double = (double) 0xFFFFFFFFFFFFFFFF;////(std::numeric_limits<double>::max());
-const float TARGET_MAX_for_float  = (float)  0xFFFFFFFF;////(std::numeric_limits<double>::max());
-const uint32_t TARGET_MAX_for_uint32 = (uint32_t) 0x7FFFFFFF;////(std::numeric_limits<uint32_t>::max());
-const uint16_t TARGET_MAX_for_uint16 = (uint16_t) 0x7FFF;////(std::numeric_limits<uint16_t>::max());
+//const double TARGET_MAX_for_double = (double) 0xFFFFFFFFFFFFFFFF;////(std::numeric_limits<double>::max());
+//const float TARGET_MAX_for_float  = (float)  0xFFFFFFFF;////(std::numeric_limits<double>::max());
+//const uint32_t TARGET_MAX_for_uint32 = (uint32_t) 0x7FFFFFFF;////(std::numeric_limits<uint32_t>::max());
+//const uint16_t TARGET_MAX_for_uint16 = (uint16_t) 0x7FFF;////(std::numeric_limits<uint16_t>::max());
+#define TARGET_MAX_for_double ((double) 0xFFFFFFFFFFFFFFFF)
+#define TARGET_MAX_for_float ((float)  0xFFFFFFFF)
+#define TARGET_MAX_for_uint32 ((uint32_t) 0x7FFFFFFF)
+#define TARGET_MAX_for_uint16 ((uint16_t) 0x7FFF)
 
 ////template<class Source, class Target>
 ////const Target DownSampling<Source, Target>::TARGET_MIN(std::numeric_limits<Target>::lowest());
-const double TARGET_MIN_for_double = -((double) 0xFFFFFFFFFFFFFFFF);////(std::numeric_limits<double>::lowest());
-const float TARGET_MIN_for_float  = -((float)  0xFFFFFFFF);////(std::numeric_limits<double>::lowest());
-const uint32_t TARGET_MIN_for_uint32 = 0x00000000;////(std::numeric_limits<uint32_t>::lowest());
-const uint16_t TARGET_MIN_for_uint16 = 0x0000;////(std::numeric_limits<uint16_t>::lowest());
+//const double TARGET_MIN_for_double = -((double) 0xFFFFFFFFFFFFFFFF);////(std::numeric_limits<double>::lowest());
+//const float TARGET_MIN_for_float  = -((float)  0xFFFFFFFF);////(std::numeric_limits<double>::lowest());
+//const uint32_t TARGET_MIN_for_uint32 = 0x00000000;////(std::numeric_limits<uint32_t>::lowest());
+//const uint16_t TARGET_MIN_for_uint16 = 0x0000;////(std::numeric_limits<uint16_t>::lowest());
+#define TARGET_MIN_for_double (-((double) 0xFFFFFFFFFFFFFFFF))
+#define TARGET_MIN_for_float (-((float)  0xFFFFFFFF))
+#define TARGET_MIN_for_uint32 0x00000000
+#define TARGET_MIN_for_uint16 0x0000
 
 ////} // namespace opendnp3
 

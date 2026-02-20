@@ -33,8 +33,8 @@
 ////namespace opendnp3
 ////{
 
-const uint32_t APDUHeader_REQUEST_SIZE = 2;
-const uint32_t APDUHeader_RESPONSE_SIZE = 4;
+#define APDUHeader_REQUEST_SIZE  2
+#define APDUHeader_RESPONSE_SIZE  4
 
 //struct APDUHeader
 typedef struct
@@ -90,7 +90,7 @@ void APDUResponseHeader_in_APDUResponseHeaderOver2(APDUResponseHeader *pAPDUResp
     FunctionCode_uint8_t function,
     IINField *pIIN);
 
-//ResponseInfo as_response_info_in_APDUResponseHeader(APDUResponseHeader *pAPDUResponseHeader);
+ResponseInfo as_response_info_in_APDUResponseHeader(APDUResponseHeader *pAPDUResponseHeader);
 
 ////} // namespace opendnp3
 

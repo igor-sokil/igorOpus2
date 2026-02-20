@@ -28,11 +28,11 @@
 ////namespace opendnp3
 ////{
 // the default size for an APDU
-const unsigned int DEFAULT_MAX_APDU_SIZE = 2048;
+#define DEFAULT_MAX_APDU_SIZE  2048
 
 // default timeout for the application layer
 ////const TimeDuration DEFAULT_APP_TIMEOUT = TimeDuration::Seconds(5);
-const unsigned int DEFAULT_APP_TIMEOUT = 5;
+#define DEFAULT_APP_TIMEOUT  5
 ////} // namespace opendnp3
 
 #endif

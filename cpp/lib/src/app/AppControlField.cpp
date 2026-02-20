@@ -84,26 +84,34 @@ uint8_t ToByte_in_AppControlField(AppControlField *pAppControlField)
 
   if (pAppControlField->FIR)
   {
+#ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
     std::cout<<"*ret |= AppControlField_FIR_MASK"<<'\n';
+#endif
     ret |= AppControlField_FIR_MASK;
   }
   if (pAppControlField->FIN)
   {
+#ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
     std::cout<<"*ret |= AppControlField_FIN_MASK"<<'\n';
+#endif
     ret |= AppControlField_FIN_MASK;
   }
   if (pAppControlField->CON)
   {
+#ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
     std::cout<<"*ret |= AppControlField_CON_MASK"<<'\n';
+#endif
     ret |= AppControlField_CON_MASK;
   }
   if (pAppControlField->UNS)
   {
+#ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
     std::cout<<"*ret |= AppControlField_UNS_MASK"<<'\n';
+#endif
     ret |= AppControlField_UNS_MASK;
   }
 

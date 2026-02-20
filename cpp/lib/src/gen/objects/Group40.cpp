@@ -127,8 +127,9 @@ Group40Var1 Apply_in_ConvertGroup40Var1_static(AnalogOutputStatus* src, uint8_t 
 {
   Group40Var1 target;
   Group40Var1_in_Group40Var1(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -228,8 +229,9 @@ Group40Var2 Apply_in_ConvertGroup40Var2_static(AnalogOutputStatus* src, uint8_t 
 {
   Group40Var2 target;
   Group40Var2_in_Group40Var2(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -303,7 +305,7 @@ boolean ReadTarget_in_Group40Var3_static(RSeq_for_Uint16_t* buff, AnalogOutputSt
   {
 //AnalogOutputStatus From_in_AnalogOutputStatusFactory_staticOver1(uint8_t flags, double value);
 ////    output = AnalogOutputStatusFactory::From(value.flags, value.value);
-    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver1(value.flags, value.value);
+    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver1(value.flags, (double)value.value);
     *output = temp;
     return true;
   }
@@ -330,7 +332,7 @@ Group40Var3 Apply_in_ConvertGroup40Var3_static(AnalogOutputStatus* src, uint8_t 
   Group40Var3 target;
   Group40Var3_in_Group40Var3(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;

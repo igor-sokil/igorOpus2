@@ -676,10 +676,4 @@ int iterator_operatorPlusPlus_for_CounterSpec(StaticDataMap_for_CounterSpec *pSt
       return i;
     }
   }//while
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}operator++3_"<<'\n';
-  decrement_stack_info();
-#endif
-  return i;
 }

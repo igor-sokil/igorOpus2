@@ -88,7 +88,7 @@ boolean Write_in_Group40Var1_static(Group40Var1*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group40Var1_static(RSeq_for_Uint16_t*, AnalogOutputStatus*);
 boolean WriteTarget_in_Group40Var1_static(AnalogOutputStatus*, WSeq_for_Uint16_t*);
 
-const StaticAnalogOutputStatusVariation_uint8_t svariation_in_Group40Var1 = StaticAnalogOutputStatusVariation_Group40Var1;
+#define svariation_in_Group40Var1  StaticAnalogOutputStatusVariation_Group40Var1
 
 // Analog Output Status - 16-bit With Flag
 ////struct Group40Var2
@@ -124,7 +124,7 @@ boolean Write_in_Group40Var2_static(Group40Var2*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group40Var2_static(RSeq_for_Uint16_t*, AnalogOutputStatus*);
 boolean WriteTarget_in_Group40Var2_static(AnalogOutputStatus*, WSeq_for_Uint16_t*);
 
-const StaticAnalogOutputStatusVariation_uint8_t svariation_in_Group40Var2 = StaticAnalogOutputStatusVariation_Group40Var2;
+#define svariation_in_Group40Var2  StaticAnalogOutputStatusVariation_Group40Var2
 
 // Analog Output Status - Single-precision With Flag
 ////struct Group40Var3
@@ -160,7 +160,12 @@ boolean Write_in_Group40Var3_static(Group40Var3*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group40Var3_static(RSeq_for_Uint16_t*, AnalogOutputStatus*);
 boolean WriteTarget_in_Group40Var3_static(AnalogOutputStatus*, WSeq_for_Uint16_t*);
 
-const StaticAnalogOutputStatusVariation_uint8_t svariation_in_Group40Var3 = StaticAnalogOutputStatusVariation_Group40Var3;
+#define svariation_in_Group40Var3  StaticAnalogOutputStatusVariation_Group40Var3
+GroupVariationID ID_in_Group40Var1_static(void);
+GroupVariationID ID_in_Group40Var2_static(void);
+GroupVariationID ID_in_Group40Var3_static(void);
+
+
 /*
 // Analog Output Status - Double-precision With Flag
 ////struct Group40Var4

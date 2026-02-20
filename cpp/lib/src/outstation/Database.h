@@ -278,7 +278,8 @@ IINField select_indices_for_TimeAndIntervalSpec_in_Database_staticOver1(StaticDa
                         ICollection_for_uint16* indices,
                         StaticTimeAndIntervalVariation_uint8_t variation);
 IINField select_indices_for_TimeAndIntervalSpec_in_Database_staticOver2(StaticDataMap_for_TimeAndIntervalSpec* map, ICollection_for_uint16* indices);
-IINField select_range_for_TimeAndIntervalSpec_in_Database_staticOver1(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range);
+//IINField select_range_for_TimeAndIntervalSpec_in_Database_staticOver1(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range);
+IINField select_range_for_TimaAndIntervalSpec_in_Database_staticOver1(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range);
 IINField select_range_for_TimeAndIntervalSpec_in_Database_staticOver2(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range, StaticTimeAndIntervalVariation_uint8_t variation);
 
 ////} // namespace opendnp3

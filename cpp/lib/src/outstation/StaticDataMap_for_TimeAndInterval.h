@@ -544,4 +544,6 @@ int iterator_operatorPlusPlus_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndI
 uint16_t MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec*);
 void setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec*, uint16_t size);
 
+void StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap);
+
 #endif

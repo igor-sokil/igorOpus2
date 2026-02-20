@@ -127,12 +127,6 @@ boolean load_type_for_Analog_in_Database_static(StaticDataMap_for_AnalogSpec* ma
 #endif
   }//while
 
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}load_type_for_Analog_in_Database_static3_"<<'\n';
-  decrement_stack_info();
-#endif
-  return false;
 }
 
 ////template<class Spec> void Database::select_all_class_zero(StaticDataMap<Spec>& map)

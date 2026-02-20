@@ -344,12 +344,12 @@ float to_Float32_static(uint32_t value)
   if(exponent == 0)
   {
 ////            result = std::ldexp(weighted_mantissa, 2 - (uint16_t{1} << 8));
-    result = ldexp( weighted_mantissa, 2 - (((uint16_t)1) << 8) );
+    result = ldexp( (double)weighted_mantissa, 2 - (((uint16_t)1) << 8) );
   }
   else
   {
 ////            result = std::ldexp(1.0f + weighted_mantissa, exponent - 127);
-    result = ldexp( 1.0f + weighted_mantissa, exponent - 127 );
+    result = ldexp( (double)1.0f + (double)weighted_mantissa, exponent - 127 );
   }
 
   // Adjust the sign
@@ -405,7 +405,7 @@ uint32_t to_uint32_static(float value)
   {
     int integral_part;
 ////            float fraction_part = std::frexp(std::abs(value), &integral_part);
-    float fraction_part = frexp( fabs(value), &integral_part );
+    float fraction_part = frexp( fabs((double)value), &integral_part );
 
     uint16_t expon1 = integral_part + 126;
 ////            encoded_value |= (static_cast<uint32_t>(exponent) & 0xFF) << 23;

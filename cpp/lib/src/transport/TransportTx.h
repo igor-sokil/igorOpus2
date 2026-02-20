@@ -79,7 +79,7 @@ typedef struct
 //    StackStatistics::Transport::Tx statistics;
   Tx_Transport  statistics;
 
-  TransportSeqNum sequence;
+  TransportSeqNum sequence_in_TransportTx;
   uint32_t tpduCount;// = 0;
 } TransportTx;
 

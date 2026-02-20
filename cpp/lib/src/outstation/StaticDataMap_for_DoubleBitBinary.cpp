@@ -278,12 +278,6 @@ int iterator_operatorPlusPlus_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBi
       return i;
     }
   }//while
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}operator++3_"<<'\n';
-  decrement_stack_info();
-#endif
-  return i;
 }
 
 StaticDoubleBinaryVariation_uint8_t get_variation_in_in_StaticDataMap_for_DoubleBitBinarySpecOver1(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap_for_DoubleBitBinarySpec, int index);

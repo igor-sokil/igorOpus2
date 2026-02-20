@@ -106,6 +106,10 @@ boolean Write_in_Group13Var2_static(Group13Var2*, WSeq_for_Uint16_t*);
 
 boolean ReadTarget_in_Group13Var2_static(RSeq_for_Uint16_t*, BinaryCommandEvent*);
 boolean WriteTarget_in_Group13Var2_static(BinaryCommandEvent*, WSeq_for_Uint16_t*);
+void Group13Var1_in_Group13Var1(Group13Var1 *pGroup13Var1);
+DNP3Serializer_for_BinaryCommandEvent  Inst_in_Group13Var1_static(void);
+DNP3Serializer_for_BinaryCommandEvent  Inst_in_Group13Var2_static(void);
+
 
 
 ////}

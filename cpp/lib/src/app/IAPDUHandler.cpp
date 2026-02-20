@@ -1057,6 +1057,7 @@ IINField ProcessHeader_PrefixHeader_for_uint16_in_IAPDUHandler(IAPDUHandler* pIA
     case IAPDUHandlerSELECTOR_for_ReadHandler:
       return ProcessHeader_PrefixHeader_for_uint16_in_ReadHandler_override(pIAPDUHandler, record, values);
   }//switch
+  return ProcessHeader_PrefixHeader_for_uint16_in_IAPDUHandler(pIAPDUHandler, record, values);
 }
 
 IINField ProcessHeader_PrefixHeader_Indexed_for_ControlRelayOutputBlock_in_IAPDUHandler(IAPDUHandler* pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_ControlRelayOutputBlock* values)
@@ -1471,7 +1472,7 @@ void Record_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, HeaderRecord* record, I
   decrement_stack_info();
 #endif
 }
-
+/*
 void OnHeaderResult_in_IAPDUHandler(void* pIAPDUHandler, HeaderRecord* record, IINField* result)
 {
 #ifdef  LOG_INFO
@@ -1489,7 +1490,7 @@ void OnHeaderResult_in_IAPDUHandler(void* pIAPDUHandler, HeaderRecord* record, I
   decrement_stack_info();
 #endif
 }
-
+*/
 IINField ProcessUnsupportedHeader_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler)
 {
 #ifdef  LOG_INFO

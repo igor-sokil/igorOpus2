@@ -1,6 +1,7 @@
 #include "header_dnp3.h"
 #include "StaticDataMapConfig.h"
 #include "DataMapKeys.h"
+#include "DatabaseConfig.h"
 
 void* pPointerGlobal1;
 void* pPointerGlobal2;

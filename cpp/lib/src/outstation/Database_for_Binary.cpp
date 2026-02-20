@@ -17,7 +17,7 @@ boolean load_type_for_Binary_in_Database_static(StaticDataMap_for_BinarySpec* ma
   std::cout<<"*map->db_config->binary_input_count= "<<map->db_config->binary_input_count<<'\n';
 //  std::cout<<"*map.size()= "<<map.map.size()<<'\n';
 #endif
-///*
+
   int index = 0;
   while (true)
   {
@@ -127,13 +127,7 @@ boolean load_type_for_Binary_in_Database_static(StaticDataMap_for_BinarySpec* ma
     std::cout<<"*load_type_for_Binary_in_Database_static5"<<'\n';
 #endif
   }//while
-//*/
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}load_type_for_Binary_in_Database_static3_"<<'\n';
-  decrement_stack_info();
-#endif
-  return false;
+
 }
 
 ////template<class Spec> void Database::select_all_class_zero(StaticDataMap<Spec>& map)

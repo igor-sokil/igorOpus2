@@ -32,7 +32,7 @@
 
 #define UNUSED(x) (void)(x)
 
-#define MAX_BufferSer4  2048
+#define MAX_BufferSer4  300
 #define SIZE_BufferSer4                        MAX_BufferSer4
 
 extern boolean expectsContents;

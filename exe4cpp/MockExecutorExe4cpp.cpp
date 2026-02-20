@@ -31,6 +31,7 @@ void MockExecutor_in_MockExecutor(MockExecutor *pMockExecutor)
 /**	@return true if an action was run. */
 boolean run_one_in_MockExecutor(MockExecutor *pMockExecutor)
 {
+  UNUSED(pMockExecutor);
 ////        this->check_for_expired_timers();
 /*
   if (pMockExecutor->post_queue.size() > 0)
@@ -48,6 +49,7 @@ boolean run_one_in_MockExecutor(MockExecutor *pMockExecutor)
     return false;
   }
 */
+  return false;
 }
 
 void post_in_MockExecutor_override(void *pIExecutorExe4cpp, void (*pAction)(void))
@@ -58,6 +60,8 @@ void post_in_MockExecutor_override(void *pIExecutorExe4cpp, void (*pAction)(void
 
 void post_in_MockExecutor(MockExecutor *pMockExecutor, void (*pAction)(void))
 {
+  UNUSED(pMockExecutor);
+  UNUSED(pAction);
 //  pMockExecutor->post_queue.push_back((void*)pAction);
 }
 
@@ -141,6 +145,7 @@ void cancel_in_MockExecutor(/*MockExecutor *pMockExecutor,*/ ITimer* timer)
   std::cout<<"{cancel_in_MockExecutor1"<<'\n';
   std::cout<<"*MockExecutor *pMockExecutor= "<<(uint32_t)(timer->psource_in_ITimer)<<'\n';
 #endif
+  UNUSED(timer);
 //  MockExecutor *pMockExecutor = (MockExecutor *)(timer->psource_in_ITimer);
 ////        const auto result = std::find_if(pMockExecutor->timers.begin(), pMockExecutor->timers.end(), [timer](const std::shared_ptr<MockTimer>& item)
 ////        {
@@ -233,6 +238,7 @@ void add_time_in_MockExecutor(MockExecutor *pMockExecutor, uint32_t duration)
 
 uint16_t num_pending_timers_in_MockExecutor(MockExecutor *pMockExecutor)
 {
+  UNUSED(pMockExecutor);
 ////        return this->timers.size();
        return 0;//pMockExecutor->timers.size();
 }

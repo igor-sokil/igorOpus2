@@ -134,8 +134,9 @@ Group43Var1 Apply_in_ConvertGroup43Var1_static(AnalogCommandEvent* src)
 {
   Group43Var1 target;
   Group43Var1_in_Group43Var1(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////        DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////        t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;
@@ -231,8 +232,9 @@ Group43Var2 Apply_in_ConvertGroup43Var2_static(AnalogCommandEvent* src)
 {
   Group43Var2 target;
   Group43Var2_in_Group43Var2(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////        DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////        t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;
@@ -329,8 +331,9 @@ Group43Var3 Apply_in_ConvertGroup43Var3_static(AnalogCommandEvent* src)
 {
   Group43Var3 target;
   Group43Var3_in_Group43Var3(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////    DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////    t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;
@@ -430,8 +433,9 @@ Group43Var4 Apply_in_ConvertGroup43Var4_static(AnalogCommandEvent* src)
 {
   Group43Var4 target;
   Group43Var4_in_Group43Var4(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////    DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////    t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;
@@ -504,8 +508,9 @@ boolean ReadTarget_in_Group43Var5_static(RSeq_for_Uint16_t* buff, AnalogCommandE
 ////  if(Read(buff, value))
   if(Read_in_Group43Var5_static(buff, &value))
   {
+//AnalogCommandEvent From_in_AnalogCommandEventFactory_staticOver1(uint8_t status, double value);
 ////    output = AnalogFactory::From(value.status, value.value);
-    AnalogCommandEvent temp = From_in_AnalogCommandEventFactory_staticOver1(value.status, value.value);
+    AnalogCommandEvent temp = From_in_AnalogCommandEventFactory_staticOver1((uint8_t)value.status, (double)value.value);
     *output = temp;
     return true;
   }
@@ -531,8 +536,9 @@ Group43Var5 Apply_in_ConvertGroup43Var5_static(AnalogCommandEvent* src)
 {
   Group43Var5 target;
   Group43Var5_in_Group43Var5(&target);
+//boolean Apply_in_DownSampling_for_uint32(uint32_t src, uint32_t *target);
 ////        DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////    t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;
@@ -639,7 +645,8 @@ boolean ReadTarget_in_Group43Var7_static(RSeq_for_Uint16_t* buff, AnalogCommandE
   Group43Var7_in_Group43Var7(&value);
   if(Read_in_Group43Var7_static(buff, &value))
   {
-    AnalogCommandEvent temp = From_in_AnalogCommandEventFactory_staticOver2(value.status, value.value, value.timeDNPTime);
+//AnalogCommandEvent From_in_AnalogCommandEventFactory_staticOver2(uint8_t status, double value, DNPTime timeDNPTime);
+    AnalogCommandEvent temp = From_in_AnalogCommandEventFactory_staticOver2((uint8_t)value.status, (double)value.value, value.timeDNPTime);
     *output = temp;
     return true;
   }
@@ -666,7 +673,7 @@ Group43Var7 Apply_in_ConvertGroup43Var7_static(AnalogCommandEvent* src)
   Group43Var7 target;
   Group43Var7_in_Group43Var7(&target);
 ////    DownSampling<double, typename Target::ValueType>::Apply(src.value, t.value);
-  Apply_in_DownSampling_for_uint32(src->value, (uint32_t*)&target.value);
+  Apply_in_DownSampling_for_uint32((uint32_t)src->value, (uint32_t*)&target.value);
 
 ////    t.status = CommandStatusSpec::to_type(src.status);
   target.status = src->status;

@@ -64,11 +64,11 @@ AppControlField Request_in_AppControlField_static(uint8_t seq);
 uint8_t ToByte_in_AppControlField(AppControlField *);
 boolean IsFirAndFin_in_AppControlField(AppControlField *);
 
-const uint8_t AppControlField_FIR_MASK = 0x80;
-const uint8_t AppControlField_FIN_MASK = 0x40;
-const uint8_t AppControlField_CON_MASK = 0x20;
-const uint8_t AppControlField_UNS_MASK = 0x10;
-const uint8_t AppControlField_SEQ_MASK = 0x0F;
+#define AppControlField_FIR_MASK  0x80
+#define AppControlField_FIN_MASK  0x40
+#define AppControlField_CON_MASK  0x20
+#define AppControlField_UNS_MASK  0x10
+#define AppControlField_SEQ_MASK  0x0F
 
 ////} // namespace opendnp3
 

@@ -117,7 +117,7 @@ boolean Read_in_Group41Var2_static(RSeq_for_Uint16_t *, Group41Var2*);
 boolean Write_in_Group41Var2_static(Group41Var2*, WSeq_for_Uint16_t*);
 
 boolean ReadTarget_in_Group41Var2_static(RSeq_for_Uint16_t*, AnalogOutputInt16*);
-boolean WriteTarget_in_Group41Var2_static(AnalogOutputInt32*, WSeq_for_Uint16_t*);
+boolean WriteTarget_in_Group41Var2_static(AnalogOutputInt16*, WSeq_for_Uint16_t*);
 DNP3Serializer_for_AnalogOutputInt16  Inst_in_Group41Var2_static(void);
 
 // Analog Output - Single-precision
@@ -182,6 +182,10 @@ boolean Write_in_Group41Var4_static(Group41Var4*, WSeq_for_Uint16_t*);
 
 boolean ReadTarget_in_Group41Var4_static(RSeq_for_Uint16_t*, AnalogOutputDouble64*);
 boolean WriteTarget_in_Group41Var4_static(AnalogOutputDouble64*, WSeq_for_Uint16_t*);
+GroupVariationID ID_in_Group41Var1_static(void);
+GroupVariationID ID_in_Group41Var4_static(void);
+GroupVariationID ID_in_Group41Var2_static(void);
+GroupVariationID ID_in_Group41Var3_static(void);
 
 
 ////}

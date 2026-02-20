@@ -9,13 +9,13 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "header.h"
+#include "../../../header_dnp3.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
-#include "APDUHexBuilders.h"
-#include "DatabaseHelpers.h"
-#include "TestOutstationEventResponses.h"
+//#include "APDUHexBuilders.h"
+//#include "DatabaseHelpers.h"
+//#include "TestOutstationEventResponses.h"
 
 #define UNUSED(x) (void)(x)
 
@@ -24,17 +24,19 @@ key_filter *pkf;
 
 MainWindow *mainWindow;
 
+DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num);
+
 void configure_in_16ReadGrp32Var7_1(DatabaseConfig*);
 void configure_in_16ReadGrp32Var7_1(DatabaseConfig* db)
 {
 ////                  [](DatabaseConfig& db) { db.analog_input[0].evariation = EventAnalogVariation::Group32Var1; });
-  db->analog_input[0].dDeadbandConfig_for_AnalogInfo.eEventConfig.evariation = EventAnalogVariation_Group32Var1;
+  db->analog_input_config[0].dDeadbandConfig_for_AnalogInfo.eEventConfig.evariation = EventAnalogVariation_Group32Var1;
 }
 void configure_in_16ReadGrp32Var7_2(DatabaseConfig*);
 void configure_in_16ReadGrp32Var7_2(DatabaseConfig* db)
 {
 ////                  [](DatabaseConfig& db) { db.analog_input[0].evariation = EventAnalogVariation::Group32Var7; });
-  db->analog_input[0].dDeadbandConfig_for_AnalogInfo.eEventConfig.evariation = EventAnalogVariation_Group32Var7;
+  db->analog_input_config[0].dDeadbandConfig_for_AnalogInfo.eEventConfig.evariation = EventAnalogVariation_Group32Var7;
 }
 
 void update_in_16ReadGrp32Var7(IUpdateHandler*);
@@ -70,26 +72,90 @@ qDebug()<<"********SUITE('16ReadGrp32Var7')********";
 ////    TestEventRead("C0 01 20 07 06", response, update,
 ////                  [](DatabaseConfig& db) { db.analog_input[0].evariation = EventAnalogVariation::Group32Var1; });
 
- std::string response("E0 81 80 00 20 07 28 01 00 00 00 01 00 00 00 00 06 05 04 03 02 01");       
-
+// std::string response("E0 81 80 00 20 07 28 01 00 00 00 01 00 00 00 00 06 05 04 03 02 01");       
+/*
  std::string request("C0 01 20 07 06");       
  TestEventRead(request, response,
                    ////const std::function<void(IUpdateHandler& db)>& loadFun,
                    update_in_16ReadGrp32Var7,
                    ////const std::function<void(DatabaseConfig& db)>& configure = [](DatabaseConfig& view) {})
                    configure_in_16ReadGrp32Var7_1);
+*/
+    OutstationConfig config;
+    OutstationConfig_in_OutstationConfig(&config);
+////    OutstationConfig config;
+////    config.eventBufferConfig = EventBufferConfig::AllTypes(10);
+   EventBufferConfig etemp = AllTypes_in_EventBufferConfig_static(10);
+   config.eventBufferConfig = etemp;
+
+////    DatabaseConfig database = configure::by_count_of::all_types(5);
+////    configure(database);
+  getDataMapKeys_for_AnalogSpec()[0] = 0;
+////    OutstationTestObject t(config, configure::by_count_of::all_types(100));
+//    DatabaseConfig tmp = binary_input_in_DatabaseHelpers(1);
+  DatabaseConfig database = all_types_in_DatabaseHelpers(1);
+
+  configure_in_16ReadGrp32Var7_1(&database);
+
+////    OutstationTestObject t(config, std::move(database));
+    OutstationTestObject t;
+    OutstationTestObject_in_OutstationTestObject(&t, &config, &database);
+
+////    t.LowerLayerUp();
+
+////    t.Transaction([&](IUpdateHandler& db) { loadFun(db); });
+    Transaction_in_OutstationTestObject(&t, update_in_16ReadGrp32Var7);//void (*apply)(IUpdateHandler*));
+
+////    t.SendToOutstation(request);
+    uint8_t name1[] = {5, 0xC0, 0x01, 0x20, 0x07, 0x06};
+    SendToOutstation_in_OutstationTestObject(&t, name1);  
+////    REQUIRE(t.lower->PopWriteAsHex() == response);
+qDebug()<<"REQUIRE('E0 81 80 00 20 07 28 01 00 00 00 01 00 00 00 00 06 05 04 03 02 01' == t.lower->PopWriteAsHex())";
 
     // configure this as the default variation and ask for variation 0
 // настраиваем это как вариант по умолчанию и запрашиваем вариант 0
 ////    TestEventRead("C0 01 20 00 06", response, update,
 ////                  [](DatabaseConfig& db) { db.analog_input[0].evariation = EventAnalogVariation::Group32Var7; });
-
+/*
  std::string request_2("C0 01 20 00 06");       
  TestEventRead(request_2, response,
                    ////const std::function<void(IUpdateHandler& db)>& loadFun,
                    update_in_16ReadGrp32Var7,
                    ////const std::function<void(DatabaseConfig& db)>& configure = [](DatabaseConfig& view) {})
                    configure_in_16ReadGrp32Var7_2);
+*/
+{
+    OutstationConfig config;
+    OutstationConfig_in_OutstationConfig(&config);
+////    OutstationConfig config;
+////    config.eventBufferConfig = EventBufferConfig::AllTypes(10);
+   EventBufferConfig etemp = AllTypes_in_EventBufferConfig_static(10);
+   config.eventBufferConfig = etemp;
+
+////    DatabaseConfig database = configure::by_count_of::all_types(5);
+////    configure(database);
+  getDataMapKeys_for_AnalogSpec()[0] = 0;
+////    OutstationTestObject t(config, configure::by_count_of::all_types(100));
+//    DatabaseConfig tmp = binary_input_in_DatabaseHelpers(1);
+  DatabaseConfig database = all_types_in_DatabaseHelpers(1);
+
+  configure_in_16ReadGrp32Var7_2(&database);
+
+////    OutstationTestObject t(config, std::move(database));
+    OutstationTestObject t;
+    OutstationTestObject_in_OutstationTestObject(&t, &config, &database);
+
+////    t.LowerLayerUp();
+
+////    t.Transaction([&](IUpdateHandler& db) { loadFun(db); });
+    Transaction_in_OutstationTestObject(&t, update_in_16ReadGrp32Var7);//void (*apply)(IUpdateHandler*));
+
+////    t.SendToOutstation(request);
+    uint8_t name1[] = {5, 0xC0, 0x01, 0x20, 0x00, 0x06};
+    SendToOutstation_in_OutstationTestObject(&t, name1);  
+////    REQUIRE(t.lower->PopWriteAsHex() == response);
+qDebug()<<"REQUIRE('E0 81 80 00 20 07 28 01 00 00 00 01 00 00 00 00 06 05 04 03 02 01' == t.lower->PopWriteAsHex())";
+}
 
 /*
 TEST_CASE(SUITE("16ReadGrp32Var7"))
@@ -253,3 +319,11 @@ bool key_filter::eventFilter(QObject *obj, QEvent *event)
   return false;
 }
 
+DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num)
+{
+//void DatabaseConfig_in_DatabaseConfig(uint16_t all_types);
+////        return opendnp3::DatabaseConfig(num);
+  DatabaseConfig dDatabaseConfig;
+  DatabaseConfig_in_DatabaseConfig(&dDatabaseConfig, num);
+  return dDatabaseConfig;
+}

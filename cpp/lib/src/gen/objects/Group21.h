@@ -89,7 +89,7 @@ boolean Write_in_Group21Var1_static(Group21Var1*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var1_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var1_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var1 = StaticFrozenCounterVariation_Group21Var1;
+#define svariation_in_Group21Var1  StaticFrozenCounterVariation_Group21Var1
 
 // Frozen Counter - 16-bit With Flag
 ////struct Group21Var2
@@ -126,7 +126,7 @@ boolean Write_in_Group21Var2_static(Group21Var2*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var2_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var2_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var2 = StaticFrozenCounterVariation_Group21Var2;
+#define svariation_in_Group21Var2  StaticFrozenCounterVariation_Group21Var2
 
 // Frozen Counter - 32-bit With Flag and Time
 ////struct Group21Var5
@@ -164,7 +164,7 @@ boolean Write_in_Group21Var5_static(Group21Var5*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var5_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var5_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var5 = StaticFrozenCounterVariation_Group21Var5;
+#define svariation_in_Group21Var5  StaticFrozenCounterVariation_Group21Var5
 
 // Frozen Counter - 16-bit With Flag and Time
 ////struct Group21Var6
@@ -202,7 +202,7 @@ boolean Write_in_Group21Var6_static(Group21Var6*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var6_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var6_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var6 = StaticFrozenCounterVariation_Group21Var6;
+#define svariation_in_Group21Var6  StaticFrozenCounterVariation_Group21Var6
 
 // Frozen Counter - 32-bit Without Flag
 ////struct Group21Var9
@@ -238,7 +238,7 @@ boolean Write_in_Group21Var9_static(Group21Var9*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var9_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var9_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var9 = StaticFrozenCounterVariation_Group21Var9;
+#define svariation_in_Group21Var9  StaticFrozenCounterVariation_Group21Var9
 
 // Frozen Counter - 16-bit Without Flag
 ////struct Group21Var10
@@ -274,7 +274,18 @@ boolean Write_in_Group21Var10_static(Group21Var10*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group21Var10_static(RSeq_for_Uint16_t*, FrozenCounter*);
 boolean WriteTarget_in_Group21Var10_static(FrozenCounter*, WSeq_for_Uint16_t*);
 
-const StaticFrozenCounterVariation_uint8_t svariation_in_Group21Var10 = StaticFrozenCounterVariation_Group21Var10;
+#define svariation_in_Group21Var10  StaticFrozenCounterVariation_Group21Var10
+GroupVariationID ID_in_Group21Var1_static(void);
+GroupVariationID ID_in_Group21Var2_static(void);
+GroupVariationID ID_in_Group21Var5_static(void);
+GroupVariationID ID_in_Group21Var9_static(void);
+GroupVariationID ID_in_Group21Var10_static(void);
+GroupVariationID ID_in_Group21Var6_static(void);
+
+
+
+
+
 
 ////}
 

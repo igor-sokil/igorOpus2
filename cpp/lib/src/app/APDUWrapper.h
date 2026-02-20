@@ -73,7 +73,7 @@ typedef struct
   boolean valid;
 ////    ser4cpp::wseq_t buffer;
 ////    ser4cpp::wseq_t remaining;
-  WSeq_for_Uint16_t buffer;
+  WSeq_for_Uint16_t buffer_in_APDUWrapper;
   WSeq_for_Uint16_t remaining;
 } APDUWrapper;
 

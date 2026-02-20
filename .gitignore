@@ -11,11 +11,29 @@ log.txt
 trassirovka.txt
 *.log
 *.o
+*.opt
 *.Debug
 *.Release
+Makefile
 # ignore files from  folder settings/
 dll/
 release/
 debug/
+# Ігнорувати dep-файли середовища розробки
+*.dep
+# Ігнорувати log-файли
+*.log
+# Ігнорувати my.bat
+my.bat
+
+# Ігнорувати файли з папки settings/
+settings/
+
+# Ігнорувати файли з папки Flash-Debug/
+Flash-Debug/
+# Ігнорувати html-файли
+*.html
+# Ігнорувати pdf-файли
+*.pdf
 
 

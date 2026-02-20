@@ -91,7 +91,7 @@ boolean ReadTarget_in_Group3Var2_static(RSeq_for_Uint16_t*, DoubleBitBinary*);
 boolean WriteTarget_in_Group3Var2_static(DoubleBitBinary*, WSeq_for_Uint16_t*);
 DNP3Serializer_for_DoubleBitBinary  Inst_in_Group3Var2_static(void);
 ////  static const StaticDoubleBinaryVariation svariation = StaticDoubleBinaryVariation::Group3Var2;
-const StaticDoubleBinaryVariation_uint8_t  svariation_in_Group3Var2 = StaticDoubleBinaryVariation_Group3Var2;
+#define svariation_in_Group3Var2  StaticDoubleBinaryVariation_Group3Var2
 
 
 ////}

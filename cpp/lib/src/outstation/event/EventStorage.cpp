@@ -175,7 +175,7 @@ uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uin
 #endif
     tmp = SelectByType_for_BinarySpec_in_EventSelection_staticOver1(&(pEventStorage->state), max);
     return tmp;
-/*
+
   case (EventType_DoubleBitBinary):
 #ifdef  LOG_INFO
   std::cout<<"@@@@"<<getString_stack_info();
@@ -223,7 +223,7 @@ uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uin
 #endif
     tmp = SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver1(&(pEventStorage->state), max);
     return tmp;
-
+/*
   case (EventType_OctetString):
 #ifdef  LOG_INFO
   std::cout<<"@@@@"<<getString_stack_info();

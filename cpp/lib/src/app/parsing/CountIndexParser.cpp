@@ -677,7 +677,7 @@ ParseResult_uint8_t ParseCountOfObjects_in_CountIndexParser_static(
 }
 
 static void *pPointerGlobal1_in_ParseCountOfIndices;
-static void *pPointerGlobal2_in_ParseCountOfIndices;
+//static void *pPointerGlobal2_in_ParseCountOfIndices;
 uint16_t ReadFunc_uint16_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos);
 ////    auto read = [&numparser, record](ser4cpp::rseq_t& buffer, uint32_t pos) -> uint16_t {
 uint16_t ReadFunc_uint16_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos)
@@ -687,7 +687,7 @@ uint16_t ReadFunc_uint16_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t
 //  HeaderRecord *record = (HeaderRecord *)pPointerGlobal2;
 ////      return numparser.ReadNum(buffer);
   return ReadNum_in_NumParser(numParser, buffer);
-};
+}
 
 ParseResult_uint8_t ParseCountOfIndices_in_CountIndexParser_static(
   RSeq_for_Uint16_t* buffer,
@@ -726,7 +726,7 @@ ParseResult_uint8_t ParseCountOfIndices_in_CountIndexParser_static(
 ////    };
 
     pPointerGlobal1_in_ParseCountOfIndices = numparser;
-    pPointerGlobal2_in_ParseCountOfIndices = record;
+//    pPointerGlobal2_in_ParseCountOfIndices = record;
 //BufferedCollection_uint16 CreateBufferedCollection_uint16_static(
 //  RSeq_for_Uint16_t* buffer,
 //  uint32_t count,

@@ -300,6 +300,8 @@ boolean Write_in_Group42Var7_static(Group42Var7*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group42Var7_static(RSeq_for_Uint16_t*, AnalogOutputStatus*);
 boolean WriteTarget_in_Group42Var7_static(AnalogOutputStatus*, WSeq_for_Uint16_t*);
 DNP3Serializer_for_AnalogOutputStatus  Inst_in_Group42Var7_static(void);
+uint16_t Size_in_Group42Var8_static(void);
+
 /*
 // Analog Output Event - Double-precision With Flag and Time
 ////struct Group42Var8

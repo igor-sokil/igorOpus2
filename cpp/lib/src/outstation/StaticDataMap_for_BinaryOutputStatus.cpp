@@ -609,10 +609,4 @@ int iterator_operatorPlusPlus_for_BinaryOutputStatusSpec(StaticDataMap_for_Binar
       return i;
     }
   }//while
-#ifdef  LOG_INFO
-  std::cout<<getString_stack_info();
-  std::cout<<"}operator++3_"<<'\n';
-  decrement_stack_info();
-#endif
-  return i;
 }

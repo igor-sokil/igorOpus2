@@ -359,6 +359,7 @@ IINField ProcessHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler_
 
 // read any accumulated errors
 IINField Errors_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler);
+void Reset_in_IAPDUHandlert(IAPDUHandler *pIAPDUHandler);
 
 void OnHeader_AllObjectsHeader_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, AllObjectsHeader* header);
 void OnHeader_RangeHeader_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header);

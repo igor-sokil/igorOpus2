@@ -52,7 +52,7 @@ void TransportTx_in_TransportTx(TransportTx *pTransportTx)
 #endif
   Settable_for_RSeq_t_in_Settable_for_RSeq_t(&(pTransportTx->txSegment));
   Tx_Transport_in_Tx_Transport(&(pTransportTx->statistics));
-  SequenceNum_for_uint8_Modulus64_in_SequenceNum_for_uint8_Modulus64Over1(&(pTransportTx->sequence));
+  SequenceNum_for_uint8_Modulus64_in_SequenceNum_for_uint8_Modulus64Over1(&(pTransportTx->sequence_in_TransportTx));
   pTransportTx->tpduCount = 0;
 
   pTransportTx->iITransportSegment.pGetAddresses_in_ITransportSegment = GetAddresses_in_TransportTx_override;
@@ -170,7 +170,7 @@ RSeq_for_Uint16_t GetSegment_in_TransportTx(TransportTx *pTransportTx)
 //uint8_t ToByte_in_TransportHeader_static(boolean fir, boolean fin, uint8_t seq);
 //boolean write_to_in_UInt8_static(WSeq_for_Uint16_t *dest, uint8_t value);
 ////    ser4cpp::UInt8::write_to(destHeader, TransportHeader::ToByte(fir, fin, sequence));
-  write_to_in_UInt8_static(&destHeader, ToByte_in_TransportHeader_static(fir, fin, pTransportTx->sequence.seq));
+  write_to_in_UInt8_static(&destHeader, ToByte_in_TransportHeader_static(fir, fin, pTransportTx->sequence_in_TransportTx.seq));
 
 ////    FORMAT_LOG_BLOCK(logger, flags::TRANSPORT_TX, "FIR: %d FIN: %d SEQ: %u LEN: %zu", fir, fin, sequence.Get(),
 ////                     numToSend);
@@ -184,7 +184,7 @@ RSeq_for_Uint16_t GetSegment_in_TransportTx(TransportTx *pTransportTx)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*FIN: "<<(uint16_t)fin<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*SEQ: "<<(uint16_t)Get_in_SequenceNum_for_uint8_Modulus64(&(pTransportTx->sequence))<<'\n';
+  std::cout<<"*SEQ: "<<(uint16_t)Get_in_SequenceNum_for_uint8_Modulus64(&(pTransportTx->sequence_in_TransportTx))<<'\n';
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*LEN: "<<(uint16_t)numToSend<<'\n';
   decrement_stack_info();
@@ -242,7 +242,7 @@ boolean Advance_in_TransportTx(TransportTx *pTransportTx)
   ++(pTransportTx->tpduCount);
 
 ////    sequence.Increment();
-  Increment_in_SequenceNum_for_uint8_Modulus64(&(pTransportTx->sequence));
+  Increment_in_SequenceNum_for_uint8_Modulus64(&(pTransportTx->sequence_in_TransportTx));
 
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();

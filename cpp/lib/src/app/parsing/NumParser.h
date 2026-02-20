@@ -88,9 +88,10 @@ NumParser TwoByte_in_NumParser_static(void);
 boolean Read_in_NumParser(NumParser *pNumParser, uint16_t *num, RSeq_for_Uint16_t *buffer);
 
 uint16_t ReadOneByte_in_NumParser_static(RSeq_for_Uint16_t *buffer);
-uint16_t ReadTwoBytes_in_NumParser_static(RSeq_for_Uint16_t *buffer);
+//uint16_t ReadTwoBytes_in_NumParser_static(RSeq_for_Uint16_t *buffer);
 
 void NumParser_in_NumParser(NumParser *pNumParser, ReadFun_in_NumParser pReadFun, uint8_t size);
+uint16_t ReadTwoByte_in_NumParser_static(RSeq_for_Uint16_t *buffer);
 
 //} // namespace opendnp3
 

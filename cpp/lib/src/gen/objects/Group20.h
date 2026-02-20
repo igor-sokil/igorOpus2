@@ -89,7 +89,7 @@ boolean Write_in_Group20Var1_static(Group20Var1*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group20Var1_static(RSeq_for_Uint16_t*, Counter*);
 boolean WriteTarget_in_Group20Var1_static(Counter*, WSeq_for_Uint16_t*);
 
-const StaticCounterVariation_uint8_t svariation_in_Group20Var1 = StaticCounterVariation_Group20Var1;
+#define svariation_in_Group20Var1 StaticCounterVariation_Group20Var1
 
 // Counter - 16-bit With Flag
 ////struct Group20Var2
@@ -126,7 +126,7 @@ boolean Write_in_Group20Var2_static(Group20Var2*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group20Var2_static(RSeq_for_Uint16_t*, Counter*);
 boolean WriteTarget_in_Group20Var2_static(Counter*, WSeq_for_Uint16_t*);
 
-const StaticCounterVariation_uint8_t svariation_in_Group20Var2 = StaticCounterVariation_Group20Var2;
+#define svariation_in_Group20Var2  StaticCounterVariation_Group20Var2
 
 // Counter - 32-bit Without Flag
 ////struct Group20Var5
@@ -162,7 +162,7 @@ boolean Write_in_Group20Var5_static(Group20Var5*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group20Var5_static(RSeq_for_Uint16_t*, Counter*);
 boolean WriteTarget_in_Group20Var5_static(Counter*, WSeq_for_Uint16_t*);
 
-const StaticCounterVariation_uint8_t svariation_in_Group20Var5 = StaticCounterVariation_Group20Var5;
+#define svariation_in_Group20Var5  StaticCounterVariation_Group20Var5
 
 // Counter - 16-bit Without Flag
 ////struct Group20Var6
@@ -198,7 +198,7 @@ boolean Write_in_Group20Var6_static(Group20Var6*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group20Var6_static(RSeq_for_Uint16_t*, Counter*);
 boolean WriteTarget_in_Group20Var6_static(Counter*, WSeq_for_Uint16_t*);
 
-const StaticCounterVariation_uint8_t svariation_in_Group20Var6 = StaticCounterVariation_Group20Var6;
+#define svariation_in_Group20Var6  StaticCounterVariation_Group20Var6
 
 ////}
 

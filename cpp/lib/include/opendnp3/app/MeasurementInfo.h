@@ -46,10 +46,10 @@
 ////#include "opendnp3/gen/StaticTypeBitmask.h"
 ////#include "opendnp3/util/StaticOnly.h"
 
-//#include "EventType.h"
-//#include "MeasurementTypes.h"
+#include "EventType.h"
+#include "MeasurementTypes.h"
 //#include "OctetString.h"
-//#include "BinaryQuality.h"
+#include "BinaryQuality.h"
 #include "EventAnalogOutputStatusVariation.h"
 #include "EventAnalogVariation.h"
 #include "EventBinaryOutputStatusVariation.h"

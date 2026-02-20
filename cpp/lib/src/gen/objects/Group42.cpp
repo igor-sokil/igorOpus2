@@ -136,7 +136,7 @@ Group42Var1 Apply_in_ConvertGroup42Var1_static(AnalogOutputStatus* src, uint8_t 
   Group42Var1 target;
   Group42Var1_in_Group42Var1(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -236,7 +236,7 @@ Group42Var2 Apply_in_ConvertGroup42Var2_static(AnalogOutputStatus* src, uint8_t 
   Group42Var2 target;
   Group42Var2_in_Group42Var2(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint16((src->tTypedMeasurement_for_Double64).value, (uint16_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint16((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint16_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -335,7 +335,7 @@ Group42Var3 Apply_in_ConvertGroup42Var3_static(AnalogOutputStatus* src, uint8_t 
   Group42Var3 target;
   Group42Var3_in_Group42Var3(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -437,7 +437,7 @@ Group42Var4 Apply_in_ConvertGroup42Var4_static(AnalogOutputStatus* src, uint8_t 
   Group42Var4 target;
   Group42Var4_in_Group42Var4(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;
@@ -513,7 +513,7 @@ boolean ReadTarget_in_Group42Var5_static(RSeq_for_Uint16_t* buff, AnalogOutputSt
   if(Read_in_Group42Var5_static(buff, &value))
   {
 ////    output = AnalogFactory::From(value.flags, value.value);
-    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver1(value.flags, value.value);
+    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver1(value.flags, (double)value.value);
     *output = temp;
     return true;
   }
@@ -649,7 +649,7 @@ boolean ReadTarget_in_Group42Var7_static(RSeq_for_Uint16_t* buff, AnalogOutputSt
   Group42Var7_in_Group42Var7(&value);
   if(Read_in_Group42Var7_static(buff, &value))
   {
-    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver2(value.flags, value.value, value.timeDNPTime);
+    AnalogOutputStatus temp = From_in_AnalogOutputStatusFactory_staticOver2(value.flags, (double)value.value, value.timeDNPTime);
     *output = temp;
     return true;
   }
@@ -675,7 +675,7 @@ Group42Var7 Apply_in_ConvertGroup42Var7_static(AnalogOutputStatus* src, uint8_t 
   Group42Var7 target;
   Group42Var7_in_Group42Var7(&target);
 ////        auto overrange = DownSampling<typename Source::Type, typename Target::ValueType>::Apply(src.value, t.value);
-  boolean overrange = Apply_in_DownSampling_for_uint32((src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
+  boolean overrange = Apply_in_DownSampling_for_uint32((uint32_t)(src->tTypedMeasurement_for_Double64).value, (uint32_t*)&target.value);
 
 ////        t.flags = overrange ? Overrange : 0;
   target.flags = overrange ? Overrange : 0;

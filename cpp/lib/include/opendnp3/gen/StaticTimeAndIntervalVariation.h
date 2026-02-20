@@ -29,8 +29,8 @@
 // limitations under the License.
 //
 
-#ifndef OPENDNP3_STATICTIMEANDINTERVALVARIATION_H
-#define OPENDNP3_STATICTIMEANDINTERVALVARIATION_H
+#ifndef STATICTIMEANDINTERVALVARIATION_H
+#define STATICTIMEANDINTERVALVARIATION_H
 
 ////#include <cstdint>
 ////#include <string>

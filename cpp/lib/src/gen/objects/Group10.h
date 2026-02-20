@@ -94,7 +94,8 @@ boolean Write_in_Group10Var2_static(Group10Var2*, WSeq_for_Uint16_t*);
 boolean ReadTarget_in_Group10Var2_static(RSeq_for_Uint16_t*, BinaryOutputStatus*);
 boolean WriteTarget_in_Group10Var2_static(BinaryOutputStatus*, WSeq_for_Uint16_t*);
 
-const StaticBinaryOutputStatusVariation_uint8_t svariation_in_Group10Var2 = StaticBinaryOutputStatusVariation_Group10Var2;
+#define svariation_in_Group10Var2  StaticBinaryOutputStatusVariation_Group10Var2
+GroupVariationID ID_in_Group10Var2_static(void);
 
 ////}
 

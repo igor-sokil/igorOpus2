@@ -322,7 +322,7 @@ typedef struct
 
 void MockExecutor_in_MockExecutor(MockExecutor *pMockExecutor);
 boolean run_one_in_MockExecutor(MockExecutor *pMockExecutor);
-uint16_t run_many_in_MockExecutor(MockExecutor *pMockExecutor, uint16_t maximum=100);////size_t maximum = std::numeric_limits<size_t>::max());
+uint16_t run_many_in_MockExecutor(MockExecutor *pMockExecutor, uint16_t maximum);////size_t maximum = std::numeric_limits<size_t>::max());
 uint64_t get_time_in_MockExecutor(MockExecutor *pMockExecutor);
 
 //     TimerExe4cpp (*pStart_in_IExecutorExe4cpp)(void *, uint32_t duration, void (*pAction)(void));////const action_t& action) = 0;

@@ -63,7 +63,7 @@ GroupVariationID ID_in_Group1Var2_static(void);
 ////  static GroupVariationID ID() { return GroupVariationID(1,1); }
 ////  static const StaticBinaryVariation svariation = StaticBinaryVariation::Group1Var1;
 ////};
-const StaticBinaryVariation_uint8_t svariation_in_Group1Var1 = StaticBinaryVariation_Group1Var1;
+#define svariation_in_Group1Var1  StaticBinaryVariation_Group1Var1
 
 // Binary Input - With Flags
 ////struct Group1Var2
@@ -91,7 +91,7 @@ typedef struct
 ////  typedef BinarySpec Spec_in_Group1Var2;
 
 void Group1Var2_in_Group1Var2(Group1Var2 *pGroup1Var2);
-const StaticBinaryVariation_uint8_t svariation_in_Group1Var2 = StaticBinaryVariation_Group1Var2;
+#define svariation_in_Group1Var2  StaticBinaryVariation_Group1Var2
 
 boolean ReadTarget_in_Group1Var2_static(RSeq_for_Uint16_t *, Binary*);
 boolean WriteTarget_in_Group1Var2_static(Binary*, WSeq_for_Uint16_t*);

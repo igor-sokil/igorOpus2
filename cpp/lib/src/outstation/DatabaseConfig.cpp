@@ -203,6 +203,6 @@ void DatabaseConfig_in_DatabaseConfig(DatabaseConfig *pDatabaseConfig, uint16_t 
 
 ////  initialize(this->octet_string, all_types);
 //  initialize_OctetStringConfig(pDatabaseConfig, all_types);
-};
+}
 
 ////} // namespace opendnp3

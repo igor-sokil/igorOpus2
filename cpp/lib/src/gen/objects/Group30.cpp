@@ -407,8 +407,9 @@ boolean ReadTarget_in_Group30Var5_static(RSeq_for_Uint16_t* buff, Analog* output
 ////  if(Read(buff, value))
   if(Read_in_Group30Var5_static(buff, &value))
   {
+//Analog From_in_AnalogFactory_staticOver2(uint8_t flags, double value);
 ////    output = AnalogFactory::From(value.flags, value.value);
-    Analog temp = From_in_AnalogFactory_staticOver2(value.flags, value.value);
+    Analog temp = From_in_AnalogFactory_staticOver2(value.flags, (double)value.value);
     *output = temp;
     return true;
   }

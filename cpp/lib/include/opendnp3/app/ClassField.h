@@ -114,18 +114,12 @@ void Set_in_ClassFieldOver1(ClassField *pClassField, ClassField *field);
 
 void Set_in_ClassFieldOver2(ClassField *pClassField, PointClass_uint8_t pc);
 
-const uint8_t CLASS_0_in_ClassField = PointClass_Class0;
-const uint8_t CLASS_1_in_ClassField = PointClass_Class1;
-const uint8_t CLASS_2_in_ClassField = PointClass_Class2;
-const uint8_t CLASS_3_in_ClassField = PointClass_Class3;
-const uint8_t EVENT_CLASSES_in_ClassField = /*CLASS_1_in_ClassField*/PointClass_Class1 |
-    /*CLASS_2_in_ClassField*/PointClass_Class2 |
-    /*CLASS_3_in_ClassField*/PointClass_Class3;
-const uint8_t ALL_CLASSES_in_ClassField = //EVENT_CLASSES_in_ClassField | CLASS_0_in_ClassField;
-  /*CLASS_1_in_ClassField*/PointClass_Class1 |
-  /*CLASS_2_in_ClassField*/PointClass_Class2 |
-  /*CLASS_3_in_ClassField*/PointClass_Class3 |
-  PointClass_Class0;
+#define CLASS_0_in_ClassField  PointClass_Class0
+#define CLASS_1_in_ClassField  PointClass_Class1
+#define CLASS_2_in_ClassField  PointClass_Class2
+#define CLASS_3_in_ClassField  PointClass_Class3
+#define EVENT_CLASSES_in_ClassField (PointClass_Class1 | PointClass_Class2 | PointClass_Class3)
+#define ALL_CLASSES_in_ClassField  (PointClass_Class1 | PointClass_Class2 | PointClass_Class3 | PointClass_Class0)
 boolean HasEventType_in_ClassField(ClassField *pClassField, EventClass_uint8_t ec);
 
 boolean HasClass0_in_ClassField(ClassField *pClassField);
