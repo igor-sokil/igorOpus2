@@ -9,13 +9,11 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "../../../header.h"
+#include "../../../header_dnp3.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
 //#include "DatabaseHelpers.h"
-
-#include "DataMapKeys.h"
 
 #define UNUSED(x) (void)(x)
 
@@ -73,9 +71,10 @@ qDebug()<<"********SUITE('40ReadByRangeHeader')********";
 //    OutstationTestObject_in_OutstationTestObject(&t, &config);
 //    DatabaseConfig tmp;
 //    DatabaseConfig_in_DatabaseConfig(&tmp, 0);
-    getDataMapKeys_for_AnalogSpec()[0] = DATAMAPKEYS1;
-    getDataMapKeys_for_AnalogSpec()[1] = DATAMAPKEYS2;
 DatabaseConfig tmp = analog_input_in_DatabaseHelpers(2);
+    if(setDataMapKeys_for_AnalogSpec(&tmp, 0, DATAMAPKEYS1) &&
+       setDataMapKeys_for_AnalogSpec(&tmp, 1, DATAMAPKEYS2))
+    {
 
     OutstationTestObject t;
     OutstationTestObject_in_OutstationTestObject(&t, &config, &tmp);
@@ -92,6 +91,7 @@ DatabaseConfig tmp = analog_input_in_DatabaseHelpers(2);
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == 'C2 81 80 00 1E 02 00 05 06 01 2A 00 01 29 00')";
 //std::cout << "temp= " << temp<<'\n';
+    }//if
 
 /*
 TEST_CASE(SUITE("40ReadByRangeHeader"))

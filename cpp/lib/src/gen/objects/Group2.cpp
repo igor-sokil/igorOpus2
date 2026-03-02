@@ -30,9 +30,7 @@
 //
 
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include "header_dnp3.h"
 #include "Group2.h"
 
@@ -205,7 +203,7 @@ Group2Var2 Apply_in_ConvertGroup2Var2_static(Binary* src)
   Group2Var2 target;
   Group2Var2_in_Group2Var2(&target);
   target.flags = (src->tTypedMeasurement_for_Boolean).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 
@@ -280,7 +278,7 @@ Group2Var3 Apply_in_ConvertGroup2Var3_static(Binary* src)
   Group2Var3 target;
   Group2Var3_in_Group2Var3(&target);
   target.flags = (src->tTypedMeasurement_for_Boolean).mMeasurement.flags.value;
-  target.time_uint16_t = (uint16_t)(src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value;
+  target.time_uint16_t = (uint16_t)(src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 

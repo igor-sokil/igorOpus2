@@ -76,10 +76,6 @@ void  BufferedCollection_uint16_in_BufferedCollection_uint16(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_uint16 readFunc);
-BufferedCollection_uint16 CreateBufferedCollection_uint16_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_uint16 readFunc);
 
 uint16_t Count_in_BufferedCollection_uint16(BufferedCollection_uint16 *pBufferedCollection_uint16);
 void Foreach_in_BufferedCollection_uint16(BufferedCollection_uint16 *pBufferedCollection_uint16,
@@ -133,10 +129,6 @@ typedef struct
 
 void  BufferedCollection_Group50Var1_in_BufferedCollection_Group50Var1(
   BufferedCollection_Group50Var1 *pBufferedCollection_Group50Var1,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group50Var1 readFunc);
-BufferedCollection_Group50Var1 CreateBufferedCollection_Group50Var1_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group50Var1 readFunc);
@@ -196,10 +188,6 @@ void  BufferedCollection_Group50Var3_in_BufferedCollection_Group50Var3(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group50Var3 readFunc);
-BufferedCollection_Group50Var3 CreateBufferedCollection_Group50Var3_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group50Var3 readFunc);
 
 uint16_t Count_in_BufferedCollection_Group50Var3(BufferedCollection_Group50Var3 *pBufferedCollection_Group50Var3);
 void Foreach_in_BufferedCollection_Group50Var3(BufferedCollection_Group50Var3 *pBufferedCollection_Group50Var3,
@@ -253,10 +241,6 @@ typedef struct
 
 void  BufferedCollection_Group51Var1_in_BufferedCollection_Group51Var1(
   BufferedCollection_Group51Var1 *pBufferedCollection_Group51Var1,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group51Var1 readFunc);
-BufferedCollection_Group51Var1 CreateBufferedCollection_Group51Var1_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group51Var1 readFunc);
@@ -316,10 +300,6 @@ void  BufferedCollection_Group51Var2_in_BufferedCollection_Group51Var2(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group51Var2 readFunc);
-BufferedCollection_Group51Var2 CreateBufferedCollection_Group51Var2_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group51Var2 readFunc);
 
 uint16_t Count_in_BufferedCollection_Group51Var2(BufferedCollection_Group51Var2 *pBufferedCollection_Group51Var2);
 void Foreach_in_BufferedCollection_Group51Var2(BufferedCollection_Group51Var2 *pBufferedCollection_Group51Var2,
@@ -376,10 +356,6 @@ void  BufferedCollection_Group52Var1_in_BufferedCollection_Group52Var1(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group52Var1 readFunc);
-BufferedCollection_Group52Var1 CreateBufferedCollection_Group52Var1_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group52Var1 readFunc);
 
 uint16_t Count_in_BufferedCollection_Group52Var1(BufferedCollection_Group52Var1 *pBufferedCollection_Group52Var1);
 void Foreach_in_BufferedCollection_Group52Var1(BufferedCollection_Group52Var1 *pBufferedCollection_Group52Var1,
@@ -433,10 +409,6 @@ typedef struct
 
 void  BufferedCollection_Group52Var2_in_BufferedCollection_Group52Var2(
   BufferedCollection_Group52Var2 *pBufferedCollection_Group52Var2,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group52Var2 readFunc);
-BufferedCollection_Group52Var2 CreateBufferedCollection_Group52Var2_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Group52Var2 readFunc);
@@ -497,11 +469,6 @@ void  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Bi
   uint32_t count,
   ReadFunc_Indexed_for_Binary readFunc);
 
-BufferedCollection_Indexed_for_Binary CreateBufferedCollection_Indexed_for_Binary_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_Binary readFunc);
-
 uint16_t Count_in_BufferedCollection_Indexed_for_Binary(BufferedCollection_Indexed_for_Binary *pBufferedCollection_Indexed_for_Binary);
 void Foreach_in_BufferedCollection_Indexed_for_Binary(BufferedCollection_Indexed_for_Binary *pBufferedCollection_Indexed_for_Binary,
     IVisitor_Indexed_for_Binary* visitor);
@@ -555,10 +522,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_OctetString_in_BufferedCollection_Indexed_for_OctetString(
   BufferedCollection_Indexed_for_OctetString *pBufferedCollection_Indexed_for_OctetString,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_OctetString readFunc);
-BufferedCollection_Indexed_for_OctetString CreateBufferedCollection_Indexed_for_OctetString_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_OctetString readFunc);
@@ -619,10 +582,6 @@ void  BufferedCollection_Indexed_for_IINValue_in_BufferedCollection_Indexed_for_
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_IINValue readFunc);
-BufferedCollection_Indexed_for_IINValue CreateBufferedCollection_Indexed_for_IINValue_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_IINValue readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_IINValue(BufferedCollection_Indexed_for_IINValue *pBufferedCollection_Indexed_for_IINValue);
 void Foreach_in_BufferedCollection_Indexed_for_IINValue(BufferedCollection_Indexed_for_IINValue *pBufferedCollection_Indexed_for_IINValue,
@@ -676,10 +635,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_Indexed_for_BinaryOutputStatus(
   BufferedCollection_Indexed_for_BinaryOutputStatus *pBufferedCollection_Indexed_for_BinaryOutputStatus,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
-BufferedCollection_Indexed_for_BinaryOutputStatus CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
@@ -739,10 +694,6 @@ void  BufferedCollection_Indexed_for_ControlRelayOutputBlock_in_BufferedCollecti
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_ControlRelayOutputBlock readFunc);
-BufferedCollection_Indexed_for_ControlRelayOutputBlock CreateBufferedCollection_Indexed_for_ControlRelayOutputBlock_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_ControlRelayOutputBlock readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_ControlRelayOutputBlock(BufferedCollection_Indexed_for_ControlRelayOutputBlock *pBufferedCollection_Indexed_for_ControlRelayOutputBlock);
 void Foreach_in_BufferedCollection_Indexed_for_ControlRelayOutputBlock(BufferedCollection_Indexed_for_ControlRelayOutputBlock *pBufferedCollection_Indexed_for_ControlRelayOutputBlock,
@@ -796,10 +747,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(
   BufferedCollection_Indexed_for_DoubleBitBinary *pBufferedCollection_Indexed_for_DoubleBitBinary,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_DoubleBitBinary readFunc);
-BufferedCollection_Indexed_for_DoubleBitBinary CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_DoubleBitBinary readFunc);
@@ -859,10 +806,6 @@ void  BufferedCollection_Indexed_for_BinaryCommandEvent_in_BufferedCollection_In
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_BinaryCommandEvent readFunc);
-BufferedCollection_Indexed_for_BinaryCommandEvent CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_BinaryCommandEvent readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_BinaryCommandEvent(BufferedCollection_Indexed_for_BinaryCommandEvent *pBufferedCollection_Indexed_for_BinaryCommandEvent);
 void Foreach_in_BufferedCollection_Indexed_for_BinaryCommandEvent(BufferedCollection_Indexed_for_BinaryCommandEvent *pBufferedCollection_Indexed_for_BinaryCommandEvent,
@@ -916,10 +859,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_AnalogCommandEvent_in_BufferedCollection_Indexed_for_AnalogCommandEvent(
   BufferedCollection_Indexed_for_AnalogCommandEvent *pBufferedCollection_Indexed_for_AnalogCommandEvent,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_AnalogCommandEvent readFunc);
-BufferedCollection_Indexed_for_AnalogCommandEvent CreateBufferedCollection_Indexed_for_AnalogCommandEvent_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_AnalogCommandEvent readFunc);
@@ -979,10 +918,6 @@ void  BufferedCollection_Indexed_for_TimeAndInterval_in_BufferedCollection_Index
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_TimeAndInterval readFunc);
-BufferedCollection_Indexed_for_TimeAndInterval CreateBufferedCollection_Indexed_for_TimeAndInterval_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_TimeAndInterval readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_TimeAndInterval(BufferedCollection_Indexed_for_TimeAndInterval *pBufferedCollection_Indexed_for_TimeAndInterval);
 void Foreach_in_BufferedCollection_Indexed_for_TimeAndInterval(BufferedCollection_Indexed_for_TimeAndInterval *pBufferedCollection_Indexed_for_TimeAndInterval,
@@ -1036,10 +971,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(
   BufferedCollection_Indexed_for_Counter *pBufferedCollection_Indexed_for_Counter,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_Counter readFunc);
-BufferedCollection_Indexed_for_Counter CreateBufferedCollection_Indexed_for_Counter_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_Counter readFunc);
@@ -1099,10 +1030,6 @@ void  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_FrozenCounter readFunc);
-BufferedCollection_Indexed_for_FrozenCounter CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_FrozenCounter readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_FrozenCounter(BufferedCollection_Indexed_for_FrozenCounter *pBufferedCollection_Indexed_for_FrozenCounter);
 void Foreach_in_BufferedCollection_Indexed_for_FrozenCounter(BufferedCollection_Indexed_for_FrozenCounter *pBufferedCollection_Indexed_for_FrozenCounter,
@@ -1156,10 +1083,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(
   BufferedCollection_Indexed_for_Analog *pBufferedCollection_Indexed_for_Analog,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_Analog readFunc);
-BufferedCollection_Indexed_for_Analog CreateBufferedCollection_Indexed_for_Analog_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_Analog readFunc);
@@ -1219,10 +1142,6 @@ void  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_In
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_AnalogOutputStatus readFunc);
-BufferedCollection_Indexed_for_AnalogOutputStatus CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_AnalogOutputStatus readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputStatus(BufferedCollection_Indexed_for_AnalogOutputStatus *pBufferedCollection_Indexed_for_AnalogOutputStatus);
 void Foreach_in_BufferedCollection_Indexed_for_AnalogOutputStatus(BufferedCollection_Indexed_for_AnalogOutputStatus *pBufferedCollection_Indexed_for_AnalogOutputStatus,
@@ -1276,10 +1195,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_AnalogOutputInt32_in_BufferedCollection_Indexed_for_AnalogOutputInt32(
   BufferedCollection_Indexed_for_AnalogOutputInt32 *pBufferedCollection_Indexed_for_AnalogOutputInt32,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_AnalogOutputInt32 readFunc);
-BufferedCollection_Indexed_for_AnalogOutputInt32 CreateBufferedCollection_Indexed_for_AnalogOutputInt32_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_AnalogOutputInt32 readFunc);
@@ -1339,10 +1254,6 @@ void  BufferedCollection_Indexed_for_AnalogOutputInt16_in_BufferedCollection_Ind
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_AnalogOutputInt16 readFunc);
-BufferedCollection_Indexed_for_AnalogOutputInt16 CreateBufferedCollection_Indexed_for_AnalogOutputInt16_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_AnalogOutputInt16 readFunc);
 
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputInt16(BufferedCollection_Indexed_for_AnalogOutputInt16 *pBufferedCollection_Indexed_for_AnalogOutputInt16);
 void Foreach_in_BufferedCollection_Indexed_for_AnalogOutputInt16(BufferedCollection_Indexed_for_AnalogOutputInt16 *pBufferedCollection_Indexed_for_AnalogOutputInt16,
@@ -1396,10 +1307,6 @@ typedef struct
 
 void  BufferedCollection_Indexed_for_AnalogOutputFloat32_in_BufferedCollection_Indexed_for_AnalogOutputFloat32(
   BufferedCollection_Indexed_for_AnalogOutputFloat32 *pBufferedCollection_Indexed_for_AnalogOutputFloat32,
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_AnalogOutputFloat32 readFunc);
-BufferedCollection_Indexed_for_AnalogOutputFloat32 CreateBufferedCollection_Indexed_for_AnalogOutputFloat32_static(
   RSeq_for_Uint16_t* buffer,
   uint32_t count,
   ReadFunc_Indexed_for_AnalogOutputFloat32 readFunc);

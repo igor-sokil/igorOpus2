@@ -170,6 +170,7 @@ void global_vareiables_installation(void)
   number_bits_rs_485_waiting = 0;
   
   //Ініціалізація Ігоревих глобальних змінних
+extern  int   pointInterface;//метка интерфейса 0-USB 1-RS485
   pointInterface = 0;
   
   extern int sizeOutputPacket;

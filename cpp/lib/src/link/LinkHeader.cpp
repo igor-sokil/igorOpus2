@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "SerializationTemplates.h"
 #include "LinkHeader.h"

@@ -580,6 +580,5 @@ Range assign_class_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_Binary
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_BinarySpec(StaticDataMap_for_BinarySpec *pStaticDataMap_for_BinarySpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec*);
-void setMapSize_for_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec*, uint16_t size);
 
 #endif

@@ -11,7 +11,7 @@
 /**************************************/
 //Стартовая инициализация компонентов
 /**************************************/
-void global_component_installation(void) {
+//void global_component_installation(void) {
   
-}//global_vareiables_installation_bo(void)
+//}//global_vareiables_installation_bo(void)
 

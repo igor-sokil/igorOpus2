@@ -27,7 +27,7 @@
 
 ////#include "ser4cpp/container/ArrayView.h"
 #include "ArrayView__for__Node_TypedEventRecord_for_DoubleBitBinarySpec.h"
-#include "TypedEventRecordConfig1.h"
+#include "TypedEventRecordConfig.h"
 
 ////#include "ser4cpp/util/Uncopyable.h"
 

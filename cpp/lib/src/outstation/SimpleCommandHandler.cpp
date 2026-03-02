@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 ////#include "opendnp3/outstation/SimpleCommandHandler.h"
 #include "header_dnp3.h"
 #include "SimpleCommandHandler.h"

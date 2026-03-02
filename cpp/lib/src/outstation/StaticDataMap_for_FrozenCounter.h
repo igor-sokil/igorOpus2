@@ -555,6 +555,5 @@ Range assign_class_in_StaticDataMap_for_FrozenCounterSpecOver2(StaticDataMap_for
 ////} // namespace opendnp3
 int iterator_operatorPlusPlus_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap_for_FrozenCounterSpec, int i);
 uint16_t MapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec*);
-void setMapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec*, uint16_t size);
 
 #endif

@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "OutstationContext.h"
 #include <string.h>
@@ -167,7 +165,9 @@ void OContext_in_OContext(OContext *pOContext,
   EventBuffer_in_EventBufferOver1(&(pOContext->eventBuffer_in_OContext));
 
   RequestHistory_in_RequestHistory(&(pOContext->history_in_OContext));
-//  ControlState_in_ControlStateOver1(&(pOContext->control_in_OContext));
+
+  ControlState_in_ControlStateOver1(&(pOContext->control_in_OContext));
+
   TimeSyncState_in_TimeSyncState(&(pOContext->timeTimeSyncState_in_OContext));
 
   Settable_for_LinkBroadcastAddress_in_Settable_for_LinkBroadcastAddress(&(pOContext->lastBroadcastMessageReceived_in_OContext));
@@ -1362,52 +1362,34 @@ OutstationState* RespondToReadRequest_in_OContext(OContext *pOContext, ParsedReq
 ////    auto writer = response.GetWriter();
   HeaderWriter writer = GetWriter_in_APDUWrapper(&(response.aAPDUWrapper));
 
-#ifdef  LOG_INFO
-  std::cout<<std::endl;
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*RespondToReadRequest_in_OContext2"<<std::endl;
-  GetControl_in_APDUWrapper(&(response.aAPDUWrapper));
-#endif
-
 ////    response.SetFunction(FunctionCode::RESPONSE);
   SetFunction_in_APDUWrapper(&(response.aAPDUWrapper), FunctionCode_RESPONSE);//FunctionCode_RESPONSE = 0x81,
 
 //   PairSer4cpp_for_IINField_AppControlField HandleRead_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, HeaderWriter writer)
 ////    auto result = this->HandleRead(request.objects, writer);
   PairSer4cpp_for_IINField_AppControlField result = HandleRead_in_OContext(pOContext, &(request->objects), &writer);
-#ifdef  LOG_INFO
-  std::cout<<std::endl;
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*RespondToReadRequest_in_OContext21"<<std::endl;
-  GetControl_in_APDUWrapper(&(response.aAPDUWrapper));
-  inspect_RSeq(&(request->objects));
-#endif
 
   result.second.SEQ = request->header.control.SEQ;
 //  void SetControl_in_APDUWrapper(APDUWrapper *pAPDUWrapper, AppControlField control);
 ////    response.SetControl(result.second);
   SetControl_in_APDUWrapper(&(response.aAPDUWrapper), result.second);
 
-#ifdef  LOG_INFO
-  std::cout<<std::endl;
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*RespondToReadRequest_in_OContext3"<<std::endl;
-  GetControl_in_APDUWrapper(&(response.aAPDUWrapper));
-#endif
-
 ////    response.SetIIN(result.first | this->GetResponseIIN());
   IINField temp = GetResponseIIN_in_OContext(pOContext);
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*RespondToReadRequest_in_OContext2"<<std::endl;
+  inspect_IINField(&temp);
+#endif
 
   IINField temp2 = operatorOR_in_IINField(&(result.first), &temp);
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*RespondToReadRequest_in_OContext3"<<std::endl;
+  inspect_IINField(&temp2);
+#endif
 
   SetIIN_in_APDUResponse(&response, &temp2);
-
-#ifdef  LOG_INFO
-  std::cout<<std::endl;
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*RespondToReadRequest_in_OContext4"<<std::endl;
-  GetControl_in_APDUWrapper(&(response.aAPDUWrapper));
-#endif
 
 ////    return this->BeginResponseTx(request.addresses.source, response);
   OutstationState* tmp = BeginResponseTx_in_OContext(pOContext, request->addresses.source, &response);
@@ -2535,6 +2517,7 @@ PairSer4cpp_for_IINField_AppControlField HandleRead_in_OContext(OContext *pOCont
 #ifdef  LOG_INFO
     std::cout<<getString_stack_info();
     std::cout<<"}HandleRead_in_OContext1_"<<std::endl;
+    inspect_IINField(&temp);
     decrement_stack_info();
 #endif
     return pPairSer4cpp_for_IINField_AppControlField;
@@ -2559,6 +2542,7 @@ PairSer4cpp_for_IINField_AppControlField HandleRead_in_OContext(OContext *pOCont
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
   std::cout<<"}HandleRead_in_OContext2_"<<std::endl;
+  inspect_IINField(&temp);
   decrement_stack_info();
 #endif
 
@@ -2617,11 +2601,6 @@ IINField HandleWrite_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects
 //IINField IINFromParseResult(ParseResult_uint8_t result);
 ////                  IINFromParseResult(result);
 //                 IINFromParseResult(result);
-/*
-  IINField tmp;
-  if(result == ParseResult_OK) tmp = IINFromParseResult(result);
-  else tmp = Errors_in_IAPDUHandler(&(handler.iIAPDUHandler));
-*/
   IINField tmp = (result == ParseResult_OK) ?
                  Errors_in_IAPDUHandler(&(handler.iIAPDUHandler)) :
                  IINFromParseResult(result);

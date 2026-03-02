@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "CountParser.h"
 
@@ -361,6 +359,7 @@ Group50Var1 read_Group50Var1_in_CountParser(RSeq_for_Uint16_t* buffer, uint32_t 
   Read_in_Group50Var1_static(buffer, &value);
   return value;
 }
+
 ////template<class T>
 ////void CountParser::InvokeCountOf(const HeaderRecord& record,
 ////                                uint16_t count,
@@ -390,10 +389,14 @@ void InvokeCountOf_for_Group50Var1_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group50Var1 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group50Var1 collection = CreateBufferedCollection_Group50Var1_static(
-        buffer,
-        count,
-        read_Group50Var1_in_CountParser);
+//  BufferedCollection_Group50Var1 collection = CreateBufferedCollection_Group50Var1_static(
+//        buffer,
+//        count,
+//        read_Group50Var1_in_CountParser);
+  BufferedCollection_Group50Var1 collection;
+  BufferedCollection_Group50Var1_in_BufferedCollection_Group50Var1(&collection,
+      buffer,
+      count, read_Group50Var1_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group50Var1_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group50Var1* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);
@@ -454,10 +457,15 @@ void InvokeCountOf_for_Group50Var3_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group50Var3 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group50Var3 collection = CreateBufferedCollection_Group50Var3_static(
-        buffer,
-        count,
-        read_Group50Var3_in_CountParser);
+//  BufferedCollection_Group50Var3 collection = CreateBufferedCollection_Group50Var3_static(
+//        buffer,
+//        count,
+//        read_Group50Var3_in_CountParser);
+
+  BufferedCollection_Group50Var3 collection;
+  BufferedCollection_Group50Var3_in_BufferedCollection_Group50Var3(&collection,
+      buffer,
+      count, read_Group50Var3_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group50Var3_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group50Var3* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);
@@ -513,10 +521,14 @@ void InvokeCountOf_for_Group51Var1_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group51Var1 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group51Var1 collection = CreateBufferedCollection_Group51Var1_static(
-        buffer,
-        count,
-        read_Group51Var1_in_CountParser);
+//  BufferedCollection_Group51Var1 collection = CreateBufferedCollection_Group51Var1_static(
+//        buffer,
+//        count,
+//        read_Group51Var1_in_CountParser);
+  BufferedCollection_Group51Var1 collection;
+  BufferedCollection_Group51Var1_in_BufferedCollection_Group51Var1(&collection,
+      buffer,
+      count, read_Group51Var1_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group51Var1_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group51Var1* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);
@@ -572,10 +584,14 @@ void InvokeCountOf_for_Group51Var2_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group51Var2 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group51Var2 collection = CreateBufferedCollection_Group51Var2_static(
-        buffer,
-        count,
-        read_Group51Var2_in_CountParser);
+//  BufferedCollection_Group51Var2 collection = CreateBufferedCollection_Group51Var2_static(
+//        buffer,
+//        count,
+//        read_Group51Var2_in_CountParser);
+  BufferedCollection_Group51Var2 collection;
+  BufferedCollection_Group51Var2_in_BufferedCollection_Group51Var2(&collection,
+      buffer,
+      count, read_Group51Var2_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group51Var2_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group51Var2* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);
@@ -631,10 +647,14 @@ void InvokeCountOf_for_Group52Var1_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group52Var1 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group52Var1 collection = CreateBufferedCollection_Group52Var1_static(
-        buffer,
-        count,
-        read_Group52Var1_in_CountParser);
+//  BufferedCollection_Group52Var1 collection = CreateBufferedCollection_Group52Var1_static(
+//        buffer,
+//        count,
+//        read_Group52Var1_in_CountParser);
+  BufferedCollection_Group52Var1 collection;
+  BufferedCollection_Group52Var1_in_BufferedCollection_Group52Var1(&collection,
+      buffer,
+      count, read_Group52Var1_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group52Var1_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group52Var1* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);
@@ -690,10 +710,14 @@ void InvokeCountOf_for_Group52Var2_in_CountParser_static(
 //  uint32_t count,
 //  ReadFunc_Group52Var2 readFunc);
 ////    auto collection = CreateBufferedCollection<T>(buffer, count, read);
-  BufferedCollection_Group52Var2 collection = CreateBufferedCollection_Group52Var2_static(
-        buffer,
-        count,
-        read_Group52Var2_in_CountParser);
+//  BufferedCollection_Group52Var2 collection = CreateBufferedCollection_Group52Var2_static(
+//        buffer,
+//        count,
+//        read_Group52Var2_in_CountParser);
+  BufferedCollection_Group52Var2 collection;
+  BufferedCollection_Group52Var2_in_BufferedCollection_Group52Var2(&collection,
+      buffer,
+      count, read_Group52Var2_in_CountParser);
 
 //void OnHeader_CountHeader_for_Group52Var2_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, CountHeader* header, ICollection_for_Group52Var2* values);
 ////    handler.OnHeader(CountHeader(record, count), collection);

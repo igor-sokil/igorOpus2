@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "RequestHistory.h"
 
@@ -37,17 +35,41 @@ void RequestHistory_in_RequestHistory(RequestHistory *pRequestHistory)
 
 void Reset_in_RequestHistory(RequestHistory *pRequestHistory)
 {
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{Reset_in_RequestHistory1"<<'\n';
+#endif
   pRequestHistory->hasLast = false;
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"}Reset_in_RequestHistory_"<<'\n';
+#endif
 }
 
 void RecordLastProcessedRequest_in_RequestHistory(RequestHistory *pRequestHistory, APDUHeader* header, RSeq_for_Uint16_t* objects)
 {
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{RecordLastProcessedRequest_in_RequestHistory1"<<'\n';
+#endif
   pRequestHistory->hasLast = true;
   pRequestHistory->lastHeader = *header;
 //    uint16_t length_in_HasLength_for_Uint16_t(HasLength_for_Uint16_t *pHasLength);
   pRequestHistory->lastObjectsLength = length_in_HasLength_for_Uint16_t(&(objects->hHasLength));////objects.length();
 // uint16_t CalcCrc_in_CRC_staticOver2(RSeq_for_Uint16_t* view);
   pRequestHistory->lastDigest = CalcCrc_in_CRC_staticOver2(objects);
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<getString_stack_info();
+  std::cout<<"}RecordLastProcessedRequest_in_RequestHistory_"<<'\n';
+  decrement_stack_info();
+#endif
 }
 
 boolean FullyEqualsLastRequest_in_RequestHistory(RequestHistory *pRequestHistory, APDUHeader* header, RSeq_for_Uint16_t* objects)

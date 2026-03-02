@@ -1,8 +1,6 @@
 
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include <string.h>
 
 #include "header_dnp3.h"

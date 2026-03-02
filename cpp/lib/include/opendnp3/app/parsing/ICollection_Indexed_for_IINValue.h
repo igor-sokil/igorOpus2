@@ -67,13 +67,13 @@ typedef struct
      * The number of elements in the collection
      */
 ////    virtual size_t Count() const = 0;
-    uint16_t (*pCount_in_ICollection_Indexed_for_IINValue)(void *);// const = 0;
+//    uint16_t (*pCount_in_ICollection_Indexed_for_IINValue)(void *);// const = 0;
 
     /**
      * Visit all the elements of a collection
      */
 ////    virtual void Foreach(IVisitor<T>& visitor) const = 0;
-    void (*pForeach_in_ICollection_Indexed_for_IINValue)(void *, IVisitor_Indexed_for_IINValue *pIVisitor_Indexed_for_IINValue);// const = 0;
+//    void (*pForeach_in_ICollection_Indexed_for_IINValue)(void *, IVisitor_Indexed_for_IINValue *pIVisitor_Indexed_for_IINValue);// const = 0;
 
     /**
         visit all of the elements of a collection

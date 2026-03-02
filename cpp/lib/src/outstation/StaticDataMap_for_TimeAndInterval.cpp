@@ -1,7 +1,5 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap.h"
 #include "StaticDataMap_for_TimeAndInterval.h"
@@ -9,10 +7,6 @@
 uint16_t MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap_for_TimeAndIntervalSpec)
 {
   return pStaticDataMap_for_TimeAndIntervalSpec->db_config->time_and_interval_count;
-}
-void setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap_for_TimeAndIntervalSpec, uint16_t size)
-{
-  pStaticDataMap_for_TimeAndIntervalSpec->db_config->time_and_interval_count = size;
 }
 
 void StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap)
@@ -33,10 +27,6 @@ void StaticDataMap_for_TimeAndIntervalSpec_in_StaticDataMap_for_TimeAndIntervalS
   StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
 
-  if(MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap) > SIZE_StaticDataMap_for_TimeAndIntervalSpec)
-  {
-    setMapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap, SIZE_StaticDataMap_for_TimeAndIntervalSpec);
-  }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap); i++)
   {
@@ -166,8 +156,9 @@ uint16_t select_all_in_StaticDataMap_for_TimeAndIntervalSpecOver3(StaticDataMap_
 //    pStaticDataMap_for_TimeAndIntervalSpec->selected = From_in_Range_static(pStaticDataMap_for_TimeAndIntervalSpec->map.begin()->first,
 //        pStaticDataMap_for_TimeAndIntervalSpec->map.rbegin()->first);
     pStaticDataMap_for_TimeAndIntervalSpec->selected =
-      From_in_Range_static(IndexMass2KeyMap_for_TimeAndIntervalSpec(0),
-                           IndexMass2KeyMap_for_TimeAndIntervalSpec(MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec->db_config, 0),
+                           IndexMass2KeyMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec->db_config,
+          MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec)-1));
 //             pStaticDataMap_for_TimeAndIntervalSpec->db_config->TimeAndInterval_input_count-1);
 //        pStaticDataMap_for_TimeAndIntervalSpec->map.rbegin()->first);
 
@@ -304,7 +295,7 @@ uint16_t select_in_StaticDataMap_for_TimeAndIntervalSpecOver5(StaticDataMap_for_
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_TimeAndIntervalSpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -409,7 +400,8 @@ int iterator_operatorPlusPlus_for_TimeAndIntervalSpec(StaticDataMap_for_TimeAndI
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_TimeAndIntervalSpec->selected_in_StaticDataMap_for_TimeAndIntervalSpec.start = i;
-    pStaticDataMap_for_TimeAndIntervalSpec->selected.start = IndexMass2KeyMap_for_TimeAndIntervalSpec(i);//i;
+    pStaticDataMap_for_TimeAndIntervalSpec->selected.start = 
+                     IndexMass2KeyMap_for_TimeAndIntervalSpec(pStaticDataMap_for_TimeAndIntervalSpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_TimeAndIntervalSpec)
     if ( pStaticDataMap_for_TimeAndIntervalSpec->map[i].selection_in_StaticDataCell.selected)

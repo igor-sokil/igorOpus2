@@ -1,17 +1,11 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap_for_DoubleBitBinary.h"
 
 uint16_t MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap_for_DoubleBitBinarySpec)
 {
   return pStaticDataMap_for_DoubleBitBinarySpec->db_config->double_binary_count;
-}
-void setMapSize_for_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap_for_DoubleBitBinarySpec, uint16_t size)
-{
-  pStaticDataMap_for_DoubleBitBinarySpec->db_config->double_binary_count = size;
 }
 
 void StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver1(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap)
@@ -32,12 +26,8 @@ void StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinaryS
 #endif
 
   StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver1(pStaticDataMap);
-
   pStaticDataMap->db_config = config;
-  if(MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap) > SIZE_StaticDataMap_for_DoubleBitBinarySpec)
-  {
-    setMapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap, SIZE_StaticDataMap_for_DoubleBitBinarySpec);
-  }//if
+
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap); i++)
   {
@@ -167,8 +157,9 @@ uint16_t select_all_in_StaticDataMap_for_DoubleBitBinarySpecOver3(StaticDataMap_
 //    pStaticDataMap_for_DoubleBitBinarySpec->selected = From_in_Range_static(pStaticDataMap_for_DoubleBitBinarySpec->map.begin()->first,
 //        pStaticDataMap_for_DoubleBitBinarySpec->map.rbegin()->first);
     pStaticDataMap_for_DoubleBitBinarySpec->selected = //From_in_Range_static(//0,//pStaticDataMap_for_DoubleBitBinarySpec->map.begin()->first,
-      From_in_Range_static(IndexMass2KeyMap_for_DoubleBitBinarySpec(0),
-                           IndexMass2KeyMap_for_DoubleBitBinarySpec(MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, 0),
+                           IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config,
+           MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)-1));
 //             pStaticDataMap_for_DoubleBitBinarySpec->db_config->DoubleBitBinary_input_count-1);
 //        pStaticDataMap_for_DoubleBitBinarySpec->map.rbegin()->first);
 
@@ -263,7 +254,8 @@ int iterator_operatorPlusPlus_for_DoubleBitBinarySpec(StaticDataMap_for_DoubleBi
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_DoubleBitBinarySpec->selected_in_StaticDataMap_for_DoubleBitBinarySpec.start = i;
-    pStaticDataMap_for_DoubleBitBinarySpec->selected.start = IndexMass2KeyMap_for_DoubleBitBinarySpec(i);//i;
+    pStaticDataMap_for_DoubleBitBinarySpec->selected.start = 
+                    IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_DoubleBitBinarySpec)
     if ( pStaticDataMap_for_DoubleBitBinarySpec->map[i].selection_in_StaticDataCell.selected)
@@ -365,7 +357,7 @@ uint16_t select_in_StaticDataMap_for_DoubleBitBinarySpecOver5(StaticDataMap_for_
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_DoubleBitBinarySpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -466,7 +458,7 @@ boolean update_in_StaticDataMap_for_DoubleBitBinarySpecOver2(StaticDataMap_for_D
         Event_for_DoubleBitBinarySpec_in_Event_for_DoubleBitBinarySpecOver2(&eEvent_for_DoubleBitBinarySpec,
             new_value,
 //            iter->first,
-            IndexMass2KeyMap_for_DoubleBitBinarySpec(index),
+            IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, index),
             ec,
 //            iter->second.config_in_StaticDataCell.eEventConfig.evariation);
             pStaticDataMap_for_DoubleBitBinarySpec->map[index].config_in_StaticDataCell.eEventConfig.evariation);
@@ -527,7 +519,7 @@ boolean modify_in_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_Double
   for (; iter != MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec); ++iter)
   {
 //    if (iter->first > stop)
-    if(IndexMass2KeyMap_for_DoubleBitBinarySpec(iter) > stop)
+    if(IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, iter) > stop)
     {
       return false;
     }
@@ -545,7 +537,7 @@ boolean modify_in_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_Double
 //    IEventReceiver* receiver);
 ////        this->update(iter, new_value, EventMode::Detect, receiver);
     update_in_StaticDataMap_for_DoubleBitBinarySpecOver2(pStaticDataMap_for_DoubleBitBinarySpec,
-        IndexMass2KeyMap_for_DoubleBitBinarySpec(iter),
+        IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, iter),
         &new_value,
         EventMode_Detect,
         receiver);
@@ -563,8 +555,9 @@ Range get_full_range_in_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_
 //  return pStaticDataMap_for_DoubleBitBinarySpec->map.empty() ? Invalid_in_Range_static() :
 //         From_in_Range_static(pStaticDataMap_for_DoubleBitBinarySpec->map.begin()->first, pStaticDataMap_for_DoubleBitBinarySpec->map.rbegin()->first);
   return MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)==0 ? Invalid_in_Range_static() :
-         From_in_Range_static(IndexMass2KeyMap_for_DoubleBitBinarySpec(0),
-                              IndexMass2KeyMap_for_DoubleBitBinarySpec(MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)-1));
+         From_in_Range_static(IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, 0),
+                              IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config,
+            MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)-1));
 }
 
 ////template<class Spec> Range StaticDataMap<Spec>::assign_class(PointClass clazz)
@@ -595,7 +588,7 @@ Range assign_class_in_StaticDataMap_for_DoubleBitBinarySpecOver2(StaticDataMap_f
 //    iter->second.config_in_StaticDataCell.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_DoubleBitBinarySpec(range->start);
+  uint16_t next_index = IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, next_index)))
   {

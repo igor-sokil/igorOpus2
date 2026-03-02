@@ -1,17 +1,11 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap_for_FrozenCounter.h"
 
 uint16_t MapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap_for_FrozenCounterSpec)
 {
   return pStaticDataMap_for_FrozenCounterSpec->db_config->frozen_counter_count;
-}
-void setMapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap_for_FrozenCounterSpec, uint16_t size)
-{
-  pStaticDataMap_for_FrozenCounterSpec->db_config->frozen_counter_count = size;
 }
 
 void StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver1(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap)
@@ -32,10 +26,6 @@ void StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecO
   StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
 
-  if(MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap) > SIZE_StaticDataMap_for_FrozenCounterSpec)
-  {
-    setMapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap, SIZE_StaticDataMap_for_FrozenCounterSpec);
-  }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap); i++)
   {
@@ -165,8 +155,9 @@ uint16_t select_all_in_StaticDataMap_for_FrozenCounterSpecOver3(StaticDataMap_fo
 //    pStaticDataMap_for_FrozenCounterSpec->selected = From_in_Range_static(pStaticDataMap_for_FrozenCounterSpec->map.begin()->first,
 //        pStaticDataMap_for_FrozenCounterSpec->map.rbegin()->first);
     pStaticDataMap_for_FrozenCounterSpec->selected = //From_in_Range_static(//0,//pStaticDataMap_for_FrozenCounterSpec->map.begin()->first,
-      From_in_Range_static(IndexMass2KeyMap_for_FrozenCounterSpec(0),
-                           IndexMass2KeyMap_for_FrozenCounterSpec(MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, 0),
+                           IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config,
+               MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)-1));
 //             pStaticDataMap_for_FrozenCounterSpec->db_config->FrozenCounter_input_count-1);
 //        pStaticDataMap_for_FrozenCounterSpec->map.rbegin()->first);
 
@@ -303,7 +294,7 @@ uint16_t select_in_StaticDataMap_for_FrozenCounterSpecOver5(StaticDataMap_for_Fr
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_FrozenCounterSpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -404,7 +395,7 @@ boolean update_in_StaticDataMap_for_FrozenCounterSpecOver2(StaticDataMap_for_Fro
         Event_for_FrozenCounterSpec_in_Event_for_FrozenCounterSpecOver2(&eEvent_for_FrozenCounterSpec,
             new_value,
 //            iter->first,
-            IndexMass2KeyMap_for_FrozenCounterSpec(index),
+            IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, index),
             ec,
 //            iter->second.config_in_StaticDataCell.dDeadbandConfig_for_FrozenCounterInfo.eEventConfig.evariation);
             pStaticDataMap_for_FrozenCounterSpec->map[index].config_in_StaticDataCell.dDeadbandConfig_for_FrozenCounterInfo.eEventConfig.evariation);
@@ -465,7 +456,7 @@ boolean modify_in_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCo
   for (; iter != MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec); ++iter)
   {
 //    if (iter->first > stop)
-    if(IndexMass2KeyMap_for_FrozenCounterSpec(iter) > stop)
+    if(IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, iter) > stop)
     {
       return false;
     }
@@ -483,7 +474,7 @@ boolean modify_in_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCo
 //    IEventReceiver* receiver);
 ////        this->update(iter, new_value, EventMode::Detect, receiver);
     update_in_StaticDataMap_for_FrozenCounterSpecOver2(pStaticDataMap_for_FrozenCounterSpec,
-        IndexMass2KeyMap_for_FrozenCounterSpec(iter),
+        IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, iter),
         &new_value,
         EventMode_Detect,
         receiver);
@@ -501,8 +492,9 @@ Range get_full_range_in_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_Fr
 //  return pStaticDataMap_for_FrozenCounterSpec->map.empty() ? Invalid_in_Range_static() :
 //         From_in_Range_static(pStaticDataMap_for_FrozenCounterSpec->map.begin()->first, pStaticDataMap_for_FrozenCounterSpec->map.rbegin()->first);
   return MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)==0 ? Invalid_in_Range_static() :
-         From_in_Range_static(IndexMass2KeyMap_for_FrozenCounterSpec(0),
-                              IndexMass2KeyMap_for_FrozenCounterSpec(MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)-1));
+         From_in_Range_static(IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, 0),
+                              IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config,
+        MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)-1));
 }
 
 ////template<class Spec> Range StaticDataMap<Spec>::assign_class(PointClass clazz)
@@ -533,7 +525,7 @@ Range assign_class_in_StaticDataMap_for_FrozenCounterSpecOver2(StaticDataMap_for
 //    iter->second.config_in_StaticDataCell.dDeadbandConfig_for_FrozenCounterInfo.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_FrozenCounterSpec(range->start);
+  uint16_t next_index = IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, next_index)))
   {
@@ -591,7 +583,8 @@ int iterator_operatorPlusPlus_for_FrozenCounterSpec(StaticDataMap_for_FrozenCoun
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_FrozenCounterSpec->selected_in_StaticDataMap_for_FrozenCounterSpec.start = i;
-    pStaticDataMap_for_FrozenCounterSpec->selected.start = IndexMass2KeyMap_for_FrozenCounterSpec(i);//i;
+    pStaticDataMap_for_FrozenCounterSpec->selected.start = 
+              IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_FrozenCounterSpec)
     if ( pStaticDataMap_for_FrozenCounterSpec->map[i].selection_in_StaticDataCell.selected)

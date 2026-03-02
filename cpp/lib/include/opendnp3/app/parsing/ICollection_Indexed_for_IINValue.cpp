@@ -1,9 +1,8 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "ICollection_Indexed_for_IINValue.h"
+#include "BufferedCollection.h"
 
 //--------------------------------ICollection_Indexed_for_IINValue--------------------------------
 ////    template<class Fun> void ForeachItem(const Fun& fun) const
@@ -30,12 +29,14 @@ void  setParentPointer_in_ICollection_Indexed_for_IINValue(ICollection_Indexed_f
 }
 uint16_t Count_in_ICollection_Indexed_for_IINValue(ICollection_Indexed_for_IINValue *pICollection_Indexed_for_IINValue)
 {
- return (pICollection_Indexed_for_IINValue->pCount_in_ICollection_Indexed_for_IINValue)(pICollection_Indexed_for_IINValue);
+// return (pICollection_Indexed_for_IINValue->pCount_in_ICollection_Indexed_for_IINValue)(pICollection_Indexed_for_IINValue);
+  return Count_in_BufferedCollection_Indexed_for_IINValue_override(pICollection_Indexed_for_IINValue);
 }
 
 void  Foreach_in_ICollection_Indexed_for_IINValue(ICollection_Indexed_for_IINValue *pICollection_Indexed_for_IINValue, IVisitor_Indexed_for_IINValue *pIVisitor_Indexed_for_IINValue)
 {
-  (pICollection_Indexed_for_IINValue->pForeach_in_ICollection_Indexed_for_IINValue)(pICollection_Indexed_for_IINValue, pIVisitor_Indexed_for_IINValue);
+//  (pICollection_Indexed_for_IINValue->pForeach_in_ICollection_Indexed_for_IINValue)(pICollection_Indexed_for_IINValue, pIVisitor_Indexed_for_IINValue);
+ Foreach_in_BufferedCollection_Indexed_for_IINValue_override(pICollection_Indexed_for_IINValue, pIVisitor_Indexed_for_IINValue);
 }
 
 /**
@@ -117,7 +118,13 @@ void assignValue_in_ICollection_Indexed_for_IINValue(Indexed_for_IINValue item)
 boolean ReadOnlyValue_in_ICollection_Indexed_for_IINValue(
   ICollection_Indexed_for_IINValue *pICollection_Indexed_for_IINValue, Indexed_for_IINValue *pValue)
 {
-//  pPointerGlobal1 = pValue;
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{ReadOnlyValue_in_ICollection_Indexed_for_IINValue1"<<std::endl;
+#endif
+
   pPointerGlobal1 = pValue;
 
 ////        if (this->Count() == 1)
@@ -128,10 +135,22 @@ boolean ReadOnlyValue_in_ICollection_Indexed_for_IINValue(
 //void ForeachItem_in_ICollection_Indexed_for_IINValue(ICollection_Indexed_for_IINValue *pICollection_Indexed_for_IINValue,
 //                  void (*fun)(Indexed_for_IINValue* item));
     ForeachItem_in_ICollection_Indexed_for_IINValue(pICollection_Indexed_for_IINValue, assignValue_in_ICollection_Indexed_for_IINValue);
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}ReadOnlyValue_in_ICollection_Indexed_for_IINValue1_"<<std::endl;
+  decrement_stack_info();
+#endif
     return true;
   }
   else
   {
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"}ReadOnlyValue_in_ICollection_Indexed_for_IINValue2_"<<std::endl;
+  decrement_stack_info();
+#endif
     return false;
   }
 }

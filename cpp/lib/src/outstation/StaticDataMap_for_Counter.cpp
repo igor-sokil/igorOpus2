@@ -1,17 +1,11 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap_for_Counter.h"
 
 uint16_t MapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec)
 {
   return pStaticDataMap_for_CounterSpec->db_config->counter_count;
-}
-void setMapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, uint16_t size)
-{
-  pStaticDataMap_for_CounterSpec->db_config->counter_count = size;
 }
 
 void StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap)
@@ -32,10 +26,6 @@ void StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(StaticD
   StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
 
-  if(MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap) > SIZE_StaticDataMap_for_CounterSpec)
-  {
-    setMapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap, SIZE_StaticDataMap_for_CounterSpec);
-  }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap); i++)
   {
@@ -163,8 +153,9 @@ uint16_t select_all_in_StaticDataMap_for_CounterSpecOver3(StaticDataMap_for_Coun
 //    pStaticDataMap_for_CounterSpec->selected = From_in_Range_static(pStaticDataMap_for_CounterSpec->map.begin()->first,
 //        pStaticDataMap_for_CounterSpec->map.rbegin()->first);
     pStaticDataMap_for_CounterSpec->selected =
-      From_in_Range_static(IndexMass2KeyMap_for_CounterSpec(0),
-                           IndexMass2KeyMap_for_CounterSpec(MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, 0),
+                           IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config,
+          MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)-1));
     //0,//pStaticDataMap_for_CounterSpec->map.begin()->first,
 //        pStaticDataMap_for_CounterSpec->db_config->Counter_input_count-1);
 //        pStaticDataMap_for_CounterSpec->map.rbegin()->first);
@@ -302,7 +293,7 @@ uint16_t select_in_StaticDataMap_for_CounterSpecOver5(StaticDataMap_for_CounterS
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_CounterSpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -435,7 +426,7 @@ boolean update_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_CounterSp
         Event_for_CounterSpec_in_Event_for_CounterSpecOver2(&eEvent_for_CounterSpec,
             new_value,
 //            iter->first,
-            IndexMass2KeyMap_for_CounterSpec(index),
+            IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, index),
             ec,
 //            iter->second.config_in_StaticDataCell.dDeadbandConfig_for_CounterInfo.eEventConfig.evariation);
             pStaticDataMap_for_CounterSpec->map[index].config_in_StaticDataCell.dDeadbandConfig_for_CounterInfo.eEventConfig.evariation);
@@ -519,7 +510,7 @@ boolean modify_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *p
   for (; iter != MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec); ++iter)
   {
 //    if (iter->first > stop)
-    if(IndexMass2KeyMap_for_CounterSpec(iter) > stop)
+    if(IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, iter) > stop)
     {
 #ifdef  LOG_INFO
       std::cout<<getString_stack_info();
@@ -548,7 +539,7 @@ boolean modify_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *p
 //    IEventReceiver* receiver);
 ////        this->update(iter, new_value, EventMode::Detect, receiver);
     update_in_StaticDataMap_for_CounterSpecOver2(pStaticDataMap_for_CounterSpec,
-        IndexMass2KeyMap_for_CounterSpec(iter),
+        IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, iter),
         &new_value,
         EventMode_Detect,
         receiver);
@@ -571,8 +562,9 @@ Range get_full_range_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterS
 //  return pStaticDataMap_for_CounterSpec->map.empty() ? Invalid_in_Range_static() :
 //         From_in_Range_static(pStaticDataMap_for_CounterSpec->map.begin()->first, pStaticDataMap_for_CounterSpec->map.rbegin()->first);
   return MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)==0 ? Invalid_in_Range_static() :
-         From_in_Range_static(IndexMass2KeyMap_for_CounterSpec(0),
-                              IndexMass2KeyMap_for_CounterSpec(MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)-1));
+         From_in_Range_static(IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, 0),
+                              IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config,
+                MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)-1));
 }
 
 ////template<class Spec> Range StaticDataMap<Spec>::assign_class(PointClass clazz)
@@ -603,7 +595,7 @@ Range assign_class_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_Count
 //    iter->second.config_in_StaticDataCell.dDeadbandConfig_for_CounterInfo.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_CounterSpec(range->start);
+  uint16_t next_index = IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, next_index)))
   {
@@ -661,7 +653,8 @@ int iterator_operatorPlusPlus_for_CounterSpec(StaticDataMap_for_CounterSpec *pSt
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_CounterSpec->selected_in_StaticDataMap_for_CounterSpec.start = i;
-    pStaticDataMap_for_CounterSpec->selected.start = IndexMass2KeyMap_for_CounterSpec(i);//i;
+    pStaticDataMap_for_CounterSpec->selected.start = 
+               IndexMass2KeyMap_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_CounterSpec)
     if ( pStaticDataMap_for_CounterSpec->map[i].selection_in_StaticDataCell.selected)

@@ -1,9 +1,8 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "ICollection_for_Group50Var1.h"
+#include "BufferedCollection.h"
 
 //--------------------------------ICollection_for_Group50Var1--------------------------------
 ////    template<class Fun> void ForeachItem(const Fun& fun) const
@@ -30,12 +29,14 @@ void  setParentPointer_in_ICollection_for_Group50Var1(ICollection_for_Group50Var
 }
 uint16_t Count_in_ICollection_for_Group50Var1(ICollection_for_Group50Var1 *pICollection_for_Group50Var1)
 {
- return (pICollection_for_Group50Var1->pCount_in_ICollection_for_Group50Var1)(pICollection_for_Group50Var1);
+// return (pICollection_for_Group50Var1->pCount_in_ICollection_for_Group50Var1)(pICollection_for_Group50Var1);
+  return Count_in_BufferedCollection_Group50Var1_override(pICollection_for_Group50Var1);
 }
 
 void  Foreach_in_ICollection_for_Group50Var1(ICollection_for_Group50Var1 *pICollection_for_Group50Var1, IVisitor_for_Group50Var1 *pIVisitor_for_Group50Var1)
 {
-  (pICollection_for_Group50Var1->pForeach_in_ICollection_for_Group50Var1)(pICollection_for_Group50Var1, pIVisitor_for_Group50Var1);
+//  (pICollection_for_Group50Var1->pForeach_in_ICollection_for_Group50Var1)(pICollection_for_Group50Var1, pIVisitor_for_Group50Var1);
+   Foreach_in_BufferedCollection_Group50Var1_override(pICollection_for_Group50Var1, pIVisitor_for_Group50Var1);
 }
 
 /**

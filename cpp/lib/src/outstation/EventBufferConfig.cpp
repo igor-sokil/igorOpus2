@@ -20,9 +20,7 @@
 ////#include "opendnp3/outstation/EventBufferConfig.h"
 
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include "header_dnp3.h"
 #include "EventBufferConfig.h"
 

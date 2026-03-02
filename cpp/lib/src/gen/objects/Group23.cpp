@@ -315,7 +315,7 @@ Group23Var5 Apply_in_ConvertGroup23Var5_static(FrozenCounter* src)
   Group23Var5_in_Group23Var5(&target);
   target.value = (src->tTypedMeasurement_for_Uint32).value;
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVT : private StaticOnly
@@ -410,7 +410,7 @@ Group23Var6 Apply_in_ConvertGroup23Var6_static(FrozenCounter* src)
   Group23Var6_in_Group23Var6(&target);
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
   target.value = (uint16_t)((src->tTypedMeasurement_for_Uint32).value);
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVandTruncate : private StaticOnly

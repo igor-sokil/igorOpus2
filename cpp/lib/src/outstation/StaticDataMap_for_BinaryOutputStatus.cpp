@@ -1,17 +1,11 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap_for_BinaryOutputStatus.h"
 
 uint16_t MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap_for_BinaryOutputStatusSpec)
 {
   return pStaticDataMap_for_BinaryOutputStatusSpec->db_config->binary_output_status_count;
-}
-void setMapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap_for_BinaryOutputStatusSpec, uint16_t size)
-{
-  pStaticDataMap_for_BinaryOutputStatusSpec->db_config->binary_output_status_count = size;
 }
 
 void StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver1(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap)
@@ -32,10 +26,6 @@ void StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputS
   StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
 
-  if(MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap) > SIZE_StaticDataMap_for_BinaryOutputStatusSpec)
-  {
-    setMapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap, SIZE_StaticDataMap_for_BinaryOutputStatusSpec);
-  }//if
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap); i++)
   {
@@ -163,8 +153,9 @@ uint16_t select_all_in_StaticDataMap_for_BinaryOutputStatusSpecOver3(StaticDataM
 //    pStaticDataMap_for_BinaryOutputStatusSpec->selected = From_in_Range_static(pStaticDataMap_for_BinaryOutputStatusSpec->map.begin()->first,
 //        pStaticDataMap_for_BinaryOutputStatusSpec->map.rbegin()->first);
     pStaticDataMap_for_BinaryOutputStatusSpec->selected =
-      From_in_Range_static(IndexMass2KeyMap_for_BinaryOutputStatusSpec(0),
-                           IndexMass2KeyMap_for_BinaryOutputStatusSpec(MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, 0),
+                           IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config,
+             MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)-1));
     //0,//pStaticDataMap_for_BinaryOutputStatusSpec->map.begin()->first,
 //        pStaticDataMap_for_BinaryOutputStatusSpec->db_config->BinaryOutputStatus_input_count-1);
 //        pStaticDataMap_for_BinaryOutputStatusSpec->map.rbegin()->first);
@@ -305,7 +296,7 @@ uint16_t select_in_StaticDataMap_for_BinaryOutputStatusSpecOver5(StaticDataMap_f
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_BinaryOutputStatusSpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -407,7 +398,7 @@ boolean update_in_StaticDataMap_for_BinaryOutputStatusSpecOver2(StaticDataMap_fo
         Event_for_BinaryOutputStatusSpec_in_Event_for_BinaryOutputStatusSpecOver2(&eEvent_for_BinaryOutputStatusSpec,
             new_value,
 ////            iter->first,
-            IndexMass2KeyMap_for_BinaryOutputStatusSpec(index),
+            IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, index),
             ec,
 ////            iter->second.config_in_StaticDataCell.eEventConfig.evariation);
             pStaticDataMap_for_BinaryOutputStatusSpec->map[index].config_in_StaticDataCell.eEventConfig.evariation);
@@ -468,7 +459,7 @@ boolean modify_in_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_Bin
   for (; iter != MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec); ++iter)
   {
 //    if (iter->first > stop)
-    if(IndexMass2KeyMap_for_BinaryOutputStatusSpec(iter) > stop)
+    if(IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, iter) > stop)
     {
       return false;
     }
@@ -486,7 +477,7 @@ boolean modify_in_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_Bin
 //    IEventReceiver* receiver);
 ////        this->update(iter, new_value, EventMode::Detect, receiver);
     update_in_StaticDataMap_for_BinaryOutputStatusSpecOver2(pStaticDataMap_for_BinaryOutputStatusSpec,
-        IndexMass2KeyMap_for_BinaryOutputStatusSpec(iter),
+        IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, iter),
         &new_value,
         EventMode_Detect,
         receiver);
@@ -504,8 +495,9 @@ Range get_full_range_in_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_f
 //  return pStaticDataMap_for_BinaryOutputStatusSpec->map.empty() ? Invalid_in_Range_static() :
 //         From_in_Range_static(pStaticDataMap_for_BinaryOutputStatusSpec->map.begin()->first, pStaticDataMap_for_BinaryOutputStatusSpec->map.rbegin()->first);
   return MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)==0 ? Invalid_in_Range_static() :
-         From_in_Range_static(IndexMass2KeyMap_for_BinaryOutputStatusSpec(0),
-                              IndexMass2KeyMap_for_BinaryOutputStatusSpec(MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)-1));
+         From_in_Range_static(IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, 0),
+                              IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config,
+               MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)-1));
 }
 
 ////template<class Spec> Range StaticDataMap<Spec>::assign_class(PointClass clazz)
@@ -536,7 +528,7 @@ Range assign_class_in_StaticDataMap_for_BinaryOutputStatusSpecOver2(StaticDataMa
 //    iter->second.config_in_StaticDataCell.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_BinaryOutputStatusSpec(range->start);
+  uint16_t next_index = IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, next_index)))
   {
@@ -594,7 +586,8 @@ int iterator_operatorPlusPlus_for_BinaryOutputStatusSpec(StaticDataMap_for_Binar
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_BinarySpec->selected_in_StaticDataMap_for_BinarySpec.start = i;
-    pStaticDataMap_for_BinaryOutputStatusSpec->selected.start = IndexMass2KeyMap_for_BinaryOutputStatusSpec(i);//i;
+    pStaticDataMap_for_BinaryOutputStatusSpec->selected.start = 
+                  IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_BinarySpec)
     if ( pStaticDataMap_for_BinaryOutputStatusSpec->map[i].selection_in_StaticDataCell.selected)

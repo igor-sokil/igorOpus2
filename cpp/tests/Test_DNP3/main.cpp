@@ -1,6 +1,7 @@
 
 #include <QApplication>
 #include <QtWidgets>
+#include <QFile>
 
 #include <stdlib.h>
 #include <iostream>
@@ -18,6 +19,7 @@
 
 void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);//std::string& arData)
 DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num);
+boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
 
 #define UNUSED(x) (void)(x)
 
@@ -26,144 +28,75 @@ key_filter *pkf;
 
 MainWindow *mainWindow;
 
+  LinkLayerParser parser;
+  TransportLayerMrzs transport;
+  OutstationConfig config;
+  OutstationMrzsObject t;
+  MrzsFrameSink  mMrzsFrameSink;
+  DatabaseConfig dDatabaseConfig;
+
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
   key_filter kf;
   app.installEventFilter(pkf=&kf);
 
-  qDebug()<<"********SUITE('3BodyCRCError')********";
+if (QFile::exists("step_dnp3.txt")) {
+    // файл есть
+} else {
+    // файла нет
+QFile file("step_dnp3.txt");
+if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+ //   QTextStream out(&file);
+//    out << "Привет, мир!\n";
+//    out << "Это второй абзац." << endl;
+    file.close();
+}}
+  qDebug()<<"********SUITE('Test_DNP3')********";
 
-  LinkLayerParser parser;
-  TransportLayerMrzs transport;
-  OutstationConfig config;
-  OutstationMrzsObject t;
-  MrzsFrameSink  mMrzsFrameSink;
+    std::cout<<"+***LinkLayerParser parser= "<<sizeof(parser)<<'\n';
+    std::cout<<"+***TransportLayerMrzs transport= "<<sizeof(transport)<<'\n';
+    std::cout<<"+***OutstationConfig config= "<<sizeof(config)<<'\n';
+    std::cout<<"+***OutstationMrzsObject t= "<<sizeof(t)<<'\n';
+    std::cout<<"+***MrzsFrameSink  mMrzsFrameSink= "<<sizeof(mMrzsFrameSink)<<'\n';
+    std::cout<<"+***DatabaseConfig dDatabaseConfig= "<<sizeof(dDatabaseConfig)<<'\n';
 
   LinkLayerParser_in_LinkLayerParser(&parser);
   TransportLayerMrzs_in_TransportLayerMrzs(&transport, 292);
   OutstationConfig_in_OutstationConfig(&config);
-  DatabaseConfig tmp = all_types_in_DatabaseHelpers(2);
-  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &tmp);
-//void MrzsFrameSink_in_MrzsFrameSink(MrzsFrameSink *pMrzsFrameSink, OutstationMrzsObject *t, TransportLayerMrzs* transportMrzs);
-  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);//, &t, &transport);
+//  DatabaseConfig tmp = all_types_in_DatabaseHelpers(2);
+  OutstationConfig_in_OutstationConfig(&config);
+  initialize_BinaryConfig(&dDatabaseConfig, 2);
+  initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 2);
+  initialize_AnalogConfig(&dDatabaseConfig, 65);
+  initialize_CounterConfig(&dDatabaseConfig, 2);
+  initialize_FrozenCounterConfig(&dDatabaseConfig, 2);
+  initialize_BOStatusConfig(&dDatabaseConfig, 2);
+  initialize_AOStatusConfig(&dDatabaseConfig, 2);
+  initialize_TimeAndIntervalConfig(&dDatabaseConfig, 2);
 
-//void WriteData_in_LinkParserTestOver2(LinkParserTest *pLinkParserTest, uint8_t *hex, uint16_t size_hex);////const std::string& hex)
-////    t.WriteData("05 64 14 F3 01 00 00 04 0A 3B C0 C3 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 9A 11");
-//uint8_t hex[] = {0x05, 0x64, 0x14, 0xF3, 0x01, 0x00, 0x00, 0x04, 0x0A, 0x3B, 0xC0, 0xC3, 0x01, 0x3C, 0x02, 0x06, 0x3C, 0x03, 0x06, 0x3C, 0x04, 0x06, 0x3C, 0x01, 0x06, 0x9A, 0x11};
-//uint8_t hex[] = {0x05, 0x64, 0x0e, 0xc4, 0x03, 0x00, 0x01, 0x00, 0xe0, 0x66, 0xc2, 0xc2, 0x02, 0x50, 0x01, 0x00, 0x07, 0x07, 0x00, 0xf3, 0x95};
-  uint8_t hex[] = {0x05, 0x64, 0x05, 0xc0, 0x01, 0x00, 0x02, 0x00, 0x74, 0xe3};
-//uint8_t hex[] = {0x05, 0x64, 0x12, 0xc4, 0x01, 0x00, 0x02, 0x00, 0x93, 0xc9, 0xc1, 0xc1, 0x02, 0x32, 0x01, 0x07, 0x01, 0x1c, 0x4d, 0x68, 0xac, 0x8d, 0x01, 0x66, 0x27};
-// RSeq_for_Uint16_t rst;
-// RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, hex, 21);
-// RepairCRC_in_DNPHelpers(&rst);
+  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
+  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
 
-  WriteData_in_LinkParserMrzsOver2(&parser, &mMrzsFrameSink, hex, 10);//25);//21);//10);//21);//27);////const std::string& hex)
+  setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
 
-uint8_t writeTo_buf[300];
-WSeq_for_Uint16_t writeTo;
-WSeq_for_Uint16_t_in_WSeq_for_Uint16_tOver2(&writeTo, writeTo_buf, 250);
-  switch(mMrzsFrameSink.m_last_header.func)
-  {
-  case LinkFunction_PRI_RESET_LINK_STATES:// = 0x40,
-{
+  Analog aAnalog;
+  Analog_in_AnalogOver2(&aAnalog, 350.0);
+boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 351.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 351, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 352.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 352, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 353.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 353, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 354.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 354, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 355.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 355, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 357.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
     std::cout<<'\n';
-    std::cout<<"+***LinkFunction_PRI_RESET_LINK_STATES***"<<'\n';
-//RSeq_for_Uint16_t FormatAck_in_LinkFrame_static(
-//  WSeq_for_Uint16_t* buffer, boolean aIsMaster, boolean aIsRcvBuffFull, uint16_t aDest, uint16_t aSrc);
-
-RSeq_for_Uint16_t wrapper = FormatAck_in_LinkFrame_static(&writeTo, false, false, 
-      mMrzsFrameSink.m_last_header.addresses.source, 
-      mMrzsFrameSink.m_last_header.addresses.destination);
-
-      inspect_RSeq(&wrapper);
-}
-    break;
-  case LinkFunction_PRI_TEST_LINK_STATES:// = 0x42,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_PRI_TEST_LINK_STATES***"<<'\n';
-    break;
-  case LinkFunction_PRI_CONFIRMED_USER_DATA:// = 0x43,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_PRI_CONFIRMED_USER_DATA***"<<'\n';
-//  break;
-  case LinkFunction_PRI_UNCONFIRMED_USER_DATA:// = 0x44,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_PRI_UNCONFIRMED_USER_DATA***"<<'\n';
-    if(mMrzsFrameSink.userdata)
-    {
-      inspect_RSeq(mMrzsFrameSink.userdata);
-      Message mMessage;
-      Addresses aAddresses;
-      Addresses_in_AddressesOver1(&aAddresses);
-      Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
-
-      if(OnReceive_in_TransportLayerMrzs(&transport, &mMessage))
-      if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
-      {
-        OnReceive_in_OContext(&(t.context), &transport.asdu);
-
-        inspect_Message(&(t.lower.mMessage));
-        std::cout<<"+transport.receiver.expectedSeq.seq= "<<(uint16_t)transport.receiver.expectedSeq.seq<<'\n';
-
-        //boolean BeginTransmit_in_TransportLayerMrzs(TransportLayerMrzs *pTransportLayer, Message* message)
-        BeginTransmit_in_TransportLayerMrzs(&transport, &(t.lower.mMessage));
-        inspect_RSeq(&(transport.asdu.payload));
-
-//RSeq_for_Uint16_t FormatConfirmedUserData_in_LinkFrame_static(WSeq_for_Uint16_t* buffer,
-//    boolean aIsMaster, boolean aFcb, uint16_t aDest, uint16_t aSrc,  RSeq_for_Uint16_t user_data)//,
-        
-RSeq_for_Uint16_t data = FormatConfirmedUserData_in_LinkFrame_static(&writeTo,//WSeq_for_Uint16_t* buffer,
-    false,//boolean aIsMaster,
-    false,//boolean aFcb,
-    mMrzsFrameSink.m_last_header.addresses.source,//uint16_t aDest, 
-    mMrzsFrameSink.m_last_header.addresses.destination,//uint16_t aSrc,
-    (transport.asdu.payload));//RSeq_for_Uint16_t user_data);
-        inspect_RSeq(&data);
-      }//if(is_not_empty_in_HasLength_for_Uint16_t(&(pTransportLayer->asdu.payload.hHasLength)))
-    }//if(mMrzsFrameSink.userdata)
-
-    break;
-  case LinkFunction_PRI_REQUEST_LINK_STATUS:// = 0x49,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_PRI_REQUEST_LINK_STATUS***"<<'\n';
-    break;
-  case LinkFunction_SEC_ACK:// = 0x0,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_SEC_ACK***"<<'\n';
-    break;
-  case LinkFunction_SEC_NACK:// = 0x1,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_SEC_NACK***"<<'\n';
-    break;
-  case LinkFunction_SEC_LINK_STATUS:// = 0xB,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_SEC_LINK_STATUS***"<<'\n';
-    break;
-  case LinkFunction_SEC_NOT_SUPPORTED:// = 0xF,
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_SEC_NOT_SUPPORTED***"<<'\n';
-    break;
-  case LinkFunction_INVALID:// = 0xFF
-    std::cout<<'\n';
-    std::cout<<"+***LinkFunction_INVALID***"<<'\n';
-    break;
-  }//switch
-
-
-// std::string name1 = "05 64 14 F3 01 00 00 04 0A 3B C0 C3 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 9A 12";
-// std::string name2 = "05 64 05 C0 01 00 00 04 E9 21";
-// WriteData_in_LinkParserTestOver3(&t, name1);////const std::string& hex)
-
-  qDebug()<<"REQUIRE(t.sink.m_num_frames == 0)";
-//qDebug()<<"t.sink.m_num_frames= "<<t.sink.m_num_frames;
-
-  qDebug()<<"REQUIRE(t.parser.Statistics().numHeaderCrcError == 1)";
-  Parser_in_LinkStatistics* temp = Statistics_in_LinkLayerParser(&parser);
-
-  qDebug()<<"parser.Statistics().numBodyCrcError= "<<temp->numBodyCrcError;
-  qDebug()<<"parser.Statistics().numHeaderCrcError= "<<temp->numHeaderCrcError;
-
+    std::cout<<"***boolean tt= "<<tt<<'\n';
 
   /*
   TEST_CASE(SUITE("3BodyCRCError"))

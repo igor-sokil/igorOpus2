@@ -1,17 +1,11 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "StaticDataMap_for_AnalogOutputStatus.h"
 
 uint16_t MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap_for_AnalogOutputStatusSpec)
 {
   return pStaticDataMap_for_AnalogOutputStatusSpec->db_config->analog_output_status_count;
-}
-void setMapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap_for_AnalogOutputStatusSpec, uint16_t size)
-{
-  pStaticDataMap_for_AnalogOutputStatusSpec->db_config->analog_output_status_count = size;
 }
 
 void StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver1(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap)
@@ -33,10 +27,7 @@ void StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputS
 
   StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver1(pStaticDataMap);
   pStaticDataMap->db_config = config;
-  if(MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap) > SIZE_StaticDataMap_for_AnalogOutputStatusSpec)
-  {
-    setMapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap, SIZE_StaticDataMap_for_AnalogOutputStatusSpec);
-  }//if
+
 //  for (const auto& item : config)
   for (int i=0; i<MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap); i++)
   {
@@ -164,8 +155,9 @@ uint16_t select_all_in_StaticDataMap_for_AnalogOutputStatusSpecOver3(StaticDataM
 //    pStaticDataMap_for_AnalogOutputStatusSpec->selected = From_in_Range_static(pStaticDataMap_for_AnalogOutputStatusSpec->map.begin()->first,
 //        pStaticDataMap_for_AnalogOutputStatusSpec->map.rbegin()->first);
     pStaticDataMap_for_AnalogOutputStatusSpec->selected =
-      From_in_Range_static(IndexMass2KeyMap_for_AnalogOutputStatusSpec(0),
-                           IndexMass2KeyMap_for_AnalogOutputStatusSpec(MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)-1));
+      From_in_Range_static(IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, 0),
+                           IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config,
+                         MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)-1));
     //0,//pStaticDataMap_for_AnalogOutputStatusSpec->map.begin()->first,
 //        pStaticDataMap_for_AnalogOutputStatusSpec->db_config->AnalogOutputStatus_input_count-1);
 //        pStaticDataMap_for_AnalogOutputStatusSpec->map.rbegin()->first);
@@ -306,7 +298,7 @@ uint16_t select_in_StaticDataMap_for_AnalogOutputStatusSpecOver5(StaticDataMap_f
   {
 ////        if (!range.Contains(iter->first))
 //    if (!Contains_in_Range(&range, iter->first))
-    uint16_t iter_first = IndexMass2KeyMap_for_AnalogOutputStatusSpec(iter);
+    uint16_t iter_first = IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, iter);
     if (!Contains_in_Range(&range, iter_first))
     {
       break;
@@ -407,7 +399,7 @@ boolean update_in_StaticDataMap_for_AnalogOutputStatusSpecOver2(StaticDataMap_fo
         Event_for_AnalogOutputStatusSpec_in_Event_for_AnalogOutputStatusSpecOver2(&eEvent_for_AnalogOutputStatusSpec,
             new_value,
 ////            iter->first,
-            IndexMass2KeyMap_for_AnalogOutputStatusSpec(index),
+            IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, index),
             ec,
 ////            iter->second.config_in_StaticDataCell.dDeadbandConfig_for_AnalogOutputStatusInfo.eEventConfig.evariation);
             pStaticDataMap_for_AnalogOutputStatusSpec->map[index].config_in_StaticDataCell.dDeadbandConfig_for_AnalogOutputStatusInfo.eEventConfig.evariation);
@@ -467,7 +459,7 @@ boolean modify_in_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_Ana
   for (; iter != MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec); ++iter)
   {
 //    if (iter->first > stop)
-    if(IndexMass2KeyMap_for_AnalogOutputStatusSpec(iter) > stop)
+    if(IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, iter) > stop)
     {
       return false;
     }
@@ -485,7 +477,7 @@ boolean modify_in_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_Ana
 //    IEventReceiver* receiver);
 ////        this->update(iter, new_value, EventMode::Detect, receiver);
     update_in_StaticDataMap_for_AnalogOutputStatusSpecOver2(pStaticDataMap_for_AnalogOutputStatusSpec,
-        IndexMass2KeyMap_for_AnalogOutputStatusSpec(iter),
+        IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, iter),
         &new_value,
         EventMode_Detect,
         receiver);
@@ -503,8 +495,9 @@ Range get_full_range_in_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_f
 //  return pStaticDataMap_for_AnalogOutputStatusSpec->map.empty() ? Invalid_in_Range_static() :
 //         From_in_Range_static(pStaticDataMap_for_AnalogOutputStatusSpec->map.begin()->first, pStaticDataMap_for_AnalogOutputStatusSpec->map.rbegin()->first);
   Range tmp = MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)==0 ? Invalid_in_Range_static() :
-              From_in_Range_static(IndexMass2KeyMap_for_AnalogOutputStatusSpec(0),
-                                   IndexMass2KeyMap_for_AnalogOutputStatusSpec(MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)-1));
+              From_in_Range_static(IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, 0),
+                                   IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config,
+                         MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)-1));
   return tmp;
 }
 
@@ -535,7 +528,7 @@ Range assign_class_in_StaticDataMap_for_AnalogOutputStatusSpecOver2(StaticDataMa
 //    iter->second.config_in_StaticDataCell.dDeadbandConfig_for_AnalogOutputStatusInfo.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_AnalogOutputStatusSpec(range->start);
+  uint16_t next_index = IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, next_index)))
   {
@@ -593,7 +586,8 @@ int iterator_operatorPlusPlus_for_AnalogOutputStatusSpec(StaticDataMap_for_Analo
     // shorten the range
 ////        this->range.start = iter->first;
 //    pStaticDataMap_for_BinarySpec->selected_in_StaticDataMap_for_BinarySpec.start = i;
-    pStaticDataMap_for_AnalogOutputStatusSpec->selected.start = IndexMass2KeyMap_for_AnalogOutputStatusSpec(i);//i;
+    pStaticDataMap_for_AnalogOutputStatusSpec->selected.start = 
+               IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, i);//i;
 
 ////        if (iter->second.selection_in_StaticDataCell.selected_in_SelectedValue_for_BinarySpec)
     if ( pStaticDataMap_for_AnalogOutputStatusSpec->map[i].selection_in_StaticDataCell.selected)

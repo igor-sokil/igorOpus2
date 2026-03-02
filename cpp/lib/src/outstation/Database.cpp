@@ -18,9 +18,7 @@
  * limitations under the License.
  */
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "Database.h"
 
@@ -1461,7 +1459,8 @@ boolean FreezeSelectedCounters_in_Database(Database *pDatabase, boolean clear, E
     {
       pDatabase->counter.map[idx].value_in_StaticDataCell.tTypedMeasurement_for_Uint32.value = 0;
 ////            c.second.value.time = time_source.Now();
-      pDatabase->counter.map[idx].value_in_StaticDataCell.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime = Now_in_IDnpTimeSource_static(pDatabase->time_source);
+      pDatabase->counter.map[idx].value_in_StaticDataCell.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement =
+                   Now_in_IDnpTimeSource_static(pDatabase->time_source);
 
 //boolean update_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec,
 //    Counter* value,

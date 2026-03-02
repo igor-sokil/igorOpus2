@@ -22,7 +22,6 @@
 
 //#include "opendnp3/outstation/MeasurementConfig.h"
 #include "StaticDataMapConfig.h"
-#include "DataMapKeys.h"
 #include "MeasurementConfig.h"
 
 //#include <map>
@@ -73,6 +72,22 @@ typedef struct
 //  OctetStringConfig octet_string_config;
 //  uint16_t octet_string_count;
 
+  uint16_t DataMapKeys_for_AnalogSpec[SIZE_StaticDataMap_for_AnalogSpec];
+  //static const 
+  uint16_t DataMapKeys_for_AnalogOutputStatusSpec[SIZE_StaticDataMap_for_AnalogOutputStatusSpec];
+  //static const 
+  uint16_t DataMapKeys_for_BinarySpec[SIZE_StaticDataMap_for_BinarySpec];
+  //static const 
+  uint16_t DataMapKeys_for_BinaryOutputStatusSpec[SIZE_StaticDataMap_for_BinaryOutputStatusSpec];
+  //static const 
+  uint16_t DataMapKeys_for_DoubleBitBinarySpec[SIZE_StaticDataMap_for_DoubleBitBinarySpec];
+  //static const 
+  uint16_t DataMapKeys_for_CounterSpec[SIZE_StaticDataMap_for_CounterSpec];
+  //static const 
+  uint16_t DataMapKeys_for_FrozenCounterSpec[SIZE_StaticDataMap_for_FrozenCounterSpec];
+  //static const 
+  uint16_t DataMapKeys_for_TimeAndIntervalSpec[SIZE_StaticDataMap_for_TimeAndIntervalSpec];
+
 } DatabaseConfig;
 
 void DatabaseConfig_in_DatabaseConfig_default(DatabaseConfig *pDatabaseConfig);
@@ -95,14 +110,25 @@ uint16_t KeyMap2IndexMass_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig,
 uint16_t KeyMap2IndexMass_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t key);
 uint16_t KeyMap2IndexMass_for_BinaryOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t key);
 uint16_t KeyMap2IndexMass_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t key);
-uint16_t IndexMass2KeyMap_for_AnalogSpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_BinarySpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_CounterSpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_DoubleBitBinarySpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_FrozenCounterSpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_AnalogOutputStatusSpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_BinaryOutputStatusSpec(uint16_t index);
-uint16_t IndexMass2KeyMap_for_TimeAndIntervalSpec(uint16_t index);
+uint16_t IndexMass2KeyMap_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_BinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_CounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_DoubleBitBinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_BinaryOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+uint16_t IndexMass2KeyMap_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t index);
+
+boolean setDataMapKeys_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_CounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_BinaryOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_DoubleBitBinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_BinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+boolean setDataMapKeys_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
+
+boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
 
 ////} // namespace opendnp3
 

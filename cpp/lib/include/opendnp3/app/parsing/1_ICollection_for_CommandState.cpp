@@ -1,7 +1,5 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header.h"
 #include "ICollection_for_CommandState.h"
 

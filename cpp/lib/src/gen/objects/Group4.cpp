@@ -218,7 +218,7 @@ Group4Var2 Apply_in_ConvertGroup4Var2_static(DoubleBitBinary* src)
   Group4Var2 target;
   Group4Var2_in_Group4Var2(&target);
   target.flags = (src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 
@@ -312,7 +312,7 @@ Group4Var3 Apply_in_ConvertGroup4Var3_static(DoubleBitBinary* src)
   Group4Var3 target;
   Group4Var3_in_Group4Var3(&target);
   target.flags = (src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.flags.value;
-  target.time_uint16_t = (uint16_t)(src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime.value;
+  target.time_uint16_t = (uint16_t)(src->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 

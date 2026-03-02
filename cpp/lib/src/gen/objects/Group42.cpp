@@ -342,7 +342,7 @@ Group42Var3 Apply_in_ConvertGroup42Var3_static(AnalogOutputStatus* src, uint8_t 
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly
@@ -444,7 +444,7 @@ Group42Var4 Apply_in_ConvertGroup42Var4_static(AnalogOutputStatus* src, uint8_t 
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly
@@ -682,7 +682,7 @@ Group42Var7 Apply_in_ConvertGroup42Var7_static(AnalogOutputStatus* src, uint8_t 
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly

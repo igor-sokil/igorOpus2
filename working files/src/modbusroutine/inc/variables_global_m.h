@@ -14,6 +14,7 @@ SRAM1  TransportLayerMrzs transport;
 SRAM1  OutstationConfig config;
 SRAM1  OutstationMrzsObject t;
 SRAM1  MrzsFrameSink  mMrzsFrameSink;
+SRAM1  DatabaseConfig dDatabaseConfig;
 
 /*
 #include "header_m.h"

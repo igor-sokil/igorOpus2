@@ -1633,6 +1633,7 @@ void make_ekran_timeout_mtz(unsigned int group)
 /*****************************************************/
 void make_ekran_control_mtz(void)
 {
+/*
   static const unsigned char name_string[MAX_NAMBER_LANGUAGE][MAX_ROW_FOR_CONTROL_MTZ][MAX_COL_LCD] = 
   {
     {
@@ -1759,9 +1760,7 @@ void make_ekran_control_mtz(void)
   
   __SETTINGS * const point = (current_ekran.edition == 0) ? &current_settings :  &edition_settings;
           
-  /******************************************/
   //Фіксуємо зміщення
-  /******************************************/
   int additional_current = 0;
   int position_temp = current_ekran.index_position;
   uint32_t value_index_shift[MAX_ROW_FOR_CONTROL_MTZ];
@@ -1797,7 +1796,6 @@ void make_ekran_control_mtz(void)
     }
     else value_index_shift[current_index - additional_current] = additional_current;
   }
-  /******************************************/
 
   //Множення на два величини position_temp потрібне для того, бо наодн позицію ми використовуємо два рядки (назва + значення)
   unsigned int index_of_ekran = ((position_temp<<1) >> POWER_MAX_ROW_LCD) << POWER_MAX_ROW_LCD;
@@ -1930,6 +1928,7 @@ void make_ekran_control_mtz(void)
   else current_ekran.cursor_blinking_on = 1;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 

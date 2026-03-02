@@ -19,9 +19,7 @@
  */
 
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "ASDUEventWriteHandler.h"
 
@@ -97,7 +95,7 @@ uint16_t Write_for_Binary_in_ASDUEventWriteHandler_override(void *pIEventWriteHa
 #endif
 //uint16_t Write_for_Binary_in_EventWriters_static(HeaderWriter* writer, IEventCollection_for_Binary* items, DNP3Serializer_for_Binary* serializer);
     DNP3Serializer_for_Binary temp = Inst_in_Group2Var3_static();
-    tmp = WriteWithCTO_for_Binary_in_EventWriters_static(&((first->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime), &(parent->writer), items, &temp);
+    tmp = WriteWithCTO_for_Binary_in_EventWriters_static(&((first->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement), &(parent->writer), items, &temp);
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -146,7 +144,7 @@ uint16_t Write_for_DoubleBitBinary_in_ASDUEventWriteHandler_override(void *pIEve
   case (EventDoubleBinaryVariation_Group4Var3):
   {
     DNP3Serializer_for_DoubleBitBinary temp = Inst_in_Group4Var3_static();
-    return WriteWithCTO_for_DoubleBitBinary_in_EventWriters_static(&((first->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime), &(parent->writer), items, &temp);
+    return WriteWithCTO_for_DoubleBitBinary_in_EventWriters_static(&((first->tTypedMeasurement_for_DoubleBit_uint8_t).mMeasurement.timeDNPTime_in_Measurement), &(parent->writer), items, &temp);
   }
   default:
   {

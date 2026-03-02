@@ -19,9 +19,7 @@
  */
 
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "CountIndexParser.h"
 
@@ -732,7 +730,9 @@ ParseResult_uint8_t ParseCountOfIndices_in_CountIndexParser_static(
 //  uint32_t count,
 //  ReadFunc_uint16 readFunc);
 ////    auto collection = CreateBufferedCollection<uint16_t>(buffer, count, read);
-    BufferedCollection_uint16 collection = CreateBufferedCollection_uint16_static(buffer, count, ReadFunc_uint16_in_CountIndexParser);
+//    BufferedCollection_uint16 collection = CreateBufferedCollection_uint16_static(buffer, count, ReadFunc_uint16_in_CountIndexParser);
+  BufferedCollection_uint16 collection;
+  BufferedCollection_uint16_in_BufferedCollection_uint16(&collection, buffer, count, ReadFunc_uint16_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 //   void OnHeader_PrefixHeader_for_uint16_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, PrefixHeader* header, ICollection_for_uint16* values);
@@ -911,10 +911,14 @@ void InvokeCountOf_for_Group2Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_Binary_Group2Var1_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_Binary_Group2Var1_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Binary collection;
+  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Binary(&collection,
+      buffer,
+      count, readInvokeCountOf_for_Binary_Group2Var1_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -982,10 +986,14 @@ void InvokeCountOf_for_Group2Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_Binary_Group2Var2_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_Binary_Group2Var2_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Binary collection;
+  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Binary(&collection,
+      buffer,
+      count, readInvokeCountOf_for_Binary_Group2Var2_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1053,10 +1061,14 @@ void InvokeCountOf_for_Group2Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_Binary_Group2Var3_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_Binary_Group2Var3_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Binary collection;
+  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Binary(&collection,
+      buffer,
+      count, readInvokeCountOf_for_Binary_Group2Var3_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1140,10 +1152,14 @@ void InvokeCountOf_for_Group11Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_BinaryOutputStatus_Group11Var1_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_BinaryOutputStatus_Group11Var1_in_CountIndexParser);
+  BufferedCollection_Indexed_for_BinaryOutputStatus collection;
+  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_Indexed_for_BinaryOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_for_BinaryOutputStatus_Group11Var1_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1230,10 +1246,14 @@ void InvokeCountOf_for_Group11Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_BinaryOutputStatus_Group11Var2_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_BinaryOutputStatus_Group11Var2_in_CountIndexParser);
+  BufferedCollection_Indexed_for_BinaryOutputStatus collection;
+  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_Indexed_for_BinaryOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_for_BinaryOutputStatus_Group11Var2_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1320,10 +1340,14 @@ void InvokeCountOf_for_Group12Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_ControlRelayOutputBlock collection = CreateBufferedCollection_Indexed_for_ControlRelayOutputBlock_static(
-        buffer,
-        count,
-        readInvokeCountOf_for_ControlRelayOutputBlock_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_ControlRelayOutputBlock collection = CreateBufferedCollection_Indexed_for_ControlRelayOutputBlock_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_for_ControlRelayOutputBlock_in_CountIndexParser);
+  BufferedCollection_Indexed_for_ControlRelayOutputBlock collection;
+  BufferedCollection_Indexed_for_ControlRelayOutputBlock_in_BufferedCollection_Indexed_for_ControlRelayOutputBlock(&collection,
+      buffer,
+      count, readInvokeCountOf_for_ControlRelayOutputBlock_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1395,10 +1419,14 @@ void InvokeCountOf_for_Group4Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group4Var1_for_DoubleBitBinary_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group4Var1_for_DoubleBitBinary_in_CountIndexParser);
+  BufferedCollection_Indexed_for_DoubleBitBinary collection;
+  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(&collection,
+      buffer,
+      count, readInvokeCountOf_Group4Var1_for_DoubleBitBinary_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1467,10 +1495,14 @@ void InvokeCountOf_for_Group4Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group4Var2_for_DoubleBitBinary_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group4Var2_for_DoubleBitBinary_in_CountIndexParser);
+  BufferedCollection_Indexed_for_DoubleBitBinary collection;
+  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(&collection,
+      buffer,
+      count, readInvokeCountOf_Group4Var2_for_DoubleBitBinary_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1539,10 +1571,14 @@ void InvokeCountOf_for_Group4Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group4Var3_for_DoubleBitBinary_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group4Var3_for_DoubleBitBinary_in_CountIndexParser);
+  BufferedCollection_Indexed_for_DoubleBitBinary collection;
+  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(&collection,
+      buffer,
+      count, readInvokeCountOf_Group4Var3_for_DoubleBitBinary_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1611,10 +1647,14 @@ void InvokeCountOf_for_Group13Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_BinaryCommandEvent collection = CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group13Var1_for_BinaryCommandEvent_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_BinaryCommandEvent collection = CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group13Var1_for_BinaryCommandEvent_in_CountIndexParser);
+  BufferedCollection_Indexed_for_BinaryCommandEvent collection;
+  BufferedCollection_Indexed_for_BinaryCommandEvent_in_BufferedCollection_Indexed_for_BinaryCommandEvent(&collection,
+      buffer,
+      count, readInvokeCountOf_Group13Var1_for_BinaryCommandEvent_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1683,10 +1723,14 @@ void InvokeCountOf_for_Group13Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_BinaryCommandEvent collection = CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group13Var2_for_BinaryCommandEvent_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_BinaryCommandEvent collection = CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group13Var2_for_BinaryCommandEvent_in_CountIndexParser);
+  BufferedCollection_Indexed_for_BinaryCommandEvent collection;
+  BufferedCollection_Indexed_for_BinaryCommandEvent_in_BufferedCollection_Indexed_for_BinaryCommandEvent(&collection,
+      buffer,
+      count, readInvokeCountOf_Group13Var2_for_BinaryCommandEvent_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1755,10 +1799,14 @@ void InvokeCountOf_for_Group43Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogCommandEvent collection = CreateBufferedCollection_Indexed_for_AnalogCommandEvent_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group43Var1_for_AnalogCommandEvent_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogCommandEvent collection = CreateBufferedCollection_Indexed_for_AnalogCommandEvent_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group43Var1_for_AnalogCommandEvent_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogCommandEvent collection;
+  BufferedCollection_Indexed_for_AnalogCommandEvent_in_BufferedCollection_Indexed_for_AnalogCommandEvent(&collection,
+      buffer,
+      count, readInvokeCountOf_Group43Var1_for_AnalogCommandEvent_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1827,10 +1875,14 @@ void InvokeCountOf_for_Group43Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogCommandEvent collection = CreateBufferedCollection_Indexed_for_AnalogCommandEvent_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group43Var3_for_AnalogCommandEvent_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogCommandEvent collection = CreateBufferedCollection_Indexed_for_AnalogCommandEvent_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group43Var3_for_AnalogCommandEvent_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogCommandEvent collection;
+  BufferedCollection_Indexed_for_AnalogCommandEvent_in_BufferedCollection_Indexed_for_AnalogCommandEvent(&collection,
+      buffer,
+      count, readInvokeCountOf_Group43Var3_for_AnalogCommandEvent_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1899,10 +1951,14 @@ void InvokeCountOf_for_Group50Var4_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_TimeAndInterval collection = CreateBufferedCollection_Indexed_for_TimeAndInterval_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group50Var4_for_TimeAndInterval_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_TimeAndInterval collection = CreateBufferedCollection_Indexed_for_TimeAndInterval_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group50Var4_for_TimeAndInterval_in_CountIndexParser);
+  BufferedCollection_Indexed_for_TimeAndInterval collection;
+  BufferedCollection_Indexed_for_TimeAndInterval_in_BufferedCollection_Indexed_for_TimeAndInterval(&collection,
+      buffer,
+      count, readInvokeCountOf_Group50Var4_for_TimeAndInterval_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -1971,10 +2027,14 @@ void InvokeCountOf_for_Group22Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group22Var1_for_Counter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group22Var1_for_Counter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group22Var1_for_Counter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2043,10 +2103,14 @@ void InvokeCountOf_for_Group22Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group22Var2_for_Counter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group22Var2_for_Counter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group22Var2_for_Counter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2115,10 +2179,14 @@ void InvokeCountOf_for_Group22Var5_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group22Var5_for_Counter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group22Var5_for_Counter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group22Var5_for_Counter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2187,10 +2255,14 @@ void InvokeCountOf_for_Group22Var6_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group22Var6_for_Counter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group22Var6_for_Counter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group22Var6_for_Counter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2259,10 +2331,14 @@ void InvokeCountOf_for_Group23Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group23Var1_for_FrozenCounter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group23Var1_for_FrozenCounter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group23Var1_for_FrozenCounter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2331,10 +2407,14 @@ void InvokeCountOf_for_Group23Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group23Var2_for_FrozenCounter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group23Var2_for_FrozenCounter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group23Var2_for_FrozenCounter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2403,10 +2483,14 @@ void InvokeCountOf_for_Group23Var5_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group23Var5_for_FrozenCounter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group23Var5_for_FrozenCounter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group23Var5_for_FrozenCounter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2475,10 +2559,14 @@ void InvokeCountOf_for_Group23Var6_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group23Var6_for_FrozenCounter_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group23Var6_for_FrozenCounter_in_CountIndexParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      count, readInvokeCountOf_Group23Var6_for_FrozenCounter_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2547,10 +2635,14 @@ void InvokeCountOf_for_Group32Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var1_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var1_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var1_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2619,10 +2711,14 @@ void InvokeCountOf_for_Group32Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var2_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var2_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var2_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2691,10 +2787,14 @@ void InvokeCountOf_for_Group32Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var3_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var3_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var3_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2763,10 +2863,14 @@ void InvokeCountOf_for_Group32Var4_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var4_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var4_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var4_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2835,10 +2939,14 @@ void InvokeCountOf_for_Group32Var5_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var5_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var5_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var5_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2907,10 +3015,14 @@ void InvokeCountOf_for_Group32Var7_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group32Var7_for_Analog_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group32Var7_for_Analog_in_CountIndexParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      count, readInvokeCountOf_Group32Var7_for_Analog_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -2979,10 +3091,14 @@ void InvokeCountOf_for_Group41Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputInt32 collection = CreateBufferedCollection_Indexed_for_AnalogOutputInt32_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group41Var1_for_AnalogOutputInt32_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputInt32 collection = CreateBufferedCollection_Indexed_for_AnalogOutputInt32_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group41Var1_for_AnalogOutputInt32_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputInt32 collection;
+  BufferedCollection_Indexed_for_AnalogOutputInt32_in_BufferedCollection_Indexed_for_AnalogOutputInt32(&collection,
+      buffer,
+      count, readInvokeCountOf_Group41Var1_for_AnalogOutputInt32_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3051,10 +3167,14 @@ void InvokeCountOf_for_Group41Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputInt16 collection = CreateBufferedCollection_Indexed_for_AnalogOutputInt16_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group41Var2_for_AnalogOutputInt16_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputInt16 collection = CreateBufferedCollection_Indexed_for_AnalogOutputInt16_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group41Var2_for_AnalogOutputInt16_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputInt16 collection;
+  BufferedCollection_Indexed_for_AnalogOutputInt16_in_BufferedCollection_Indexed_for_AnalogOutputInt16(&collection,
+      buffer,
+      count, readInvokeCountOf_Group41Var2_for_AnalogOutputInt16_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3123,10 +3243,14 @@ void InvokeCountOf_for_Group41Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputFloat32 collection = CreateBufferedCollection_Indexed_for_AnalogOutputFloat32_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group41Var3_for_AnalogOutputFloat32_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputFloat32 collection = CreateBufferedCollection_Indexed_for_AnalogOutputFloat32_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group41Var3_for_AnalogOutputFloat32_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputFloat32 collection;
+  BufferedCollection_Indexed_for_AnalogOutputFloat32_in_BufferedCollection_Indexed_for_AnalogOutputFloat32(&collection,
+      buffer,
+      count, readInvokeCountOf_Group41Var3_for_AnalogOutputFloat32_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3195,10 +3319,14 @@ void InvokeCountOf_for_Group42Var1_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var1_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var1_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var1_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3267,10 +3395,14 @@ void InvokeCountOf_for_Group42Var2_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var2_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var2_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var2_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3339,10 +3471,14 @@ void InvokeCountOf_for_Group42Var3_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var3_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var3_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var3_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3411,10 +3547,14 @@ void InvokeCountOf_for_Group42Var4_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var4_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var4_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var4_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3483,10 +3623,14 @@ void InvokeCountOf_for_Group42Var5_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var5_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var5_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var5_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);
@@ -3555,10 +3699,14 @@ void InvokeCountOf_for_Group42Var7_in_CountIndexParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, count, read);
   pPointerGlobal1_in_ParseCountOfIndices = numparser;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        count,
-        readInvokeCountOf_Group42Var7_for_AnalogOutputStatus_in_CountIndexParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        count,
+//        readInvokeCountOf_Group42Var7_for_AnalogOutputStatus_in_CountIndexParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      count, readInvokeCountOf_Group42Var7_for_AnalogOutputStatus_in_CountIndexParser);
 
 //void PrefixHeader_in_PrefixHeader(PrefixHeader *pPrefixHeader, HeaderRecord *record, uint16_t count_);
 ////    handler.OnHeader(PrefixHeader(record, count), collection);

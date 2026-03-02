@@ -90,6 +90,6 @@ uint16_t AdvanceTime_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMr
 boolean AdvanceToNextTimer_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
 
 uint16_t NumPendingTimers_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
-//void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);//std::string& arData)
+void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);
 
 #endif

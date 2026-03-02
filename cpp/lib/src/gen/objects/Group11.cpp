@@ -220,7 +220,7 @@ Group11Var2 Apply_in_ConvertGroup11Var2_static(BinaryOutputStatus* src)
   Group11Var2 target;
   Group11Var2_in_Group11Var2(&target);
   target.flags = (src->tTypedMeasurement_for_Boolean).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 

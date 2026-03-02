@@ -30,9 +30,7 @@
 //
 
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include "header_dnp3.h"
 #include "Group22.h"
 
@@ -366,7 +364,7 @@ Group22Var5 Apply_in_ConvertGroup22Var5_static(Counter* src)
   Group22Var5_in_Group22Var5(&target);
   target.value = (src->tTypedMeasurement_for_Uint32).value;
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVT : private StaticOnly
@@ -503,7 +501,7 @@ Group22Var6 Apply_in_ConvertGroup22Var6_static(Counter* src)
   Group22Var6_in_Group22Var6(&target);
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
   target.value = (uint16_t)((src->tTypedMeasurement_for_Uint32).value);
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVTandTruncate : private StaticOnly

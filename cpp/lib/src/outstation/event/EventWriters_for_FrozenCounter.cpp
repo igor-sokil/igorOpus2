@@ -85,23 +85,23 @@ boolean Write_in_CTOEventWriter_for_FrozenCounter_Group51Var1_override(void* pIE
   // Check that the quality of the measurement fits with the CTO variation
   if ((parent->cto).quality == TimestampQuality_SYNCHRONIZED)
   {
-    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.quality != TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.quality != TimestampQuality_SYNCHRONIZED)
       return false;
   }
   else
   {
 ////                if (meas.time.quality == TimestampQuality::SYNCHRONIZED)
-    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.quality == TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.quality == TimestampQuality_SYNCHRONIZED)
       return false;
   }
 
   // can't encode timestamps that go backwards
 ////            if (meas.time.value < this->cto.value)
-  if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value < parent->cto.value)
+  if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value < parent->cto.value)
     return false;
 
 ////            const auto diff = meas.time.value - this->cto.value;
-  uint64_t diff = (meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value - parent->cto.value;
+  uint64_t diff = (meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value - parent->cto.value;
 
   // can't encode timestamps where the diff is greater than uint16_t
 ////            if (diff > ser4cpp::UInt16::max_value)
@@ -114,7 +114,7 @@ boolean Write_in_CTOEventWriter_for_FrozenCounter_Group51Var1_override(void* pIE
   DNPTime dDNPTime;
   DNPTime_in_DNPTimeOver2(&dDNPTime, diff);
 ////            copy.time = DNPTime(diff);
-  copy.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime = dDNPTime;
+  copy.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement = dDNPTime;
 
 //    boolean Write_in_PrefixedWriteIterator_for_UInt16_FrozenCounter(PrefixedWriteIterator_for_UInt16_FrozenCounter *pPrefixedWriteIterator_for_UInt16_FrozenCounter,
 //                                                                  FrozenCounter* value, uint16_t index);
@@ -203,23 +203,23 @@ boolean Write_in_CTOEventWriter_for_FrozenCounter_Group51Var2_override(void* pIE
   // Check that the quality of the measurement fits with the CTO variation
   if ((parent->cto).quality == TimestampQuality_SYNCHRONIZED)
   {
-    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.quality != TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.quality != TimestampQuality_SYNCHRONIZED)
       return false;
   }
   else
   {
 ////                if (meas.time.quality == TimestampQuality::SYNCHRONIZED)
-    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.quality == TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.quality == TimestampQuality_SYNCHRONIZED)
       return false;
   }
 
   // can't encode timestamps that go backwards
 ////            if (meas.time.value < this->cto.value)
-  if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value < parent->cto.value)
+  if ((meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value < parent->cto.value)
     return false;
 
 ////            const auto diff = meas.time.value - this->cto.value;
-  uint64_t diff = (meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value - parent->cto.value;
+  uint64_t diff = (meas->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value - parent->cto.value;
 
   // can't encode timestamps where the diff is greater than uint16_t
 ////            if (diff > ser4cpp::UInt16::max_value)
@@ -232,7 +232,7 @@ boolean Write_in_CTOEventWriter_for_FrozenCounter_Group51Var2_override(void* pIE
   DNPTime dDNPTime;
   DNPTime_in_DNPTimeOver2(&dDNPTime, diff);
 ////            copy.time = DNPTime(diff);
-  copy.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime = dDNPTime;
+  copy.tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement = dDNPTime;
 
 //    boolean Write_in_PrefixedWriteIterator_for_UInt16_FrozenCounter(PrefixedWriteIterator_for_UInt16_FrozenCounter *pPrefixedWriteIterator_for_UInt16_FrozenCounter,
 //                                                                  FrozenCounter* value, uint16_t index);

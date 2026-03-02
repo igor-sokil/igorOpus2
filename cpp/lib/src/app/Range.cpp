@@ -1,8 +1,6 @@
 
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "Range.h"
 
@@ -53,7 +51,26 @@ void Range_in_RangeOver1(Range *pRange)
 
 uint32_t Count_in_Range(Range *pRange)
 {
-  return IsValid_in_Range(pRange) ? (pRange->stop - pRange->start + 1) : 0;
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{Count_in_Range1"<<'\n';
+#endif
+  uint32_t tmp = IsValid_in_Range(pRange) ? (pRange->stop - pRange->start + 1) : 0;
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<getString_stack_info();
+  std::cout<<"}Count_in_Range_"<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*pRange->start= "<<pRange->start<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*pRange->stop= "<<pRange->stop<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*uint32_t tmp= "<<tmp<<'\n';
+  decrement_stack_info();
+#endif
+  return tmp;
 }
 
 boolean Advance_in_Range(Range *pRange)

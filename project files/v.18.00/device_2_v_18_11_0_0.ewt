@@ -2643,6 +2643,9 @@
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\gen\IntervalUnits.cpp</name>
                                 </file>
                                 <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\gen\LinkFunction.cpp</name>
+                                </file>
+                                <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\gen\OperationType.cpp</name>
                                 </file>
                                 <file>
@@ -3109,6 +3112,9 @@
                     </file>
                     <file>
                         <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\OutstationMrzsObject.cpp</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\setMrzsDataMapKeys_for_AnalogSpec.cpp</name>
                     </file>
                     <file>
                         <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\TransportLayerMrzs.cpp</name>

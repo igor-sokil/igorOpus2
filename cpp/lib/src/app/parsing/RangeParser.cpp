@@ -19,9 +19,7 @@
  */
 
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "RangeParser.h"
 
@@ -879,10 +877,14 @@ void InvokeRangeOf_for_Group1Var2_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_Binary readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_BinaryGroup1Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_BinaryGroup1Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_Binary collection;
+  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Binary(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_BinaryGroup1Var2_in_RangeParser);
 
 //  void OnHeader_RangeHeader_for_Binary_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_Binary* values);
 ////    handler.OnHeader(RangeHeader(record, range), collection);
@@ -970,10 +972,14 @@ void InvokeRangeOf_for_Group3Var2_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_Binary readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_DoubleBitBinaryGroup3Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_DoubleBitBinaryGroup3Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_DoubleBitBinary collection;
+  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_DoubleBitBinaryGroup3Var2_in_RangeParser);
 
 //  void OnHeader_RangeHeader_for_Binary_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_Binary* values);
 ////    handler.OnHeader(RangeHeader(record, range), collection);
@@ -1049,10 +1055,14 @@ void InvokeRangeOf_for_Group10Var2_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_BinaryOutputStatusGroup10Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_BinaryOutputStatusGroup10Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_BinaryOutputStatus collection;
+  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_Indexed_for_BinaryOutputStatus(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_BinaryOutputStatusGroup10Var2_in_RangeParser);
 
 //  void OnHeader_RangeHeader_for_Binary_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_BinaryOutputStatus* values);
 ////    handler.OnHeader(RangeHeader(record, range), collection);
@@ -1126,10 +1136,14 @@ void InvokeRangeOf_for_Group20Var1_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_CounterGroup20Var1_in_RangeParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_CounterGroup20Var1_in_RangeParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_CounterGroup20Var1_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1202,10 +1216,14 @@ void InvokeRangeOf_for_Group20Var2_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_CounterGroup20Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_CounterGroup20Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_CounterGroup20Var2_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1277,10 +1295,14 @@ void InvokeRangeOf_for_Group20Var5_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_CounterGroup20Var5_in_RangeParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_CounterGroup20Var5_in_RangeParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_CounterGroup20Var5_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1352,10 +1374,14 @@ void InvokeRangeOf_for_Group20Var6_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_CounterGroup20Var6_in_RangeParser);
+//  BufferedCollection_Indexed_for_Counter collection = CreateBufferedCollection_Indexed_for_Counter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_CounterGroup20Var6_in_RangeParser);
+  BufferedCollection_Indexed_for_Counter collection;
+  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_Counter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_CounterGroup20Var6_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1427,10 +1453,14 @@ void InvokeRangeOf_for_Group21Var1_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var1_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var1_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var1_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1502,10 +1532,14 @@ void InvokeRangeOf_for_Group21Var2_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var2_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1577,10 +1611,14 @@ void InvokeRangeOf_for_Group21Var5_in_RangeParser_static(HeaderRecord* record,
 //  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var5_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var5_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var5_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1646,16 +1684,16 @@ void InvokeRangeOf_for_Group21Var6_in_RangeParser_static(HeaderRecord* record,
 ////        return WithIndex(target, range.start + pos);
 ////    };
 
-//BufferedCollection_Indexed_for_BinaryOutputStatus CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-//  RSeq_for_Uint16_t* buffer,
-//  uint16_t count,
-//  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var6_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var6_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var6_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1721,16 +1759,16 @@ void InvokeRangeOf_for_Group21Var9_in_RangeParser_static(HeaderRecord* record,
 ////        return WithIndex(target, range.start + pos);
 ////    };
 
-//BufferedCollection_Indexed_for_BinaryOutputStatus CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-//  RSeq_for_Uint16_t* buffer,
-//  uint16_t count,
-//  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var9_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var9_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var9_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1796,16 +1834,16 @@ void InvokeRangeOf_for_Group21Var10_in_RangeParser_static(HeaderRecord* record,
 ////        return WithIndex(target, range.start + pos);
 ////    };
 
-//BufferedCollection_Indexed_for_BinaryOutputStatus CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-//  RSeq_for_Uint16_t* buffer,
-//  uint16_t count,
-//  ReadFunc_Indexed_for_BinaryOutputStatus readFunc);
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_FrozenCounterGroup21Var10_in_RangeParser);
+//  BufferedCollection_Indexed_for_FrozenCounter collection = CreateBufferedCollection_Indexed_for_FrozenCounter_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_FrozenCounterGroup21Var10_in_RangeParser);
+  BufferedCollection_Indexed_for_FrozenCounter collection;
+  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed_for_FrozenCounter(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_FrozenCounterGroup21Var10_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1873,10 +1911,14 @@ void InvokeRangeOf_for_Group30Var1_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogGroup30Var1_in_RangeParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogGroup30Var1_in_RangeParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogGroup30Var1_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -1944,10 +1986,14 @@ void InvokeRangeOf_for_Group30Var2_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogGroup30Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogGroup30Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogGroup30Var2_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2015,10 +2061,14 @@ void InvokeRangeOf_for_Group30Var3_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogGroup30Var3_in_RangeParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogGroup30Var3_in_RangeParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogGroup30Var3_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2086,10 +2136,14 @@ void InvokeRangeOf_for_Group30Var4_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogGroup30Var4_in_RangeParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogGroup30Var4_in_RangeParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogGroup30Var4_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2157,10 +2211,14 @@ void InvokeRangeOf_for_Group30Var5_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogGroup30Var5_in_RangeParser);
+//  BufferedCollection_Indexed_for_Analog collection = CreateBufferedCollection_Indexed_for_Analog_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogGroup30Var5_in_RangeParser);
+  BufferedCollection_Indexed_for_Analog collection;
+  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_Analog(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogGroup30Var5_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2228,10 +2286,14 @@ void InvokeRangeOf_for_Group40Var1_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var1_in_RangeParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var1_in_RangeParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogOutputStatusGroup40Var1_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2299,10 +2361,14 @@ void InvokeRangeOf_for_Group40Var2_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var2_in_RangeParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var2_in_RangeParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogOutputStatusGroup40Var2_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2370,10 +2436,14 @@ void InvokeRangeOf_for_Group40Var3_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var3_in_RangeParser);
+//  BufferedCollection_Indexed_for_AnalogOutputStatus collection = CreateBufferedCollection_Indexed_for_AnalogOutputStatus_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_AnalogOutputStatusGroup40Var3_in_RangeParser);
+  BufferedCollection_Indexed_for_AnalogOutputStatus collection;
+  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_Indexed_for_AnalogOutputStatus(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_AnalogOutputStatusGroup40Var3_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2441,10 +2511,14 @@ void InvokeRangeOf_for_Group50Var4_in_RangeParser_static(HeaderRecord* record,
 
 ////    auto collection = CreateBufferedCollection<Indexed<typename Descriptor::Target>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_TimeAndInterval collection = CreateBufferedCollection_Indexed_for_TimeAndInterval_static(
-        buffer,
-        COUNT,
-        readInvokeRangeOf_for_TimeAndIntervalGroup50Var4_in_RangeParser);
+//  BufferedCollection_Indexed_for_TimeAndInterval collection = CreateBufferedCollection_Indexed_for_TimeAndInterval_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeOf_for_TimeAndIntervalGroup50Var4_in_RangeParser);
+  BufferedCollection_Indexed_for_TimeAndInterval collection;
+  BufferedCollection_Indexed_for_TimeAndInterval_in_BufferedCollection_Indexed_for_TimeAndInterval(&collection,
+      buffer,
+      COUNT, readInvokeRangeOf_for_TimeAndIntervalGroup50Var4_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2507,10 +2581,14 @@ void InvokeRangeBitfieldType_for_Binary_in_RangeParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<Type>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
-        buffer,
-        COUNT,
-        readInvokeRangeBitfieldType_for_Binary_in_RangeParser);
+//  BufferedCollection_Indexed_for_Binary collection = CreateBufferedCollection_Indexed_for_Binary_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeBitfieldType_for_Binary_in_RangeParser);
+  BufferedCollection_Indexed_for_Binary collection;
+  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Binary(&collection,
+      buffer,
+      COUNT, readInvokeRangeBitfieldType_for_Binary_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2561,10 +2639,14 @@ void InvokeRangeBitfieldType_for_BinaryOutputStatus_in_RangeParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<Type>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
-        buffer,
-        COUNT,
-        readInvokeRangeBitfieldType_for_BinaryOutputStatus_in_RangeParser);
+//  BufferedCollection_Indexed_for_BinaryOutputStatus collection = CreateBufferedCollection_Indexed_for_BinaryOutputStatus_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeBitfieldType_for_BinaryOutputStatus_in_RangeParser);
+  BufferedCollection_Indexed_for_BinaryOutputStatus collection;
+  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_Indexed_for_BinaryOutputStatus(&collection,
+      buffer,
+      COUNT, readInvokeRangeBitfieldType_for_BinaryOutputStatus_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2638,10 +2720,15 @@ void InvokeRangeBitfieldType_for_IINValue_in_RangeParser_static(
 
 ////    auto collection = CreateBufferedCollection<Indexed<Type>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_IINValue collection = CreateBufferedCollection_Indexed_for_IINValue_static(
-        buffer,
-        COUNT,
-        readInvokeRangeBitfieldType_for_IINValue_in_RangeParser);
+//  BufferedCollection_Indexed_for_IINValue
+//  collection_Indexed_for_IINValue = CreateBufferedCollection_Indexed_for_IINValue_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeBitfieldType_for_IINValue_in_RangeParser);
+  BufferedCollection_Indexed_for_IINValue collection;
+  BufferedCollection_Indexed_for_IINValue_in_BufferedCollection_Indexed_for_IINValue(&collection,
+      buffer,
+      COUNT, readInvokeRangeBitfieldType_for_IINValue_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;
@@ -2650,8 +2737,6 @@ void InvokeRangeBitfieldType_for_IINValue_in_RangeParser_static(
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
   std::cout<<"}InvokeRangeBitfieldType_for_IINValue_in_RangeParser_static_"<<std::endl;
-  std::cout<<getString_stack_info();
-  std::cout<<"*&(collection.iICollection_Indexed_for_IINValue)= "<<(uint32_t)&(collection.iICollection_Indexed_for_IINValue)<<std::endl;
   decrement_stack_info();
 #endif
 }
@@ -2715,10 +2800,14 @@ uint32_t COUNT = Count_in_Range(range);
 
 ////    auto collection = CreateBufferedCollection<Indexed<Type>>(buffer, COUNT, read);
   pPointerGlobal1_in_readInvokeRangeOf = range;
-  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
-        buffer,
-        COUNT,
-        readInvokeRangeBitfieldType_for_DoubleBitBinary_in_RangeParser);
+//  BufferedCollection_Indexed_for_DoubleBitBinary collection = CreateBufferedCollection_Indexed_for_DoubleBitBinary_static(
+//        buffer,
+//        COUNT,
+//        readInvokeRangeBitfieldType_for_DoubleBitBinary_in_RangeParser);
+  BufferedCollection_Indexed_for_DoubleBitBinary collection;
+  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Indexed_for_DoubleBitBinary(&collection,
+      buffer,
+      COUNT, readInvokeRangeBitfieldType_for_DoubleBitBinary_in_RangeParser);
 
 ////    handler.OnHeader(RangeHeader(record, range), collection);
   RangeHeader rRangeHeader;

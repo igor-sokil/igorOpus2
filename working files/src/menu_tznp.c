@@ -5,6 +5,7 @@
 /*****************************************************/
 void make_ekran_setpoint_tznp(unsigned int group)
 {
+/*
   static const unsigned char name_string[MAX_NAMBER_LANGUAGE][MAX_ROW_FOR_SETPOINT_TZNP][MAX_COL_LCD] = 
   {
     {
@@ -462,6 +463,7 @@ void make_ekran_setpoint_tznp(unsigned int group)
   else current_ekran.cursor_blinking_on = 1;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 
@@ -470,6 +472,7 @@ void make_ekran_setpoint_tznp(unsigned int group)
 /*****************************************************/
 void make_ekran_timeout_tznp(unsigned int group)
 {
+/*
   static const unsigned char name_string[MAX_NAMBER_LANGUAGE][MAX_ROW_FOR_TIMEOUT_TZNP][MAX_COL_LCD] = 
   {
     {
@@ -697,6 +700,7 @@ void make_ekran_timeout_tznp(unsigned int group)
   else current_ekran.cursor_blinking_on = 1;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 
@@ -705,6 +709,7 @@ void make_ekran_timeout_tznp(unsigned int group)
 /*****************************************************/
 void make_ekran_control_tznp()
 {
+/*
   static const unsigned char name_string[MAX_NAMBER_LANGUAGE][MAX_ROW_FOR_CONTROL_TZNP][MAX_COL_LCD] = 
   {
     {
@@ -800,6 +805,7 @@ void make_ekran_control_tznp()
   else current_ekran.cursor_blinking_on = 1;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 

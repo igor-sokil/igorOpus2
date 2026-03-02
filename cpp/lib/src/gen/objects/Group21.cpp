@@ -29,9 +29,7 @@
 // limitations under the License.
 //
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include "header_dnp3.h"
 #include "Group21.h"
 
@@ -333,7 +331,7 @@ Group21Var5 Apply_in_ConvertGroup21Var5_static(FrozenCounter* src)
   Group21Var5_in_Group21Var5(&target);
   target.value = (src->tTypedMeasurement_for_Uint32).value;
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVT : private StaticOnly
@@ -428,7 +426,7 @@ Group21Var6 Apply_in_ConvertGroup21Var6_static(FrozenCounter* src)
   Group21Var6_in_Group21Var6(&target);
   target.flags = (src->tTypedMeasurement_for_Uint32).mMeasurement.flags.value;
   target.value = (uint16_t)((src->tTypedMeasurement_for_Uint32).value);
-  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime.value;
+  target.timeDNPTime.value = (src->tTypedMeasurement_for_Uint32).mMeasurement.timeDNPTime_in_Measurement.value;
   return target;
 }
 ////template<class Target, class Source> struct ConvertQVandTruncate : private StaticOnly

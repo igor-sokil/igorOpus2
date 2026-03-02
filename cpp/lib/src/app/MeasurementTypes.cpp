@@ -23,9 +23,7 @@
 
 ////#include "opendnp3/gen/BinaryQuality.h"
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "MeasurementTypes.h"
 

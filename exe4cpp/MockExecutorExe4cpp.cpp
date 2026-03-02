@@ -1,8 +1,5 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
-//#include <QApplication>
+
 #include "header_dnp3.h"
 #include "MockExecutorExe4cpp.h"
 

@@ -1,7 +1,5 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "EventWriters_for_Binary.h"
 #include "HeaderWriter_for_Binary.h"
@@ -152,7 +150,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var1_override(void* pIEventWri
   // Check that the quality of the measurement fits with the CTO variation
   if ((parent->cto).quality == TimestampQuality_SYNCHRONIZED)
   {
-    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.quality != TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.quality != TimestampQuality_SYNCHRONIZED)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -165,7 +163,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var1_override(void* pIEventWri
   else
   {
 ////                if (meas.time.quality == TimestampQuality::SYNCHRONIZED)
-    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.quality == TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.quality == TimestampQuality_SYNCHRONIZED)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -178,7 +176,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var1_override(void* pIEventWri
 
   // can't encode timestamps that go backwards
 ////            if (meas.time.value < this->cto.value)
-  if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value < parent->cto.value)
+  if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value < parent->cto.value)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -189,7 +187,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var1_override(void* pIEventWri
 }
 
 ////            const auto diff = meas.time.value - this->cto.value;
-  uint64_t diff = (meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value - parent->cto.value;
+  uint64_t diff = (meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value - parent->cto.value;
 
   // can't encode timestamps where the diff is greater than uint16_t
 ////            if (diff > ser4cpp::UInt16::max_value)
@@ -209,7 +207,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var1_override(void* pIEventWri
   DNPTime dDNPTime;
   DNPTime_in_DNPTimeOver2(&dDNPTime, diff);
 ////            copy.time = DNPTime(diff);
-  copy.tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime = dDNPTime;
+  copy.tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime_in_Measurement = dDNPTime;
 
 //    boolean Write_in_PrefixedWriteIterator_for_UInt16_Binary(PrefixedWriteIterator_for_UInt16_Binary *pPrefixedWriteIterator_for_UInt16_Binary,
 //                                                                  Binary* value, uint16_t index);
@@ -357,7 +355,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var2_override(void* pIEventWri
   // Check that the quality of the measurement fits with the CTO variation
   if ((parent->cto).quality == TimestampQuality_SYNCHRONIZED)
   {
-    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.quality != TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.quality != TimestampQuality_SYNCHRONIZED)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -370,7 +368,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var2_override(void* pIEventWri
   else
   {
 ////                if (meas.time.quality == TimestampQuality::SYNCHRONIZED)
-    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.quality == TimestampQuality_SYNCHRONIZED)
+    if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.quality == TimestampQuality_SYNCHRONIZED)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -383,7 +381,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var2_override(void* pIEventWri
 
   // can't encode timestamps that go backwards
 ////            if (meas.time.value < this->cto.value)
-  if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value < parent->cto.value)
+  if ((meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value < parent->cto.value)
 {
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
@@ -394,7 +392,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var2_override(void* pIEventWri
 }
 
 ////            const auto diff = meas.time.value - this->cto.value;
-  uint64_t diff = (meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime.value - parent->cto.value;
+  uint64_t diff = (meas->tTypedMeasurement_for_Boolean).mMeasurement.timeDNPTime_in_Measurement.value - parent->cto.value;
 
   // can't encode timestamps where the diff is greater than uint16_t
 ////            if (diff > ser4cpp::UInt16::max_value)
@@ -414,7 +412,7 @@ boolean Write_in_CTOEventWriter_for_Binary_Group51Var2_override(void* pIEventWri
   DNPTime dDNPTime;
   DNPTime_in_DNPTimeOver2(&dDNPTime, diff);
 ////            copy.time = DNPTime(diff);
-  copy.tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime = dDNPTime;
+  copy.tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime_in_Measurement = dDNPTime;
 
 //    boolean Write_in_PrefixedWriteIterator_for_UInt16_Binary(PrefixedWriteIterator_for_UInt16_Binary *pPrefixedWriteIterator_for_UInt16_Binary,
 //                                                                  Binary* value, uint16_t index);

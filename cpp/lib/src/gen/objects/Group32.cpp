@@ -30,9 +30,7 @@
 //
 
 //#include "log_info.h"
-//#ifdef  LOG_INFO
-//#include <iostream>
-//#endif
+
 #include "header_dnp3.h"
 #include "Group32.h"
 
@@ -329,7 +327,7 @@ Group32Var3 Apply_in_ConvertGroup32Var3_static(Analog* src, uint8_t Overrange)
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly
@@ -431,7 +429,7 @@ Group32Var4 Apply_in_ConvertGroup32Var4_static(Analog* src, uint8_t Overrange)
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly
@@ -727,7 +725,7 @@ Group32Var7 Apply_in_ConvertGroup32Var7_static(Analog* src, uint8_t Overrange)
 ////        t.flags |= src.flags.value;
   target.flags |= (src->tTypedMeasurement_for_Double64).mMeasurement.flags.value;
 ////        t.time = src.time;
-  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime;
+  target.timeDNPTime = (src->tTypedMeasurement_for_Double64).mMeasurement.timeDNPTime_in_Measurement;
   return target;
 }
 ////template<class Target, class Source, uint8_t Overrange> struct ConvertQVTRangeCheck : private StaticOnly

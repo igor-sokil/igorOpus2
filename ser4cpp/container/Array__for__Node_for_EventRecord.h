@@ -28,7 +28,7 @@
 #include "Node_for_EventRecord.h"
 ////#include "ser4cpp/container/ArrayView.h"
 #include "ArrayView__for__Node_for_EventRecord.h"
-#include "TypedEventRecordConfig1.h"
+#include "TypedEventRecordConfig.h"
 
 
 ////#include "ser4cpp/util/Uncopyable.h"

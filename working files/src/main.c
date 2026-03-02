@@ -782,18 +782,41 @@ int main(void)
   //Ініціалізація компонет Ігоря для Modbus + USB
   /**********************/
   watchdog_l2 = true;
-void global_component_installation(void);
-  global_component_installation();  
+//void global_component_installation(void);
+//  global_component_installation();  
   
   LinkLayerParser_in_LinkLayerParser(&parser);
   TransportLayerMrzs_in_TransportLayerMrzs(&transport, 292);
   OutstationConfig_in_OutstationConfig(&config);
-//  DatabaseConfig tmp = all_types_in_DatabaseHelpers(2);
-  DatabaseConfig dDatabaseConfig;
-  DatabaseConfig_in_DatabaseConfig(&dDatabaseConfig, 2);
+  initialize_BinaryConfig(&dDatabaseConfig, 2);
+  initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 2);
+  initialize_AnalogConfig(&dDatabaseConfig, 10);
+  initialize_CounterConfig(&dDatabaseConfig, 2);
+  initialize_FrozenCounterConfig(&dDatabaseConfig, 2);
+  initialize_BOStatusConfig(&dDatabaseConfig, 2);
+  initialize_AOStatusConfig(&dDatabaseConfig, 2);
+  initialize_TimeAndIntervalConfig(&dDatabaseConfig, 2);
+
   OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
-//void MrzsFrameSink_in_MrzsFrameSink(MrzsFrameSink *pMrzsFrameSink, OutstationMrzsObject *t, TransportLayerMrzs* transportMrzs);
-  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);//, &t, &transport);
+  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
+
+  setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
+
+  Analog aAnalog;
+  Analog_in_AnalogOver2(&aAnalog, 350.0);
+boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 351.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 351, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 352.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 352, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 353.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 353, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 354.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 354, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 355.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 355, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 357.0);
+ tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
 
   USBD_Init(&USB_OTG_dev,
 #ifdef USE_USB_OTG_HS 

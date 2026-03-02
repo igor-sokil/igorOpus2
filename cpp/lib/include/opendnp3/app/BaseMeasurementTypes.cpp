@@ -5,7 +5,7 @@ void Measurement_in_MeasurementOver1(Measurement *pMeasurement)
 {
   DNPTime timeDNPTime;
   DNPTime_in_DNPTimeOver1(&timeDNPTime);
-  pMeasurement->timeDNPTime = timeDNPTime;
+  pMeasurement->timeDNPTime_in_Measurement = timeDNPTime;
 }
 
 void Measurement_in_MeasurementOver2(Measurement *pMeasurement, Flags flags)
@@ -16,7 +16,7 @@ void Measurement_in_MeasurementOver2(Measurement *pMeasurement, Flags flags)
 
 void Measurement_in_MeasurementOver3(Measurement *pMeasurement, Flags flags, DNPTime timeDNPTime)
 {
-  pMeasurement->timeDNPTime = timeDNPTime;
+  pMeasurement->timeDNPTime_in_Measurement = timeDNPTime;
   pMeasurement->flags = flags;
 }
 

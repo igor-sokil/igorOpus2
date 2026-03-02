@@ -1,4 +1,5 @@
 #include "header.h"
+#include "variables_external_m.h"
 
 extern unsigned char  *outputPacket;
 extern unsigned char  outputPacket_USB[300];
@@ -31,8 +32,8 @@ int  Error_modbus_m(unsigned int address, unsigned int function, unsigned int er
 /**************************************/
 void inputPacketParserLAN(void)
 {
-//размер префикса TCP  
-//#define TCP_PREFIXSIZE 6  
+//размер префикса TCP
+//#define TCP_PREFIXSIZE 6
   pointInterface=LAN_RECUEST;//метка интерфейса 0-USB 1-RS485
 
   received_count = &LAN_received_count;
@@ -41,13 +42,13 @@ void inputPacketParserLAN(void)
   inputPacket = LAN_received;
 //                +TCP_PREFIXSIZE;//убрать префикс TCP
 //  *received_count -= TCP_PREFIXSIZE;//убрать префикс TCP
-  
+
   if((*received_count)<0)
   {
     LAN_received_count = 0;//очистить вход
     return;//что-то пошло не так
   }//if
-  
+
   *received_count += 2;//симитировать CRC
   //Перевірка контрольної суми
 //  unsigned short CRC_sum;
@@ -60,8 +61,8 @@ void inputPacketParserLAN(void)
 
   if(inputPacketParser()==0)
   {
-   LAN_received_count = 0;//очистить вход
-   return;
+    LAN_received_count = 0;//очистить вход
+    return;
   }//if
 
   sizeOutputPacket -= 2;//убрать CRC
@@ -75,7 +76,7 @@ void inputPacketParserLAN(void)
   LAN_received_count = 0;//очистить вход
   _SET_STATE (queue_mo, STATE_QUEUE_MO_SEND_MODBUS_TCP_RESP);//отправить результат
 }//inputPacketParserLAN(void)
-#endif  
+#endif
 
 /**************************************/
 //разбор входного пакета USB
@@ -95,13 +96,97 @@ void inputPacketParserUSB(void)
 //  if((CRC_sum & 0xff)  != *(inputPacket+*received_count-2)) return;
 //  if ((CRC_sum >> 8  ) != *(inputPacket+*received_count-1)) return;
 
-  if(inputPacket[0]!=current_settings.address) return;
+//  if(inputPacket[0]!=current_settings.address) return;
 
-  if(inputPacketParser()==0) return;
+//  if(inputPacketParser()==0) return;
+//  uint8_t hex[] = {0x05, 0x64, 0x05, 0xc0, 0x01, 0x00, 0x02, 0x00, 0x74, 0xe3};
+//  for(int m=0; m<10; m++) inputPacket[m] = hex[m];
+//  usb_received_count = 10;
+  if(*received_count==10) inputPacket[2] = 5;
+  else inputPacket[2] = *received_count - 5 - 2;
 
-  usb_transmiting_count = sizeOutputPacket;
-  for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = outputPacket[i];
-  data_usb_transmiting = true;
+  RSeq_for_Uint16_t rst;
+  RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, inputPacket, *received_count);
+  RepairCRC_in_DNPHelpers(&rst);
+
+  WriteData_in_LinkParserMrzsOver2(&parser, &mMrzsFrameSink, inputPacket, (uint32_t)(*received_count));
+  uint8_t writeTo_buf[300];
+  WSeq_for_Uint16_t writeTo;
+  WSeq_for_Uint16_t_in_WSeq_for_Uint16_tOver2(&writeTo, writeTo_buf, 250);
+  switch(mMrzsFrameSink.m_last_header.func)
+  {
+  case LinkFunction_PRI_RESET_LINK_STATES:// = 0x40,
+  {
+//    std::cout<<'\n';
+//    std::cout<<"+***LinkFunction_PRI_RESET_LINK_STATES***"<<'\n';
+//RSeq_for_Uint16_t FormatAck_in_LinkFrame_static(
+//  WSeq_for_Uint16_t* buffer, boolean aIsMaster, boolean aIsRcvBuffFull, uint16_t aDest, uint16_t aSrc);
+
+    RSeq_for_Uint16_t wrapper = FormatAck_in_LinkFrame_static(&writeTo, false, false,
+                                mMrzsFrameSink.m_last_header.addresses.source,
+                                mMrzsFrameSink.m_last_header.addresses.destination);
+
+//      inspect_RSeq(&wrapper);
+    usb_transmiting_count = wrapper.hHasLength.m_length;
+    for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = wrapper.buffer_[i];
+    data_usb_transmiting = true;
+  }
+  break;
+  case LinkFunction_PRI_TEST_LINK_STATES:// = 0x42,
+//    std::cout<<'\n';
+//    std::cout<<"+***LinkFunction_PRI_TEST_LINK_STATES***"<<'\n';
+    break;
+  case LinkFunction_PRI_CONFIRMED_USER_DATA:// = 0x43,
+//    std::cout<<'\n';
+    //std::cout<<"+***LinkFunction_PRI_CONFIRMED_USER_DATA***"<<'\n';
+    break;
+
+  case LinkFunction_PRI_UNCONFIRMED_USER_DATA:// = 0x44,
+//    std::cout<<'\n';
+//    std::cout<<"+***LinkFunction_PRI_UNCONFIRMED_USER_DATA***"<<'\n';
+    if(mMrzsFrameSink.userdata)
+    {
+//      inspect_RSeq(mMrzsFrameSink.userdata);
+      Message mMessage;
+      Addresses aAddresses;
+      Addresses_in_AddressesOver1(&aAddresses);
+      Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
+
+      if(OnReceive_in_TransportLayerMrzs(&transport, &mMessage))
+        if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
+        {
+          OnReceive_in_OContext(&(t.context), &transport.asdu);
+
+//        inspect_Message(&(t.lower.mMessage));
+//        std::cout<<"+transport.receiver.expectedSeq.seq= "<<(uint16_t)transport.receiver.expectedSeq.seq<<'\n';
+
+          //boolean BeginTransmit_in_TransportLayerMrzs(TransportLayerMrzs *pTransportLayer, Message* message)
+          BeginTransmit_in_TransportLayerMrzs(&transport, &(t.lower.mMessage));
+//        inspect_RSeq(&(transport.asdu.payload));
+
+//RSeq_for_Uint16_t FormatConfirmedUserData_in_LinkFrame_static(WSeq_for_Uint16_t* buffer,
+//    boolean aIsMaster, boolean aFcb, uint16_t aDest, uint16_t aSrc,  RSeq_for_Uint16_t user_data)//,
+
+          RSeq_for_Uint16_t wrapper = FormatConfirmedUserData_in_LinkFrame_static(
+                                     &writeTo,//WSeq_for_Uint16_t* buffer,
+                                     false,//boolean aIsMaster,
+                                     false,//boolean aFcb,
+                                     mMrzsFrameSink.m_last_header.addresses.source,//uint16_t aDest,
+                                     mMrzsFrameSink.m_last_header.addresses.destination,//uint16_t aSrc,
+                                     (transport.asdu.payload));//RSeq_for_Uint16_t user_data);
+//        inspect_RSeq(&data);
+          usb_transmiting_count = wrapper.hHasLength.m_length;
+          for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = wrapper.buffer_[i];
+          data_usb_transmiting = true;
+        }//if(is_not_empty_in_HasLength_for_Uint16_t(&(pTransportLayer->asdu.payload.hHasLength)))
+    }//if(mMrzsFrameSink.userdata)
+
+    break;
+  }//switch
+
+//  usb_transmiting_count = sizeOutputPacket;
+//  for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = outputPacket[i];
+//  data_usb_transmiting = true;
 }//inputPacketParserUSB(void)
 
 /**************************************/
@@ -123,25 +208,25 @@ void inputPacketParserRS485(void)
 //  if((CRC_sum & 0xff)  != *(inputPacket+*received_count-2) ||//) return;
 //      (CRC_sum >> 8  ) != *(inputPacket+*received_count-1))
 //    {
-      /***
-      12345
-      Причина рестарту (не співпала контрольна сума)
-      ***/
-      //reason_of_restart_RS485 |= (1 << 5);
-      /***/
+  /***
+  12345
+  Причина рестарту (не співпала контрольна сума)
+  ***/
+  //reason_of_restart_RS485 |= (1 << 5);
+  /***/
 
 //      restart_monitoring_RS485();
-      //return;
+  //return;
 //    }
 
 //  if(!(inputPacket[0]==current_settings.address))
 //    {
-      /***
-      12345
-      Причина рестарту (не співпала адреса 2)
-      ***/
-      //reason_of_restart_RS485 |= (1 << 6);
-      /***/
+  /***
+  12345
+  Причина рестарту (не співпала адреса 2)
+  ***/
+  //reason_of_restart_RS485 |= (1 << 6);
+  /***/
 
 //      restart_monitoring_RS485();
 //      return;
@@ -149,12 +234,12 @@ void inputPacketParserRS485(void)
 
 //  if(inputPacketParser()==0)
 //    {
-      /***
-      12345
-      Причина рестарту (запит пакету відповіді завеликого розміру)
-      ***/
-      // reason_of_restart_RS485 |= (1 << 7);
-      /***/
+  /***
+  12345
+  Причина рестарту (запит пакету відповіді завеликого розміру)
+  ***/
+  // reason_of_restart_RS485 |= (1 << 7);
+  /***/
 
 //      restart_monitoring_RS485();
 //      return;

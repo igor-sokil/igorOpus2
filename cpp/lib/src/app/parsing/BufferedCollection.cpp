@@ -1,7 +1,5 @@
 #include "log_info.h"
-#ifdef  LOG_INFO
-#include <iostream>
-#endif
+
 #include "header_dnp3.h"
 #include "BufferedCollection.h"
 
@@ -24,23 +22,6 @@ void  BufferedCollection_uint16_in_BufferedCollection_uint16(
 //    Foreach_in_BufferedCollection_uint16_override;
 
   setParentPointer_in_ICollection_for_uint16(&(pBufferedCollection_uint16->iICollection_for_uint16), pBufferedCollection_uint16);
-}
-
-////template<class T, class ReadFunc>
-////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
-////                                                         size_t count,
-////                                                         const ReadFunc& readFunc)
-BufferedCollection_uint16 CreateBufferedCollection_uint16_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_uint16 readFunc)
-{
-////    return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
-  BufferedCollection_uint16 bBufferedCollection_uint16;
-  BufferedCollection_uint16_in_BufferedCollection_uint16(&bBufferedCollection_uint16,
-      buffer,
-      count, readFunc);
-  return bBufferedCollection_uint16;
 }
 
 uint16_t Count_in_BufferedCollection_uint16(BufferedCollection_uint16 *pBufferedCollection_uint16)
@@ -111,29 +92,12 @@ void  BufferedCollection_Group50Var1_in_BufferedCollection_Group50Var1(
   pBufferedCollection_Group50Var1->COUNT = count;
   pBufferedCollection_Group50Var1->readFunc = readFunc;
 
-  pBufferedCollection_Group50Var1->iICollection_for_Group50Var1.pCount_in_ICollection_for_Group50Var1 =
-    Count_in_BufferedCollection_Group50Var1_override;
-  pBufferedCollection_Group50Var1->iICollection_for_Group50Var1.pForeach_in_ICollection_for_Group50Var1 =
-    Foreach_in_BufferedCollection_Group50Var1_override;
+//  pBufferedCollection_Group50Var1->iICollection_for_Group50Var1.pCount_in_ICollection_for_Group50Var1 =
+//    Count_in_BufferedCollection_Group50Var1_override;
+//  pBufferedCollection_Group50Var1->iICollection_for_Group50Var1.pForeach_in_ICollection_for_Group50Var1 =
+//    Foreach_in_BufferedCollection_Group50Var1_override;
 
   setParentPointer_in_ICollection_for_Group50Var1(&(pBufferedCollection_Group50Var1->iICollection_for_Group50Var1), pBufferedCollection_Group50Var1);
-}
-
-////template<class T, class ReadFunc>
-////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
-////                                                         size_t count,
-////                                                         const ReadFunc& readFunc)
-BufferedCollection_Group50Var1 CreateBufferedCollection_Group50Var1_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group50Var1 readFunc)
-{
-////    return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
-  BufferedCollection_Group50Var1 bBufferedCollection_Group50Var1;
-  BufferedCollection_Group50Var1_in_BufferedCollection_Group50Var1(&bBufferedCollection_Group50Var1,
-      buffer,
-      count, readFunc);
-  return bBufferedCollection_Group50Var1;
 }
 
 uint16_t Count_in_BufferedCollection_Group50Var1(BufferedCollection_Group50Var1 *pBufferedCollection_Group50Var1)
@@ -186,29 +150,12 @@ void  BufferedCollection_Group50Var3_in_BufferedCollection_Group50Var3(
   pBufferedCollection_Group50Var3->COUNT = count;
   pBufferedCollection_Group50Var3->readFunc = readFunc;
 
-  pBufferedCollection_Group50Var3->iICollection_for_Group50Var3.pCount_in_ICollection_for_Group50Var3 =
-    Count_in_BufferedCollection_Group50Var3_override;
-  pBufferedCollection_Group50Var3->iICollection_for_Group50Var3.pForeach_in_ICollection_for_Group50Var3 =
-    Foreach_in_BufferedCollection_Group50Var3_override;
+//  pBufferedCollection_Group50Var3->iICollection_for_Group50Var3.pCount_in_ICollection_for_Group50Var3 =
+//    Count_in_BufferedCollection_Group50Var3_override;
+//  pBufferedCollection_Group50Var3->iICollection_for_Group50Var3.pForeach_in_ICollection_for_Group50Var3 =
+//    Foreach_in_BufferedCollection_Group50Var3_override;
 
   setParentPointer_in_ICollection_for_Group50Var3(&(pBufferedCollection_Group50Var3->iICollection_for_Group50Var3), pBufferedCollection_Group50Var3);
-}
-
-////template<class T, class ReadFunc>
-////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
-////                                                         size_t count,
-////                                                         const ReadFunc& readFunc)
-BufferedCollection_Group50Var3 CreateBufferedCollection_Group50Var3_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Group50Var3 readFunc)
-{
-////    return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
-  BufferedCollection_Group50Var3 bBufferedCollection_Group50Var3;
-  BufferedCollection_Group50Var3_in_BufferedCollection_Group50Var3(&bBufferedCollection_Group50Var3,
-      buffer,
-      count, readFunc);
-  return bBufferedCollection_Group50Var3;
 }
 
 uint16_t Count_in_BufferedCollection_Group50Var3(BufferedCollection_Group50Var3 *pBufferedCollection_Group50Var3)
@@ -268,7 +215,7 @@ void  BufferedCollection_Group51Var1_in_BufferedCollection_Group51Var1(
 
   setParentPointer_in_ICollection_for_Group51Var1(&(pBufferedCollection_Group51Var1->iICollection_for_Group51Var1), pBufferedCollection_Group51Var1);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -285,7 +232,7 @@ BufferedCollection_Group51Var1 CreateBufferedCollection_Group51Var1_static(
       count, readFunc);
   return bBufferedCollection_Group51Var1;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Group51Var1(BufferedCollection_Group51Var1 *pBufferedCollection_Group51Var1)
 {
   return pBufferedCollection_Group51Var1->COUNT;
@@ -343,7 +290,7 @@ void  BufferedCollection_Group51Var2_in_BufferedCollection_Group51Var2(
 
   setParentPointer_in_ICollection_for_Group51Var2(&(pBufferedCollection_Group51Var2->iICollection_for_Group51Var2), pBufferedCollection_Group51Var2);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -360,7 +307,7 @@ BufferedCollection_Group51Var2 CreateBufferedCollection_Group51Var2_static(
       count, readFunc);
   return bBufferedCollection_Group51Var2;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Group51Var2(BufferedCollection_Group51Var2 *pBufferedCollection_Group51Var2)
 {
   return pBufferedCollection_Group51Var2->COUNT;
@@ -418,7 +365,7 @@ void  BufferedCollection_Group52Var1_in_BufferedCollection_Group52Var1(
 
   setParentPointer_in_ICollection_for_Group52Var1(&(pBufferedCollection_Group52Var1->iICollection_for_Group52Var1), pBufferedCollection_Group52Var1);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -435,7 +382,7 @@ BufferedCollection_Group52Var1 CreateBufferedCollection_Group52Var1_static(
       count, readFunc);
   return bBufferedCollection_Group52Var1;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Group52Var1(BufferedCollection_Group52Var1 *pBufferedCollection_Group52Var1)
 {
   return pBufferedCollection_Group52Var1->COUNT;
@@ -493,7 +440,7 @@ void  BufferedCollection_Group52Var2_in_BufferedCollection_Group52Var2(
 
   setParentPointer_in_ICollection_for_Group52Var2(&(pBufferedCollection_Group52Var2->iICollection_for_Group52Var2), pBufferedCollection_Group52Var2);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -510,7 +457,7 @@ BufferedCollection_Group52Var2 CreateBufferedCollection_Group52Var2_static(
       count, readFunc);
   return bBufferedCollection_Group52Var2;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Group52Var2(BufferedCollection_Group52Var2 *pBufferedCollection_Group52Var2)
 {
   return pBufferedCollection_Group52Var2->COUNT;
@@ -568,7 +515,7 @@ void  BufferedCollection_Indexed_for_Binary_in_BufferedCollection_Indexed_for_Bi
 
   setParentPointer_in_ICollection_Indexed_for_Binary(&(pBufferedCollection_Indexed_for_Binary->iICollection_Indexed_for_Binary), pBufferedCollection_Indexed_for_Binary);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -585,6 +532,7 @@ BufferedCollection_Indexed_for_Binary CreateBufferedCollection_Indexed_for_Binar
       count, readFunc);
   return bBufferedCollection_Indexed_for_Binary;
 }
+*/
 
 uint16_t Count_in_BufferedCollection_Indexed_for_Binary(BufferedCollection_Indexed_for_Binary *pBufferedCollection_Indexed_for_Binary)
 {
@@ -720,7 +668,7 @@ void  BufferedCollection_Indexed_for_BinaryOutputStatus_in_BufferedCollection_In
 
   setParentPointer_in_ICollection_Indexed_for_BinaryOutputStatus(&(pBufferedCollection_Indexed_for_BinaryOutputStatus->iICollection_Indexed_for_BinaryOutputStatus), pBufferedCollection_Indexed_for_BinaryOutputStatus);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -737,7 +685,7 @@ BufferedCollection_Indexed_for_BinaryOutputStatus CreateBufferedCollection_Index
       count, readFunc);
   return bBufferedCollection_Indexed_for_BinaryOutputStatus;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_BinaryOutputStatus(BufferedCollection_Indexed_for_BinaryOutputStatus *pBufferedCollection_Indexed_for_BinaryOutputStatus)
 {
   return pBufferedCollection_Indexed_for_BinaryOutputStatus->COUNT;
@@ -788,14 +736,14 @@ void  BufferedCollection_Indexed_for_IINValue_in_BufferedCollection_Indexed_for_
   pBufferedCollection_Indexed_for_IINValue->COUNT = count;
   pBufferedCollection_Indexed_for_IINValue->readFunc = readFunc;
 
-  pBufferedCollection_Indexed_for_IINValue->iICollection_Indexed_for_IINValue.pCount_in_ICollection_Indexed_for_IINValue =
-    Count_in_BufferedCollection_Indexed_for_IINValue_override;
-  pBufferedCollection_Indexed_for_IINValue->iICollection_Indexed_for_IINValue.pForeach_in_ICollection_Indexed_for_IINValue =
-    Foreach_in_BufferedCollection_Indexed_for_IINValue_override;
+//  pBufferedCollection_Indexed_for_IINValue->iICollection_Indexed_for_IINValue.pCount_in_ICollection_Indexed_for_IINValue =
+//    Count_in_BufferedCollection_Indexed_for_IINValue_override;
+//  pBufferedCollection_Indexed_for_IINValue->iICollection_Indexed_for_IINValue.pForeach_in_ICollection_Indexed_for_IINValue =
+//    Foreach_in_BufferedCollection_Indexed_for_IINValue_override;
 
   setParentPointer_in_ICollection_Indexed_for_IINValue(&(pBufferedCollection_Indexed_for_IINValue->iICollection_Indexed_for_IINValue), pBufferedCollection_Indexed_for_IINValue);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -812,7 +760,7 @@ BufferedCollection_Indexed_for_IINValue CreateBufferedCollection_Indexed_for_IIN
       count, readFunc);
   return bBufferedCollection_Indexed_for_IINValue;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_IINValue(BufferedCollection_Indexed_for_IINValue *pBufferedCollection_Indexed_for_IINValue)
 {
   return pBufferedCollection_Indexed_for_IINValue->COUNT;
@@ -853,6 +801,15 @@ uint16_t Count_in_BufferedCollection_Indexed_for_IINValue_override(void *pIColle
   BufferedCollection_Indexed_for_IINValue* parent =
     (BufferedCollection_Indexed_for_IINValue*)getParentPointer_in_ICollection_Indexed_for_IINValue(
       (ICollection_Indexed_for_IINValue*)pICollection_Indexed_for_IINValue);
+#ifdef  LOG_INFO
+  std::cout<<std::endl;
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"Count_in_BufferedCollection_Indexed_for_IINValue_override1"<<std::endl;
+  std::cout<<getString_stack_info();
+  std::cout<<"*BufferedCollection_Indexed_for_IINValue* parent= "<<(uint32_t)parent<<std::endl;
+  increment_stack_info();
+#endif
   return Count_in_BufferedCollection_Indexed_for_IINValue(parent);
 }
 void Foreach_in_BufferedCollection_Indexed_for_IINValue_override(void *pICollection_Indexed_for_IINValue,
@@ -884,7 +841,7 @@ void  BufferedCollection_Indexed_for_ControlRelayOutputBlock_in_BufferedCollecti
 
   setParentPointer_in_ICollection_Indexed_for_ControlRelayOutputBlock(&(pBufferedCollection_Indexed_for_ControlRelayOutputBlock->iICollection_Indexed_for_ControlRelayOutputBlock), pBufferedCollection_Indexed_for_ControlRelayOutputBlock);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -901,7 +858,7 @@ BufferedCollection_Indexed_for_ControlRelayOutputBlock CreateBufferedCollection_
       count, readFunc);
   return bBufferedCollection_Indexed_for_ControlRelayOutputBlock;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_ControlRelayOutputBlock(BufferedCollection_Indexed_for_ControlRelayOutputBlock *pBufferedCollection_Indexed_for_ControlRelayOutputBlock)
 {
   return pBufferedCollection_Indexed_for_ControlRelayOutputBlock->COUNT;
@@ -959,7 +916,7 @@ void  BufferedCollection_Indexed_for_DoubleBitBinary_in_BufferedCollection_Index
 
   setParentPointer_in_ICollection_Indexed_for_DoubleBitBinary(&(pBufferedCollection_Indexed_for_DoubleBitBinary->iICollection_Indexed_for_DoubleBitBinary), pBufferedCollection_Indexed_for_DoubleBitBinary);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -976,7 +933,7 @@ BufferedCollection_Indexed_for_DoubleBitBinary CreateBufferedCollection_Indexed_
       count, readFunc);
   return bBufferedCollection_Indexed_for_DoubleBitBinary;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_DoubleBitBinary(BufferedCollection_Indexed_for_DoubleBitBinary *pBufferedCollection_Indexed_for_DoubleBitBinary)
 {
   return pBufferedCollection_Indexed_for_DoubleBitBinary->COUNT;
@@ -1033,23 +990,6 @@ void  BufferedCollection_Indexed_for_BinaryCommandEvent_in_BufferedCollection_In
     Foreach_in_BufferedCollection_Indexed_for_BinaryCommandEvent_override;
 
   setParentPointer_in_ICollection_Indexed_for_BinaryCommandEvent(&(pBufferedCollection_Indexed_for_BinaryCommandEvent->iICollection_Indexed_for_BinaryCommandEvent), pBufferedCollection_Indexed_for_BinaryCommandEvent);
-}
-
-////template<class T, class ReadFunc>
-////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
-////                                                         size_t count,
-////                                                         const ReadFunc& readFunc)
-BufferedCollection_Indexed_for_BinaryCommandEvent CreateBufferedCollection_Indexed_for_BinaryCommandEvent_static(
-  RSeq_for_Uint16_t* buffer,
-  uint32_t count,
-  ReadFunc_Indexed_for_BinaryCommandEvent readFunc)
-{
-////    return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
-  BufferedCollection_Indexed_for_BinaryCommandEvent bBufferedCollection_Indexed_for_BinaryCommandEvent;
-  BufferedCollection_Indexed_for_BinaryCommandEvent_in_BufferedCollection_Indexed_for_BinaryCommandEvent(&bBufferedCollection_Indexed_for_BinaryCommandEvent,
-      buffer,
-      count, readFunc);
-  return bBufferedCollection_Indexed_for_BinaryCommandEvent;
 }
 
 uint16_t Count_in_BufferedCollection_Indexed_for_BinaryCommandEvent(BufferedCollection_Indexed_for_BinaryCommandEvent *pBufferedCollection_Indexed_for_BinaryCommandEvent)
@@ -1109,7 +1049,7 @@ void  BufferedCollection_Indexed_for_AnalogCommandEvent_in_BufferedCollection_In
 
   setParentPointer_in_ICollection_Indexed_for_AnalogCommandEvent(&(pBufferedCollection_Indexed_for_AnalogCommandEvent->iICollection_Indexed_for_AnalogCommandEvent), pBufferedCollection_Indexed_for_AnalogCommandEvent);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1126,7 +1066,7 @@ BufferedCollection_Indexed_for_AnalogCommandEvent CreateBufferedCollection_Index
       count, readFunc);
   return bBufferedCollection_Indexed_for_AnalogCommandEvent;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogCommandEvent(BufferedCollection_Indexed_for_AnalogCommandEvent *pBufferedCollection_Indexed_for_AnalogCommandEvent)
 {
   return pBufferedCollection_Indexed_for_AnalogCommandEvent->COUNT;
@@ -1184,7 +1124,7 @@ void  BufferedCollection_Indexed_for_TimeAndInterval_in_BufferedCollection_Index
 
   setParentPointer_in_ICollection_Indexed_for_TimeAndInterval(&(pBufferedCollection_Indexed_for_TimeAndInterval->iICollection_Indexed_for_TimeAndInterval), pBufferedCollection_Indexed_for_TimeAndInterval);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1201,7 +1141,7 @@ BufferedCollection_Indexed_for_TimeAndInterval CreateBufferedCollection_Indexed_
       count, readFunc);
   return bBufferedCollection_Indexed_for_TimeAndInterval;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_TimeAndInterval(BufferedCollection_Indexed_for_TimeAndInterval *pBufferedCollection_Indexed_for_TimeAndInterval)
 {
   return pBufferedCollection_Indexed_for_TimeAndInterval->COUNT;
@@ -1259,7 +1199,7 @@ void  BufferedCollection_Indexed_for_Counter_in_BufferedCollection_Indexed_for_C
 
   setParentPointer_in_ICollection_Indexed_for_Counter(&(pBufferedCollection_Indexed_for_Counter->iICollection_Indexed_for_Counter), pBufferedCollection_Indexed_for_Counter);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1276,6 +1216,7 @@ BufferedCollection_Indexed_for_Counter CreateBufferedCollection_Indexed_for_Coun
       count, readFunc);
   return bBufferedCollection_Indexed_for_Counter;
 }
+*/
 
 uint16_t Count_in_BufferedCollection_Indexed_for_Counter(BufferedCollection_Indexed_for_Counter *pBufferedCollection_Indexed_for_Counter)
 {
@@ -1334,7 +1275,7 @@ void  BufferedCollection_Indexed_for_FrozenCounter_in_BufferedCollection_Indexed
 
   setParentPointer_in_ICollection_Indexed_for_FrozenCounter(&(pBufferedCollection_Indexed_for_FrozenCounter->iICollection_Indexed_for_FrozenCounter), pBufferedCollection_Indexed_for_FrozenCounter);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1351,7 +1292,7 @@ BufferedCollection_Indexed_for_FrozenCounter CreateBufferedCollection_Indexed_fo
       count, readFunc);
   return bBufferedCollection_Indexed_for_FrozenCounter;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_FrozenCounter(BufferedCollection_Indexed_for_FrozenCounter *pBufferedCollection_Indexed_for_FrozenCounter)
 {
   return pBufferedCollection_Indexed_for_FrozenCounter->COUNT;
@@ -1410,7 +1351,7 @@ void  BufferedCollection_Indexed_for_Analog_in_BufferedCollection_Indexed_for_An
 
   setParentPointer_in_ICollection_Indexed_for_Analog(&(pBufferedCollection_Indexed_for_Analog->iICollection_Indexed_for_Analog), pBufferedCollection_Indexed_for_Analog);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1427,7 +1368,7 @@ BufferedCollection_Indexed_for_Analog CreateBufferedCollection_Indexed_for_Analo
       count, readFunc);
   return bBufferedCollection_Indexed_for_Analog;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_Analog(BufferedCollection_Indexed_for_Analog *pBufferedCollection_Indexed_for_Analog)
 {
   return pBufferedCollection_Indexed_for_Analog->COUNT;
@@ -1485,7 +1426,7 @@ void  BufferedCollection_Indexed_for_AnalogOutputStatus_in_BufferedCollection_In
 
   setParentPointer_in_ICollection_Indexed_for_AnalogOutputStatus(&(pBufferedCollection_Indexed_for_AnalogOutputStatus->iICollection_Indexed_for_AnalogOutputStatus), pBufferedCollection_Indexed_for_AnalogOutputStatus);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1502,7 +1443,7 @@ BufferedCollection_Indexed_for_AnalogOutputStatus CreateBufferedCollection_Index
       count, readFunc);
   return bBufferedCollection_Indexed_for_AnalogOutputStatus;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputStatus(BufferedCollection_Indexed_for_AnalogOutputStatus *pBufferedCollection_Indexed_for_AnalogOutputStatus)
 {
   return pBufferedCollection_Indexed_for_AnalogOutputStatus->COUNT;
@@ -1560,7 +1501,7 @@ void  BufferedCollection_Indexed_for_AnalogOutputInt32_in_BufferedCollection_Ind
 
   setParentPointer_in_ICollection_Indexed_for_AnalogOutputInt32(&(pBufferedCollection_Indexed_for_AnalogOutputInt32->iICollection_Indexed_for_AnalogOutputInt32), pBufferedCollection_Indexed_for_AnalogOutputInt32);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1577,7 +1518,7 @@ BufferedCollection_Indexed_for_AnalogOutputInt32 CreateBufferedCollection_Indexe
       count, readFunc);
   return bBufferedCollection_Indexed_for_AnalogOutputInt32;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputInt32(BufferedCollection_Indexed_for_AnalogOutputInt32 *pBufferedCollection_Indexed_for_AnalogOutputInt32)
 {
   return pBufferedCollection_Indexed_for_AnalogOutputInt32->COUNT;
@@ -1635,7 +1576,7 @@ void  BufferedCollection_Indexed_for_AnalogOutputInt16_in_BufferedCollection_Ind
 
   setParentPointer_in_ICollection_Indexed_for_AnalogOutputInt16(&(pBufferedCollection_Indexed_for_AnalogOutputInt16->iICollection_Indexed_for_AnalogOutputInt16), pBufferedCollection_Indexed_for_AnalogOutputInt16);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1652,7 +1593,7 @@ BufferedCollection_Indexed_for_AnalogOutputInt16 CreateBufferedCollection_Indexe
       count, readFunc);
   return bBufferedCollection_Indexed_for_AnalogOutputInt16;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputInt16(BufferedCollection_Indexed_for_AnalogOutputInt16 *pBufferedCollection_Indexed_for_AnalogOutputInt16)
 {
   return pBufferedCollection_Indexed_for_AnalogOutputInt16->COUNT;
@@ -1710,7 +1651,7 @@ void  BufferedCollection_Indexed_for_AnalogOutputFloat32_in_BufferedCollection_I
 
   setParentPointer_in_ICollection_Indexed_for_AnalogOutputFloat32(&(pBufferedCollection_Indexed_for_AnalogOutputFloat32->iICollection_Indexed_for_AnalogOutputFloat32), pBufferedCollection_Indexed_for_AnalogOutputFloat32);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -1727,7 +1668,7 @@ BufferedCollection_Indexed_for_AnalogOutputFloat32 CreateBufferedCollection_Inde
       count, readFunc);
   return bBufferedCollection_Indexed_for_AnalogOutputFloat32;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_AnalogOutputFloat32(BufferedCollection_Indexed_for_AnalogOutputFloat32 *pBufferedCollection_Indexed_for_AnalogOutputFloat32)
 {
   return pBufferedCollection_Indexed_for_AnalogOutputFloat32->COUNT;

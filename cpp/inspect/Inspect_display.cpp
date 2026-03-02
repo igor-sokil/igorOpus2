@@ -94,9 +94,9 @@ void inspect_Analog(Analog *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*Flags flags.value= "<<(uint16_t)b->tTypedMeasurement_for_Double64.mMeasurement.flags.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Double64.mMeasurement.timeDNPTime.value<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Double64.mMeasurement.timeDNPTime_in_Measurement.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Double64.mMeasurement.timeDNPTime.quality<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Double64.mMeasurement.timeDNPTime_in_Measurement.quality<<'\n';
 }
 void inspect_Binary(Binary *b)
 {
@@ -107,9 +107,9 @@ void inspect_Binary(Binary *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*Flags flags.value= "<<(uint16_t)b->tTypedMeasurement_for_Boolean.mMeasurement.flags.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime.value<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime_in_Measurement.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime.quality<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Boolean.mMeasurement.timeDNPTime_in_Measurement.quality<<'\n';
 }
 /*
 void inspect_Indexed_for_Binary(Indexed_for_Binary *b)
@@ -130,9 +130,9 @@ void inspect_Counter(Counter *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*Flags flags.value= "<<(uint16_t)b->tTypedMeasurement_for_Uint32.mMeasurement.flags.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime.value<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime.quality<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement.quality<<'\n';
 }
 void inspect_FrozenCounter(FrozenCounter *b)
 {
@@ -143,9 +143,9 @@ void inspect_FrozenCounter(FrozenCounter *b)
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"@*Flags flags.value= "<<(uint16_t)b->tTypedMeasurement_for_Uint32.mMeasurement.flags.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime.value<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.value= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement.value<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime.quality<<'\n';
+  std::cout<<"@*DNPTime timeDNPTime.quality= "<<(uint32_t)b->tTypedMeasurement_for_Uint32.mMeasurement.timeDNPTime_in_Measurement.quality<<'\n';
 }
 
 void inspect_RSeq(RSeq_for_Uint16_t *buffer)
