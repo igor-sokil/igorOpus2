@@ -20,6 +20,8 @@
 void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);//std::string& arData)
 DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num);
 boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_BinarySpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_CounterSpec(DatabaseConfig* pDatabaseConfig);
 
 #define UNUSED(x) (void)(x)
 
@@ -28,85 +30,134 @@ key_filter *pkf;
 
 MainWindow *mainWindow;
 
-  LinkLayerParser parser;
-  TransportLayerMrzs transport;
-  OutstationConfig config;
-  OutstationMrzsObject t;
-  MrzsFrameSink  mMrzsFrameSink;
-  DatabaseConfig dDatabaseConfig;
+LinkLayerParser parser;
+TransportLayerMrzs transport;
+OutstationConfig config;
+OutstationMrzsObject t;
+MrzsFrameSink  mMrzsFrameSink;
+DatabaseConfig dDatabaseConfig;
 
+  QStringList lines_file_step_dnp3;
+  QStringList::iterator it_lines_file_step_dnp3;
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
   key_filter kf;
   app.installEventFilter(pkf=&kf);
 
-if (QFile::exists("step_dnp3.txt")) {
+  QFile file_step_dnp3("step_dnp3.txt");
+  if (QFile::exists("step_dnp3.txt")) {
     // файл есть
-} else {
+  } else {
     // файла нет
-QFile file("step_dnp3.txt");
-if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
- //   QTextStream out(&file);
-//    out << "Привет, мир!\n";
-//    out << "Это второй абзац." << endl;
-    file.close();
-}}
+    if (file_step_dnp3.open(QIODevice::WriteOnly | QIODevice::Text)) {
+      file_step_dnp3.close();
+    }
+  }
+
+  if (!file_step_dnp3.open(QIODevice::ReadOnly | QIODevice::Text))
+  {
+    qDebug() << "Ошибка открытия файла:" << file_step_dnp3.errorString();
+  }
+  else 
+  {
+    QTextStream in_file_step_dnp3(&file_step_dnp3);
+    while (!in_file_step_dnp3.atEnd()) {
+        lines_file_step_dnp3 << in_file_step_dnp3.readLine();
+    }
+    file_step_dnp3.close();
+    it_lines_file_step_dnp3 = lines_file_step_dnp3.begin();
+  }
   qDebug()<<"********SUITE('Test_DNP3')********";
 
-    std::cout<<"+***LinkLayerParser parser= "<<sizeof(parser)<<'\n';
-    std::cout<<"+***TransportLayerMrzs transport= "<<sizeof(transport)<<'\n';
-    std::cout<<"+***OutstationConfig config= "<<sizeof(config)<<'\n';
-    std::cout<<"+***OutstationMrzsObject t= "<<sizeof(t)<<'\n';
-    std::cout<<"+***MrzsFrameSink  mMrzsFrameSink= "<<sizeof(mMrzsFrameSink)<<'\n';
-    std::cout<<"+***DatabaseConfig dDatabaseConfig= "<<sizeof(dDatabaseConfig)<<'\n';
+  std::cout<<"+***LinkLayerParser parser= "<<sizeof(parser)<<'\n';
+  std::cout<<"+***TransportLayerMrzs transport= "<<sizeof(transport)<<'\n';
+  std::cout<<"+***OutstationConfig config= "<<sizeof(config)<<'\n';
+  std::cout<<"+***OutstationMrzsObject t= "<<sizeof(t)<<'\n';
+  std::cout<<"+***MrzsFrameSink  mMrzsFrameSink= "<<sizeof(mMrzsFrameSink)<<'\n';
+  std::cout<<"+***DatabaseConfig dDatabaseConfig= "<<sizeof(dDatabaseConfig)<<'\n';
 
+  std::cout<<"{***START "<<'\n';
   LinkLayerParser_in_LinkLayerParser(&parser);
   TransportLayerMrzs_in_TransportLayerMrzs(&transport, 292);
   OutstationConfig_in_OutstationConfig(&config);
-//  DatabaseConfig tmp = all_types_in_DatabaseHelpers(2);
+
   OutstationConfig_in_OutstationConfig(&config);
-  initialize_BinaryConfig(&dDatabaseConfig, 2);
+  initialize_BinaryConfig(&dDatabaseConfig, 65);
   initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 2);
   initialize_AnalogConfig(&dDatabaseConfig, 65);
-  initialize_CounterConfig(&dDatabaseConfig, 2);
+  initialize_CounterConfig(&dDatabaseConfig, 65);
   initialize_FrozenCounterConfig(&dDatabaseConfig, 2);
   initialize_BOStatusConfig(&dDatabaseConfig, 2);
   initialize_AOStatusConfig(&dDatabaseConfig, 2);
   initialize_TimeAndIntervalConfig(&dDatabaseConfig, 2);
 
   OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
+
   MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
 
   setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
-
+  setMrzsDataMapKeys_for_BinarySpec(&dDatabaseConfig);
+  setMrzsDataMapKeys_for_CounterSpec(&dDatabaseConfig);
+/*
   Analog aAnalog;
   Analog_in_AnalogOver2(&aAnalog, 350.0);
-boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
+  boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 351.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 351, EventMode_Detect);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 351, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 352.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 352, EventMode_Detect);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 352, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 353.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 353, EventMode_Detect);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 353, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 354.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 354, EventMode_Detect);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 354, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 355.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 355, EventMode_Detect);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 355, EventMode_Detect);
+  Analog_in_AnalogOver2(&aAnalog, 356.0);
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 356, EventMode_Detect);
   Analog_in_AnalogOver2(&aAnalog, 357.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
-    std::cout<<'\n';
-    std::cout<<"***boolean tt= "<<tt<<'\n';
+  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
 
-  /*
-  TEST_CASE(SUITE("3BodyCRCError"))
-  {
-      LinkParserTest t;
-      t.WriteData("05 64 14 F3 01 00 00 04 0A 3B C0 C3 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 9A 11");
-      REQUIRE(t.sink.m_num_frames == 0);
-      REQUIRE(t.parser.Statistics().numBodyCrcError == 1);
-  }
-  */
+  Flags fFlags;
+  Flags_In_FlagsOver2(&fFlags, 1);
+  Binary bBinary1;
+  Binary_in_BinaryOver5(&bBinary1, true, fFlags);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50000, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50001, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50002, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50003, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50004, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50005, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50006, EventMode_Detect);
+  tt &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50007, EventMode_Detect);
+
+  Counter cCounter1;
+  Counter_in_CounterOver2(&cCounter1, 2);
+  tt &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10315, EventMode_Detect);
+  tt &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10316, EventMode_Detect);
+*/
+  t.application.supportsAssignClass = true;
+
+  EventBufferConfig etemp;
+  EventBufferConfig_in_EventBufferConfigOver2(&etemp,
+    2,//uint16_t maxBinaryEvents,
+    0,//uint16_t maxDoubleBinaryEvents,
+    2,//uint16_t maxAnalogEvents,
+    2,//uint16_t maxCounterEvents,
+    0,//uint16_t maxFrozenCounterEvents,
+    0,//uint16_t maxBinaryOutputStatusEvents,
+    0,//uint16_t maxAnalogOutputStatusEvents,
+    0//uint16_t maxOctetStringEvents
+    );
+  config.eventBufferConfig = etemp;
+//  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
+  EventBuffer_in_EventBufferOver2(&(t.context.eventBuffer_in_OContext), &(config.eventBufferConfig));
+
+  LowerLayerUp_in_OutstationMrzsObject(&t);
+
+  std::cout<<"}***START "<<'\n';
+  std::cout<<'\n';
+//  std::cout<<"***boolean tt= "<<tt<<'\n';
 
 
   MainWindow mainWindowObj;

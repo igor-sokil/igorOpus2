@@ -1,8 +1,13 @@
+
+#include <QString>
+
 #include <iostream>
 #include <string>
 #include "log_info.h"
 
 #include "header_dnp3.h"
+
+QString inspectQt_RSeq(RSeq_for_Uint16_t *buffer);
 
 static int16_t stack_info = -1;//рівень стеку для info
 
@@ -160,6 +165,25 @@ void inspect_RSeq(RSeq_for_Uint16_t *buffer)
   std::cout<<" "<<std::hex<<(uint16_t)buffer->buffer_[i]<<std::dec;
  }//for
  std::cout<<'\n';
+}
+
+QString inspectQt_RSeq(RSeq_for_Uint16_t *buffer)
+{
+ if(!buffer) return QString("");
+  std::cout<<"+"<<getString_stack_info();
+  std::cout<<"**inspect_RSeq**"<<'\n';
+  QString insertStr("**inspect_RSeq**\n");
+  std::cout<<"+"<<getString_stack_info();
+  std::cout<<"@*buffer->buffer_[i]= "<<(uint32_t)&(buffer->buffer_[0])<<"<-";
+  insertStr.append(QString("+ @*buffer->buffer_[i]= "));
+  for(int i=0; i<length_in_HasLength_for_Uint16_t(&(buffer->hHasLength)); i++)
+ {
+  std::cout<<" "<<std::hex<<(uint16_t)buffer->buffer_[i]<<std::dec;
+  insertStr.append((QString("000%1 ").arg(QString::number((uint16_t)buffer->buffer_[i], 16))).right(3));
+ }//for
+ std::cout<<'\n';
+ insertStr.append(QString("\n"));
+ return insertStr;
 }
 
 void inspect_Message(Message *b)

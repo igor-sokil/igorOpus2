@@ -12,6 +12,7 @@
 #define int32_t signed int
 #endif
 
+
 #ifndef uint16_t
 #define uint16_t unsigned short
 #endif
@@ -41,6 +42,6 @@ extern void* pPointerGlobal2;
 extern void* pPointerGlobal3;
 extern void* pPointerGlobal4;
 
-
 #include "MemoryInspect.h"
+
 

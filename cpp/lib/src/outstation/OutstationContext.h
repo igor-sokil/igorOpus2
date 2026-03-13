@@ -67,7 +67,7 @@
 #include "ICommandHandler.h"
 #include "IOutstationApplication.h"
 
-//#include "TimerExe4cpp.h"
+#include "TimerExe4cpp.h"
 #include "MockExecutorExe4cpp.h"
 #include "IExecutorExe4cpp.h"
 #include "Settable_for_LinkBroadcastAddress.h"
@@ -231,7 +231,7 @@ typedef struct
   boolean isTransmitting_in_OContext;
   IINField staticIIN_in_OContext;
 ////    exe4cpp::Timer confirmTimer;
-//  TimerExe4cpp confirmTimer_in_OContext;
+  TimerExe4cpp confirmTimer_in_OContext;
 
   RequestHistory history_in_OContext;
   DeferredRequest deferred_in_OContext;//constructor default Отложенный запрос

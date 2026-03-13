@@ -936,6 +936,59 @@ REQUIRE('E0 81 80 00 02 01 28 01 00 00 00 81' == t.lower->PopWriteAsHex())
 {------------2
 {------------too late
 
+    {timeout_RestartSolConfirmTimer_in_OContext1
+
+        {OnConfirmTimeout_in_StateSolicitedConfirmWait_override1
+*        *SIMPLE_LOG_BLOCK(ctx.logger, flags::WARN, 'solicited confirm timeout')
+
+            {Inst_in_StateIdle_static1
+
+                {StateIdle_in_StateIdle1
+
+                    {OutstationState_in_OutstationState1
+
+                    }OutstationState_in_OutstationState_
+                }StateIdle_in_StateIdle_
+            }Inst_in_StateIdle_static_
+        }OnConfirmTimeout_in_StateSolicitedConfirmWait_override_
+
+        {CheckForTaskStart_in_OContext1
+
+            {CheckForDeferredRequest_in_OContext1
+
+                {CanTransmit_in_OContext1
+*                *pOContext->isOnline= 1
+*                *pOContext->isTransmitting= 0
+*                *boolean ret= 1
+                }CanTransmit_in_OContext_
+            }CheckForDeferredRequest_in_OContext_
+*        CheckForTaskStart_in_OContext2
+
+            {CheckForUnsolicitedNull_in_OContext1
+
+                {CanTransmit_in_OContext1
+*                *pOContext->isOnline= 1
+*                *pOContext->isTransmitting= 0
+*                *boolean ret= 1
+                }CanTransmit_in_OContext_
+
+                IsIdle_in_OutstationState1
+
+                IsIdle_in_StateIdle_override1
+            }CheckForUnsolicitedNull_in_OContext_
+*        CheckForTaskStart_in_OContext3
+
+            {CheckForUnsolicited_in_OContext1
+
+                {CanTransmit_in_OContext1
+*                *pOContext->isOnline= 1
+*                *pOContext->isTransmitting= 0
+*                *boolean ret= 1
+                }CanTransmit_in_OContext_
+            }CheckForUnsolicited_in_OContext_
+        }CheckForTaskStart_in_OContext_
+    }timeout_RestartSolConfirmTimer_in_OContext_
+
     {SendToOutstation_in_OutstationTestObject1
 
         {OnReceive_in_OContext1
@@ -971,58 +1024,18 @@ REQUIRE('E0 81 80 00 02 01 28 01 00 00 00 81' == t.lower->PopWriteAsHex())
 *                *FunctionCode_CONFIRM
 
                     {ProcessConfirm_in_OContext1
+*                    *FORMAT_LOG_BLOCK(ctx.logger, flags::WARN, 'unexpected confirm while IDLE with sequence: %u'
+*                    *request.header.control.SEQ= 0
 
-                        {OnConfirm_in_StateSolicitedConfirmWait_override1
+                        {Inst_in_StateIdle_static1
 
-                            Reset_in_RequestHistory1
+                            {StateIdle_in_StateIdle1
 
-                            {cancel_in_TimerExe4cpp1
-                            *TimerExe4cpp *pTimerExe4cpp= 6421048
-                            *pTimerExe4cpp->timerExe4cpp.psource_in_ITimer= 6404496
+                                {OutstationState_in_OutstationState1
 
-                                {cancel_in_ITimer1
-                                *pITimer->psource_in_ITimer= 6404496
-
-{cancel_in_MockTimer_override1
-
-{cancel_in_MockTimer1
-
-{cancel_in_MockExecutor1
-*MockExecutor *pMockExecutor= 6404496
-}cancel_in_MockExecutor_
-}cancel_in_MockTimer_
-}cancel_in_MockTimer_override_
-                                }cancel_in_ITimer1
-                            }cancel_in_TimerExe4cpp2_
-
-                            RemoveAll_in_List_for_EventRecord1
-
-                                Iterate_in_List_for_EventRecord1
-*                                *pList_for_EventRecord->head= 6405080
-
-                                    From__in__Iterator_in_List_for_EventRecord_static1
-*                                    *Node_for_EventRecord* start= 6405080
-
-                                    Iterator_in_List_for_EventRecord__in__Iterator_in_List_for_EventRecord1
-*                                    *Node_for_EventRecord* start= 6405080
-
-OnConfirmProcessed_in_MockOutstationApplication1
-
-                            HasAnySelection_in_Database1
-
-                            NumSelected_in_EventStorage1
-*                            *(pEventStorage->state).counters.selected_in_EventClassCounters= 0
-
-                            {Inst_in_StateIdle_static1
-
-                                {StateIdle_in_StateIdle1
-
-                                    {OutstationState_in_OutstationState1
-
-                                    }OutstationState_in_OutstationState_
-                                }StateIdle_in_StateIdle_
-                            }Inst_in_StateIdle_static_
-                        }OnConfirm_in_StateSolicitedConfirmWait_override4_
+                                }OutstationState_in_OutstationState_
+                            }StateIdle_in_StateIdle_
+                        }Inst_in_StateIdle_static_
                     }ProcessConfirm_in_OContext_
                 }ProcessObjects_in_OContext4_
             }ProcessMessage_in_OContext6_
@@ -1402,7 +1415,12 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
 *                                                                                *EventState_unselected= 0
 
                                                                                     OnSelect_in_EventClassCounters1
-*                                                                            *uint32_t tmp= 1
+*                                                                                *SelectByClass_in_EventSelection_static2
+*                                                                                *node->value_in_Node_for_EventRecord.state_in_EventRecord= 0
+*                                                                                *EventState_unselected= 0
+
+                                                                                    OnSelect_in_EventClassCounters1
+*                                                                            *uint32_t tmp= 2
 
                                                                     {Record_in_IAPDUHandler1
 *                                                                    **inspect_IINField**
@@ -1449,7 +1467,7 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
 *                                                            *Node_for_EventRecord* start= 6405080
 
                                                         WriteSome_in_EventWriting_static1
-*                                                        *lists->counters.selected_in_EventClassCounters= 1
+*                                                        *lists->counters.selected_in_EventClassCounters= 2
                                                         WriteSome_in_EventWriting_static2
                                                         WriteSome_in_EventWriting_static3
 
@@ -1492,6 +1510,29 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
                                                                                 FindNextSelected_in_EventWriting_static3
                                                                             WriteOne_in_EventCollection_for_Binary2
 *                                                                            **inspect_Binary**
+*                                                                            @*boolean value= 1
+*                                                                            @*Flags flags.value= 129
+*                                                                            @*DNPTime timeDNPTime.value= 0
+*                                                                            @*DNPTime timeDNPTime.quality= 0
+
+                                                                                Write_in_BasicEventWriter_for_Binary_override1
+
+                                                                                    Write_in_PrefixedWriteIterator_for_UInt16_Binary1
+*                                                                                    **inspect_Binary**
+*                                                                                    @*boolean value= 1
+*                                                                                    @*Flags flags.value= 129
+*                                                                                    @*DNPTime timeDNPTime.value= 0
+*                                                                                    @*DNPTime timeDNPTime.quality= 0
+@@@@                                                                                    *write_in_UInt16_static = 6421531->0
+@@@@                                                                                    *write_in_UInt8_static = 6421533->129
+                                                                            WriteOne_in_EventCollection_for_Binary3
+
+                                                                            WriteOne_in_EventCollection_for_Binary1
+
+                                                                                FindNextSelected_in_EventWriting_static1
+                                                                                FindNextSelected_in_EventWriting_static3
+                                                                            WriteOne_in_EventCollection_for_Binary2
+*                                                                            **inspect_Binary**
 *                                                                            @*boolean value= 0
 *                                                                            @*Flags flags.value= 1
 *                                                                            @*DNPTime timeDNPTime.value= 0
@@ -1505,20 +1546,20 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
 *                                                                                    @*Flags flags.value= 1
 *                                                                                    @*DNPTime timeDNPTime.value= 0
 *                                                                                    @*DNPTime timeDNPTime.quality= 0
-@@@@                                                                                    *write_in_UInt16_static = 6421531->0
-@@@@                                                                                    *write_in_UInt8_static = 6421533->1
+@@@@                                                                                    *write_in_UInt16_static = 6421534->0
+@@@@                                                                                    *write_in_UInt8_static = 6421536->1
                                                                             WriteOne_in_EventCollection_for_Binary3
 
                                                                             WriteOne_in_EventCollection_for_Binary1
                                                                     Write_for_Binary_in_EventWriters_static2
 
                                                                         PrefixedWriteIterator_for_UInt16_Binary_destr_PrefixedWriteIterator_for_UInt16_Binary1
-@@@@                                                                        *write_in_UInt16_static = 6421529->1
+@@@@                                                                        *write_in_UInt16_static = 6421529->2
 *                                                            *(type->value).selectedVariation= 0
-*                                                            *bBinary.tTypedMeasurement_for_Boolean.value= 0
-*                                                            *bBinary.tTypedMeasurement_for_Boolean.mMeasurement.flags= 1
+*                                                            *bBinary.tTypedMeasurement_for_Boolean.value= 1
+*                                                            *bBinary.tTypedMeasurement_for_Boolean.mMeasurement.flags= 129
                                                             WriteSome_in_EventTypeImpl_TypedEventRecord_for_BinarySpec_override2
-*                                                    *uint16_t num_written =1
+*                                                    *uint16_t num_written =2
 
                                                         WriteSome_in_EventWriting_static1
 *                                                        *lists->counters.selected_in_EventClassCounters= 0
@@ -1673,7 +1714,7 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
                                             }CheckForBroadcastConfirmation_in_OContext_
 *                                        *BeginResponseTx_in_OContext2
 +                                        **inspect_RSeq**
-+                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 1 0 0 0 1
++                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 2 0 0 0 81 0 0 1
 
                                             {GetControl_in_APDUWrapper1
 *                                            **inspect_AppControlField**
@@ -1685,7 +1726,7 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
                                             }GetControl_in_APDUWrapper_
 *                                        *BeginResponseTx_in_OContext3
 +                                        **inspect_RSeq**
-+                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 1 0 0 0 1
++                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 2 0 0 0 81 0 0 1
 
                                             {GetControl_in_APDUWrapper1
 *                                            **inspect_AppControlField**
@@ -1697,20 +1738,20 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
                                             }GetControl_in_APDUWrapper_
 *                                        *BeginResponseTx_in_OContext4
 +                                        **inspect_RSeq**
-+                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 1 0 0 0 1
++                                        @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 2 0 0 0 81 0 0 1
 
                                             {BeginTx_in_OContext1
 
 {BeginTransmit_in_MockLowerLayer1
 +                                            **inspect_RSeq**
-+                                            @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 1 0 0 0 1
++                                            @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 2 0 0 0 81 0 0 1
 }BeginTransmit_in_MockLowerLayer_
 *                                            **inspect_Message**
 *                                            **inspect_Addresses**
 *                                            @*uint16_t source= 0
 *                                            @*uint16_t destination= 0
 +                                            **inspect_RSeq**
-+                                            @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 1 0 0 0 1
++                                            @*buffer->buffer_[i]= 6421522<- e1 81 80 0 2 1 28 2 0 0 0 81 0 0 1
                                             }BeginTx_in_OContext_
 
                                             {GetControl_in_APDUWrapper1
@@ -1770,7 +1811,7 @@ apply_in_4ReadClass1WithSOEWithTimeoutInBetween2
                                     }RespondToReadRequest_in_OContext_
                                 }OnNewReadRequest_in_StateIdle_override_
                             }ProcessNewRequest_in_OContext1_
-                        }OnReceiveSolRequest_in_OContext5_
+                        }OnReceiveSolRequest_in_OContext4_
                     }ProcessRequest_in_OContext_
                 }ProcessObjects_in_OContext5_
             }ProcessMessage_in_OContext6_

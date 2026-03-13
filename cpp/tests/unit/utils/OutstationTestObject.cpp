@@ -94,7 +94,7 @@ void OutstationTestObject_in_OutstationTestObject(OutstationTestObject *pOutstat
   decrement_stack_info();
 #endif
 }
-/*
+
 ////size_t OutstationTestObject::LowerLayerUp()
 uint16_t LowerLayerUp_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject)
 {
@@ -110,7 +110,7 @@ uint16_t LowerLayerUp_in_OutstationTestObject(OutstationTestObject *pOutstationT
   std::cout<<"}LowerLayerUp_in_OutstationTestObject_"<<'\n';
 #endif
 ////    return exe->run_many();
-  return run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
 }
 
 ////size_t OutstationTestObject::LowerLayerDown()
@@ -132,9 +132,9 @@ uint16_t LowerLayerDown_in_OutstationTestObject(OutstationTestObject *pOutstatio
   std::cout<<"}LowerLayerDown_in_OutstationTestObject_"<<'\n';
 #endif
 ////    return exe->run_many();
-  return run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
 }
-*/
+
 ////size_t OutstationTestObject::OnTxReady()
 uint16_t OnTxReady_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject)
 {

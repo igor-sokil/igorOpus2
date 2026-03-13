@@ -52,7 +52,7 @@ typedef struct
 ////private:
 ////    DeferredRequest() = delete;
 
-  boolean isSet;
+  boolean isSet_in_DeferredRequest;
   Addresses addresses;
   APDUHeader header;
   RSeq_for_Uint16_t objects;

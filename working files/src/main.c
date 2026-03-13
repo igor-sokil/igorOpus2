@@ -818,6 +818,8 @@ boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAn
   Analog_in_AnalogOver2(&aAnalog, 357.0);
  tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
 
+  LowerLayerUp_in_OutstationMrzsObject(&t);
+
   USBD_Init(&USB_OTG_dev,
 #ifdef USE_USB_OTG_HS 
             USB_OTG_HS_CORE_ID,

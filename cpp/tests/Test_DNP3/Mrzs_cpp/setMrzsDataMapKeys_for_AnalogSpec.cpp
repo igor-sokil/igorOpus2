@@ -10,7 +10,7 @@ boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig)
   setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 353);
   setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 354);
   setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 355);
-
+  setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 356);
   setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 357);
   /*
   setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index++, 358);

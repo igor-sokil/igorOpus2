@@ -74,16 +74,17 @@ typedef struct
 //                                                     DatabaseConfig* db_config);// = opendnp3::DatabaseConfig());
 void OutstationMrzsObject_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject, OutstationConfig* config,
     DatabaseConfig* db_config);// = opendnp3::DatabaseConfig());
-/*
-uint16_t LowerLayerUp_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
-uint16_t LowerLayerDown_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
-*/
+
+uint16_t LowerLayerUp_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
+uint16_t LowerLayerDown_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
+
 //uint16_t SendToOutstation_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, uint8_t* input_packet);//std::string& hex);
 //void Transaction_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, void (*apply)(IUpdateHandler*));//std::function<void(opendnp3::IUpdateHandler&)>& apply)
 /*
 uint16_t BroadcastToOutstation_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, LinkBroadcastAddress_uint16_t broadcast_address, std::string& hex);
 */
-uint16_t OnTxReady_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationTestObject);
+//uint16_t OnTxReady_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
+uint16_t OnTxReady_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject);
 
 uint16_t AdvanceTime_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject, TimeDuration* td);
 

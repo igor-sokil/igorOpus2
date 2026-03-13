@@ -135,73 +135,21 @@ boolean WriteHeaderWithReserve_in_HeaderWriter(HeaderWriter *pHeaderWriter, Grou
   std::cout<<'\n';
   increment_stack_info();
   std::cout<<getString_stack_info();
-  std::cout<<"{WriteHeaderWithReserve_in_HeaderWriter1"<<'\n';
+  std::cout<<"WriteHeaderWithReserve_in_HeaderWriter1"<<'\n';
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*qc= "<<(uint16_t)qc<<'\n';
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*reserve= "<<(uint16_t)reserve<<'\n';
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength)= "<<(uint16_t)length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength))<<'\n';
+  decrement_stack_info();
 #endif
 ////    return (position->length() < (3 + reserve)) ? false : WriteHeader(id, qc);
   return (length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength)) <
           (3 + reserve)) ? false : WriteHeader_in_HeaderWriter(pHeaderWriter, id, qc);
-/*
-  if(length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength)) <
-          (3 + reserve))// ? false : WriteHeader_in_HeaderWriter(pHeaderWriter, id, qc);
-  {
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  std::cout<<getString_stack_info();
-  std::cout<<"}WriteHeaderWithReserve_in_HeaderWriter1_"<<'\n';
-  decrement_stack_info();
-#endif
-    return WriteHeader_in_HeaderWriter(pHeaderWriter, id, qc);
-  }//if
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  std::cout<<getString_stack_info();
-  std::cout<<"}WriteHeaderWithReserve_in_HeaderWriter2_"<<'\n';
-  decrement_stack_info();
-#endif
-  return false;
-*/
 }
-/*
-////template<class IndexType>
-////BitfieldRangeWriteIterator<IndexType> HeaderWriter::IterateOverSingleBitfield(GroupVariationID id,
-////                                                                              QualifierCode qc,
-////                                                                              typename IndexType::type_t start)
-BitfieldRangeWriteIterator_for_UInt8 IterateOverSingleBitfield_for_UInt8_in_HeaderWriter(HeaderWriter *pHeaderWriter,
-    GroupVariationID id,
-    QualifierCode_uint8_t qc,
-    uint8_t start)
-{
-////    const auto reserve_size = 2 * IndexType::size + 1; // need at least 1 byte
-  uint16_t reserve_size = 2 * size_in_UInt8 + 1; // need at least 1 byte
-//    boolean WriteHeaderWithReserve_in_HeaderWriter(HeaderWriter *pHeaderWriter,
-//                                       GroupVariationID id, QualifierCode_uint8_t qc, uint16_t reserve);
-////    if (this->WriteHeaderWithReserve(id, qc, reserve_size))
-  if (WriteHeaderWithReserve_in_HeaderWriter(pHeaderWriter,
-      id, qc, reserve_size))
-  {
-//  void  BitfieldRangeWriteIterator_for_UInt8_in_BitfieldRangeWriteIterator_for_UInt8(BitfieldRangeWriteIterator_for_UInt8 *pBitfieldRangeWriteIterator_for_UInt8,
-//                                                   uint8_t start_, WSeq_for_Uint16_t* position_)
-////        return BitfieldRangeWriteIterator<IndexType>(start, *position);
-    BitfieldRangeWriteIterator_for_UInt8 bBitfieldRangeWriteIterator_for_UInt8;
-    BitfieldRangeWriteIterator_for_UInt8_in_BitfieldRangeWriteIterator_for_UInt8(&bBitfieldRangeWriteIterator_for_UInt8,
-        start, pHeaderWriter->position);
-    return bBitfieldRangeWriteIterator_for_UInt8;
-  }
-  else
-//    BitfieldRangeWriteIterator_for_UInt8 Null_in_BitfieldRangeWriteIterator_for_UInt8_static(void)
-////        return BitfieldRangeWriteIterator<IndexType>::Null();
-    return  Null_in_BitfieldRangeWriteIterator_for_UInt8_static();
-}
-*/
 //================================================WriteSingleValue=================================================================
 
 //--------------------------------WriteSingleValue_for_UInt8_Group51Var1--------------------------------------------------------
+////template<class CountType, class WriteType> bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
 boolean WriteSingleValue_for_UInt8_Group51Var1_in_HeaderWriter(HeaderWriter *pHeaderWriter,
     QualifierCode_uint8_t qc, Group51Var1* cto)
 {
@@ -213,9 +161,6 @@ boolean WriteSingleValue_for_UInt8_Group51Var1_in_HeaderWriter(HeaderWriter *pHe
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*QualifierCode_uint8_t qc= "<<(uint16_t)qc<<'\n';
 #endif
-
-////template<class CountType, class WriteType> bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
-  {
 //    const auto reserve_size = CountType::size + WriteType::Size();
 //  uint16_t Size_in_Group51Var1_static(void);
     uint16_t reserve_size = size_in_UInt8 + Size_in_Group51Var1_static();
@@ -240,7 +185,6 @@ boolean WriteSingleValue_for_UInt8_Group51Var1_in_HeaderWriter(HeaderWriter *pHe
 #endif
       return false;
     }
-  }
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -259,7 +203,6 @@ boolean WriteSingleValue_for_UInt8_Group51Var2_in_HeaderWriter(HeaderWriter *pHe
   std::cout<<"*QualifierCode_uint8_t qc= "<<(uint16_t)qc<<'\n';
 #endif
 ////template<class CountType, class WriteType> bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
-  {
 //    const auto reserve_size = CountType::size + WriteType::Size();
 //  uint16_t Size_in_Group51Var2_static(void);
     uint16_t reserve_size = size_in_UInt8 + Size_in_Group51Var2_static();
@@ -284,7 +227,6 @@ boolean WriteSingleValue_for_UInt8_Group51Var2_in_HeaderWriter(HeaderWriter *pHe
 #endif
       return false;
     }
-  }
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -296,7 +238,6 @@ boolean WriteSingleValue_for_UInt8_Group52Var1_in_HeaderWriter(HeaderWriter *pHe
     QualifierCode_uint8_t qc, Group52Var1* cto)
 {
 ////template<class CountType, class WriteType> bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
-  {
 #ifdef  LOG_INFO
     std::cout<<'\n';
     increment_stack_info();
@@ -329,7 +270,6 @@ boolean WriteSingleValue_for_UInt8_Group52Var1_in_HeaderWriter(HeaderWriter *pHe
 #endif
       return false;
     }
-  }
 #ifdef  LOG_INFO
   decrement_stack_info();
 #endif
@@ -350,7 +290,6 @@ boolean WriteSingleValue_for_UInt8_Group52Var2_in_HeaderWriter(HeaderWriter *pHe
   std::cout<<"*length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength)= "<<(uint16_t)length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength))<<'\n';
 #endif
 ////template<class CountType, class WriteType> bool HeaderWriter::WriteSingleValue(QualifierCode qc, const WriteType& value)
-//  {
 //    const auto reserve_size = CountType::size + WriteType::Size();
 //  uint16_t Size_in_Group52Var2_static(void);
     uint16_t reserve_size = size_in_UInt8 + Size_in_Group52Var2_static();
@@ -379,12 +318,11 @@ boolean WriteSingleValue_for_UInt8_Group52Var2_in_HeaderWriter(HeaderWriter *pHe
 #endif
       return false;
     }
-//  }
-//#ifdef  LOG_INFO
-//  std::cout<<getString_stack_info();
-//  std::cout<<"}WriteSingleValue_for_UInt8_Group52Var2_in_HeaderWriter3_"<<'\n';
-//  decrement_stack_info();
-//#endif
+#ifdef  LOG_INFO
+  std::cout<<getString_stack_info();
+  std::cout<<"}WriteSingleValue_for_UInt8_Group52Var2_in_HeaderWriter3_"<<'\n';
+  decrement_stack_info();
+#endif
 }
 //--------------------------------WriteSingleValue_for_UInt8_Group52Var2--------------------------------------------------------
 

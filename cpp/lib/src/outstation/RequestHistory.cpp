@@ -39,15 +39,10 @@ void Reset_in_RequestHistory(RequestHistory *pRequestHistory)
   std::cout<<'\n';
   increment_stack_info();
   std::cout<<getString_stack_info();
-  std::cout<<"{Reset_in_RequestHistory1"<<'\n';
+  std::cout<<"Reset_in_RequestHistory1"<<'\n';
+  decrement_stack_info();
 #endif
   pRequestHistory->hasLast = false;
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  increment_stack_info();
-  std::cout<<getString_stack_info();
-  std::cout<<"}Reset_in_RequestHistory_"<<'\n';
-#endif
 }
 
 void RecordLastProcessedRequest_in_RequestHistory(RequestHistory *pRequestHistory, APDUHeader* header, RSeq_for_Uint16_t* objects)

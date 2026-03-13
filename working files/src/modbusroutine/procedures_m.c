@@ -139,6 +139,49 @@ void inputPacketParserUSB(void)
   case LinkFunction_PRI_CONFIRMED_USER_DATA:// = 0x43,
 //    std::cout<<'\n';
     //std::cout<<"+***LinkFunction_PRI_CONFIRMED_USER_DATA***"<<'\n';
+    if(mMrzsFrameSink.userdata)
+    {
+//      inspect_RSeq(mMrzsFrameSink.userdata);
+      Message mMessage;
+      Addresses aAddresses;
+      Addresses_in_AddressesOver1(&aAddresses);
+      Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
+
+      if(OnReceive_in_TransportLayerMrzs(&transport, &mMessage))
+        if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
+        {
+          OnReceive_in_OContext(&(t.context), &transport.asdu);
+          if(t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length == 0)
+          {
+//           ***Empty output***
+            break;
+          }//if
+
+//        inspect_Message(&(t.lower.mMessage));
+//        std::cout<<"+transport.receiver.expectedSeq.seq= "<<(uint16_t)transport.receiver.expectedSeq.seq<<'\n';
+
+          //boolean BeginTransmit_in_TransportLayerMrzs(TransportLayerMrzs *pTransportLayer, Message* message)
+          BeginTransmit_in_TransportLayerMrzs(&transport, &(t.lower.mMessage_in_MrzsLowerLayer));
+//        inspect_RSeq(&(transport.asdu.payload));
+
+//RSeq_for_Uint16_t FormatConfirmedUserData_in_LinkFrame_static(WSeq_for_Uint16_t* buffer,
+//    boolean aIsMaster, boolean aFcb, uint16_t aDest, uint16_t aSrc,  RSeq_for_Uint16_t user_data)//,
+
+          RSeq_for_Uint16_t wrapper = FormatConfirmedUserData_in_LinkFrame_static(
+                                     &writeTo,//WSeq_for_Uint16_t* buffer,
+                                     false,//boolean aIsMaster,
+                                     false,//boolean aFcb,
+                                     mMrzsFrameSink.m_last_header.addresses.source,//uint16_t aDest,
+                                     mMrzsFrameSink.m_last_header.addresses.destination,//uint16_t aSrc,
+                                     (transport.asdu.payload));//RSeq_for_Uint16_t user_data);
+//        inspect_RSeq(&data);
+          OnTxReady_in_OutstationMrzsObject(&t);
+
+          usb_transmiting_count = wrapper.hHasLength.m_length;
+          for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = wrapper.buffer_[i];
+          data_usb_transmiting = true;
+        }//if(is_not_empty_in_HasLength_for_Uint16_t(&(pTransportLayer->asdu.payload.hHasLength)))
+    }//if(mMrzsFrameSink.userdata)
     break;
 
   case LinkFunction_PRI_UNCONFIRMED_USER_DATA:// = 0x44,
@@ -156,31 +199,33 @@ void inputPacketParserUSB(void)
         if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
         {
           OnReceive_in_OContext(&(t.context), &transport.asdu);
+          if(t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length == 0)
+          {
+//           ***Empty output***
+            break;
+          }//if
 
 //        inspect_Message(&(t.lower.mMessage));
 //        std::cout<<"+transport.receiver.expectedSeq.seq= "<<(uint16_t)transport.receiver.expectedSeq.seq<<'\n';
 
           //boolean BeginTransmit_in_TransportLayerMrzs(TransportLayerMrzs *pTransportLayer, Message* message)
-          BeginTransmit_in_TransportLayerMrzs(&transport, &(t.lower.mMessage));
+          BeginTransmit_in_TransportLayerMrzs(&transport, &(t.lower.mMessage_in_MrzsLowerLayer));
 //        inspect_RSeq(&(transport.asdu.payload));
 
-//RSeq_for_Uint16_t FormatConfirmedUserData_in_LinkFrame_static(WSeq_for_Uint16_t* buffer,
-//    boolean aIsMaster, boolean aFcb, uint16_t aDest, uint16_t aSrc,  RSeq_for_Uint16_t user_data)//,
-
-          RSeq_for_Uint16_t wrapper = FormatConfirmedUserData_in_LinkFrame_static(
+          RSeq_for_Uint16_t wrapper = FormatUnconfirmedUserData_in_LinkFrame_static(
                                      &writeTo,//WSeq_for_Uint16_t* buffer,
                                      false,//boolean aIsMaster,
-                                     false,//boolean aFcb,
                                      mMrzsFrameSink.m_last_header.addresses.source,//uint16_t aDest,
                                      mMrzsFrameSink.m_last_header.addresses.destination,//uint16_t aSrc,
                                      (transport.asdu.payload));//RSeq_for_Uint16_t user_data);
 //        inspect_RSeq(&data);
+          OnTxReady_in_OutstationMrzsObject(&t);
+
           usb_transmiting_count = wrapper.hHasLength.m_length;
           for (int i = 0; i < usb_transmiting_count; i++) usb_transmiting[i] = wrapper.buffer_[i];
           data_usb_transmiting = true;
         }//if(is_not_empty_in_HasLength_for_Uint16_t(&(pTransportLayer->asdu.payload.hHasLength)))
     }//if(mMrzsFrameSink.userdata)
-
     break;
   }//switch
 

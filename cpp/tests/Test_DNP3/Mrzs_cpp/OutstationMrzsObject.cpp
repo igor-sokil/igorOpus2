@@ -73,92 +73,6 @@ void OutstationMrzsObject_in_OutstationMrzsObject(OutstationMrzsObject *pOutstat
 #endif
 }
 
-////size_t OutstationTestObject::OnTxReady()
-uint16_t OnTxReady_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject)
-{
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  std::cout<<"{OnTxReady_in_OutstationMrzsObject1"<<'\n';
-#endif
-//boolean OnTxReady_in_OContext(OContext* pOContext)
-////    context.OnTxReady();
-   OnTxReady_in_OContext(&(pOutstationMrzsObject->context));
-#ifdef  LOG_INFO
-  std::cout<<"}OnTxReady_in_OutstationMrzsObject_"<<'\n';
-#endif
-////    return exe->run_many();
-  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
-}
-/*
-//Message mMessage1_global_in_OutstationTestObject;
-////size_t OutstationTestObject::SendToOutstation(const std::string& hex)
-uint16_t SendToOutstation_in_OutstationMrzsObject(OutstationTestObject *pOutstationTestObject, uint8_t* input_packet)//std::string& hex)
-{
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  increment_stack_info();
-  std::cout<<getString_stack_info();
-  std::cout<<"{SendToOutstation_in_OutstationTestObject1"<<'\n';
-#endif
-//   void HexSequence_in_HexSequence(HexSequence *pHexSequence, std::string& hex);
-////    HexSequence hs(hex);
-//  HexSequence hs;
-//  HexSequence_in_HexSequence(&hs, hex);
-
-//RSeq_for_Uint16_t ToRSeq_in_CopyableBuffer(CopyableBuffer *pCopyableBuffer);
-//&(hs.bByteStr.cCopyableBuffer)
-//boolean OnReceive_in_OContext(OContext*, Message* message);
-//void  Message_in_Message(Message *pMessage, Addresses *addresses, RSeq_for_Uint16_t* payload);
-////    context.OnReceive(Message(Addresses(), hs.ToRSeq()));
-//  RSeq_for_Uint16_t temp = //ToRSeq_in_CopyableBuffer(&(hs.bByteStr.cCopyableBuffer));
- RSeq_for_Uint16_t temp;
- RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&temp, &input_packet[1], input_packet[0]);
-
-  Addresses aAddresses;
-  Addresses_in_AddressesOver1(&aAddresses);
-  Message mMessage;
-  Message_in_Message(&mMessage, &aAddresses, &temp);
-
-   OnReceive_in_OContext(&(pOutstationTestObject->context), &mMessage);
-
-////    return exe->run_many();
-#ifdef  LOG_INFO
-  std::cout<<"}SendToOutstation_in_OutstationTestObject_"<<'\n';
-  decrement_stack_info();
-#endif
-//  return run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
-  return 0;
-}
-
-void Transaction_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, void (*apply)(IUpdateHandler*))//std::function<void(opendnp3::IUpdateHandler&)>& apply)
-{
-#ifdef  LOG_INFO
-  std::cout<<'\n';
-  std::cout<<"{Transaction_in_OutstationTestObject1"<<'\n';
-#endif
-  // auto& handler = context.GetUpdateHandler();
-//IUpdateHandler* GetUpdateHandler_in_OContext(OContext *pOContext);
-////        apply(context.GetUpdateHandler());
-  apply(GetUpdateHandler_in_OContext(&(pOutstationTestObject->context)));
-
-//void HandleNewEvents_in_OContext(OContext *pOContext);
-////        context.HandleNewEvents();
-  HandleNewEvents_in_OContext(&(pOutstationTestObject->context));
-#ifdef  LOG_INFO
-  std::cout<<"}Transaction_in_OutstationTestObject_"<<'\n';
-#endif
-}
-*/
-
-uint16_t AdvanceTime_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject, TimeDuration* td)
-{
-//uint16_t advance_time_in_MockExecutor(MockExecutor *pMockExecutor, uint32_t duration);
-////    exe->advance_time(td.value);
-//  advance_time_in_MrzsExecutor(&(pOutstationMrzsObject->exe), td->duration_value);
-////    return exe->run_many();
-  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
-}
-
 void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq)
 {
 ////    HexSequence hs(arData);
@@ -214,4 +128,55 @@ void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq)
 ////    return HexConversions::to_hex(hs.ToRSeq(), true);
 //  RSeq_for_Uint16_t rseq = ToRSeq_in_CopyableBuffer(&(hs.bByteStr.cCopyableBuffer));
 //  return to_hex_in_HexConversionsOver2(&rseq, true);
+}
+
+uint16_t LowerLayerUp_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject)
+{
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<"{LowerLayerUp_in_OutstationMrzsObject1"<<'\n';
+#endif
+//boolean OnLowerLayerUp_in_OContext(OContext*);
+////    context.OnLowerLayerUp();
+  OnLowerLayerUp_in_OContext(&(pOutstationMrzsObject->context));
+
+#ifdef  LOG_INFO
+  std::cout<<"}LowerLayerUp_in_OutstationMrzsObject_"<<'\n';
+#endif
+////    return exe->run_many();
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
+}
+
+uint16_t LowerLayerDown_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject)
+{
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<"{LowerLayerDown_in_OutstationMrzsObject1"<<'\n';
+#endif
+//boolean OnLowerLayerDown_in_OContext(OContext*);
+////    context.OnLowerLayerDown();
+  OnLowerLayerDown_in_OContext(&(pOutstationMrzsObject->context));
+
+#ifdef  LOG_INFO
+  std::cout<<"}LowerLayerDown_in_OutstationMrzsObject_"<<'\n';
+#endif
+////    return exe->run_many();
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
+}
+
+////size_t OutstationTestObject::OnTxReady()
+uint16_t OnTxReady_in_OutstationMrzsObject(OutstationMrzsObject *pOutstationMrzsObject)
+{
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<"{OnTxReady_in_OutstationMrzsObject1"<<'\n';
+#endif
+//boolean OnTxReady_in_OContext(OContext* pOContext)
+////    context.OnTxReady();
+   OnTxReady_in_OContext(&(pOutstationMrzsObject->context));
+#ifdef  LOG_INFO
+  std::cout<<"}OnTxReady_in_OutstationMrzsObject_"<<'\n';
+#endif
+////    return exe->run_many();
+  return 0;//run_many_in_MockExecutor(&(pOutstationTestObject->exe), 100);
 }

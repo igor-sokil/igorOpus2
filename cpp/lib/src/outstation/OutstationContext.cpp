@@ -90,7 +90,6 @@ void OContext_in_OContext(OContext *pOContext,
                           OutstationConfig* config,
                           DatabaseConfig* db_config,
 ////                   const Logger& logger,
-//                          MockExecutor* executor,
                           IExecutorExe4cpp* executor,
                           ILowerLayer* lower,
                           ICommandHandler* commandHandler,
@@ -104,7 +103,7 @@ void OContext_in_OContext(OContext *pOContext,
   std::cout<<"{OContext_in_OContext1"<<'\n';
 #endif
 
-//  TimerExe4cpp_in_TimerExe4cppOver1(&(pOContext->confirmTimer_in_OContext));
+  TimerExe4cpp_in_TimerExe4cppOver1(&(pOContext->confirmTimer_in_OContext));
 
   pOContext->addresses_in_OContext = *addresses;
 ////      logger(logger),
@@ -187,7 +186,7 @@ void OContext_in_OContext(OContext *pOContext,
   decrement_stack_info();
 #endif
 }
-/*
+
 boolean OnLowerLayerUp_in_OContext(OContext* pOContext)
 {
 #ifdef  LOG_INFO
@@ -225,7 +224,6 @@ boolean OnLowerLayerUp_in_OContext(OContext* pOContext)
 
 boolean OnLowerLayerDown_in_OContext(OContext* pOContext)
 {
-
   if (!(pOContext->isOnline_in_OContext))
   {
 ////        SIMPLE_LOG_BLOCK(logger, flags::ERR, "already offline");
@@ -262,7 +260,7 @@ boolean OnLowerLayerDown_in_OContext(OContext* pOContext)
 
   return true;
 }
-*/
+
 boolean OnTxReady_in_OContext(OContext* pOContext)
 {
 #ifdef  LOG_INFO
@@ -270,6 +268,10 @@ boolean OnTxReady_in_OContext(OContext* pOContext)
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"{OnTxReady_in_OContext1"<<std::endl;
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*isOnline_in_OContext= "<<(uint16_t)pOContext->isOnline_in_OContext<<std::endl;
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*isTransmitting_in_OContext= "<<(uint16_t)pOContext->isTransmitting_in_OContext<<std::endl;
 #endif
 
   if (!(pOContext->isOnline_in_OContext) || !(pOContext->isTransmitting_in_OContext))
@@ -540,7 +542,7 @@ boolean ProcessObjects_in_OContext(OContext *pOContext, ParsedRequest* request)
 #endif
     return tmp;
   }
-/*
+
   if (pOContext->isTransmitting_in_OContext)
   {
 //  void Set_in_DeferredRequest(DeferredRequest *pDeferredRequest, ParsedRequest* request);
@@ -553,7 +555,7 @@ boolean ProcessObjects_in_OContext(OContext *pOContext, ParsedRequest* request)
 #endif
     return true;
   }
-*/
+
   if (request->header.function == FunctionCode_CONFIRM)
   {
 //    boolean ProcessConfirm_in_OContext(OContext *pOContext, ParsedRequest* request);
@@ -1197,11 +1199,12 @@ void RestartSolConfirmTimer_in_OContext(OContext *pOContext)
 ////    };
 
 ////    this->confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
 
   pPointerGlobal1_in_RestartSolConfirmTimer = pOContext;
 ////    this->confirmTimer = this->executor->start(this->params.solConfirmTimeout.value, timeout);
-//  pOContext->confirmTimer_in_OContext =  Start_in_IExecutorExe4cpp(pOContext->executor, pOContext->params_in_OContext.solConfirmTimeout.duration_value, timeout_RestartSolConfirmTimer_in_OContext);
+  pOContext->confirmTimer_in_OContext =  Start_in_IExecutorExe4cpp(pOContext->executor, 
+           pOContext->params_in_OContext.solConfirmTimeout.duration_value, timeout_RestartSolConfirmTimer_in_OContext);
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
   std::cout<<"}RestartSolConfirmTimer_in_OContext_"<<std::endl;
@@ -1253,7 +1256,7 @@ void RestartUnsolConfirmTimer_in_OContext(OContext *pOContext)
 
 ////    this->confirmTimer.cancel();
 
-//  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(pOContext->confirmTimer_in_OContext));
 
 
   pPointerGlobal1 = pOContext;

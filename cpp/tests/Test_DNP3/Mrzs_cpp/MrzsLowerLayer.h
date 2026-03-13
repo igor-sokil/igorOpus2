@@ -33,7 +33,7 @@ typedef struct
 ////private:
 ////    std::queue<opendnp3::Message> sendQueue;
 //  std::queue<Message> sendQueue;
-  Message mMessage;
+  Message mMessage_in_MrzsLowerLayer;
   boolean isResponse_in_MrzsLowerLayer;
 } MrzsLowerLayer;
 

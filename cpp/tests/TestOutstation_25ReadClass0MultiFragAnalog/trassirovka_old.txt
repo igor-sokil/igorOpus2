@@ -1,0 +1,954 @@
+********SUITE('25ReadClass0MultiFragAnalog')********
+1stack_info=  -1
+2stack_info=  -1
+3stack_info=  -1
+
+OutstationTestObject_in_OutstationTestObject1
+
+    OContext_in_OContext1
+
+    EventLists_in_EventLists1
+    TotalEvents_in_EventBufferConfig1
+*    *pEventBufferConfig->maxBinaryEvents= 0
+*    *pEventBufferConfig->maxDoubleBinaryEvents=0
+*    *pEventBufferConfig->maxAnalogEvents= 0
+*    *pEventBufferConfig->maxCounterEvents= 0
+*    *pEventBufferConfig->maxBinaryOutputStatusEvents= 0
+*    *pEventBufferConfig->maxAnalogOutputStatusEvents= 0
+*    *pEventBufferConfig->maxOctetStringEvents= 0
+
+    Database_in_Database1
+
+    DeferredRequest_in_DeferredRequest1
+*    *uint32_t maxAPDUSize =2048
+
+    BufferSer4_in_BufferSer4Over2_1
+*    *uint16_t length=2048
+
+    TxBuffer_in_TxBuffer1
+*    *uint32_t maxTxSize =20
+
+    BufferSer4_in_BufferSer4Over2_1
+*    *uint16_t length=20
+
+    TxBuffer_in_TxBuffer1
+*    *uint32_t maxTxSize =20
+
+    BufferSer4_in_BufferSer4Over2_1
+*    *uint16_t length=20
+
+    StateIdle_in_StateIdle1
+*    *IsIdle_in_StateIdle_override= 1762945264
+
+    OutstationState_in_OutstationState1
+*    *pOutstationState= 1763605216
+*    *IsIdle_in_OutstationState_override= 1762944864
+4stack_info=  0
+1stack_info_OnLowerLayerUp_in_OContext=  0
+1stack_info_CheckForTaskStart_in_OContext=  0
+    CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  1
+    CheckForTaskStart_in_OContext2
+*    *pOContext= 6412536
+*    *pOContext->state= 1763605216
+
+        CheckForUnsolicitedNull_in_OContext1
+*        *pOContext= 6412536
+*        *pOContext->state= 1763605216
+
+            IsIdle_in_OutstationState1
+*            *pOutstationState= 1763605216
+*            *pIsIdle_in_OutstationState= 1762945264
+
+                IsIdle_in_StateIdle_override1
+            IsIdle_in_OutstationState2
+        CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  1
+    CheckForTaskStart_in_OContext3
+    CheckForTaskStart_in_OContext4
+
+        CheckForUnsolicited_in_OContext1
+*        *pOContext= 6412536
+*        *pOContext->state= 1763605216
+
+            IsIdle_in_OutstationState1
+*            *pOutstationState= 1763605216
+*            *pIsIdle_in_OutstationState= 1762945264
+
+                IsIdle_in_StateIdle_override1
+            IsIdle_in_OutstationState2
+        CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  1
+2stack_info_OnLowerLayerUp_in_OContext=  1
+5stack_info=  1
+1stack_info_CheckForTaskStart_in_OContext=  1
+        CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  2
+        CheckForTaskStart_in_OContext2
+*        *pOContext= 6412536
+*        *pOContext->state= 1763605216
+
+            CheckForUnsolicitedNull_in_OContext1
+*            *pOContext= 6412536
+*            *pOContext->state= 1763605216
+
+                IsIdle_in_OutstationState1
+*                *pOutstationState= 1763605216
+*                *pIsIdle_in_OutstationState= 1762945264
+
+                    IsIdle_in_StateIdle_override1
+                IsIdle_in_OutstationState2
+            CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  2
+        CheckForTaskStart_in_OContext3
+        CheckForTaskStart_in_OContext4
+
+            CheckForUnsolicited_in_OContext1
+*            *pOContext= 6412536
+*            *pOContext->state= 1763605216
+
+                IsIdle_in_OutstationState1
+*                *pOutstationState= 1763605216
+*                *pIsIdle_in_OutstationState= 1762945264
+
+                    IsIdle_in_StateIdle_override1
+                IsIdle_in_OutstationState2
+            CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  2
+
+            SendToOutstation_in_OutstationTestObject1
+
+            OnReceive_in_OContext1
+*            *pOContext= 6412536
+
+                ProcessMessage_in_OContext1
+*                *FORMAT_HEX_BLOCK(this->logger, flags::APP_HEX_RX, message.payload, 18, 18)
+
+                    ParseRequest_in_APDUHeaderParser_static1
+*                    *buffer->buffer_[i]=  c0
+*                    *buffer->buffer_[i]=  1
+*                    *buffer->buffer_[i]=  3c
+*                    *buffer->buffer_[i]=  1
+*                    *buffer->buffer_[i]=  6
+                    ParseRequest_in_APDUHeaderParser_static3
+
+                    ProcessObjects_in_OContext1
+*                    *pOContext=6412536
+*                    *pOContext->state=1763605216
+
+                        ProcessRequest_in_OContext1
+*                        *pOContext= 6412536
+
+                            OnReceiveSolRequest_in_OContext1
+                            OnReceiveSolRequest_in_OContext8
+
+                            ProcessNewRequest_in_OContext1
+
+                            OnNewReadRequest_in_StateIdle_override1
+
+                            RespondToReadRequest_in_OContext1
+*                            *pOContext= 6412536
+*                        *1RespondToReadRequest_in_OContext.pOContext= 6412536
+*                        *2RespondToReadRequest_in_OContext.pOContext= 6412536
+*                        *3RespondToReadRequest_in_OContext.pOContext= 6412536
+
+                            HandleRead_in_OContext1
+*                            *pOContext= 6412536
+*                            *buffer->buffer_[i]=  3c
+*                            *buffer->buffer_[i]=  1
+*                            *buffer->buffer_[i]=  6
+*                            *1HandleRead_in_OContext.pOContext= 6412536
+*                            *2HandleRead_in_OContext.pOContext= 6412536
+*                            *3HandleRead_in_OContext.pOContext= 6412536
+
+                                ReadHandler_in_ReadHandler1
+
+                                IAPDUHandler_in_IAPDUHandler1
+*                                *pIAPDUHandler= 6409960
+*                            *4HandleRead_in_OContext.pOContext= 6412536
+
+                                Parse_in_APDUParser_static1
+*                                *buffer->buffer_[i]=  3c
+*                                *buffer->buffer_[i]=  1
+*                                *buffer->buffer_[i]=  6
+
+                                    ParseSinglePass_in_APDUParser_static1
+*                                    *IAPDUHandler* pHandler=0
+*                                    *IWhiteList* pWhiteList=6409960
+*                                    *buffer->buffer_[i]=  3c
+*                                    *buffer->buffer_[i]=  1
+*                                    *buffer->buffer_[i]=  6
+*                                    *buffer->buffer_[i]=  3c
+*                                    *buffer->buffer_[i]=  1
+*                                    *buffer->buffer_[i]=  6
+
+                                        ParseHeader_in_APDUParser_static1
+*                                        *buffer->buffer_[i]=  3c
+*                                        *buffer->buffer_[i]=  1
+*                                        *buffer->buffer_[i]=  6
+
+                                            ParseObjectHeader_in_ObjectHeaderParser_static1
+
+                                            GetRecord_in_GroupVariationRecord_static1
+*                                            *uint8_t group= 60
+*                                            *uint8_t variation= 1
+
+                                            GetEnumAndType_in_GroupVariationRecord_static1
+*                                            *uint8_t group= 60
+*                                            *uint8_t variation= 1
+
+                                                GetType_in_GroupVariationRecord_static1
+*                                                *uint8_t group= 60
+*                                                *uint8_t variation= 1
+*                                                *GroupVariationType_STATIC
+*                                            *GroupVariation_uint16_t enumeration= 3c01
+
+                                        ParseQualifier_in_APDUParser_static1
+*                                        *IAPDUHandler* pHandler= 0
+*                                        *QualifierCode_uint8_t tmp =6
+*                                        *QualifierCode_ALL_OBJECTS*
+
+                                        HandleAllObjectsHeader_in_APDUParser_static1
+*                                        ***FORMAT_LOGGER_BLOCK(pLogger, settings.LoggingLevel(), '%03u,%03u - %s - %s', record.group, record.variation***
+*                                        *record->gGroupVariationRecord.group=60
+*                                        *record->gGroupVariationRecord.variation=1
+*                                        *record->gGroupVariationRecord.enumeration=15361
+*                                        *pHandler=0
+                                Parse_in_APDUParser_static2
+
+                                ParseSinglePass_in_APDUParser_static1
+*                                *IAPDUHandler* pHandler=6409960
+*                                *IWhiteList* pWhiteList=0
+*                                *buffer->buffer_[i]=  3c
+*                                *buffer->buffer_[i]=  1
+*                                *buffer->buffer_[i]=  6
+*                                *buffer->buffer_[i]=  3c
+*                                *buffer->buffer_[i]=  1
+*                                *buffer->buffer_[i]=  6
+
+                                    ParseHeader_in_APDUParser_static1
+*                                    *buffer->buffer_[i]=  3c
+*                                    *buffer->buffer_[i]=  1
+*                                    *buffer->buffer_[i]=  6
+
+                                        ParseObjectHeader_in_ObjectHeaderParser_static1
+
+                                        GetRecord_in_GroupVariationRecord_static1
+*                                        *uint8_t group= 60
+*                                        *uint8_t variation= 1
+
+                                        GetEnumAndType_in_GroupVariationRecord_static1
+*                                        *uint8_t group= 60
+*                                        *uint8_t variation= 1
+
+                                            GetType_in_GroupVariationRecord_static1
+*                                            *uint8_t group= 60
+*                                            *uint8_t variation= 1
+*                                            *GroupVariationType_STATIC
+*                                        *GroupVariation_uint16_t enumeration= 3c01
+
+                                    ParseQualifier_in_APDUParser_static1
+*                                    *IAPDUHandler* pHandler= 6409960
+*                                    *QualifierCode_uint8_t tmp =6
+*                                    *QualifierCode_ALL_OBJECTS*
+
+                                    HandleAllObjectsHeader_in_APDUParser_static1
+*                                    ***FORMAT_LOGGER_BLOCK(pLogger, settings.LoggingLevel(), '%03u,%03u - %s - %s', record.group, record.variation***
+*                                    *record->gGroupVariationRecord.group=60
+*                                    *record->gGroupVariationRecord.variation=1
+*                                    *record->gGroupVariationRecord.enumeration=15361
+*                                    *pHandler=6409960
+                                    HandleAllObjectsHeader_in_APDUParser_static2
+
+                                        OnHeader_AllObjectsHeader_in_IAPDUHandler1
+
+                                        ProcessHeader_AllObjectsHeader_in_ReadHandler_override1
+*                                        *GroupVariationType_STATIC
+
+                                        SelectAll_in_Database1
+*                                        *GroupVariation_Group60Var1
+
+                                        Record_in_IAPDUHandler1
+*                            *5HandleRead_in_OContext.pOContext= 6412536
+*                            *6HandleRead_in_OContext.pOContext= 6412536
+
+                                Load_in_Database1
+
+                                get_for_AnalogSpec_in_StaticWriters_static1
+*                                *StaticAnalogVariation_Group30Var1
+
+                                WriteWithSerializer_AnalogSpec_for_Group30Var1_in_StaticWriters_static1
+*                                *range.start= 0
+*                                *range.stop= 7
+
+                                WriteHeaderWithReserve_in_HeaderWriter1
+*                                *qc= 0
+*                                *reserve= 7
+
+                                WriteHeader_in_HeaderWriter1
+*                                *id.group= 30
+*                                *id.variation= 1
+*                                *qc= 0
+
+                                RangeWriteIterator_for_UInt8_Analog_in_RangeWriteIterator_for_UInt8_AnalogOver2_1
+
+                                LoadWithRangeIterator_AnalogSpec_for_UInt8_in_StaticWriters1
+*                                *map.size()= 8
+*                                *for_in_8
+
+                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                Apply_in_ConvertGroup30Var1_static1
+*                                *src.value= 0
+*                                *target.value= 0
+
+                                Write_in_Group30Var1_static
+*                                *arg->flags= 1
+*                                *arg->value= 0
+*                                *for_in_8
+
+                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                Apply_in_ConvertGroup30Var1_static1
+*                                *src.value= 0
+*                                *target.value= 0
+
+                                Write_in_Group30Var1_static
+*                                *arg->flags= 1
+*                                *arg->value= 0
+*                                *for_in_8
+
+                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                RangeWriteIterator_for_UInt8_Analog_destr_RangeWriteIterator_for_UInt8_Analog1
+*                            *7HandleRead_in_OContext.pOContext= 6412536
+*                            *8HandleRead_in_OContext.pOContext= 6412536
+*                        *4RespondToReadRequest_in_OContext.pOContext= 6412536
+*                        *5RespondToReadRequest_in_OContext.pOContext= 6412536
+
+                            GetResponseIIN_in_OContext1
+*                            *pOContext= 6412536
+*                            *pOContext->state= 1763605216
+*                        *6RespondToReadRequest_in_OContext.GetResponseIIN_in_OContext(pOContext)= 6412536
+
+                            BeginResponseTx_in_OContext1
+*                            *pOContext= 6412536
+
+                                CheckForBroadcastConfirmation_in_OContext1
+
+                                StateSolicitedConfirmWait_in_StateSolicitedConfirmWait1
+
+                                OutstationState_in_OutstationState1
+*                                *pOutstationState= 1763605152
+*                                *IsIdle_in_OutstationState_override= 1762944864
+1stack_info_CheckForTaskStart_in_OContext=  6
+                            CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  7
+                            CheckForTaskStart_in_OContext2
+*                            *pOContext= 6412536
+*                            *pOContext->state= 1763605152
+
+                                CheckForUnsolicitedNull_in_OContext1
+*                                *pOContext= 6412536
+*                                *pOContext->state= 1763605152
+                                CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  7
+                            CheckForTaskStart_in_OContext3
+                            CheckForTaskStart_in_OContext4
+
+                                CheckForUnsolicited_in_OContext1
+*                                *pOContext= 6412536
+*                                *pOContext->state= 1763605152
+                                CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  7
+REQUIRE(t.lower->PopWriteAsHex() == 'A0 81 80 00 1E 01 00 00 01 01 00 00 00 00 01 00 00 00 00')
+temp= A0 81 80 00 1E 01 00 00 01 01 00 00 00 00 01 00 00 00 00
+
+                            OnTxReady_in_OutstationTestObject1
+
+                                OnTxReady_in_OContext1
+1stack_info_CheckForTaskStart_in_OContext=  8
+                                    CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  9
+                                    CheckForTaskStart_in_OContext2
+*                                    *pOContext= 6412536
+*                                    *pOContext->state= 1763605152
+
+                                        CheckForUnsolicitedNull_in_OContext1
+*                                        *pOContext= 6412536
+*                                        *pOContext->state= 1763605152
+
+                                            IsIdle_in_OutstationState1
+*                                            *pOutstationState= 1763605152
+*                                            *pIsIdle_in_OutstationState= 1762944864
+
+                                                IsIdle_in_OutstationState_override1
+                                            IsIdle_in_OutstationState2
+                                        CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  9
+                                    CheckForTaskStart_in_OContext3
+                                    CheckForTaskStart_in_OContext4
+
+                                        CheckForUnsolicited_in_OContext1
+*                                        *pOContext= 6412536
+*                                        *pOContext->state= 1763605152
+
+                                            IsIdle_in_OutstationState1
+*                                            *pOutstationState= 1763605152
+*                                            *pIsIdle_in_OutstationState= 1762944864
+
+                                                IsIdle_in_OutstationState_override1
+                                            IsIdle_in_OutstationState2
+                                        CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  9
+
+                                    OnTxReady_in_OContext2
+                                OnTxReady_in_OutstationTestObject2
+
+                                SendToOutstation_in_OutstationTestObject1
+
+                                OnReceive_in_OContext1
+*                                *pOContext= 6412536
+
+                                    ProcessMessage_in_OContext1
+*                                    *FORMAT_HEX_BLOCK(this->logger, flags::APP_HEX_RX, message.payload, 18, 18)
+
+                                        ParseRequest_in_APDUHeaderParser_static1
+*                                        *buffer->buffer_[i]=  c0
+*                                        *buffer->buffer_[i]=  0
+                                        ParseRequest_in_APDUHeaderParser_static3
+
+                                        ProcessObjects_in_OContext1
+*                                        *pOContext=6412536
+*                                        *pOContext->state=1763605152
+
+                                        ProcessConfirm_in_OContext1
+*                                        *pOContext= 6412536
+*                                        *pOContext->state= 1763605152
+
+                                            OnConfirm_in_StateSolicitedConfirmWait_override1
+OnConfirm_in_StateSolicitedConfirmWait_override2
+OnConfirm_in_StateSolicitedConfirmWait_override3
+OnConfirm_in_StateSolicitedConfirmWait_override4
+OnConfirm_in_StateSolicitedConfirmWait_override5
+
+                                                HasAnySelection_in_Database1
+OnConfirm_in_StateSolicitedConfirmWait_override6
+
+                                            ContinueMultiFragResponse_in_OContext1
+*                                            *pOContext= 6412536
+
+                                            Load_in_Database1
+
+                                            get_for_AnalogSpec_in_StaticWriters_static1
+*                                            *StaticAnalogVariation_Group30Var1
+
+                                            WriteWithSerializer_AnalogSpec_for_Group30Var1_in_StaticWriters_static1
+*                                            *range.start= 2
+*                                            *range.stop= 7
+
+                                            WriteHeaderWithReserve_in_HeaderWriter1
+*                                            *qc= 0
+*                                            *reserve= 7
+
+                                            WriteHeader_in_HeaderWriter1
+*                                            *id.group= 30
+*                                            *id.variation= 1
+*                                            *qc= 0
+
+                                            RangeWriteIterator_for_UInt8_Analog_in_RangeWriteIterator_for_UInt8_AnalogOver2_1
+
+                                            LoadWithRangeIterator_AnalogSpec_for_UInt8_in_StaticWriters1
+*                                            *map.size()= 8
+*                                            *for_in_8
+
+                                            Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                            Apply_in_ConvertGroup30Var1_static1
+*                                            *src.value= 0
+*                                            *target.value= 0
+
+                                            Write_in_Group30Var1_static
+*                                            *arg->flags= 1
+*                                            *arg->value= 0
+*                                            *for_in_8
+
+                                            Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                            Apply_in_ConvertGroup30Var1_static1
+*                                            *src.value= 0
+*                                            *target.value= 0
+
+                                            Write_in_Group30Var1_static
+*                                            *arg->flags= 1
+*                                            *arg->value= 0
+*                                            *for_in_8
+
+                                            Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                            RangeWriteIterator_for_UInt8_Analog_destr_RangeWriteIterator_for_UInt8_Analog1
+
+                                            GetResponseIIN_in_OContext1
+*                                            *pOContext= 6412536
+*                                            *pOContext->state= 1763605152
+*                                        *ContinueMultiFragResponse_in_OContext.GetResponseIIN_in_OContext(pOContext)= 6412536
+
+                                            BeginResponseTx_in_OContext1
+*                                            *pOContext= 6412536
+
+                                                CheckForBroadcastConfirmation_in_OContext1
+
+                                                StateSolicitedConfirmWait_in_StateSolicitedConfirmWait1
+
+                                                OutstationState_in_OutstationState1
+*                                                *pOutstationState= 1763605152
+*                                                *IsIdle_in_OutstationState_override= 1762944864
+1stack_info_CheckForTaskStart_in_OContext=  11
+                                                CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  12
+                                                CheckForTaskStart_in_OContext2
+*                                                *pOContext= 6412536
+*                                                *pOContext->state= 1763605152
+
+                                                    CheckForUnsolicitedNull_in_OContext1
+*                                                    *pOContext= 6412536
+*                                                    *pOContext->state= 1763605152
+                                                    CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  12
+                                                CheckForTaskStart_in_OContext3
+                                                CheckForTaskStart_in_OContext4
+
+                                                    CheckForUnsolicited_in_OContext1
+*                                                    *pOContext= 6412536
+*                                                    *pOContext->state= 1763605152
+                                                    CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  12
+REQUIRE(t.lower->PopWriteAsHex() == '21 81 80 00 1E 01 00 02 03 01 00 00 00 00 01 00 00 00 00')
+temp1= 21 81 80 00 1E 01 00 02 03 01 00 00 00 00 01 00 00 00 00
+
+                                                OnTxReady_in_OutstationTestObject1
+
+                                                    OnTxReady_in_OContext1
+1stack_info_CheckForTaskStart_in_OContext=  13
+                                                        CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  14
+                                                        CheckForTaskStart_in_OContext2
+*                                                        *pOContext= 6412536
+*                                                        *pOContext->state= 1763605152
+
+                                                            CheckForUnsolicitedNull_in_OContext1
+*                                                            *pOContext= 6412536
+*                                                            *pOContext->state= 1763605152
+
+                                                                IsIdle_in_OutstationState1
+*                                                                *pOutstationState= 1763605152
+*                                                                *pIsIdle_in_OutstationState= 1762944864
+
+                                                                    IsIdle_in_OutstationState_override1
+                                                                IsIdle_in_OutstationState2
+                                                            CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  14
+                                                        CheckForTaskStart_in_OContext3
+                                                        CheckForTaskStart_in_OContext4
+
+                                                            CheckForUnsolicited_in_OContext1
+*                                                            *pOContext= 6412536
+*                                                            *pOContext->state= 1763605152
+
+                                                                IsIdle_in_OutstationState1
+*                                                                *pOutstationState= 1763605152
+*                                                                *pIsIdle_in_OutstationState= 1762944864
+
+                                                                    IsIdle_in_OutstationState_override1
+                                                                IsIdle_in_OutstationState2
+                                                            CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  14
+
+                                                        OnTxReady_in_OContext2
+                                                    OnTxReady_in_OutstationTestObject2
+
+                                                    SendToOutstation_in_OutstationTestObject1
+
+                                                    OnReceive_in_OContext1
+*                                                    *pOContext= 6412536
+
+                                                        ProcessMessage_in_OContext1
+*                                                        *FORMAT_HEX_BLOCK(this->logger, flags::APP_HEX_RX, message.payload, 18, 18)
+
+                                                            ParseRequest_in_APDUHeaderParser_static1
+*                                                            *buffer->buffer_[i]=  c1
+*                                                            *buffer->buffer_[i]=  0
+                                                            ParseRequest_in_APDUHeaderParser_static3
+
+                                                            ProcessObjects_in_OContext1
+*                                                            *pOContext=6412536
+*                                                            *pOContext->state=1763605152
+
+                                                            ProcessConfirm_in_OContext1
+*                                                            *pOContext= 6412536
+*                                                            *pOContext->state= 1763605152
+
+                                                                OnConfirm_in_StateSolicitedConfirmWait_override1
+OnConfirm_in_StateSolicitedConfirmWait_override2
+OnConfirm_in_StateSolicitedConfirmWait_override3
+OnConfirm_in_StateSolicitedConfirmWait_override4
+OnConfirm_in_StateSolicitedConfirmWait_override5
+
+                                                                    HasAnySelection_in_Database1
+OnConfirm_in_StateSolicitedConfirmWait_override6
+
+                                                                ContinueMultiFragResponse_in_OContext1
+*                                                                *pOContext= 6412536
+
+                                                                Load_in_Database1
+
+                                                                get_for_AnalogSpec_in_StaticWriters_static1
+*                                                                *StaticAnalogVariation_Group30Var1
+
+                                                                WriteWithSerializer_AnalogSpec_for_Group30Var1_in_StaticWriters_static1
+*                                                                *range.start= 4
+*                                                                *range.stop= 7
+
+                                                                WriteHeaderWithReserve_in_HeaderWriter1
+*                                                                *qc= 0
+*                                                                *reserve= 7
+
+                                                                WriteHeader_in_HeaderWriter1
+*                                                                *id.group= 30
+*                                                                *id.variation= 1
+*                                                                *qc= 0
+
+                                                                RangeWriteIterator_for_UInt8_Analog_in_RangeWriteIterator_for_UInt8_AnalogOver2_1
+
+                                                                LoadWithRangeIterator_AnalogSpec_for_UInt8_in_StaticWriters1
+*                                                                *map.size()= 8
+*                                                                *for_in_8
+
+                                                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                Apply_in_ConvertGroup30Var1_static1
+*                                                                *src.value= 0
+*                                                                *target.value= 0
+
+                                                                Write_in_Group30Var1_static
+*                                                                *arg->flags= 1
+*                                                                *arg->value= 0
+*                                                                *for_in_8
+
+                                                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                Apply_in_ConvertGroup30Var1_static1
+*                                                                *src.value= 0
+*                                                                *target.value= 0
+
+                                                                Write_in_Group30Var1_static
+*                                                                *arg->flags= 1
+*                                                                *arg->value= 0
+*                                                                *for_in_8
+
+                                                                Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                RangeWriteIterator_for_UInt8_Analog_destr_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                GetResponseIIN_in_OContext1
+*                                                                *pOContext= 6412536
+*                                                                *pOContext->state= 1763605152
+*                                                            *ContinueMultiFragResponse_in_OContext.GetResponseIIN_in_OContext(pOContext)= 6412536
+
+                                                                BeginResponseTx_in_OContext1
+*                                                                *pOContext= 6412536
+
+                                                                    CheckForBroadcastConfirmation_in_OContext1
+
+                                                                    StateSolicitedConfirmWait_in_StateSolicitedConfirmWait1
+
+                                                                    OutstationState_in_OutstationState1
+*                                                                    *pOutstationState= 1763605152
+*                                                                    *IsIdle_in_OutstationState_override= 1762944864
+1stack_info_CheckForTaskStart_in_OContext=  16
+                                                                    CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  17
+                                                                    CheckForTaskStart_in_OContext2
+*                                                                    *pOContext= 6412536
+*                                                                    *pOContext->state= 1763605152
+
+                                                                        CheckForUnsolicitedNull_in_OContext1
+*                                                                        *pOContext= 6412536
+*                                                                        *pOContext->state= 1763605152
+                                                                        CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  17
+                                                                    CheckForTaskStart_in_OContext3
+                                                                    CheckForTaskStart_in_OContext4
+
+                                                                        CheckForUnsolicited_in_OContext1
+*                                                                        *pOContext= 6412536
+*                                                                        *pOContext->state= 1763605152
+                                                                        CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  17
+REQUIRE(t.lower->PopWriteAsHex() == '22 81 80 00 1E 01 00 04 05 01 00 00 00 00 01 00 00 00 00')
+temp2= 22 81 80 00 1E 01 00 04 05 01 00 00 00 00 01 00 00 00 00
+
+                                                                    OnTxReady_in_OutstationTestObject1
+
+                                                                        OnTxReady_in_OContext1
+1stack_info_CheckForTaskStart_in_OContext=  18
+                                                                            CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  19
+                                                                            CheckForTaskStart_in_OContext2
+*                                                                            *pOContext= 6412536
+*                                                                            *pOContext->state= 1763605152
+
+                                                                                CheckForUnsolicitedNull_in_OContext1
+*                                                                                *pOContext= 6412536
+*                                                                                *pOContext->state= 1763605152
+
+                                                                                    IsIdle_in_OutstationState1
+*                                                                                    *pOutstationState= 1763605152
+*                                                                                    *pIsIdle_in_OutstationState= 1762944864
+
+                                                                                        IsIdle_in_OutstationState_override1
+                                                                                    IsIdle_in_OutstationState2
+                                                                                CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  19
+                                                                            CheckForTaskStart_in_OContext3
+                                                                            CheckForTaskStart_in_OContext4
+
+                                                                                CheckForUnsolicited_in_OContext1
+*                                                                                *pOContext= 6412536
+*                                                                                *pOContext->state= 1763605152
+
+                                                                                    IsIdle_in_OutstationState1
+*                                                                                    *pOutstationState= 1763605152
+*                                                                                    *pIsIdle_in_OutstationState= 1762944864
+
+                                                                                        IsIdle_in_OutstationState_override1
+                                                                                    IsIdle_in_OutstationState2
+                                                                                CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  19
+
+                                                                            OnTxReady_in_OContext2
+                                                                        OnTxReady_in_OutstationTestObject2
+
+                                                                        SendToOutstation_in_OutstationTestObject1
+
+                                                                        OnReceive_in_OContext1
+*                                                                        *pOContext= 6412536
+
+                                                                            ProcessMessage_in_OContext1
+*                                                                            *FORMAT_HEX_BLOCK(this->logger, flags::APP_HEX_RX, message.payload, 18, 18)
+
+                                                                                ParseRequest_in_APDUHeaderParser_static1
+*                                                                                *buffer->buffer_[i]=  c2
+*                                                                                *buffer->buffer_[i]=  0
+                                                                                ParseRequest_in_APDUHeaderParser_static3
+
+                                                                                ProcessObjects_in_OContext1
+*                                                                                *pOContext=6412536
+*                                                                                *pOContext->state=1763605152
+
+                                                                                ProcessConfirm_in_OContext1
+*                                                                                *pOContext= 6412536
+*                                                                                *pOContext->state= 1763605152
+
+                                                                                    OnConfirm_in_StateSolicitedConfirmWait_override1
+OnConfirm_in_StateSolicitedConfirmWait_override2
+OnConfirm_in_StateSolicitedConfirmWait_override3
+OnConfirm_in_StateSolicitedConfirmWait_override4
+OnConfirm_in_StateSolicitedConfirmWait_override5
+
+                                                                                        HasAnySelection_in_Database1
+OnConfirm_in_StateSolicitedConfirmWait_override6
+
+                                                                                    ContinueMultiFragResponse_in_OContext1
+*                                                                                    *pOContext= 6412536
+
+                                                                                    Load_in_Database1
+
+                                                                                    get_for_AnalogSpec_in_StaticWriters_static1
+*                                                                                    *StaticAnalogVariation_Group30Var1
+
+                                                                                    WriteWithSerializer_AnalogSpec_for_Group30Var1_in_StaticWriters_static1
+*                                                                                    *range.start= 6
+*                                                                                    *range.stop= 7
+
+                                                                                    WriteHeaderWithReserve_in_HeaderWriter1
+*                                                                                    *qc= 0
+*                                                                                    *reserve= 7
+
+                                                                                    WriteHeader_in_HeaderWriter1
+*                                                                                    *id.group= 30
+*                                                                                    *id.variation= 1
+*                                                                                    *qc= 0
+
+                                                                                    RangeWriteIterator_for_UInt8_Analog_in_RangeWriteIterator_for_UInt8_AnalogOver2_1
+
+                                                                                    LoadWithRangeIterator_AnalogSpec_for_UInt8_in_StaticWriters1
+*                                                                                    *map.size()= 8
+*                                                                                    *for_in_8
+
+                                                                                    Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                                    Apply_in_ConvertGroup30Var1_static1
+*                                                                                    *src.value= 0
+*                                                                                    *target.value= 0
+
+                                                                                    Write_in_Group30Var1_static
+*                                                                                    *arg->flags= 1
+*                                                                                    *arg->value= 0
+*                                                                                    *for_in_8
+
+                                                                                    Write_in_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                                    Apply_in_ConvertGroup30Var1_static1
+*                                                                                    *src.value= 0
+*                                                                                    *target.value= 0
+
+                                                                                    Write_in_Group30Var1_static
+*                                                                                    *arg->flags= 1
+*                                                                                    *arg->value= 0
+
+                                                                                    RangeWriteIterator_for_UInt8_Analog_destr_RangeWriteIterator_for_UInt8_Analog1
+
+                                                                                    GetResponseIIN_in_OContext1
+*                                                                                    *pOContext= 6412536
+*                                                                                    *pOContext->state= 1763605152
+*                                                                                *ContinueMultiFragResponse_in_OContext.GetResponseIIN_in_OContext(pOContext)= 6412536
+
+                                                                                    BeginResponseTx_in_OContext1
+*                                                                                    *pOContext= 6412536
+
+                                                                                        CheckForBroadcastConfirmation_in_OContext1
+
+                                                                                    StateIdle_in_StateIdle1
+*                                                                                    *IsIdle_in_StateIdle_override= 1762945264
+
+                                                                                    OutstationState_in_OutstationState1
+*                                                                                    *pOutstationState= 1763605216
+*                                                                                    *IsIdle_in_OutstationState_override= 1762944864
+1stack_info_CheckForTaskStart_in_OContext=  20
+                                                                                    CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  21
+                                                                                    CheckForTaskStart_in_OContext2
+*                                                                                    *pOContext= 6412536
+*                                                                                    *pOContext->state= 1763605216
+
+                                                                                        CheckForUnsolicitedNull_in_OContext1
+*                                                                                        *pOContext= 6412536
+*                                                                                        *pOContext->state= 1763605216
+                                                                                        CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  21
+                                                                                    CheckForTaskStart_in_OContext3
+                                                                                    CheckForTaskStart_in_OContext4
+
+                                                                                        CheckForUnsolicited_in_OContext1
+*                                                                                        *pOContext= 6412536
+*                                                                                        *pOContext->state= 1763605216
+                                                                                        CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  21
+REQUIRE(t.lower->PopWriteAsHex() == '43 81 80 00 1E 01 00 06 07 01 00 00 00 00 01 00 00 00 00')
+temp3= 43 81 80 00 1E 01 00 06 07 01 00 00 00 00 01 00 00 00 00
+
+                                                                                    OnTxReady_in_OutstationTestObject1
+
+                                                                                        OnTxReady_in_OContext1
+1stack_info_CheckForTaskStart_in_OContext=  22
+                                                                                            CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  23
+                                                                                            CheckForTaskStart_in_OContext2
+*                                                                                            *pOContext= 6412536
+*                                                                                            *pOContext->state= 1763605216
+
+                                                                                                CheckForUnsolicitedNull_in_OContext1
+*                                                                                                *pOContext= 6412536
+*                                                                                                *pOContext->state= 1763605216
+
+                                                                                                    IsIdle_in_OutstationState1
+*                                                                                                    *pOutstationState= 1763605216
+*                                                                                                    *pIsIdle_in_OutstationState= 1762945264
+
+                                                                                                        IsIdle_in_StateIdle_override1
+                                                                                                    IsIdle_in_OutstationState2
+                                                                                                CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  23
+                                                                                            CheckForTaskStart_in_OContext3
+                                                                                            CheckForTaskStart_in_OContext4
+
+                                                                                                CheckForUnsolicited_in_OContext1
+*                                                                                                *pOContext= 6412536
+*                                                                                                *pOContext->state= 1763605216
+
+                                                                                                    IsIdle_in_OutstationState1
+*                                                                                                    *pOutstationState= 1763605216
+*                                                                                                    *pIsIdle_in_OutstationState= 1762945264
+
+                                                                                                        IsIdle_in_StateIdle_override1
+                                                                                                    IsIdle_in_OutstationState2
+                                                                                                CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  23
+
+                                                                                            OnTxReady_in_OContext2
+                                                                                        OnTxReady_in_OutstationTestObject2
+
+                                                                                        SendToOutstation_in_OutstationTestObject1
+
+                                                                                        OnReceive_in_OContext1
+*                                                                                        *pOContext= 6412536
+
+                                                                                            ProcessMessage_in_OContext1
+*                                                                                            *FORMAT_HEX_BLOCK(this->logger, flags::APP_HEX_RX, message.payload, 18, 18)
+
+                                                                                                ParseRequest_in_APDUHeaderParser_static1
+*                                                                                                *buffer->buffer_[i]=  c3
+*                                                                                                *buffer->buffer_[i]=  0
+                                                                                                ParseRequest_in_APDUHeaderParser_static3
+
+                                                                                                ProcessObjects_in_OContext1
+*                                                                                                *pOContext=6412536
+*                                                                                                *pOContext->state=1763605216
+
+                                                                                                ProcessConfirm_in_OContext1
+*                                                                                                *pOContext= 6412536
+*                                                                                                *pOContext->state= 1763605216
+
+                                                                                                    StateIdle_in_StateIdle1
+*                                                                                                    *IsIdle_in_StateIdle_override= 1762945264
+
+                                                                                                    OutstationState_in_OutstationState1
+*                                                                                                    *pOutstationState= 1763605216
+*                                                                                                    *IsIdle_in_OutstationState_override= 1762944864
+1stack_info_CheckForTaskStart_in_OContext=  24
+                                                                                                    CheckForTaskStart_in_OContext1
+2stack_info_CheckForTaskStart_in_OContext=  25
+                                                                                                    CheckForTaskStart_in_OContext2
+*                                                                                                    *pOContext= 6412536
+*                                                                                                    *pOContext->state= 1763605216
+
+                                                                                                        CheckForUnsolicitedNull_in_OContext1
+*                                                                                                        *pOContext= 6412536
+*                                                                                                        *pOContext->state= 1763605216
+
+                                                                                                            IsIdle_in_OutstationState1
+*                                                                                                            *pOutstationState= 1763605216
+*                                                                                                            *pIsIdle_in_OutstationState= 1762945264
+
+                                                                                                                IsIdle_in_StateIdle_override1
+                                                                                                            IsIdle_in_OutstationState2
+                                                                                                        CheckForUnsolicitedNull_in_OContext8
+3stack_info_CheckForTaskStart_in_OContext=  25
+                                                                                                    CheckForTaskStart_in_OContext3
+                                                                                                    CheckForTaskStart_in_OContext4
+
+                                                                                                        CheckForUnsolicited_in_OContext1
+*                                                                                                        *pOContext= 6412536
+*                                                                                                        *pOContext->state= 1763605216
+
+                                                                                                            IsIdle_in_OutstationState1
+*                                                                                                            *pOutstationState= 1763605216
+*                                                                                                            *pIsIdle_in_OutstationState= 1762945264
+
+                                                                                                                IsIdle_in_StateIdle_override1
+                                                                                                            IsIdle_in_OutstationState2
+                                                                                                        CheckForTaskStart_in_OContext5
+4stack_info_CheckForTaskStart_in_OContext=  25
+REQUIRE(t.lower->PopWriteAsHex().empty())
+temp4=

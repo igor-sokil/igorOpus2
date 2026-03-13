@@ -358,7 +358,7 @@ void* OnConfirm_in_StateSolicitedConfirmWait_override(void* pOutstationState, vo
   Reset_in_RequestHistory(&(((OContext*)ctx)->history_in_OContext));
 //boolean cancel_in_TimerExe4cpp(TimerExe4cpp *pTimerExe4cpp);
 ////    ctx.confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    ctx.eventBuffer.ClearWritten();
   ClearWritten_in_EventBuffer(&(((OContext*)ctx)->eventBuffer_in_OContext)); // called when a transmission succeeds
 ////    ctx.lastBroadcastMessageReceived.clear();
@@ -447,7 +447,7 @@ void* OnNewReadRequest_in_StateSolicitedConfirmWait_override(void* pOutstationSt
 #endif
   UNUSED(pOutstationState);
 ////    ctx.confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    return ctx.RespondToReadRequest(request);
   void* tmp = RespondToReadRequest_in_OContext((OContext *)ctx, request);
 
@@ -471,7 +471,7 @@ void* OnNewNonReadRequest_in_StateSolicitedConfirmWait_override(void* pOutstatio
   UNUSED(pOutstationState);
 //boolean cancel_in_TimerExe4cpp(TimerExe4cpp *pTimerExe4cpp);
 ////    ctx.confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    return ctx.RespondToNonReadRequest(request);
 #ifdef  LOG_INFO
   std::cout<<std::endl;
@@ -488,7 +488,7 @@ void* OnRepeatNonReadRequest_in_StateSolicitedConfirmWait_override(void* pOutsta
   StateSolicitedConfirmWait *parent =
     (StateSolicitedConfirmWait*)getParentPointer_in_OutstationState((OutstationState*)pOutstationState);
 ////    ctx.confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    ctx.BeginRetransmitLastResponse(request.addresses.source);
 ////    return *this;
   BeginRetransmitLastResponse_in_OContext((OContext *)ctx, (request->addresses).source);
@@ -861,7 +861,7 @@ void* OnNewReadRequest_in_StateNullUnsolicitedConfirmWait_override(void* pOutsta
 #endif
   UNUSED(pOutstationState);
 ////    ctx.confirmTimer.cancel();
-//  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
+  cancel_in_TimerExe4cpp(&(((OContext*)ctx)->confirmTimer_in_OContext));
 ////    return ctx.RespondToReadRequest(request);
   void* tmp = RespondToReadRequest_in_OContext((OContext *)ctx, request);
 

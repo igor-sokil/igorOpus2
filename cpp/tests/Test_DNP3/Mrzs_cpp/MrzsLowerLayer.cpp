@@ -87,7 +87,7 @@ boolean BeginTransmit_in_MrzsLowerLayer(MrzsLowerLayer* pMrzsLowerLayer, Message
 #endif
 
 //  pMrzsLowerLayer->sendQueue.push(temp);////message);
-  pMrzsLowerLayer->mMessage = *message;
+  pMrzsLowerLayer->mMessage_in_MrzsLowerLayer = *message;
   pMrzsLowerLayer->isResponse_in_MrzsLowerLayer = true;
 #ifdef  LOG_INFO
   std::cout<<"}BeginTransmit_in_MrzsLowerLayer_"<<'\n';

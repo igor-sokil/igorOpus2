@@ -16,7 +16,7 @@
 //#include "APDUHexBuilders.h"
 //#include "DatabaseHelpers.h"
 #include "EventBufferConfig.h"
-#include "DataMapKeys.h"
+//#include "DataMapKeys.h"
 
 #define UNUSED(x) (void)(x)
 
@@ -78,11 +78,13 @@ qDebug()<<"********SUITE('3ReadClass1WithSOE')********";
    config.eventBufferConfig = etemp;
 
 
-  getDataMapKeys_for_AnalogSpec()[0] = DATAMAPKEYS1;
-  getDataMapKeys_for_BinarySpec()[0] = DATAMAPKEYS2;
 ////    OutstationTestObject t(config, configure::by_count_of::all_types(100));
 //    DatabaseConfig tmp = binary_input_in_DatabaseHelpers(1);
   DatabaseConfig database = all_types_in_DatabaseHelpers(1);
+//  getDataMapKeys_for_AnalogSpec()[0] = DATAMAPKEYS1;
+//  getDataMapKeys_for_BinarySpec()[0] = DATAMAPKEYS2;
+  setDataMapKeys_for_AnalogSpec(&database, 0, DATAMAPKEYS1);
+  setDataMapKeys_for_BinarySpec(&database, 0, DATAMAPKEYS2);
 
     OutstationTestObject t;
     OutstationTestObject_in_OutstationTestObject(&t, &config, &database);
@@ -115,27 +117,29 @@ qDebug()<<"REQUIRE('E0 81 80 00 20 01 28 01 00 17 00 01 34 12 00 00 02 01 28 01 
 
 ////    t.OnTxReady();
 //    OnTxReady_in_OutstationTestObject(&t);
-/*
+
 //std::string SolicitedConfirm_in_APDUHexBuilders(uint8_t seq);
 ////    t.SendToOutstation(hex::SolicitedConfirm(0));
-std::string name1 = SolicitedConfirm_in_APDUHexBuilders(0);
- std::cout << "name1= " << name1<<'\n';
+//std::string name1 = SolicitedConfirm_in_APDUHexBuilders(0);
+// std::cout << "name1= " << name1<<'\n';
+    uint8_t name1[] = {2, 0xC0, 0x00};
     SendToOutstation_in_OutstationTestObject(&t, name1);  
 
-    std::string temp1a = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp1a = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 qDebug()<<"REQUIRE('empty')";
-std::cout << "temp1a= " << temp1a<<'\n';
+//std::cout << "temp1a= " << temp1a<<'\n';
 
 ////    t.SendToOutstation(hex::ClassPoll(1, PointClass::Class1)); // Repeat read class 1
- std::string request2 = ClassPoll_in_APDUHexBuilders(1, PointClass_Class1);
- std::cout << "request2= " << request2<<'\n';
+// std::string request2 = ClassPoll_in_APDUHexBuilders(1, PointClass_Class1);
+// std::cout << "request2= " << request2<<'\n';
+    uint8_t request2[] = {5, 0xC1, 0x01, 0x3C, 0x02, 0x06};
     SendToOutstation_in_OutstationTestObject(&t, request2);  
 
 ////    REQUIRE(t.lower->PopWriteAsHex() == "C1 81 80 00");        // Buffer should have been cleared
-    std::string temp2 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp2 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == 'C1 81 80 00')";
-std::cout << "temp2= " << temp2<<'\n';
-*/
+//std::cout << "temp2= " << temp2<<'\n';
+
 /*
 ////    t.OnTxReady();
 ////    t.SendToOutstation(hex::SolicitedConfirm(0));

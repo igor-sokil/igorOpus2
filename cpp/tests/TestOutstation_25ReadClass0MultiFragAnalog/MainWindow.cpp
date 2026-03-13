@@ -3,24 +3,13 @@
 #include <QtWidgets>
 #include "key_filter.h"
 
+#include "header.h"
 
 #include "MainWindow.h"
-#include "loghandler.h"
-#include "../../../header_dnp3.h"
-
-#include "MrzsFrameSink.h"
-#include "OutstationMrzsObject.h"
-#include "LinkParserMrzs.h"
-#include "TransportLayerMrzs.h"
-
-QString Send_To_Outstation(RSeq_for_Uint16_t);
+//#include "loghandler.h"
 
 extern key_filter *pkf;
 
-extern  QStringList lines_file_step_dnp3;
-extern  QStringList::iterator it_lines_file_step_dnp3;
-
-LogHandler lLogHandler;
 
 MainWindow::MainWindow(QWidget *parent): QWidget(parent)
 {
@@ -80,8 +69,8 @@ MiniButtonWidget::MiniButtonWidget(QWidget *parent)
 
   QGridLayout *miniButtonLayout = new QGridLayout;
 
-  virtualMenuUpButton = createButton(" Home ", SLOT(upClicked()));
-  virtualMenuDownButton = createButton("Send_To_Outstation", SLOT(downClicked()));
+  virtualMenuUpButton = createButton(" Message_in_Moc ", SLOT(upClicked()));
+  virtualMenuDownButton = createButton("List_for_EventRecord", SLOT(downClicked()));
   virtualMenuUpButton->setFont(boldFont);
   virtualMenuDownButton->setFont(boldFont);
 
@@ -181,156 +170,52 @@ void MiniButtonWidget::freeClicked()
 }//freeClicked()
 
 //void loghandler_List_for_EventRecord();
-QByteArray byteResult;
-void parseHexString(const QString& str, QByteArray& result);
-void MiniButtonWidget::upClicked()
-{
-  qDebug()<<"BIT_KEY_UP";
-  it_lines_file_step_dnp3 = lines_file_step_dnp3.begin();
-  downClicked();
-}//downClicked()
-
-QString inspectQt_RSeq(RSeq_for_Uint16_t *buffer);
-extern OutstationMrzsObject t;
-extern DatabaseConfig dDatabaseConfig;
-extern OutstationConfig config;
-int beginIdx = 0;
 void MiniButtonWidget::downClicked()
 {
   qDebug()<<"BIT_KEY_DOWN";
-  if(beginIdx) lLogHandler.LogEntry(QString("+ BIT_KEY_DOWN"));
-  beginIdx |= 1;
+// loghandler_List_for_EventRecord();
+//  new_state_keyboard |= (1<<BIT_KEY_DOWN);
+//  periodical_operations();//один оборот
+}//downClicked()
 
-  int flag = 1;
-  while(it_lines_file_step_dnp3 != lines_file_step_dnp3.end())
-  {
-      QString line = *it_lines_file_step_dnp3;
-      it_lines_file_step_dnp3++;//increment iterator
-      if(line.isEmpty()) continue;
-      QString cleaned = line.remove(' ');
-      if(cleaned.isEmpty()) continue;
+/*
+void inspect_LinkHeader(Memory_LinkHeader* pMemory_LinkHeader, int maxCount);
+void inspect_GroupVariationRecord(Memory_GroupVariationRecord* pMemory_GroupVariationRecord, int maxCount);
+void inspect_ObjectHeader(Memory_ObjectHeader* pMemory_ObjectHeader, int maxCount);
+void inspect_HeaderRecord(Memory_HeaderRecord* pMemory_HeaderRecord, int maxCount);
+void inspect_IINField(Memory_IINField* pMemory_IINField, int maxCount);
+void inspect_EventLists(Memory_EventLists* pMemory_EventLists, int maxCount);
+void inspect_PairSer4cpp_for_IINField_AppControlField(Memory_PairSer4cpp_for_IINField_AppControlField* pMemory_PairSer4cpp_for_IINField_AppControlField, int maxCount);
+void inspect_ParsedRequest(Memory_ParsedRequest* pMemory_ParsedRequest, int maxCount);
+void inspect_Message(Memory_Message* pMemory_Message, int maxCount);
+void inspect_Result_for_APDUHeader_in_APDUHeaderParser(Memory_Result_for_APDUHeader_in_APDUHeaderParser* pMemory_Result_for_APDUHeader_in_APDUHeaderParser, int maxCount);
+void inspect_EventRecord(Memory_EventRecord* pMemory_EventRecord, int maxCount);
+void inspect_RangeHeader(Memory_RangeHeader* pMemory_RangeHeader, int maxCount);
+*/
+void MiniButtonWidget::upClicked()
+{
+  qDebug()<<"BIT_KEY_UP";
+//if(pMemory_RangeHeader_1) inspect_RangeHeader(pMemory_RangeHeader_1, 10);
+// if(pMemory_Message_1) inspect_Message(pMemory_Message_1, 10);
+// if(pMemory_Message_2) inspect_Message(pMemory_Message_2);
+// if(pMemory_Result_for_APDUHeader_in_APDUHeaderParser_1)inspect_Result_for_APDUHeader_in_APDUHeaderParser(pMemory_Result_for_APDUHeader_in_APDUHeaderParser_1, 10);
+// if(pMemory_ParsedRequest_1)inspect_ParsedRequest(pMemory_ParsedRequest_1, 10);
+// if(pMemory_IINField_1)inspect_IINField(pMemory_IINField_1, 10);
+// if(pMemory_PairSer4cpp_for_IINField_AppControlField_1)inspect_PairSer4cpp_for_IINField_AppControlField(pMemory_PairSer4cpp_for_IINField_AppControlField_1, 10);
+// if(pMemory_ObjectHeader_1)inspect_ObjectHeader(pMemory_ObjectHeader_1);
+// if(pMemory_HeaderRecord_1)inspect_HeaderRecord(pMemory_HeaderRecord_1);
+// if(pMemory_EventRecord_1)inspect_EventRecord(pMemory_EventRecord_1, 10);
+// if(pMemory_EventLists_1)inspect_EventLists(pMemory_EventLists_1, 10);
+// if(pMemory_LinkHeader_1)inspect_LinkHeader(pMemory_LinkHeader_1, 10);
+// if(pMemory_GroupVariationRecord_1)inspect_GroupVariationRecord(pMemory_GroupVariationRecord_1);
 
-      qDebug() <<"cleaned= "<< cleaned;  // Обработка строки
-      lLogHandler.LogEntry(QString(cleaned));
-
-      const char* cstr = cleaned.toUtf8().data();
-      QChar ch = QChar(cstr[0]);
-      if (!(std::isxdigit(static_cast<unsigned char>(ch.toLatin1())))) continue;
-      byteResult.clear();
-      parseHexString(cleaned, byteResult);
-      switch(byteResult.data()[0])
-     {
-      case 5://Send_To_Outstation
-      {
-      RSeq_for_Uint16_t rst;
-      RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, (unsigned char*)byteResult.data(), byteResult.size());
-      inspect_RSeq(&rst);
-
-      QString str = Send_To_Outstation(rst);
-      lLogHandler.LogEntry(QString(str));
-      }//case 5://Send_To_Outstation
-      break;
-      case 6://Update
-      {
-  int flg = 1;
-    uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
-  if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class1;
-  else flg &= 0;
-////    database.analog_input[0].clazz = PointClass::Class2;
-  iter_first = KeyMap2IndexMass_for_AnalogSpec(&dDatabaseConfig, 350);
-  if(iter_first < 0xFF00) dDatabaseConfig.analog_input_config[iter_first].dDeadbandConfig_for_AnalogInfo.eEventConfig.clazz = PointClass_Class2;
-  else flg &= 0;
-////    database.counter[0].clazz = PointClass::Class3;
-  iter_first = KeyMap2IndexMass_for_CounterSpec(&dDatabaseConfig, 10315);
-  if(iter_first < 0xFF00)
-  {
-           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.clazz = PointClass_Class3;
-           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var5;
-  }
-  else flg &= 0;
-//  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
- StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(&t.context.database_in_OContext.analog_input,
-                          &dDatabaseConfig);
- StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(&t.context.database_in_OContext.binary_input,
-                          &dDatabaseConfig);
- StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(&t.context.database_in_OContext.counter,
-                          &dDatabaseConfig);
-//  Counter cCounter1;
-//  Counter_in_CounterOver2(&cCounter1, 10);
-//  int flg = Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10315, EventMode_Detect);
- Binary bBinary;
- Binary_in_BinaryOver2(&bBinary, true);
-
- Analog aAnalog;
- Analog_in_AnalogOver2(&aAnalog, 3.0);
-
-// Counter cCounter;
-// Counter_in_CounterOver2(&cCounter, 7);
- Flags fFlags;
- Flags_In_FlagsOver2(&fFlags, 1);
-
- DNPTime dDNPTime;
- DNPTime_in_DNPTimeOver2(&dDNPTime, 1512595515000);
-
-//void Counter_in_CounterOver4(Counter *pCounter, uint32_t value, Flags flags, DNPTime timeDNPTime);
- Counter cCounter;
- Counter_in_CounterOver4(&cCounter, 23, fFlags, dDNPTime);
-
- flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50000, EventMode_Detect);
- flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50001, EventMode_Detect);
- flg &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
- flg &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter, 10315, EventMode_Detect);
-
-     if(flg) lLogHandler.LogEntry(QString("+ Update OK\n"));
-     else lLogHandler.LogEntry(QString("+ Update FALSE\n"));
-      }//case 6://Update
-      break;
-
-      case 7://TimeOut
-      {
-void timeout_RestartSolConfirmTimer_in_OContext(void);
-extern void *pPointerGlobal1_in_RestartSolConfirmTimer;
- pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
-     &(t.context);
- timeout_RestartSolConfirmTimer_in_OContext();
-      lLogHandler.LogEntry(QString("+ TimeOut OK\n"));
-      }//case 7://TimeOut
-      break;
-
-      default:
-        qDebug() <<"ERROR_byteResult= "<<(unsigned short)byteResult.data()[0];
-     }//switch
-      flag = 0;
-      break;
-  }//while
-  if(flag) 
-  {
-      RSeq_for_Uint16_t rst;
-      RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, (unsigned char*)byteResult.data(), byteResult.size());
-      inspect_RSeq(&rst);
-
-      QString str = Send_To_Outstation(rst);
-      lLogHandler.LogEntry(QString(str));
-      return;
-  }//if
+//  inspect_Message(titleGlobal_1, memoryGlobal_1);
+//  inspect_Message(titleGlobal_2, memoryGlobal_2);
+//  inspect_Message("Moc", &mMessage1_global_in_MockLowerLayer);
+// loghandler_EvenLists();
+//  new_state_keyboard |= (1<<BIT_KEY_UP);
+//  periodical_operations();//один оборот
 }//upClicked()
-
-void parseHexString(const QString& str, QByteArray& result) {
-  int indexVal = -1;
-  unsigned char byte = 0;
-  for (QChar ch : str) {
-    if (std::isxdigit(static_cast<unsigned char>(ch.toLatin1()))) {
-      indexVal++;
-      int val = QString(ch).toInt(nullptr, 16);
-      if(indexVal%2)
-      {
-        byte += (unsigned char)val;
-        result[indexVal/2] = byte;
-      }//if
-      else byte = (unsigned char)val*16;
-    }
-  }
-}
 
 void MiniButtonWidget::enterClicked()
 {

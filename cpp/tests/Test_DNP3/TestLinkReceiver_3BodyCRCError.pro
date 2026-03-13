@@ -20,8 +20,11 @@ include(../../../include_tests.pri)
 
 SOURCES      += MainWindow.cpp \
                 main.cpp \
+                loghandler.cpp \
                 Send_To_Outstation.cpp \
                 Mrzs_cpp/setMrzsDataMapKeys_for_AnalogSpec.cpp \
+                Mrzs_cpp/setMrzsDataMapKeys_for_BinarySpec.cpp \
+                Mrzs_cpp/setMrzsDataMapKeys_for_CounterSpec.cpp \
                 Mrzs_cpp/LinkParserMrzs.cpp \
                 Mrzs_cpp/MrzsFrameSink.cpp \
                 Mrzs_cpp/MrzsCommandHandler.cpp \

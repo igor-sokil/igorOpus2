@@ -93,16 +93,17 @@ qDebug()<<"{------------1";
 ////    config.params.unsolConfirmTimeout = TimeDuration::Seconds(10);
     config.params.unsolConfirmTimeout = Seconds_in_TimeDuration_static(10);
 
-  getDataMapKeys_for_BinarySpec()[0] = 0;
 ////    OutstationTestObject t(config, configure::by_count_of::all_types(100));
 //    DatabaseConfig tmp = binary_input_in_DatabaseHelpers(1);
   DatabaseConfig database = all_types_in_DatabaseHelpers(1);
+//  getDataMapKeys_for_BinarySpec()[0] = 0;
+  setDataMapKeys_for_BinarySpec(&database, 0, 0);
 
     OutstationTestObject t;
     OutstationTestObject_in_OutstationTestObject(&t, &config, &database);
 
 ////    t.LowerLayerUp();
-//    LowerLayerUp_in_OutstationTestObject(&t);
+    LowerLayerUp_in_OutstationTestObject(&t);
 
     // Generate event
 ////    t.Transaction([](IUpdateHandler& db) { db.Update(Binary(true), 0); });
@@ -127,15 +128,17 @@ qDebug()<<"REQUIRE('E0 81 80 00 02 01 28 01 00 00 00 81' == t.lower->PopWriteAsH
 qDebug()<<"{------------2";
     // Wait for timeout
 ////    t.AdvanceTime(TimeDuration::Seconds(5));
-    TimeDuration ttmp = Seconds_in_TimeDuration_static(5);
-    AdvanceTime_in_OutstationTestObject(&t, &ttmp);
+//    TimeDuration ttmp = Seconds_in_TimeDuration_static(5);
+//    AdvanceTime_in_OutstationTestObject(&t, &ttmp);
 
 qDebug()<<"{------------too late";
-//
-// pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
-//     &(t.context);
-// timeout_RestartSolConfirmTimer_in_OContext();
-//
+///*
+void timeout_RestartSolConfirmTimer_in_OContext(void);
+extern void *pPointerGlobal1_in_RestartSolConfirmTimer;
+ pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
+     &(t.context);
+ timeout_RestartSolConfirmTimer_in_OContext();
+//*/
 
     // Send confirmation too late
 // Отправляем подтверждение слишком поздно
@@ -143,8 +146,8 @@ qDebug()<<"{------------too late";
 //
 //std::string name2 = SolicitedConfirm_in_APDUHexBuilders(0);
 // std::cout << "name2= " << name2<<'\n';
-//    uint8_t name2[] = {2, 0xC0, 0x00};
-//    SendToOutstation_in_OutstationTestObject(&t, name2);  
+    uint8_t name2[] = {2, 0xC0, 0x00};
+    SendToOutstation_in_OutstationTestObject(&t, name2);  
 
 qDebug()<<"}------------too late";
 

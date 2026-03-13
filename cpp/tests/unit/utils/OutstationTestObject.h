@@ -92,10 +92,10 @@ typedef struct
 //                                                     DatabaseConfig* db_config);// = opendnp3::DatabaseConfig());
 void OutstationTestObject_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, OutstationConfig* config,
     DatabaseConfig* db_config);// = opendnp3::DatabaseConfig());
-/*
+
 uint16_t LowerLayerUp_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
 uint16_t LowerLayerDown_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
-*/
+
 uint16_t SendToOutstation_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, uint8_t* input_packet);//std::string& hex);
 void Transaction_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject, void (*apply)(IUpdateHandler*));//std::function<void(opendnp3::IUpdateHandler&)>& apply)
 /*

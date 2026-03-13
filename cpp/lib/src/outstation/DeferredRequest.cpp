@@ -37,18 +37,18 @@ void DeferredRequest_in_DeferredRequest(DeferredRequest *pDeferredRequest, uint3
   decrement_stack_info();
 #endif
 //// : isSet(false), buffer(maxAPDUSize) {}
-  pDeferredRequest->isSet = false;
+  pDeferredRequest->isSet_in_DeferredRequest = false;
   BufferSer4_in_BufferSer4Over2(&(pDeferredRequest->buffer), maxAPDUSize);
 }
 
 void Reset_in_DeferredRequest(DeferredRequest* pDeferredRequest)
 {
-  pDeferredRequest->isSet = false;
+  pDeferredRequest->isSet_in_DeferredRequest = false;
 }
 
 boolean IsSet_in_DeferredRequest(DeferredRequest* pDeferredRequest)
 {
-  return pDeferredRequest->isSet;
+  return pDeferredRequest->isSet_in_DeferredRequest;
 }
 
 FunctionCode_uint8_t GetFunction_in_DeferredRequest(DeferredRequest* pDeferredRequest)
@@ -58,7 +58,7 @@ FunctionCode_uint8_t GetFunction_in_DeferredRequest(DeferredRequest* pDeferredRe
 
 void Set_in_DeferredRequest(DeferredRequest* pDeferredRequest, ParsedRequest* request)
 {
-  pDeferredRequest->isSet = true;
+  pDeferredRequest->isSet_in_DeferredRequest = true;
 
   pDeferredRequest->addresses = request->addresses;
   pDeferredRequest->header = request->header;
