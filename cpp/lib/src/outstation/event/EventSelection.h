@@ -130,7 +130,6 @@ uint32_t SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver1(E
 uint32_t SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver2(EventLists* lists, event_variation_t_in_AnalogOutputStatusInfo variation, uint32_t max);
 
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
 //----------------------------------OctetStringSpec-----------------------------------------------
 ////    template<class T>
 uint32_t SelectByTypeGeneric_for_OctetStringSpec_in_EventSelection_static(EventLists* lists,
@@ -142,7 +141,7 @@ uint32_t SelectByType_for_OctetStringSpec_in_EventSelection_staticOver1(EventLis
 uint32_t SelectByType_for_OctetStringSpec_in_EventSelection_staticOver2(EventLists* lists, event_variation_t_in_OctetStringInfo variation, uint32_t max);
 
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+
 ////
 ////template<class T>
 ////uint32_t EventSelection::SelectByTypeGeneric(EventLists& lists,

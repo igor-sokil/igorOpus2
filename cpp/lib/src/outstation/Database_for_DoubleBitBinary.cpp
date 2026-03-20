@@ -11,8 +11,6 @@ boolean load_type_for_DoubleBitBinary_in_Database_static(StaticDataMap_for_Doubl
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"load_type_for_DoubleBitBinary_in_Database_static1"<<'\n';
-//  std::cout<<"*"<<getString_stack_info();
-//  std::cout<<"*map.map.size()= "<<map.map.size()<<'\n';
 #endif
   int index = 0;
   while (true)
@@ -20,7 +18,7 @@ boolean load_type_for_DoubleBitBinary_in_Database_static(StaticDataMap_for_Doubl
 ////    auto iter = map.begin();
 
 ////    if (iter == map.end())
-    if ((index == map->db_config->double_binary_count) ||
+    if ((index >= MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(map)) ||
         (!IsValid_in_Range(&(map->selected))))
     {
 #ifdef  LOG_INFO
@@ -34,7 +32,7 @@ boolean load_type_for_DoubleBitBinary_in_Database_static(StaticDataMap_for_Doubl
 
 ////    StaticDoubleBinaryVariation_uint8_t variation = (*iter).second.variation;
     uint16_t tmp = KeyMap2IndexMass_for_DoubleBitBinarySpec(map->db_config, map->selected.start);
-    if (tmp >= map->db_config->double_binary_count)
+    if (tmp >= MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(map))
     {
 #ifdef  LOG_INFO
       std::cout<<getString_stack_info();

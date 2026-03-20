@@ -30,7 +30,7 @@
 #include "EventWriters_for_DoubleBitBinary.h"
 #include "EventWriters_for_Counter.h"
 #include "EventWriters_for_FrozenCounter.h"
-//#include "EventWriters_for_OctetString.h"
+#include "EventWriters_for_OctetString.h"
 #include "Group2.h"
 #include "Group4.h"
 #include "Group11.h"
@@ -417,7 +417,6 @@ uint16_t Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override(void *pI
   }
   }
 }
-/*
 //uint16_t Write_for_OctetString_in_ASDUEventWriteHandler_override(void *pASDUEventWriteHandler,
 //    EventOctetStringVariation_uint8_t variation,
 //    OctetString* first,
@@ -433,7 +432,7 @@ uint16_t Write_for_OctetString_in_ASDUEventWriteHandler_override(void *pIEventWr
 //   uint16_t Size_in_OctetData(OctetData *pOctetData);
   return Write_for_OctetString_in_EventWriters_static(Size_in_OctetData(&(first->oOctetData)), &(parent->writer), items);
 }
-*/
+
 ////} // namespace opendnp3
 
 void ASDUEventWriteHandler_in_ASDUEventWriteHandler(ASDUEventWriteHandler *pASDUEventWriteHandler, HeaderWriter* writer)
@@ -475,11 +474,11 @@ void ASDUEventWriteHandler_in_ASDUEventWriteHandler(ASDUEventWriteHandler *pASDU
 ////    virtual uint16_t Write(EventAnalogOutputStatusVariation variation,
 ////                           const AnalogOutputStatus& first,
 ////                           IEventCollection<AnalogOutputStatus>& items) override;
-/*
+
   (pASDUEventWriteHandler->iIEventWriteHandler).pWrite_for_OctetString_in_IEventWriteHandler = Write_for_OctetString_in_ASDUEventWriteHandler_override;
 ////    virtual uint16_t Write(EventOctetStringVariation variation,
 ////                           const OctetString& first,
 ////                           IEventCollection<OctetString>& items) override;
-*/
+
 }
 

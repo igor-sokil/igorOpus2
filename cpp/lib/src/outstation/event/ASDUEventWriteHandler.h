@@ -104,12 +104,12 @@ uint16_t Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override(void *pI
 undefined reference to
         `Write_for_OctetString_in_ASDUEventWriteHandler_override(void*, unsigned char, OctetString*, IEventCollection_for_OctetString*)'
 */
-/*
+
 uint16_t Write_for_OctetString_in_ASDUEventWriteHandler_override(void *pIEventWriteHandler,
     EventOctetStringVariation_uint8_t variation,
     OctetString* first,
     IEventCollection_for_OctetString* items);
-*/
+
 
 ////} // namespace opendnp3
 

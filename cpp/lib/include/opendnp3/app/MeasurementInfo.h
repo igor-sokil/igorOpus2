@@ -48,7 +48,7 @@
 
 #include "EventType.h"
 #include "MeasurementTypes.h"
-//#include "OctetString.h"
+#include "OctetString.h"
 #include "BinaryQuality.h"
 #include "EventAnalogOutputStatusVariation.h"
 #include "EventAnalogVariation.h"

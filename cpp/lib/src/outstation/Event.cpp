@@ -148,7 +148,6 @@ void Event_for_AnalogOutputStatusSpec_in_Event_for_AnalogOutputStatusSpecOver2(E
   (pEvent_for_AnalogOutputStatusSpec->variation) = variation;
 }
 //--------------------------------AnalogOutputStatusSpec-------------------------
-/*
 //--------------------------------OctetStringSpec-------------------------
 void Event_for_OctetStringSpec_in_Event_for_OctetStringSpecOver1(Event_for_OctetStringSpec *pEvent_for_OctetStringSpec)
 {
@@ -167,6 +166,5 @@ void Event_for_OctetStringSpec_in_Event_for_OctetStringSpecOver2(Event_for_Octet
   (pEvent_for_OctetStringSpec->value) = *value;
   (pEvent_for_OctetStringSpec->variation) = variation;
 }
-
 //--------------------------------OctetStringSpec-------------------------
-*/
+

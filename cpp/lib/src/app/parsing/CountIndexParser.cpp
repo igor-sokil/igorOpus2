@@ -640,7 +640,7 @@ ParseResult_uint8_t ParseCountOfObjects_in_CountIndexParser_static(
     CountIndexParser temp = From_for_Group50Var4_in_CountIndexParser_static(count, numparser);
     return Process_in_CountIndexParser(&temp, record, buffer, pHandler);
   }
-/*
+
   case (GroupVariation_Group111Var0)://Octet String Event
   {
 #ifdef  LOG_INFO
@@ -658,7 +658,7 @@ ParseResult_uint8_t ParseCountOfObjects_in_CountIndexParser_static(
 ////        return ParseIndexPrefixedOctetData(buffer, record, numparser, count, pLogger, pHandler);
     return ParseIndexPrefixedOctetData_in_CountIndexParser_static(buffer, record, numparser, count, pHandler);
   }
-*/
+
   default:
 
 ////        FORMAT_LOGGER_BLOCK(pLogger, flags::WARN, "Unsupported qualifier/object - %s - %i / %i",
@@ -675,7 +675,7 @@ ParseResult_uint8_t ParseCountOfObjects_in_CountIndexParser_static(
 }
 
 static void *pPointerGlobal1_in_ParseCountOfIndices;
-//static void *pPointerGlobal2_in_ParseCountOfIndices;
+static void *pPointerGlobal2_in_ParseCountOfIndices;
 uint16_t ReadFunc_uint16_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos);
 ////    auto read = [&numparser, record](ser4cpp::rseq_t& buffer, uint32_t pos) -> uint16_t {
 uint16_t ReadFunc_uint16_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos)
@@ -752,7 +752,6 @@ ParseResult_uint8_t ParseCountOfIndices_in_CountIndexParser_static(
   return ParseResult_OK;
 }
 
-/*
 Indexed_for_OctetString read_for_OctetString_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos);
 ////    auto read = [&numparser, record](ser4cpp::rseq_t& buffer, uint32_t pos) -> Indexed<OctetString> {
 Indexed_for_OctetString read_for_OctetString_in_CountIndexParser(RSeq_for_Uint16_t *buffer, uint32_t pos)
@@ -836,10 +835,14 @@ ParseResult_uint8_t ParseIndexPrefixedOctetData_in_CountIndexParser_static(
 ////    auto collection = CreateBufferedCollection<Indexed<OctetString>>(buffer, count, read);
     pPointerGlobal1_in_ParseCountOfIndices = numparser;
     pPointerGlobal2_in_ParseCountOfIndices = record;
-    BufferedCollection_Indexed_for_OctetString collection = CreateBufferedCollection_Indexed_for_OctetString_static(
-          buffer,
-          count,
-          read_for_OctetString_in_CountIndexParser);
+//    BufferedCollection_Indexed_for_OctetString collection = CreateBufferedCollection_Indexed_for_OctetString_static(
+//          buffer,
+//          count,
+//          read_for_OctetString_in_CountIndexParser);
+  BufferedCollection_Indexed_for_OctetString collection;
+  BufferedCollection_Indexed_for_OctetString_in_BufferedCollection_Indexed_for_OctetString(&collection,
+      buffer,
+      count, read_for_OctetString_in_CountIndexParser);
 
 ////    pHandler->OnHeader(PrefixHeader(record, count), collection);
     PrefixHeader pPrefixHeader;
@@ -852,7 +855,7 @@ ParseResult_uint8_t ParseIndexPrefixedOctetData_in_CountIndexParser_static(
   advance_in_RSeq_for_Uint16_t(buffer, TOTAL_SIZE);
   return ParseResult_OK;
 }
-*/
+
 ////} // namespace opendnp3
 //------------------------------------------Group2Var1------------------------------------------------
 CountIndexParser From_for_Group2Var1_in_CountIndexParser_static(uint16_t count, NumParser* numparser)

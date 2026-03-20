@@ -50,7 +50,6 @@ Node_TypedEventRecord_for_AnalogOutputStatusSpec* Retrieve_in_TypedStorage_for_A
   return (Node_TypedEventRecord_for_AnalogOutputStatusSpec*)(record->storage_node);
 }
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
 //----------------------------------OctetStringSpec-----------------------------------------------
 
 Node_TypedEventRecord_for_OctetStringSpec* Retrieve_in_TypedStorage_for_OctetStringSpec_static(EventRecord* record)
@@ -58,4 +57,4 @@ Node_TypedEventRecord_for_OctetStringSpec* Retrieve_in_TypedStorage_for_OctetStr
   return (Node_TypedEventRecord_for_OctetStringSpec*)(record->storage_node);
 }
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+

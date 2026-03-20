@@ -33,7 +33,7 @@
 #include "Node_TypedEventRecord_for_FrozenCounterSpec.h"
 #include "Node_TypedEventRecord_for_BinaryOutputStatusSpec.h"
 #include "Node_TypedEventRecord_for_AnalogOutputStatusSpec.h"
-//#include "Node_TypedEventRecord_for_OctetStringSpec.h"
+#include "Node_TypedEventRecord_for_OctetStringSpec.h"
 
 ////namespace opendnp3
 ////{
@@ -74,12 +74,12 @@ Node_TypedEventRecord_for_BinaryOutputStatusSpec* Retrieve_in_TypedStorage_for_B
 
 Node_TypedEventRecord_for_AnalogOutputStatusSpec* Retrieve_in_TypedStorage_for_AnalogOutputStatusSpec_static(EventRecord* record);
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
+
 //----------------------------------OctetStringSpec-----------------------------------------------
 
 Node_TypedEventRecord_for_OctetStringSpec* Retrieve_in_TypedStorage_for_OctetStringSpec_static(EventRecord* record);
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+
 ////} // namespace opendnp3
 
 #endif

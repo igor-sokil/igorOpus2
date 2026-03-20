@@ -81,7 +81,8 @@ enum {
   IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec,
   IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec,
   IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_CounterSpec,
-  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec,
+  IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_OctetStringSpec
 };
 
 void SelectDefaultVariation_in_IEventType(IEventType *, EventRecord* record);

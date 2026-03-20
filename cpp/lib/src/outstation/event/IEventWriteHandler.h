@@ -32,7 +32,7 @@
 ////#include "opendnp3/gen/EventOctetStringVariation.h"
 
 #include "MeasurementTypes.h"
-//#include "OctetString.h"
+#include "OctetString.h"
 #include "EventAnalogOutputStatusVariation.h"
 #include "EventAnalogVariation.h"
 #include "EventBinaryOutputStatusVariation.h"
@@ -40,7 +40,7 @@
 #include "EventCounterVariation.h"
 #include "EventDoubleBinaryVariation.h"
 #include "EventFrozenCounterVariation.h"
-//#include "EventOctetStringVariation.h"
+#include "EventOctetStringVariation.h"
 
 //#include "EventCollection.h"
 
@@ -289,7 +289,6 @@ uint16_t WriteSome_in_IEventCollection_for_Analog(IEventCollection_for_Analog *,
 void* getParentPointer_in_IEventCollection_for_Analog(IEventCollection_for_Analog*);
 void  setParentPointer_in_IEventCollection_for_Analog(IEventCollection_for_Analog*, void*);
 //----------------------------------------------Analog---------------------------------------------
-/*
 //----------------------------------------------OctetString---------------------------------------------
 ////template<class T> class IEventWriter
 typedef struct
@@ -318,9 +317,8 @@ typedef struct
 uint16_t WriteSome_in_IEventCollection_for_OctetString(IEventCollection_for_OctetString *, IEventWriter_for_OctetString* handler);
 void* getParentPointer_in_IEventCollection_for_OctetString(IEventCollection_for_OctetString*);
 void  setParentPointer_in_IEventCollection_for_OctetString(IEventCollection_for_OctetString*, void*);
-
 //----------------------------------------------OctetString---------------------------------------------
-*/
+
 ////class IEventWriteHandler
 typedef struct
 {
@@ -352,12 +350,11 @@ typedef struct
 //      IEventCollection_for_AnalogOutputStatus* items);
 ////    = 0;
 ////  virtual
-/*
   uint16_t (*pWrite_for_OctetString_in_IEventWriteHandler)(void *, EventOctetStringVariation_uint8_t variation,
       OctetString* first,
       IEventCollection_for_OctetString* items);
 ////    = 0;
-*/
+
   void* pParentPointer_in_IEventWriteHandler;
 } IEventWriteHandler;
 
@@ -379,11 +376,11 @@ uint16_t Write_for_BinaryOutputStatus_in_IEventWriteHandler(IEventWriteHandler *
 uint16_t Write_for_AnalogOutputStatus_in_IEventWriteHandler(IEventWriteHandler *, EventAnalogOutputStatusVariation_uint8_t variation,
     AnalogOutputStatus* first,
     IEventCollection_for_AnalogOutputStatus* items);
-/*
+
 uint16_t Write_for_OctetString_in_IEventWriteHandler(IEventWriteHandler *, EventOctetStringVariation_uint8_t variation,
     OctetString* first,
     IEventCollection_for_OctetString* items);
-*/
+
 void* getParentPointer_in_IEventWriteHandler(IEventWriteHandler*);
 void  setParentPointer_in_IEventWriteHandler(IEventWriteHandler*, void*);
 

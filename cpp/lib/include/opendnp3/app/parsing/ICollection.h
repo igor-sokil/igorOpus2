@@ -46,7 +46,7 @@
 #include "ICollection_Indexed_for_AnalogCommandEvent.h"
 #include "ICollection_Indexed_for_DoubleBitBinary.h"
 #include "ICollection_Indexed_for_BinaryOutputStatus.h"
-//#include "ICollection_Indexed_for_OctetString.h"
+#include "ICollection_Indexed_for_OctetString.h"
 
 ////} // namespace opendnp3
 #endif

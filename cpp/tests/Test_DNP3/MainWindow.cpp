@@ -233,6 +233,7 @@ void MiniButtonWidget::downClicked()
       case 6://Update
       {
   int flg = 1;
+/*
     uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
   if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class1;
   else flg &= 0;
@@ -248,13 +249,11 @@ void MiniButtonWidget::downClicked()
            dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var5;
   }
   else flg &= 0;
-//  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
- StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(&t.context.database_in_OContext.analog_input,
-                          &dDatabaseConfig);
- StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(&t.context.database_in_OContext.binary_input,
-                          &dDatabaseConfig);
- StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(&t.context.database_in_OContext.counter,
-                          &dDatabaseConfig);
+*/
+ StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(&t.context.database_in_OContext.analog_input, &dDatabaseConfig);
+ StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(&t.context.database_in_OContext.binary_input, &dDatabaseConfig);
+ StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(&t.context.database_in_OContext.counter, &dDatabaseConfig);
+/*
 //  Counter cCounter1;
 //  Counter_in_CounterOver2(&cCounter1, 10);
 //  int flg = Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10315, EventMode_Detect);
@@ -280,6 +279,23 @@ void MiniButtonWidget::downClicked()
  flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50001, EventMode_Detect);
  flg &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
  flg &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter, 10315, EventMode_Detect);
+*/
+ Flags fFlags;
+ Flags_In_FlagsOver2(&fFlags, 1);
+
+ DNPTime dDNPTime1;
+ DNPTime_in_DNPTimeOver3(&dDNPTime1, 0x4571, TimestampQuality_SYNCHRONIZED);
+ DNPTime dDNPTime2;
+ DNPTime_in_DNPTimeOver3(&dDNPTime2, 0x4570, TimestampQuality_SYNCHRONIZED);
+
+ Binary bBinary1;
+ Binary_in_BinaryOver6(&bBinary1, false, fFlags, dDNPTime1);
+
+ Binary bBinary2;
+ Binary_in_BinaryOver6(&bBinary2, true, fFlags, dDNPTime2);
+
+ flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50000, EventMode_Detect);// = EventMode::Detect) = 0;
+ flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary2, 50001, EventMode_Detect);// = EventMode::Detect) = 0;
 
      if(flg) lLogHandler.LogEntry(QString("+ Update OK\n"));
      else lLogHandler.LogEntry(QString("+ Update FALSE\n"));

@@ -65,12 +65,13 @@ boolean Update_AnalogOutputStatus_in_IUpdateHandler(IUpdateHandler* pIUpdateHand
 //  return (pIUpdateHandler->pUpdate_AnalogOutputStatus_in_IUpdateHandler)(pIUpdateHandler, meas, index, mode);
   return Update_for_AnalogOutputStatus_in_Database_override(pIUpdateHandler, meas, index, mode);
 }
-/*
+
 boolean Update_OctetString_in_IUpdateHandler(IUpdateHandler* pIUpdateHandler, OctetString* meas, uint16_t index, EventMode_uint8_t mode)
 {
-  return (pIUpdateHandler->pUpdate_OctetString_in_IUpdateHandler)(pIUpdateHandler, meas, index, mode);
+//  return (pIUpdateHandler->pUpdate_OctetString_in_IUpdateHandler)(pIUpdateHandler, meas, index, mode);
+  return Update_for_OctetString_in_Database_override(pIUpdateHandler, meas, index, mode);
 }
-*/
+
 boolean Update_TimeAndInterval_in_IUpdateHandler(IUpdateHandler* pIUpdateHandler, TimeAndInterval* meas, uint16_t index)
 {
 //  return (pIUpdateHandler->pUpdate_TimeAndInterval_in_IUpdateHandler)(pIUpdateHandler, meas, index);

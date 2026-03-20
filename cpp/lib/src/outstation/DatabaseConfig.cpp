@@ -95,13 +95,14 @@ void initialize_TimeAndIntervalConfig(DatabaseConfig *pDatabaseConfig, uint16_t 
   for(int i = 0; i < count; i++) pDatabaseConfig->time_and_interval_config[i] = tTimeAndIntervalConfig;
   pDatabaseConfig->time_and_interval_count = count;
 }
-//void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
-//{
-//  OctetStringConfig oOctetStringConfig;
-//  OctetStringConfig_in_OctetStringConfig(&oOctetStringConfig);
-//  pDatabaseConfig->binary_input_config = bBinaryConfig;
-//  pDatabaseConfig->binary_input_count = all_types;
-//}
+void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
+{
+  OctetStringConfig oOctetStringConfig;
+  OctetStringConfig_in_OctetStringConfig(&oOctetStringConfig);
+  if(count > SIZE_StaticDataMap_for_OctetStringSpec) count = SIZE_StaticDataMap_for_OctetStringSpec;
+  for(int i = 0; i < count; i++) pDatabaseConfig->octet_string_config[i] = oOctetStringConfig;
+  pDatabaseConfig->octet_string_count = count;
+}
 
 uint16_t KeyMap2IndexMass_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t key)
 {
@@ -167,6 +168,14 @@ uint16_t KeyMap2IndexMass_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfi
   }
   return 0xFFFF;
 }
+uint16_t KeyMap2IndexMass_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t key)
+{
+  for(uint16_t i=0; i<pDatabaseConfig->octet_string_count; i++)
+  {
+   if(pDatabaseConfig->DataMapKeys_for_OctetStringSpec[i] == key) return i;
+  }
+  return 0xFFFF;
+}
 
 void DatabaseConfig_in_DatabaseConfig_default(DatabaseConfig *pDatabaseConfig)
 {
@@ -207,7 +216,7 @@ void DatabaseConfig_in_DatabaseConfig(DatabaseConfig *pDatabaseConfig, uint16_t 
   initialize_TimeAndIntervalConfig(pDatabaseConfig, all_types);
 
 ////  initialize(this->octet_string, all_types);
-//  initialize_OctetStringConfig(pDatabaseConfig, all_types);
+  initialize_OctetStringConfig(pDatabaseConfig, all_types);
 }
 
 boolean setDataMapKeys_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data)
@@ -273,6 +282,13 @@ boolean setDataMapKeys_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, 
   return 1;
 }
 
+boolean setDataMapKeys_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data)
+{
+  if(index >= SIZE_StaticDataMap_for_OctetStringSpec) return 0;
+  pDatabaseConfig->DataMapKeys_for_OctetStringSpec[index] = data;
+  return 1;
+}
+
 uint16_t IndexMass2KeyMap_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t index)
 {
   return pDatabaseConfig->DataMapKeys_for_AnalogSpec[index];
@@ -305,6 +321,10 @@ uint16_t IndexMass2KeyMap_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig,
 uint16_t IndexMass2KeyMap_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t index)
 {
   return pDatabaseConfig->DataMapKeys_for_TimeAndIntervalSpec[index];
+}
+uint16_t IndexMass2KeyMap_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t index)
+{
+  return pDatabaseConfig->DataMapKeys_for_OctetStringSpec[index];
 }
 
 ////} // namespace opendnp3

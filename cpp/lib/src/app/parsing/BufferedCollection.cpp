@@ -571,7 +571,7 @@ void Foreach_in_BufferedCollection_Indexed_for_Binary_override(void *pICollectio
   Foreach_in_BufferedCollection_Indexed_for_Binary(parent, visitor);
 }
 //-----------------------------------Indexed_for_Binary---------------------------------------------------
-/*
+
 //-----------------------------------Indexed_for_OctetString---------------------------------------------------
 ////    BufferedCollection(const ser4cpp::rseq_t& buffer, size_t count, const ReadFunc& readFunc)
 ////        : buffer(buffer), COUNT(count), readFunc(readFunc)
@@ -592,7 +592,7 @@ void  BufferedCollection_Indexed_for_OctetString_in_BufferedCollection_Indexed_f
 
   setParentPointer_in_ICollection_Indexed_for_OctetString(&(pBufferedCollection_Indexed_for_OctetString->iICollection_Indexed_for_OctetString), pBufferedCollection_Indexed_for_OctetString);
 }
-
+/*
 ////template<class T, class ReadFunc>
 ////BufferedCollection<T, ReadFunc> CreateBufferedCollection(const ser4cpp::rseq_t& buffer,
 ////                                                         size_t count,
@@ -609,7 +609,7 @@ BufferedCollection_Indexed_for_OctetString CreateBufferedCollection_Indexed_for_
       count, readFunc);
   return bBufferedCollection_Indexed_for_OctetString;
 }
-
+*/
 uint16_t Count_in_BufferedCollection_Indexed_for_OctetString(BufferedCollection_Indexed_for_OctetString *pBufferedCollection_Indexed_for_OctetString)
 {
   return pBufferedCollection_Indexed_for_OctetString->COUNT;
@@ -647,7 +647,7 @@ void Foreach_in_BufferedCollection_Indexed_for_OctetString_override(void *pIColl
   Foreach_in_BufferedCollection_Indexed_for_OctetString(parent, visitor);
 }
 //-----------------------------------Indexed_for_OctetString---------------------------------------------------
-*/
+
 //-----------------------------------Indexed_for_BinaryOutputStatus---------------------------------------------------
 ////    BufferedCollection(const ser4cpp::rseq_t& buffer, size_t count, const ReadFunc& readFunc)
 ////        : buffer(buffer), COUNT(count), readFunc(readFunc)

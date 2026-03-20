@@ -64,12 +64,11 @@ boolean Update_BinaryOutputStatusSpec_in_EventUpdate_static(EventLists* lists, E
 ////template<class T> bool EventUpdate::Update(EventLists& lists, const Event<T>& event)
 boolean Update_AnalogOutputStatusSpec_in_EventUpdate_static(EventLists* lists, Event_for_AnalogOutputStatusSpec* event);
 //----------------------------------AnalogOutputStatusSpec-------------------------------------------
-/*
 //----------------------------------OctetStringSpec-------------------------------------------
 ////template<class T> bool EventUpdate::Update(EventLists& lists, const Event<T>& event)
 boolean Update_OctetStringSpec_in_EventUpdate_static(EventLists* lists, Event_for_OctetStringSpec* event);
 //----------------------------------OctetStringSpec-------------------------------------------
 
 //} // namespace opendnp3
-*/
+
 #endif

@@ -82,14 +82,14 @@ void Update_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, Eve
 ////    this->UpdateAny(evt);
   UpdateAny_AnalogOutputStatusSpec_in_EventBuffer(pEventBuffer, evt);
 }
-/*
+
 ////void EventBuffer::Update(const Event<OctetStringSpec>& evt)
 void Update_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec *evt)
 {
 ////    this->UpdateAny(evt);
   UpdateAny_OctetStringSpec_in_EventBuffer(pEventBuffer, evt);
 }
-*/
+
 ////    template<class T> void UpdateAny(const Event<T>& evt)
 void UpdateAny_BinarySpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_BinarySpec *evt)
 {
@@ -167,7 +167,7 @@ void UpdateAny_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, 
     pEventBuffer->overflow = true;
   }
 }
-/*
+
 void UpdateAny_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec *evt)
 {
 //boolean Update_BinarySpec_in_EventStorage(EventStorage *pEventStorage, Event_for_BinarySpec* evt);
@@ -177,7 +177,7 @@ void UpdateAny_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_f
     pEventBuffer->overflow = true;
   }
 }
-*/
+
 ////void EventBuffer::Unselect()
 void Unselect_in_EventBuffer(EventBuffer *pEventBuffer)
 {
@@ -577,7 +577,7 @@ IINField SelectMaxCount_in_EventBuffer(EventBuffer *pEventBuffer, GroupVariation
     return SelectByClass_EventClass_in_EventBuffer(pEventBuffer, maximum, EventClass_EC3);
 ////        return this->SelectByClass(maximum, EventClass::EC3);
 //    IINField SelectByClass_EventClass_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventClass clazz)
-/*
+
   case (GroupVariation_Group111Var0):
 #ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
@@ -586,7 +586,7 @@ IINField SelectMaxCount_in_EventBuffer(EventBuffer *pEventBuffer, GroupVariation
 #endif
     return SelectByType_OctetStringSpec_in_EventBuffer(pEventBuffer, maximum, EventOctetStringVariation_Group111Var0);
 ////        return this->SelectByType(maximum, EventOctetStringVariation::Group111Var0);
-*/
+
   default:
   {
 #ifdef  LOG_INFO
@@ -710,7 +710,7 @@ void EventBuffer_in_EventBufferOver1(EventBuffer *pEventBuffer)
 //  (pEventBuffer->iIEventReceiver).pUpdate_FrozenCounterSpec_in_IEventReceiver = Update_FrozenCounterSpec_in_EventBuffer_override;
 //  (pEventBuffer->iIEventReceiver).pUpdate_BinaryOutputStatusSpec_in_IEventReceiver = Update_BinaryOutputStatusSpec_in_EventBuffer_override;
 //  (pEventBuffer->iIEventReceiver).pUpdate_AnalogOutputStatusSpec_in_IEventReceiver = Update_AnalogOutputStatusSpec_in_EventBuffer_override;
-//  (pEventBuffer->iIEventReceiver).pUpdate_OctetStringSpec_in_IEventReceiver = Update_OctetStringSpec_in_EventBuffer_override;
+  (pEventBuffer->iIEventReceiver).pUpdate_OctetStringSpec_in_IEventReceiver = Update_OctetStringSpec_in_EventBuffer_override;
 
   setParentPointer_in_IEventReceiver(&(pEventBuffer->iIEventReceiver), pEventBuffer);
 
@@ -795,7 +795,7 @@ void Update_AnalogOutputStatusSpec_in_EventBuffer_override(void *pIEventReceiver
 
   Update_AnalogOutputStatusSpec_in_EventBuffer(parent, evt);
 }
-/*
+
 void Update_OctetStringSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_OctetStringSpec* evt)
 {
   EventBuffer *parent =
@@ -803,7 +803,7 @@ void Update_OctetStringSpec_in_EventBuffer_override(void *pIEventReceiver, Event
 
   Update_OctetStringSpec_in_EventBuffer(parent, evt);
 }
-*/
+
 // ------- IEventSelector ------
 
 void Unselect_in_EventBuffer_override(void *pIEventSelector)
@@ -923,7 +923,7 @@ IINField  SelectByType_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEvent
 ////        return IINField::Empty();
   return Empty_in_IINField_static();
 }
-/*
+
 IINField  SelectByType_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventOctetStringVariation_uint8_t type)
 {
 //    uint32_t SelectByType_EventBinary_in_EventStorage(EventStorage *pEventStorage, EventBinaryVariation_uint8_t variation, uint32_t max);
@@ -932,7 +932,7 @@ IINField  SelectByType_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer,
 ////        return IINField::Empty();
   return Empty_in_IINField_static();
 }
-*/
+
 IINField SelectByClass_EventClass_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventClass_uint8_t clazz)
 {
 #ifdef  LOG_INFO

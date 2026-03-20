@@ -72,7 +72,7 @@ void  Database_in_Database(Database *pDatabase,
   StaticDataMap_for_TimeAndIntervalSpec_in_StaticDataMap_for_TimeAndIntervalSpecOver2(&(pDatabase->time_and_interval), config);
 
 ////      octet_string(config.octet_string)
-//  StaticDataMap_for_OctetStringSpec_in_StaticDataMap_for_OctetStringSpecOver2(&(pDatabase->octet_string), config->octet_string);
+  StaticDataMap_for_OctetStringSpec_in_StaticDataMap_for_OctetStringSpecOver2(&(pDatabase->octet_string), config);
 
   // ------- IStaticSelector -------------
 //  pDatabase->iIStaticSelector.pSelectAll_in_IStaticSelector     = SelectAll_in_Database_override;
@@ -153,7 +153,7 @@ IINField SelectAll_in_Database( Database *pDatabase, GroupVariation_uint16_t gv)
 ////        this->select_all_class_zero<TimeAndIntervalSpec>(this->time_and_interval);
     select_all_class_zero_StaticDataMap_for_TimeAndIntervalSpec(pDatabase, &(pDatabase->time_and_interval));
 ////        this->select_all_class_zero<OctetStringSpec>(this->octet_string);
-//    select_all_class_zero_StaticDataMap_for_OctetStringSpec(pDatabase, &(pDatabase->octet_string));
+    select_all_class_zero_StaticDataMap_for_OctetStringSpec(pDatabase, &(pDatabase->octet_string));
 
 #ifdef  LOG_INFO
   std::cout<<'\n';
@@ -460,7 +460,7 @@ IINField SelectAll_in_Database( Database *pDatabase, GroupVariation_uint16_t gv)
 #endif
 ////        return select_all<TimeAndIntervalSpec>(this->time_and_interval, StaticTimeAndIntervalVariation::Group50Var4);
     return select_all_StaticDataMap_for_TimeAndIntervalSpec_in_Database_staticOver2(&(pDatabase->time_and_interval), StaticTimeAndIntervalVariation_Group50Var4);
-/*
+
   case (GroupVariation_Group110Var0):
 #ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
@@ -469,7 +469,7 @@ IINField SelectAll_in_Database( Database *pDatabase, GroupVariation_uint16_t gv)
 #endif
 ////        return select_all<OctetStringSpec>(this->octet_string);
     return select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver1(&(pDatabase->octet_string));
-*/
+
   default:
 ////        return IINField(IINBit::FUNC_NOT_SUPPORTED);
   {
@@ -799,7 +799,14 @@ IINField SelectRange_in_Database(Database *pDatabase, GroupVariation_uint16_t gv
     return select_range_for_TimeAndIntervalSpec_in_Database_staticOver2(&(pDatabase->time_and_interval), range, StaticTimeAndIntervalVariation_Group50Var4);
 
 ////    case (GroupVariation::Group110Var0):
+  case (GroupVariation_Group110Var0):
+#ifdef  LOG_INFO
+    std::cout<<"*"<<getString_stack_info();
+    std::cout<<"*GroupVariation_Group110Var0"<<'\n';
+    decrement_stack_info();
+#endif
 ////        return select_range<OctetStringSpec>(this->octet_string, range, StaticOctetStringVariation::Group110Var0);
+    return select_range_for_OctetStringSpec_in_Database_staticOver2(&(pDatabase->octet_string), range, StaticOctetStringVariation_Group110Var0);
 
   default:
   {
@@ -1123,7 +1130,14 @@ IINField SelectIndices_in_Database(Database *pDatabase, GroupVariation_uint16_t 
     return select_indices_for_TimeAndIntervalSpec_in_Database_staticOver1(&(pDatabase->time_and_interval), indices, StaticTimeAndIntervalVariation_Group50Var4);
 
 ////    case (GroupVariation::Group110Var0):
+  case (GroupVariation_Group110Var0):
+#ifdef  LOG_INFO
+    std::cout<<"*"<<getString_stack_info();
+    std::cout<<"*GroupVariation_Group110Var0"<<'\n';
+    decrement_stack_info();
+#endif
 ////        return select_indices(this->octet_string, indices, StaticOctetStringVariation::Group110Var0);
+    return select_indices_for_OctetStringSpec_in_Database_staticOver1(&(pDatabase->octet_string), indices, StaticOctetStringVariation_Group110Var0);
 
   default:
   {
@@ -1173,7 +1187,7 @@ void Unselect_in_Database(Database *pDatabase)
 ////    this->time_and_interval.clear_selection();
   clear_selection_in_StaticDataMap_for_TimeAndIntervalSpec(&(pDatabase->time_and_interval));
 ////    this->octet_string.clear_selection();
-//  clear_selection_in_StaticDataMap_for_OctetStringSpec(&(pDatabase->octet_string));
+  clear_selection_in_StaticDataMap_for_OctetStringSpec(&(pDatabase->octet_string));
 #ifdef  LOG_INFO
     std::cout<<getString_stack_info();
     std::cout<<"}Unselect_in_Database_"<<'\n';
@@ -1207,9 +1221,9 @@ boolean HasAnySelection_in_Database(Database *pDatabase)
          has_any_selection_in_StaticDataMap_for_BinaryOutputStatusSpec(&(pDatabase->binary_output_status)) ||
 ////        || counter.has_any_selection() || frozen_counter.has_any_selection() || binary_output_status.has_any_selection()
          has_any_selection_in_StaticDataMap_for_AnalogOutputStatusSpec(&(pDatabase->analog_output_status)) ||
-         has_any_selection_in_StaticDataMap_for_TimeAndIntervalSpec(&(pDatabase->time_and_interval));// ||
+         has_any_selection_in_StaticDataMap_for_TimeAndIntervalSpec(&(pDatabase->time_and_interval)) ||
 ////        || analog_output_status.has_any_selection() || time_and_interval.has_any_selection()
-//         has_any_selection_in_StaticDataMap_for_OctetStringSpec(&(pDatabase->octet_string));
+         has_any_selection_in_StaticDataMap_for_OctetStringSpec(&(pDatabase->octet_string));
 ////        || octet_string.has_any_selection();
 }
 
@@ -1264,8 +1278,8 @@ boolean Load_in_Database(Database *pDatabase, HeaderWriter* writer)
          load_type_for_DoubleBitBinary_in_Database_static(&(pDatabase->double_binary), writer) &&
          load_type_for_Counter_in_Database_static(&(pDatabase->counter), writer) &&
          load_type_for_FrozenCounter_in_Database_static(&(pDatabase->frozen_counter), writer) &&
-         load_type_for_TimeAndInterval_in_Database_static(&(pDatabase->time_and_interval), writer);
-//         load_type_for_OctetString_in_Database_static(pDatabase->octet_string, writer) &&
+         load_type_for_TimeAndInterval_in_Database_static(&(pDatabase->time_and_interval), writer) &&
+         load_type_for_OctetString_in_Database_static(&(pDatabase->octet_string), writer);
 }
 
 boolean Update_for_Binary_in_Database_override(void *pIUpdateHandler, Binary* meas, uint16_t index, EventMode_uint8_t mode)
@@ -1316,14 +1330,14 @@ boolean Update_for_TimeAndInterval_in_Database_override(void *pIUpdateHandler, T
     (Database*)getParentPointer_in_IUpdateHandler((IUpdateHandler*)pIUpdateHandler);
   return Update_for_TimeAndInterval_in_Database(parent, meas, index);
 }
-/*
+
 boolean Update_for_OctetString_in_Database_override(void *pIUpdateHandler, OctetString* meas, uint16_t index, EventMode_uint8_t mode)
 {
   Database *parent =
     (Database*)getParentPointer_in_IUpdateHandler((IUpdateHandler*)pIUpdateHandler);
   return Update_for_OctetString_in_Database(parent, meas, index, mode);
 }
-*/
+
 boolean Modify_in_Database_override(void *pIUpdateHandler, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags)
 {
   Database *parent =

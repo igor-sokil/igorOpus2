@@ -44,7 +44,7 @@
 #include "StaticDataMap_for_Counter.h"
 #include "StaticDataMap_for_DoubleBitBinary.h"
 #include "StaticDataMap_for_FrozenCounter.h"
-//#include "StaticDataMap_for_OctetString.h"
+#include "StaticDataMap_for_OctetString.h"
 #include "StaticDataMap_for_TimeAndInterval.h"
 
 #include "StaticAnalogOutputStatusVariation.h"
@@ -68,7 +68,7 @@ typedef boolean  (* static_write_func_t_for_FrozenCounterSpec)(StaticDataMap_for
 typedef boolean  (* static_write_func_t_for_AnalogSpec)(StaticDataMap_for_AnalogSpec* map, HeaderWriter* writer);//указатель на ф-цию
 typedef boolean  (* static_write_func_t_for_AnalogOutputStatusSpec)(StaticDataMap_for_AnalogOutputStatusSpec* map, HeaderWriter* writer);//указатель на ф-цию
 typedef boolean  (* static_write_func_t_for_BinaryOutputStatusSpec)(StaticDataMap_for_BinaryOutputStatusSpec* map, HeaderWriter* writer);//указатель на ф-цию
-//typedef boolean  (* static_write_func_t_for_OctetStringSpec)(StaticDataMap_for_OctetStringSpec& map, HeaderWriter* writer);//указатель на ф-цию
+typedef boolean  (* static_write_func_t_for_OctetStringSpec)(StaticDataMap_for_OctetStringSpec* map, HeaderWriter* writer);//указатель на ф-цию
 typedef boolean  (* static_write_func_t_for_TimeAndIntervalSpec)(StaticDataMap_for_TimeAndIntervalSpec* map, HeaderWriter* writer);//указатель на ф-цию
 
 ////struct StaticWriters : private StaticOnly
@@ -91,7 +91,7 @@ static_write_func_t_for_FrozenCounterSpec            get_for_FrozenCounterSpec_i
 static_write_func_t_for_AnalogSpec                   get_for_AnalogSpec_in_StaticWriters_static(StaticAnalogVariation_uint8_t variation);
 static_write_func_t_for_AnalogOutputStatusSpec       get_for_AnalogOutputStatusSpec_in_StaticWriters_static(StaticAnalogOutputStatusVariation_uint8_t variation);
 static_write_func_t_for_BinaryOutputStatusSpec       get_for_BinaryOutputStatusSpec_in_StaticWriters_static(StaticBinaryOutputStatusVariation_uint8_t variation);
-//static_write_func_t_for_OctetStringSpec              get_for_OctetStringSpec_in_StaticWriters_static(StaticOctetStringVariation_uint8_t variation);
+static_write_func_t_for_OctetStringSpec              get_for_OctetStringSpec_in_StaticWriters_static(StaticOctetStringVariation_uint8_t variation);
 static_write_func_t_for_TimeAndIntervalSpec          get_for_TimeAndIntervalSpec_in_StaticWriters_static(StaticTimeAndIntervalVariation_uint8_t variation);
 
 ////} // namespace opendnp3

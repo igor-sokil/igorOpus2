@@ -24,7 +24,7 @@
 
 ////#include "opendnp3/app/GroupVariationID.h"
 #include "GroupVariationID.h"
-//#include "OctetStringSerializer.h"
+#include "OctetStringSerializer.h"
 
 ////namespace opendnp3
 ////{

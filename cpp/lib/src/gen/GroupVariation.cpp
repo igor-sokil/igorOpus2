@@ -29,7 +29,6 @@
 // limitations under the License.
 //
 
-//#include <iostream>
 #include "header_dnp3.h"
 #include "GroupVariation.h"
 ////#include <stdexcept>

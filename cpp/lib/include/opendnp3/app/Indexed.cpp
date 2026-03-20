@@ -437,7 +437,6 @@ Indexed_for_AnalogOutputStatus WithIndex_in_Indexed_for_AnalogOutputStatus(
   return iIndexed_for_AnalogOutputStatus;
 }
 //------------------------------------Indexed_for_AnalogOutputStatus---------------------------------------------------------
-/*
 //------------------------------------Indexed_for_OctetString---------------------------------------------------------
 void Indexed_for_OctetString_in_Indexed_for_OctetStringOver1(Indexed_for_OctetString *pIndexed_for_OctetString)
 {
@@ -466,7 +465,6 @@ Indexed_for_OctetString WithIndex_in_Indexed_for_OctetString(
   return iIndexed_for_OctetString;
 }
 //------------------------------------Indexed_for_OctetString---------------------------------------------------------
-*/
 //------------------------------------Indexed_for_BinaryCommandEvent---------------------------------------------------------
 void Indexed_for_BinaryCommandEvent_in_Indexed_for_BinaryCommandEventOver1(Indexed_for_BinaryCommandEvent *pIndexed_for_BinaryCommandEvent)
 {

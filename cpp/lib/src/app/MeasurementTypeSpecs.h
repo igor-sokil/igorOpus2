@@ -27,7 +27,7 @@
 
 ////#include <ser4cpp/container/SequenceTypes.h>
 #include "EventTriggers.h"
-//#include "OctetString.h"
+#include "OctetString.h"
 #include "MeasurementConfig.h"
 #include "EventCells.h"
 
@@ -153,7 +153,7 @@ boolean IsEvent_in_CounterSpec_static(
 boolean IsEvent_in_FrozenCounterSpec_static(
   FrozenCounter *old_value,
   FrozenCounter *new_value,
-  FrozenCounterConfig *config);////const config_t& config)
+  FrozenCounterConfig *config);
 
 ////struct AnalogOutputStatusSpec : public AnalogOutputStatusInfo
 ////{
@@ -170,7 +170,7 @@ boolean IsEvent_in_FrozenCounterSpec_static(
 boolean IsEvent_in_AnalogOutputStatusSpec_static(
   AnalogOutputStatus *old_value,
   AnalogOutputStatus *new_value,
-  AOStatusConfig *config);//const config_t& config)
+  AOStatusConfig *config);
 
 ////struct OctetStringSpec : public OctetStringInfo
 ////{
@@ -188,10 +188,10 @@ boolean IsEvent_in_AnalogOutputStatusSpec_static(
 ////};
 
 ////    inline static bool IsEvent(const OctetString& old_value, const OctetString& new_value, const config_t& config)
-//boolean IsEvent_in_OctetStringSpec_static(
-//  OctetString *old_value,
-//  OctetString *new_value,
-//  void *config);//const config_t& config)
+boolean IsEvent_in_OctetStringSpec_static(
+  OctetString *old_value,
+  OctetString *new_value,
+  void *config);
 
 
 ////struct TimeAndIntervalSpec : public TimeAndIntervalInfo
@@ -203,7 +203,7 @@ boolean IsEvent_in_AnalogOutputStatusSpec_static(
 boolean IsEvent_in_TimeAndIntervalSpec_static(
   TimeAndInterval *old_value,
   TimeAndInterval *new_value,
-  void *config);//const config_t& config)
+  void *config);
 
 ////} // namespace opendnp3
 

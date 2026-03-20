@@ -26,6 +26,7 @@
 #include "PointClass.h"
 #include "MeasurementConfig.h"
 #include "MeasurementTypes.h"
+#include "OctetString.h"
 
 ////namespace opendnp3
 ////{
@@ -438,7 +439,6 @@ boolean IsEvent_in_DeadbandEventCell_for_AnalogOutputStatus(DeadbandEventCell_fo
     AnalogOutputStatus* newValue);
 
 //---------------------------------AnalogOutputStatus---------------------------------------
-/*
 //---------------------------------OctetString---------------------------------------
 ////template<class Spec> struct EventCellBase
 typedef struct
@@ -491,9 +491,8 @@ void DeadbandEventCell_for_OctetString_in_DeadbandEventCell_for_OctetString(Dead
 boolean IsEvent_in_DeadbandEventCell_for_OctetString(DeadbandEventCell_for_OctetString *pDeadbandEventCell_for_OctetString,
     OctetStringConfig *config,
     OctetString* newValue);
-
 //---------------------------------OctetString---------------------------------------
-*/
+
 //---------------------------------TimeAndInterval---------------------------------------
 ////template<class Spec> struct EventCellBase
 typedef struct

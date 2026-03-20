@@ -319,7 +319,6 @@ void  StaticDataCell_for_AnalogOutputStatus_in_StaticDataCell_for_AnalogOutputSt
   pStaticDataCell_for_AnalogOutputStatus->config_in_StaticDataCell = *config;
 }
 //-------------------------------AnalogOutputStatus-------------------------------------------------
-/*
 //-------------------------------OctetString-------------------------------------------------
 void SelectedValue_for_OctetStringSpec_in_SelectedValue_for_OctetStringSpecOver1(SelectedValue_for_OctetStringSpec *pSelectedValue_for_OctetStringSpec)
 {
@@ -360,7 +359,6 @@ void  StaticDataCell_for_OctetString_in_StaticDataCell_for_OctetStringOver3(Stat
   pStaticDataCell_for_OctetString->config_in_StaticDataCell = *config;
 }
 //-------------------------------OctetString-------------------------------------------------
-*/
 //-------------------------------TimeAndInterval-------------------------------------------------
 void SelectedValue_for_TimeAndIntervalSpec_in_SelectedValue_for_TimeAndIntervalSpecOver1(SelectedValue_for_TimeAndIntervalSpec *pSelectedValue_for_TimeAndIntervalSpec)
 {

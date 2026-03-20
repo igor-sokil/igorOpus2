@@ -451,7 +451,7 @@ void OnHeader_RangeHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandler(IAPDUHa
   decrement_stack_info();
 #endif
 }
-/*
+
 ////void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<OctetString>>& values)
 void OnHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_OctetString* values)
 {
@@ -466,7 +466,7 @@ void OnHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler *
   IINField temp = ProcessHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler(pIAPDUHandler, header, values);
   Record_in_IAPDUHandler(pIAPDUHandler, &(header->hHeaderRecord), &temp);
 }
-*/
+
 ////void IAPDUHandler::OnHeader(const RangeHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
 void OnHeader_RangeHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
 {
@@ -636,7 +636,7 @@ void OnHeader_PrefixHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandler(IAPDUH
   decrement_stack_info();
 #endif
 }
-/*
+
 ////void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<OctetString>>& values)
 void OnHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_OctetString* values)
 {
@@ -651,7 +651,7 @@ void OnHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler 
   IINField temp = ProcessHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler(pIAPDUHandler, header, values);
   Record_in_IAPDUHandler(pIAPDUHandler, &(header->hHeaderRecord), &temp);
 }
-*/
+
 ////void IAPDUHandler::OnHeader(const PrefixHeader& header, const ICollection<Indexed<TimeAndInterval>>& values)
 void OnHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler(IAPDUHandler *pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
 {
@@ -1057,7 +1057,7 @@ IINField ProcessHeader_RangeHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandle
 ////    return ProcessUnsupportedHeader();
   return ProcessUnsupportedHeader_in_IAPDUHandler(parent);
 }
-/*
+
 ////IINField IAPDUHandler::ProcessHeader(const RangeHeader&, const ICollection<Indexed<OctetString>>& )
 IINField ProcessHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler_override(void* pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_OctetString* values)
 {
@@ -1067,7 +1067,7 @@ IINField ProcessHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler_overr
 ////    return ProcessUnsupportedHeader();
   return ProcessUnsupportedHeader_in_IAPDUHandler(parent);
 }
-*/
+
 ////IINField IAPDUHandler::ProcessHeader(const RangeHeader& ,
 ////                                     const ICollection<Indexed<TimeAndInterval>>& )
 IINField ProcessHeader_RangeHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler_override(void* pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
@@ -1154,7 +1154,7 @@ IINField ProcessHeader_PrefixHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandl
 ////    return ProcessUnsupportedHeader();
   return ProcessUnsupportedHeader_in_IAPDUHandler(parent);
 }
-/*
+
 ////IINField IAPDUHandler::ProcessHeader(const PrefixHeader& ,
 ////                                     const ICollection<Indexed<OctetString>>& )
 IINField ProcessHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler_override(void* pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_OctetString* values)
@@ -1165,7 +1165,7 @@ IINField ProcessHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler_over
 ////    return ProcessUnsupportedHeader();
   return ProcessUnsupportedHeader_in_IAPDUHandler(parent);
 }
-*/
+
 ////IINField IAPDUHandler::ProcessHeader(const PrefixHeader& ,
 ////                                     const ICollection<Indexed<TimeAndInterval>>&)
 IINField ProcessHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler_override(void* pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
@@ -1300,12 +1300,12 @@ IINField ProcessHeader_PrefixHeader_Indexed_for_DoubleBitBinary_in_IAPDUHandler(
 //  return (pIAPDUHandler->pProcessHeader_PrefixHeader_Indexed_for_DoubleBitBinary_in_IAPDUHandler)(pIAPDUHandler, header, values);
   return ProcessHeader_PrefixHeader_Indexed_for_DoubleBitBinary_in_IAPDUHandler_override(pIAPDUHandler, header, values);
 }
-/*
+
 IINField ProcessHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler* pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_OctetString* values)
 {
   return (pIAPDUHandler->pProcessHeader_PrefixHeader_Indexed_for_OctetString_in_IAPDUHandler)(pIAPDUHandler, header, values);
 }
-*/
+
 IINField ProcessHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler(IAPDUHandler* pIAPDUHandler, PrefixHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
 {
 //  return (pIAPDUHandler->pProcessHeader_PrefixHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler)(pIAPDUHandler, header, values);
@@ -1475,12 +1475,12 @@ IINField ProcessHeader_RangeHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandle
 // return (pIAPDUHandler->pProcessHeader_RangeHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandler)(pIAPDUHandler, header, values);
   return ProcessHeader_RangeHeader_Indexed_for_AnalogOutputStatus_in_IAPDUHandler_override(pIAPDUHandler, header, values);
 }
-/*
+
 IINField ProcessHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler(IAPDUHandler* pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_OctetString* values)
 {
   return (pIAPDUHandler->pProcessHeader_RangeHeader_Indexed_for_OctetString_in_IAPDUHandler)(pIAPDUHandler, header, values);
 }
-*/
+
 IINField ProcessHeader_RangeHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler(IAPDUHandler* pIAPDUHandler, RangeHeader* header, ICollection_Indexed_for_TimeAndInterval* values)
 {
 // return (pIAPDUHandler->pProcessHeader_RangeHeader_Indexed_for_TimeAndInterval_in_IAPDUHandler)(pIAPDUHandler, header, values);

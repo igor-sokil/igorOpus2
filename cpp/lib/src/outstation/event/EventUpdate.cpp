@@ -528,7 +528,6 @@ boolean Update_AnalogOutputStatusSpec_in_EventUpdate_static(EventLists* lists, E
   return overflow;
 }
 //----------------------------------AnalogOutputStatusSpec-------------------------------------------
-/*
 //----------------------------------OctetStringSpec-------------------------------------------
 
 boolean Update_OctetStringSpec_in_EventUpdate_static(EventLists* lists, Event_for_OctetStringSpec* event)
@@ -571,7 +570,8 @@ boolean Update_OctetStringSpec_in_EventUpdate_static(EventLists* lists, Event_fo
     // remove the generic record
 //void OnRemove_in_EventClassCounters(EventClassCounters *pEventClassCounters, EventClass_uint8_t clazz, EventState_uint8_t state);
 ////        lists.counters.OnRemove(record_node->value.clazz, record_node->value.state);
-    OnRemove_in_EventClassCounters(&(lists->counters_in_EventLists), record_node->value.clazz, record_node->value.state);
+    OnRemove_in_EventClassCounters(&(lists->counters_in_EventLists), 
+                 record_node->value_in_Node_for_EventRecord.clazz, record_node->value_in_Node_for_EventRecord.state_in_EventRecord);
 //   void Remove_in_List_for_EventRecord(List_for_EventRecord *pList_for_EventRecord, Node_for_EventRecord* node);
 ////        lists.events.Remove(first->value.record);
     Remove_in_List_for_EventRecord(&(lists->events_in_EventLists), first->value.record);
@@ -605,9 +605,9 @@ boolean Update_OctetStringSpec_in_EventUpdate_static(EventLists* lists, Event_fo
 // настраиваем типизированное хранилище
 //IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_static(void);
 ////    record_node->value.type = EventTypeImpl<T>::Instance();
-  (record_node->value).type = Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_static();
+  (record_node->value_in_Node_for_EventRecord).type = Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_static();
 
-  record_node->value.storage_node = typed_node;
+  record_node->value_in_Node_for_EventRecord.storage_node = typed_node;
 
 //void OnAdd_in_EventClassCounters(EventClassCounters *pEventClassCounters, EventClass_uint8_t clazz);
 ////    lists.counters.OnAdd(event.clazz);
@@ -620,4 +620,4 @@ boolean Update_OctetStringSpec_in_EventUpdate_static(EventLists* lists, Event_fo
 }
 
 //----------------------------------OctetStringSpec-------------------------------------------
-*/
+

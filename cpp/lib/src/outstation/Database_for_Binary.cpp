@@ -12,8 +12,7 @@ boolean load_type_for_Binary_in_Database_static(StaticDataMap_for_BinarySpec* ma
   std::cout<<getString_stack_info();
   std::cout<<"{load_type_for_Binary_in_Database_static1"<<'\n';
   std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*map->db_config->binary_input_count= "<<map->db_config->binary_input_count<<'\n';
-//  std::cout<<"*map.size()= "<<map.map.size()<<'\n';
+  std::cout<<"*map->db_config->binary_input_count= "<<MapSize_for_StaticDataMap_for_BinarySpec(map)<<'\n';
 #endif
 
   int index = 0;
@@ -35,15 +34,9 @@ boolean load_type_for_Binary_in_Database_static(StaticDataMap_for_BinarySpec* ma
     std::cout<<"*"<<getString_stack_info();
     std::cout<<"*load_type_for_Binary_in_Database_static2a"<<'\n';
 #endif
-//StaticDataCell_for_Binary sss = iter->second;
-//#ifdef  LOG_INFO
-//uint16_t index1 = iter.first;////!
-//    std::cout<<"*"<<getString_stack_info();
-//    std::cout<<"*uint16_t index=  "<<(uint16_t)index1<<'\n';
-//#endif
 
 //    if (iter == map.end())
-    if ((index == map->db_config->binary_input_count) ||
+    if ((index >= MapSize_for_StaticDataMap_for_BinarySpec(map)) ||
         (!IsValid_in_Range(&(map->selected_in_StaticDataMap_for_BinarySpec))))
     {
 #ifdef  LOG_INFO
@@ -73,7 +66,7 @@ boolean load_type_for_Binary_in_Database_static(StaticDataMap_for_BinarySpec* ma
     //    StaticBinaryVariation_uint8_t variation = 1;//(*iter).second.variation;
 //    StaticBinaryVariation_uint8_t variation = map->map[index].selection_in_StaticDataCell_for_Binary.variation;//(*iter).second.variation;
     uint16_t tmp = KeyMap2IndexMass_for_BinarySpec(map->db_config, map->selected_in_StaticDataMap_for_BinarySpec.start);
-    if (tmp >= map->db_config->binary_input_count)
+    if (tmp >= MapSize_for_StaticDataMap_for_BinarySpec(map))
     {
 #ifdef  LOG_INFO
       std::cout<<getString_stack_info();

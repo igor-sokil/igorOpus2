@@ -478,7 +478,6 @@ uint16_t Count_in_BufferedCollection_Indexed_for_Binary_override(void *pICollect
 void Foreach_in_BufferedCollection_Indexed_for_Binary_override(void *pICollection_Indexed_for_Binary,
     IVisitor_Indexed_for_Binary* visitor);
 //-----------------------------------Indexed_for_Binary---------------------------------------------------
-/*
 //-----------------------------------Indexed_for_OctetString---------------------------------------------------
 typedef Indexed_for_OctetString (*ReadFunc_Indexed_for_OctetString)(
   RSeq_for_Uint16_t* buffer,
@@ -535,7 +534,6 @@ uint16_t Count_in_BufferedCollection_Indexed_for_OctetString_override(void *pICo
 void Foreach_in_BufferedCollection_Indexed_for_OctetString_override(void *pICollection_Indexed_for_OctetString,
     IVisitor_Indexed_for_OctetString* visitor);
 //-----------------------------------Indexed_for_OctetString---------------------------------------------------
-*/
 //-----------------------------------Indexed_for_IINValue---------------------------------------------------
 typedef Indexed_for_IINValue (*ReadFunc_Indexed_for_IINValue)(
   RSeq_for_Uint16_t* buffer,

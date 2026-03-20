@@ -396,7 +396,6 @@ void  StaticDataCell_for_AnalogOutputStatus_in_StaticDataCell_for_AnalogOutputSt
     AnalogOutputStatus* value,
     AOStatusConfig* config);
 //-------------------------------AnalogOutputStatus-------------------------------------------------
-/*
 //-------------------------------OctetString-------------------------------------------------
 ////template<class Spec> struct SelectedValue
 typedef struct
@@ -418,10 +417,7 @@ void SelectedValue_for_OctetStringSpec_in_SelectedValue_for_OctetStringSpecOver1
 void SelectedValue_for_OctetStringSpec_in_SelectedValue_for_OctetStringSpecOver2(SelectedValue_for_OctetStringSpec *pSelectedValue_for_OctetStringSpec,
                                           boolean selected, OctetString* value, StaticOctetStringVariation_uint8_t variation);
 
-
- * Holds particular measurement type in the database.
- 
-
+// * Holds particular measurement type in the database.
 ////template<class Spec> struct StaticDataCell
 typedef struct
 {
@@ -448,7 +444,6 @@ void  StaticDataCell_for_OctetString_in_StaticDataCell_for_OctetStringOver3(Stat
     OctetString* value,
     OctetStringConfig* config);
 //-------------------------------OctetString-------------------------------------------------
-*/
 //-------------------------------TimeAndInterval-------------------------------------------------
 ////template<class Spec> struct SelectedValue
 typedef struct

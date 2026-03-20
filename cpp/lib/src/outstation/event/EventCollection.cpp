@@ -544,7 +544,6 @@ boolean WriteOne_in_EventCollection_for_AnalogOutputStatus(EventCollection_for_A
 }
 
 //---------------------------------AnalogOutputStatus------------------------------------------
-/*
 //---------------------------------OctetString------------------------------------------
 void  EventCollection_for_OctetString_in_EventCollection_for_OctetString(EventCollection_for_OctetString *pEventCollection_for_OctetString,
     Iterator_in_List_for_EventRecord* iteratorEv,
@@ -577,7 +576,7 @@ uint16_t WriteSome_in_EventCollection_for_OctetString_override(void *pIEventColl
 boolean WriteOne_in_EventCollection_for_OctetString(EventCollection_for_OctetString *pEventCollection_for_OctetString, IEventWriter_for_OctetString* writer)
 {
   // don't bother searching
-  if (pEventCollection_for_OctetString->counters->selected == 0)
+  if (pEventCollection_for_OctetString->counters->selected_in_EventClassCounters == 0)
     return false;
 
   // find the next event with the same type and variation
@@ -607,12 +606,11 @@ boolean WriteOne_in_EventCollection_for_OctetString(EventCollection_for_OctetStr
 //void OnWrite_in_EventClassCounters(EventClassCounters *pEventClassCounters, EventClass_uint8_t clazz);
 ////    this->counters.OnWrite(record->clazz);
   OnWrite_in_EventClassCounters(pEventCollection_for_OctetString->counters, record->clazz);
-  record->state = EventState_written;
+  record->state_in_EventRecord = EventState_written;
 //Node_for_EventRecord* Next__in__Iterator_in_List_for_EventRecord(Iterator_in_List_for_EventRecord *pIterator_in_List_for_EventRecord);
 ////    this->iterator.Next();
   Next__in__Iterator_in_List_for_EventRecord(pEventCollection_for_OctetString->iteratorEv);
   return true;
 }
-
 //---------------------------------OctetString------------------------------------------
-*/
+

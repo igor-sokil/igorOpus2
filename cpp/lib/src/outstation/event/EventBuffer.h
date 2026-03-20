@@ -140,7 +140,7 @@ void UpdateAny_CounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_C
 void UpdateAny_FrozenCounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_FrozenCounterSpec *evt);
 void UpdateAny_BinaryOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_BinaryOutputStatusSpec *evt);
 void UpdateAny_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_AnalogOutputStatusSpec *evt);
-//void UpdateAny_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec *evt);
+void UpdateAny_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec *evt);
 
 IINField  SelectByType_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventType_uint16_t type);
 IINField  SelectByType_BinarySpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventBinaryVariation_uint8_t type);
@@ -150,7 +150,7 @@ IINField  SelectByType_CounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, uin
 IINField  SelectByType_FrozenCounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventFrozenCounterVariation_uint8_t type);
 IINField  SelectByType_BinaryOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventBinaryOutputStatusVariation_uint8_t type);
 IINField  SelectByType_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventAnalogOutputStatusVariation_uint8_t type);
-//IINField  SelectByType_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventOctetStringVariation_uint8_t type);
+IINField  SelectByType_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventOctetStringVariation_uint8_t type);
 
 IINField SelectByClass_EventClass_in_EventBuffer(EventBuffer *pEventBuffer, uint32_t max, EventClass_uint8_t clazz);
 
@@ -172,7 +172,7 @@ void Update_CounterSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for
 void Update_FrozenCounterSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_FrozenCounterSpec* evt);
 void Update_BinaryOutputStatusSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_BinaryOutputStatusSpec* evt);
 void Update_AnalogOutputStatusSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_AnalogOutputStatusSpec* evt);
-//void Update_OctetStringSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_OctetStringSpec* evt);
+void Update_OctetStringSpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_OctetStringSpec* evt);
 
 // ------- IEventSelector ------
 

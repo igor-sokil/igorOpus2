@@ -33,7 +33,6 @@ boolean IsEvent_in_SimpleEventCell_for_Analog(SimpleEventCell_for_Analog *pSimpl
                                         new_value,
                                         NULL);////const config_t& config)
 }
-
 void DeadbandEventCell_for_Analog_in_DeadbandEventCell_for_Analog(DeadbandEventCell_for_Analog *pDeadbandEventCell_for_Analog)
 {
   SimpleEventCell_for_Analog_in_SimpleEventCell_for_Analog(&(pDeadbandEventCell_for_Analog->sSimpleEventCell_for_Analog));
@@ -331,7 +330,6 @@ boolean IsEvent_in_DeadbandEventCell_for_AnalogOutputStatus(DeadbandEventCell_fo
                                       config);
 }
 //---------------------------------AnalogOutputStatus---------------------------------------
-/*
 //---------------------------------OctetString---------------------------------------
 void SetEventValue_in_EventCellBase_for_OctetString(EventCellBase_for_OctetString *pEventCellBase_for_OctetString, OctetString* value)
 {
@@ -379,7 +377,6 @@ boolean IsEvent_in_DeadbandEventCell_for_OctetString(DeadbandEventCell_for_Octet
                                       config);
 }
 //---------------------------------OctetString---------------------------------------
-*/
 //---------------------------------TimeAndInterval---------------------------------------
 void SetEventValue_in_EventCellBase_for_TimeAndInterval(EventCellBase_for_TimeAndInterval *pEventCellBase_for_TimeAndInterval, TimeAndInterval* value)
 {
@@ -397,34 +394,10 @@ void SimpleEventCell_for_TimeAndInterval_in_SimpleEventCell_for_TimeAndInterval(
 {
   EventCellBase_for_TimeAndInterval_in_EventCellBase_for_TimeAndInterval(&(pSimpleEventCell_for_TimeAndInterval->eEventCellBase_for_TimeAndInterval));
 }
-/*
-boolean IsEvent_in_SimpleEventCell_for_TimeAndInterval(SimpleEventCell_for_TimeAndInterval *pSimpleEventCell_for_TimeAndInterval,
-    TimeAndIntervalConfig *config,
-    TimeAndInterval* new_value)
-{
-  UNUSED(config);
-//    boolean IsEvent_in_TimeAndIntervalSpec_static(TimeAndInterval *old_value,
-//                                         TimeAndInterval *new_value,
-//                                         TimeAndIntervalConfig_for_EventConfig_for_TimeAndIntervalInfo *config);////const config_t& config)
-////        return Spec::IsEvent(this->lastEvent, new_Value);
-    return IsEvent_in_TimeAndIntervalSpec_static(&((pSimpleEventCell_for_TimeAndInterval->eEventCellBase_for_TimeAndInterval).lastEvent),
-                                        new_value,
-                                        NULL);////const config_t& config)
-}
-*/
+
 void DeadbandEventCell_for_TimeAndInterval_in_DeadbandEventCell_for_TimeAndInterval(DeadbandEventCell_for_TimeAndInterval *pDeadbandEventCell_for_TimeAndInterval)
 {
   SimpleEventCell_for_TimeAndInterval_in_SimpleEventCell_for_TimeAndInterval(&(pDeadbandEventCell_for_TimeAndInterval->sSimpleEventCell_for_TimeAndInterval));
 }
-/*
-boolean IsEvent_in_DeadbandEventCell_for_TimeAndInterval(DeadbandEventCell_for_TimeAndInterval *pDeadbandEventCell_for_TimeAndInterval,
-    TimeAndIntervalConfig *config,
-    TimeAndInterval* new_value)
-{
-////        return Spec::IsEvent(this->lastEvent, new_Value, config.deadband);
-  return IsEvent_in_TimeAndInterval_static(&((pDeadbandEventCell_for_TimeAndInterval->sSimpleEventCell_for_TimeAndInterval.eEventCellBase_for_TimeAndInterval).lastEvent),
-                                      new_value,
-                                      config);
-}
-*/
+
 //---------------------------------TimeAndInterval---------------------------------------

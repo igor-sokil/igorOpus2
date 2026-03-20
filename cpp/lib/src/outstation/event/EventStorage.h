@@ -116,7 +116,7 @@ typedef struct
 } EventStorage;
 
 void EventStorage_in_EventStorage(EventStorage *pEventStorage, EventBufferConfig* config);
-//boolean Update_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, Event_for_OctetStringSpec* evt);
+boolean Update_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, Event_for_OctetStringSpec* evt);
 boolean Update_AnalogOutputStatusSpec_in_EventStorage(EventStorage *pEventStorage, Event_for_AnalogOutputStatusSpec* evt);
 boolean Update_BinarySpec_in_EventStorage(EventStorage *pEventStorage, Event_for_BinarySpec* evt);
 boolean Update_BinaryOutputStatusSpec_in_EventStorage(EventStorage *pEventStorage, Event_for_BinaryOutputStatusSpec* evt);
@@ -132,7 +132,7 @@ uint32_t SelectByType_CounterSpec_in_EventStorage(EventStorage *pEventStorage, E
 uint32_t SelectByType_FrozenCounterSpec_in_EventStorage(EventStorage *pEventStorage, EventFrozenCounterVariation_uint8_t variation, uint32_t max);
 uint32_t SelectByType_BinaryOutputStatusSpec_in_EventStorage(EventStorage *pEventStorage, EventBinaryOutputStatusVariation_uint8_t variation, uint32_t max);
 uint32_t SelectByType_AnalogOutputStatusSpec_in_EventStorage(EventStorage *pEventStorage, EventAnalogOutputStatusVariation_uint8_t variation, uint32_t max);
-//uint32_t SelectByType_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, EventOctetStringVariation_uint8_t variation, uint32_t max);
+uint32_t SelectByType_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, EventOctetStringVariation_uint8_t variation, uint32_t max);
 
 uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uint16_t type, uint32_t max);
 

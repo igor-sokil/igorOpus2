@@ -394,7 +394,6 @@ uint16_t WriteSome_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_
     IEventWriteHandler* handler);
 void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec_override(void *pIEventType, EventRecord* record, EventLists* lists);
 //----------------------------------AnalogOutputStatus-------------------------------------------
-/*
 //----------------------------------OctetString-------------------------------------------
 typedef struct
 {
@@ -446,7 +445,7 @@ uint16_t WriteSome_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_overrid
     IEventWriteHandler* handler);
 void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override(void *pIEventType, EventRecord* record, EventLists* lists);
 //----------------------------------OctetString-------------------------------------------
-*/
+
 ////} // namespace opendnp3
 
 #endif

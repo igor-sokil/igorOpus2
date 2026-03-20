@@ -17,6 +17,8 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_AnalogOutputStatusSpec.cpp \
                 ser4cpp\container\Array__for__Node_TypedEventRecord_for_BinaryOutputStatusSpec.cpp \
                 ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_BinaryOutputStatusSpec.cpp \
+                ser4cpp\container\Array__for__Node_TypedEventRecord_for_OctetStringSpec.cpp \
+                ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_OctetStringSpec.cpp \
                 ser4cpp\container\BufferSer4.cpp \
                 ser4cpp\container\BufferSer4_292.cpp \
                 ser4cpp\container\BufferSer4_Core.cpp \
@@ -45,6 +47,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\include\opendnp3\app\GroupVariationID.cpp \
                 cpp\lib\include\opendnp3\app\Flags.cpp \
                 cpp\lib\include\opendnp3\app\Indexed.cpp \
+                cpp\lib\include\opendnp3\app\OctetString.cpp \
                 \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_for_uint16.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_for_DNPTime.cpp \
@@ -64,6 +67,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_AnalogOutputInt32.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_ControlRelayOutputBlock.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_AnalogOutputStatus.cpp \
+                cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_OctetString.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_Counter.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_FrozenCounter.cpp \
                 cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_BinaryCommandEvent.cpp \
@@ -87,6 +91,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\include\opendnp3\outstation\StaticTypeBitfield.cpp \
                 \
                 cpp\lib\include\opendnp3\util\UTCTimestamp.cpp \
+                cpp\lib\include\opendnp3\util\Buffer.cpp \
                 \
                 cpp\lib\src\SequenceNum.cpp \
                 \
@@ -123,6 +128,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\app\HeaderWriter_for_FrozenCounter.cpp \
                 cpp\lib\src\app\HeaderWriter_for_TimeAndInterval.cpp \
                 cpp\lib\src\app\HeaderWriter_for_ControlRelayOutputBlock.cpp \
+                cpp\lib\src\app\HeaderWriter_for_OctetString.cpp \
                 cpp\lib\src\app\IINField.cpp \
                 cpp\lib\src\app\IINValue.cpp \
                 cpp\lib\src\app\IAPDUHandler.cpp \
@@ -134,18 +140,20 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\app\MeasurementTypes.cpp \
                 cpp\lib\src\app\MeasurementTypeSpecs.cpp \
                 cpp\lib\src\app\Message.cpp \
+                cpp\lib\src\app\OctetData.cpp \
                 cpp\lib\src\app\PrefixedWriteIterator_for_Analog.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_Binary.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_AnalogOutputStatus.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_BinaryOutputStatus.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_DoubleBitBinary.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_Counter.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_FrozenCounter.cpp \
-                cpp\lib\src\app\PrefixedWriteIterator_for_TimeAndInterval.cpp \
                 cpp\lib\src\app\PrefixedWriteIterator_for_AnalogOutputInt16.cpp \
                 cpp\lib\src\app\PrefixedWriteIterator_for_AnalogOutputInt32.cpp \
                 cpp\lib\src\app\PrefixedWriteIterator_for_AnalogOutputFloat32.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_Binary.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_AnalogOutputStatus.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_BinaryOutputStatus.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_Counter.cpp \
                 cpp\lib\src\app\PrefixedWriteIterator_for_ControlRelayOutputBlock.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_DoubleBitBinary.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_FrozenCounter.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_TimeAndInterval.cpp \
+                cpp\lib\src\app\PrefixedWriteIterator_for_OctetString.cpp \
                 cpp\lib\src\app\Range.cpp \
                 cpp\lib\src\app\RangeWriteIterator_for_Analog.cpp \
                 cpp\lib\src\app\RangeWriteIterator_for_Binary.cpp \
@@ -155,6 +163,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\app\RangeWriteIterator_for_Counter.cpp \
                 cpp\lib\src\app\RangeWriteIterator_for_FrozenCounter.cpp \
                 cpp\lib\src\app\RangeWriteIterator_for_TimeAndInterval.cpp \
+                cpp\lib\src\app\RangeWriteIterator_for_OctetString.cpp \
                 cpp\lib\src\app\Serializer.cpp \
                 cpp\lib\src\app\TxBuffer.cpp \
                 \
@@ -237,6 +246,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\Database_for_Counter.cpp \
                 cpp\lib\src\outstation\Database_for_FrozenCounter.cpp \
                 cpp\lib\src\outstation\Database_for_TimeAndInterval.cpp \
+                cpp\lib\src\outstation\Database_for_OctetString.cpp \
                 cpp\lib\src\outstation\DeferredRequest.cpp \
                 cpp\lib\src\outstation\DeferredRequest_part2.cpp \
                 cpp\lib\src\outstation\Event.cpp \
@@ -265,6 +275,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\StaticDataMap_for_DoubleBitBinary.cpp \
                 cpp\lib\src\outstation\StaticDataMap_for_FrozenCounter.cpp \
                 cpp\lib\src\outstation\StaticDataMap_for_TimeAndInterval.cpp \
+                cpp\lib\src\outstation\StaticDataMap_for_OctetString.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_Analog.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_Binary.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_AnalogOutputStatus.cpp \
@@ -273,7 +284,9 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_DoubleBitBinary.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_FrozenCounter.cpp \
                 cpp\lib\src\outstation\StaticWriters_for_TimeAndInterval.cpp \
+                cpp\lib\src\outstation\StaticWriters_for_OctetString.cpp \
                 cpp\lib\src\outstation\TimeSyncState.cpp \
+                cpp\lib\src\outstation\OctetStringSerializer.cpp \
                 cpp\lib\src\outstation\OutstationContext.cpp \
                 cpp\lib\src\outstation\OutstationStates.cpp \
                 cpp\lib\src\outstation\OutstationChannelStates.cpp \
@@ -298,6 +311,7 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\event\EventWriters_for_BinaryOutputStatus.cpp \
                 cpp\lib\src\outstation\event\EventWriters_for_Counter.cpp \
                 cpp\lib\src\outstation\event\EventWriters_for_FrozenCounter.cpp \
+                cpp\lib\src\outstation\event\EventWriters_for_OctetString.cpp \
                 cpp\lib\src\outstation\event\IEventType.cpp \
                 cpp\lib\src\outstation\event\IEventWriteHandler.cpp \
                 cpp\lib\src\outstation\event\List_for_EventRecord_part1.cpp \
@@ -316,6 +330,8 @@ SOURCES      += ser4cpp\serialization\SerializationTemplates.cpp \
                 cpp\lib\src\outstation\event\List_TypedEventRecord_for_CounterSpec_part2.cpp \
                 cpp\lib\src\outstation\event\List_TypedEventRecord_for_FrozenCounterSpec_part1.cpp \
                 cpp\lib\src\outstation\event\List_TypedEventRecord_for_FrozenCounterSpec_part2.cpp \
+                cpp\lib\src\outstation\event\List_TypedEventRecord_for_OctetStringSpec_part1.cpp \
+                cpp\lib\src\outstation\event\List_TypedEventRecord_for_OctetStringSpec_part2.cpp \
                 cpp\lib\src\outstation\event\Nodes.cpp \
                 cpp\lib\src\outstation\event\TypedEventRecord.cpp \
                 cpp\lib\src\outstation\event\TypedStorage.cpp \

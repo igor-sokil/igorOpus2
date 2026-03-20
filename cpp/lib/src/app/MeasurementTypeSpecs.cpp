@@ -108,7 +108,7 @@ boolean IsEvent_in_AnalogOutputStatusSpec_static(
            &(old_value->tTypedMeasurement_for_Double64),
            (config->dDeadbandConfig_for_AnalogOutputStatusInfo).deadband);
 }
-/*
+
 boolean IsEvent_in_OctetStringSpec_static(
   OctetString *old_value,
   OctetString *new_value,
@@ -130,4 +130,4 @@ boolean IsEvent_in_OctetStringSpec_static(
 ////    return !old_value_seq.equals(new_value_seq);
   return !equals_in_RSeq_for_Uint16_t(&new_value_seq, &old_value_seq);
 }
-*/
+

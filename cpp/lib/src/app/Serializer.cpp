@@ -241,40 +241,38 @@ void Serializer_for_Binary_in_Serializer_for_Binary(Serializer_for_Binary *pSeri
 /**
  * @return The size (in bytes) required for every call to read/write
  */
-//uint16_t get_size_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString)
-//{
-//  return pSerializer_for_OctetString->size;
-//}
+uint16_t get_size_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString)
+{
+  return pSerializer_for_OctetString->size;
+}
 
 /**
  * reads the value and advances the read buffer
  */
-//boolean read_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString, RSeq_for_Uint16_t *buffer, OctetString *output)
-//{
-//  return //POINTER_read_func_t_in_Serializer_for_OctetString_FUNCTION
-//    (pSerializer_for_OctetString->read_func)(buffer, output);
+boolean read_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString, RSeq_for_Uint16_t *buffer, OctetString *output)
+{
+  return (pSerializer_for_OctetString->read_func)(buffer, output);
 
-//}
+}
 
 /**
  * writes the value and advances the write buffer
  */
-//boolean write_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString, OctetString *value, WSeq_for_Uint16_t *buffer)
-//{
-//  return //POINTER_write_func_t_in_Serializer_for_OctetString_FUNCTION
-//    (pSerializer_for_OctetString->write_func)(value, buffer);
-//}
+boolean write_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString, OctetString *value, WSeq_for_Uint16_t *buffer)
+{
+  return (pSerializer_for_OctetString->write_func)(value, buffer);
+}
 
-//void Serializer_for_OctetString_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString,
-//    uint16_t size,
-//    read_func_t_in_Serializer_for_OctetString  read_func,
-//    write_func_t_in_Serializer_for_OctetString write_func)
-//{
+void Serializer_for_OctetString_in_Serializer_for_OctetString(Serializer_for_OctetString *pSerializer_for_OctetString,
+    uint16_t size,
+    read_func_t_in_Serializer_for_OctetString  read_func,
+    write_func_t_in_Serializer_for_OctetString write_func)
+{
 ////        : size(size), read_func(read_func), write_func(write_func)
-//  pSerializer_for_OctetString->size = size;
-//  pSerializer_for_OctetString->read_func = read_func;
-//  pSerializer_for_OctetString->write_func = write_func;
-//}
+  pSerializer_for_OctetString->size = size;
+  pSerializer_for_OctetString->read_func = read_func;
+  pSerializer_for_OctetString->write_func = write_func;
+}
 //------------------------Serializer_for_OctetString----------------------------------------------------
 //------------------------Serializer_for_Counter----------------------------------------------------
 /**

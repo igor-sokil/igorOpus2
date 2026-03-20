@@ -142,7 +142,6 @@ void TypedEventRecord_for_AnalogOutputStatusSpec_in_TypedEventRecord_for_AnalogO
   pTypedEventRecord_for_AnalogOutputStatusSpec->record = record;
 }
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
 //----------------------------------OctetStringSpec-----------------------------------------------
 void TypedEventRecord_for_OctetStringSpec_in_TypedEventRecord_for_OctetStringSpecOver1(TypedEventRecord_for_OctetStringSpec *pTypedEventRecord_for_OctetStringSpec)
 {
@@ -163,5 +162,5 @@ void TypedEventRecord_for_OctetStringSpec_in_TypedEventRecord_for_OctetStringSpe
   pTypedEventRecord_for_OctetStringSpec->record = record;
 }
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+
 

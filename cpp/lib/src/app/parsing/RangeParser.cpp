@@ -701,7 +701,7 @@ ParseResult_uint8_t ParseRangeOfObjects_in_RangeParser_static(
     RangeParser temp = FromBitfieldType_Indexed_for_IINValue_in_RangeParser_static(range);
     return Process_in_RangeParser(&temp, record, buffer, pHandler);
   }
-/*
+
   case (GroupVariation_Group110Var0):
 #ifdef  LOG_INFO
     std::cout<<"*"<<getString_stack_info();
@@ -709,7 +709,7 @@ ParseResult_uint8_t ParseRangeOfObjects_in_RangeParser_static(
     decrement_stack_info();
 #endif
     return ParseRangeOfOctetData_in_RangeParser_static(buffer, record, range, pHandler);
-*/
+
   default:
 ////    FORMAT_LOGGER_BLOCK(pLogger, flags::WARN, "Unsupported qualifier/object - %s - %i / %i",
 ////                        QualifierCodeSpec::to_human_string(record.GetQualifierCode()), record.group,
@@ -732,8 +732,8 @@ ParseResult_uint8_t ParseRangeOfObjects_in_RangeParser_static(
 ///        return WithIndex(octets, range.start + pos);
 ////      };
 static void *pPointerGlobal1_in_readInvokeRangeOf;
-//static void *pPointerGlobal2_in_readInvokeRangeOf;
-/*
+static void *pPointerGlobal2_in_readInvokeRangeOf;
+
 Indexed_for_OctetString read_for_OctetString_in_RangeParser(RSeq_for_Uint16_t* buffer, uint32_t pos);
 Indexed_for_OctetString read_for_OctetString_in_RangeParser(RSeq_for_Uint16_t* buffer, uint32_t pos)
 {
@@ -799,10 +799,14 @@ ParseResult_uint8_t ParseRangeOfOctetData_in_RangeParser_static(
 ////      auto collection = CreateBufferedCollection<Indexed<OctetString>>(buffer, COUNT, read);
       pPointerGlobal1_in_readInvokeRangeOf = range;
       pPointerGlobal2_in_readInvokeRangeOf = record;
-      BufferedCollection_Indexed_for_OctetString collection = CreateBufferedCollection_Indexed_for_OctetString_static(
-            buffer,
-            COUNT,
-            read_for_OctetString_in_RangeParser);
+//      BufferedCollection_Indexed_for_OctetString collection = CreateBufferedCollection_Indexed_for_OctetString_static(
+//            buffer,
+//            COUNT,
+//            read_for_OctetString_in_RangeParser);
+  BufferedCollection_Indexed_for_OctetString collection;
+  BufferedCollection_Indexed_for_OctetString_in_BufferedCollection_Indexed_for_OctetString(&collection,
+      buffer,
+      COUNT, read_for_OctetString_in_RangeParser);
 
 ////      pHandler->OnHeader(RangeHeader(record, range), collection);
       RangeHeader rRangeHeader;
@@ -826,7 +830,7 @@ ParseResult_uint8_t ParseRangeOfOctetData_in_RangeParser_static(
     return ParseResult_INVALID_OBJECT;
   }
 }
-*/
+
 ////} // namespace opendnp3
 //---------------------Group1Var2------------------------------------------------------
 //typedef Indexed_for_Binary (*ReadFunc_Indexed_for_Binary)(

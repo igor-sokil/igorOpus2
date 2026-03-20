@@ -269,7 +269,6 @@ void  EventCollection_for_AnalogOutputStatus_in_EventCollection_for_AnalogOutput
 uint16_t WriteSome_in_EventCollection_for_AnalogOutputStatus_override(void *pIEventCollection_for_AnalogOutputStatus, IEventWriter_for_AnalogOutputStatus* writer);
 boolean WriteOne_in_EventCollection_for_AnalogOutputStatus(EventCollection_for_AnalogOutputStatus *pEventCollection_for_AnalogOutputStatus, IEventWriter_for_AnalogOutputStatus* writer);
 //---------------------------------AnalogOutputStatus------------------------------------------
-/*
 //---------------------------------OctetString------------------------------------------
 ////template<class T> class EventCollection final : public IEventCollection<typename T::meas_t>
 typedef struct
@@ -306,5 +305,5 @@ boolean WriteOne_in_EventCollection_for_OctetString(EventCollection_for_OctetStr
 //---------------------------------OctetString------------------------------------------
 
 ////} // namespace opendnp3
-*/
+
 #endif

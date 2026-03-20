@@ -208,7 +208,6 @@ void Event_for_AnalogOutputStatusSpec_in_Event_for_AnalogOutputStatusSpecOver2(E
     event_variation_t_in_AnalogOutputStatusInfo variation);
 
 //--------------------------------AnalogOutputStatusSpec-------------------------
-/*
 //--------------------------------OctetStringSpec-------------------------
 ////template<typename Spec> struct Event : public Evented
 typedef struct
@@ -228,9 +227,8 @@ void Event_for_OctetStringSpec_in_Event_for_OctetStringSpecOver2(Event_for_Octet
     OctetString* value, uint16_t index,
     EventClass_uint8_t clazz,
     event_variation_t_in_OctetStringInfo variation);
-
 //--------------------------------OctetStringSpec-------------------------
-*/
+
 ////} // namespace opendnp3
 
 #endif

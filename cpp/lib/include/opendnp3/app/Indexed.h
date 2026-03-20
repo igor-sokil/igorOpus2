@@ -333,7 +333,6 @@ Indexed_for_AnalogOutputStatus WithIndex_in_Indexed_for_AnalogOutputStatus(Analo
  * A simple tuple for pairing Values with an index
  */
 ////template<class T> class Indexed
-/*
 typedef struct
 {
 ////public:
@@ -349,7 +348,6 @@ void Indexed_for_OctetString_in_Indexed_for_OctetStringOver1(Indexed_for_OctetSt
 void Indexed_for_OctetString_in_Indexed_for_OctetStringOver2(Indexed_for_OctetString *pIndexed_for_OctetString,
     OctetString* value_, uint16_t index_);
 Indexed_for_OctetString WithIndex_in_Indexed_for_OctetString(OctetString* value, uint16_t index);
-*/
 //------------------------------------Indexed_for_OctetString---------------------------------------------------------
 //------------------------------------Indexed_for_BinaryCommandEvent---------------------------------------------------------
 /**

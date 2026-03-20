@@ -1,5 +1,5 @@
 
-//#include "log_info.h"
+#include "log_info.h"
 
 #include <string.h>
 
@@ -123,7 +123,7 @@ RSeq_for_Uint16_t transfer_fromMemcpy_in_WSeq_for_Uint16_t(WSeq_for_Uint16_t *pW
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"{transfer_fromMemcpy_in_WSeq_for_Uint16_t1"<<std::endl;
-//  inspect_RSeq(src);
+  inspect_RSeq(src);
 #endif
   if (length_in_HasLength_for_Uint16_t(&(src->hHasLength)) > length_in_HasLength_for_Uint16_t(&(pWSeq_for_Uint16_t->hHasLength)))
   {

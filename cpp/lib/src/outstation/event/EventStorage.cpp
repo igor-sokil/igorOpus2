@@ -105,13 +105,13 @@ boolean Update_AnalogOutputStatusSpec_in_EventStorage(EventStorage *pEventStorag
 ////  return EventUpdate::Update(state, evt);
   return Update_AnalogOutputStatusSpec_in_EventUpdate_static(&(pEventStorage->state), evt);
 }
-/*
+
 boolean Update_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, Event_for_OctetStringSpec* evt)
 {
 ////  return EventUpdate::Update(state, evt);
   return Update_OctetStringSpec_in_EventUpdate_static(&(pEventStorage->state), evt);
 }
-*/
+
 uint32_t SelectByType_BinarySpec_in_EventStorage(EventStorage *pEventStorage, EventBinaryVariation_uint8_t variation, uint32_t max)
 {
   return SelectByType_for_BinarySpec_in_EventSelection_staticOver2(&(pEventStorage->state), variation, max);
@@ -147,12 +147,12 @@ uint32_t SelectByType_AnalogOutputStatusSpec_in_EventStorage(EventStorage *pEven
 {
   return SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver2(&(pEventStorage->state), variation, max);
 }
-/*
+
 uint32_t SelectByType_OctetStringSpec_in_EventStorage(EventStorage *pEventStorage, EventOctetStringVariation_uint8_t variation, uint32_t max)
 {
   return SelectByType_for_OctetStringSpec_in_EventSelection_staticOver2(&(pEventStorage->state), variation, max);
 }
-*/
+
 uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uint16_t type, uint32_t max)
 {
 #ifdef  LOG_INFO
@@ -221,7 +221,7 @@ uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uin
 #endif
     tmp = SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver1(&(pEventStorage->state), max);
     return tmp;
-/*
+
   case (EventType_OctetString):
 #ifdef  LOG_INFO
   std::cout<<"@@@@"<<getString_stack_info();
@@ -229,7 +229,7 @@ uint32_t SelectByType_in_EventStorage(EventStorage *pEventStorage, EventType_uin
 #endif
     tmp = SelectByType_for_OctetStringSpec_in_EventSelection_staticOver1(&(pEventStorage->state), max);
     return tmp;
-*/
+
   default:
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();

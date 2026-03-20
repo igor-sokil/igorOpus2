@@ -11,8 +11,6 @@ boolean load_type_for_AnalogOutputStatus_in_Database_static(StaticDataMap_for_An
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"load_type_for_AnalogOutputStatus_in_Database_static1"<<'\n';
-//  std::cout<<"*"<<getString_stack_info();
-//  std::cout<<"*map.map.size()= "<<map.map.size()<<'\n';
 #endif
   int index = 0;
   while (true)
@@ -20,7 +18,7 @@ boolean load_type_for_AnalogOutputStatus_in_Database_static(StaticDataMap_for_An
 ////    auto iter = map.begin();
 
 ////    if (iter == map.end())
-    if ((index == map->db_config->analog_output_status_count) ||
+    if ((index >= MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(map)) ||
         (!IsValid_in_Range(&(map->selected))))
     {
 #ifdef  LOG_INFO
@@ -34,7 +32,7 @@ boolean load_type_for_AnalogOutputStatus_in_Database_static(StaticDataMap_for_An
 
 ////    StaticAnalogOutputStatusVariation_uint8_t variation = (*iter).second.variation;
     uint16_t tmp = KeyMap2IndexMass_for_AnalogOutputStatusSpec(map->db_config, map->selected.start);
-    if (tmp >= map->db_config->analog_output_status_count)
+    if (tmp >= MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(map))
     {
 #ifdef  LOG_INFO
       std::cout<<getString_stack_info();

@@ -52,7 +52,7 @@ typedef struct
 
 //  void (*pUpdate_AnalogOutputStatusSpec_in_IEventReceiver)(void*, Event_for_AnalogOutputStatusSpec* evt);// = 0;
 
-////  void (*pUpdate_OctetStringSpec_in_IEventReceiver)(void*, Event_for_OctetStringSpec* evt);// = 0;
+  void (*pUpdate_OctetStringSpec_in_IEventReceiver)(void*, Event_for_OctetStringSpec* evt);// = 0;
 
   void* pParentPointer_in_IEventReceiver;
 } IEventReceiver;
@@ -64,7 +64,7 @@ void Update_CounterSpec_in_IEventReceiver(IEventReceiver *, Event_for_CounterSpe
 void Update_FrozenCounterSpec_in_IEventReceiver(IEventReceiver *, Event_for_FrozenCounterSpec* evt);
 void Update_BinaryOutputStatusSpec_in_IEventReceiver(IEventReceiver *, Event_for_BinaryOutputStatusSpec* evt);
 void Update_AnalogOutputStatusSpec_in_IEventReceiver(IEventReceiver *, Event_for_AnalogOutputStatusSpec* evt);
-/////void Update_OctetStringSpec_in_IEventReceiver(IEventReceiver *, Event_for_OctetStringSpec* evt);
+void Update_OctetStringSpec_in_IEventReceiver(IEventReceiver *, Event_for_OctetStringSpec* evt);
 
 void* getParentPointer_in_IEventReceiver(IEventReceiver*);
 void  setParentPointer_in_IEventReceiver(IEventReceiver*, void*);

@@ -24,7 +24,7 @@
 #include "WSeq.h"
 #include "AnalogOutput.h"
 #include "MeasurementTypes.h"
-//#include "OctetString.h"
+#include "OctetString.h"
 #include "ControlRelayOutputBlock.h"
 #include "AnalogCommandEvent.h"
 #include "BinaryCommandEvent.h"
@@ -159,7 +159,6 @@ void Serializer_for_BinaryCommandEvent_in_Serializer_for_BinaryCommandEvent(Seri
     write_func_t_in_Serializer_for_BinaryCommandEvent write_func);
 //------------------------Serializer_for_BinaryCommandEvent----------------------------------------------------
 //------------------------Serializer_for_FrozenCounter----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_FrozenCounter) (RSeq_for_Uint16_t *buffer, FrozenCounter *output);
 typedef boolean (*write_func_t_in_Serializer_for_FrozenCounter)(FrozenCounter *value, WSeq_for_Uint16_t *buffer);
 
@@ -424,7 +423,6 @@ void Serializer_for_Binary_in_Serializer_for_Binary(Serializer_for_Binary *pSeri
 
 
 //------------------------Serializer_for_Binary----------------------------------------------------
-/*
 //------------------------Serializer_for_OctetString----------------------------------------------------
 
 typedef boolean (*read_func_t_in_Serializer_for_OctetString) (RSeq_for_Uint16_t *buffer, OctetString *output);
@@ -445,7 +443,7 @@ typedef struct
 ////    }
 
   
-   * @return The size (in bytes) required for every call to read/write
+//   * @return The size (in bytes) required for every call to read/write
    
 ////    size_t get_size() const
 ////    {
@@ -453,7 +451,7 @@ typedef struct
 ////    }
 
   
-   * reads the value and advances the read buffer
+//   * reads the value and advances the read buffer
    
 ////    bool read(ser4cpp::rseq_t& buffer, T& output) const
 ////    {
@@ -461,7 +459,7 @@ typedef struct
 ////    }
 
   
-   * writes the value and advances the write buffer
+//   * writes the value and advances the write buffer
    
 ////    bool write(const T& value, ser4cpp::wseq_t& buffer) const
 ////    {
@@ -491,13 +489,9 @@ void Serializer_for_OctetString_in_Serializer_for_OctetString(Serializer_for_Oct
 
 
 //------------------------Serializer_for_OctetString----------------------------------------------------
-*/
 //------------------------Serializer_for_Counter----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_Counter) (RSeq_for_Uint16_t *buffer, Counter *output);
 typedef boolean (*write_func_t_in_Serializer_for_Counter)(Counter *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -557,15 +551,10 @@ void Serializer_for_Counter_in_Serializer_for_Counter(Serializer_for_Counter *pS
     uint16_t size,
     read_func_t_in_Serializer_for_Counter read_func,
     write_func_t_in_Serializer_for_Counter write_func);
-
-
 //------------------------Serializer_for_Counter----------------------------------------------------
 //------------------------Serializer_for_Analog----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_Analog) (RSeq_for_Uint16_t *buffer, Analog *output);
 typedef boolean (*write_func_t_in_Serializer_for_Analog)(Analog *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -629,11 +618,8 @@ void Serializer_for_Analog_in_Serializer_for_Analog(Serializer_for_Analog *pSeri
 
 //------------------------Serializer_for_Analog----------------------------------------------------
 //------------------------Serializer_for_AnalogOutputStatus----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_AnalogOutputStatus) (RSeq_for_Uint16_t *buffer, AnalogOutputStatus *output);
 typedef boolean (*write_func_t_in_Serializer_for_AnalogOutputStatus)(AnalogOutputStatus *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -697,11 +683,8 @@ void Serializer_for_AnalogOutputStatus_in_Serializer_for_AnalogOutputStatus(Seri
 
 //------------------------Serializer_for_AnalogOutputStatus----------------------------------------------------
 //------------------------Serializer_for_TimeAndInterval----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_TimeAndInterval) (RSeq_for_Uint16_t *buffer, TimeAndInterval *output);
 typedef boolean (*write_func_t_in_Serializer_for_TimeAndInterval)(TimeAndInterval *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -765,7 +748,6 @@ void Serializer_for_TimeAndInterval_in_Serializer_for_TimeAndInterval(Serializer
 
 //------------------------Serializer_for_TimeAndInterval----------------------------------------------------
 //------------------------Serializer_for_ControlRelayOutputBlock----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_ControlRelayOutputBlock) (RSeq_for_Uint16_t *buffer, ControlRelayOutputBlock *output);
 typedef boolean (*write_func_t_in_Serializer_for_ControlRelayOutputBlock)(ControlRelayOutputBlock *value, WSeq_for_Uint16_t *buffer);
 
@@ -834,8 +816,6 @@ void Serializer_for_ControlRelayOutputBlock_in_Serializer_for_ControlRelayOutput
 
 typedef boolean (*read_func_t_in_Serializer_for_AnalogOutputInt16) (RSeq_for_Uint16_t *buffer, AnalogOutputInt16 *output);
 typedef boolean (*write_func_t_in_Serializer_for_AnalogOutputInt16)(AnalogOutputInt16 *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -902,8 +882,6 @@ void Serializer_for_AnalogOutputInt16_in_Serializer_for_AnalogOutputInt16(Serial
 
 typedef boolean (*read_func_t_in_Serializer_for_AnalogOutputInt32) (RSeq_for_Uint16_t *buffer, AnalogOutputInt32 *output);
 typedef boolean (*write_func_t_in_Serializer_for_AnalogOutputInt32)(AnalogOutputInt32 *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -967,11 +945,8 @@ void Serializer_for_AnalogOutputInt32_in_Serializer_for_AnalogOutputInt32(Serial
 
 //------------------------Serializer_for_AnalogOutputInt32----------------------------------------------------
 //------------------------Serializer_for_AnalogOutputFloat32----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_AnalogOutputFloat32) (RSeq_for_Uint16_t *buffer, AnalogOutputFloat32 *output);
 typedef boolean (*write_func_t_in_Serializer_for_AnalogOutputFloat32)(AnalogOutputFloat32 *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -1035,11 +1010,8 @@ void Serializer_for_AnalogOutputFloat32_in_Serializer_for_AnalogOutputFloat32(Se
 
 //------------------------Serializer_for_AnalogOutputFloat32----------------------------------------------------
 //------------------------Serializer_for_AnalogOutputDouble64----------------------------------------------------
-
 typedef boolean (*read_func_t_in_Serializer_for_AnalogOutputDouble64) (RSeq_for_Uint16_t *buffer, AnalogOutputDouble64 *output);
 typedef boolean (*write_func_t_in_Serializer_for_AnalogOutputDouble64)(AnalogOutputDouble64 *value, WSeq_for_Uint16_t *buffer);
-//#define POINTER_read_func_t_in_Serializer_for_Binary_FUNCTION(function)   (*(read_func_t_in_Serializer_for_Binary *)function)
-//#define POINTER_write_func_t_in_Serializer_for_Binary_FUNCTION(function)  (*(write_func_t_in_Serializer_for_Binary *)function)
 
 ////template<class T> class Serializer
 typedef struct
@@ -1099,7 +1071,6 @@ void Serializer_for_AnalogOutputDouble64_in_Serializer_for_AnalogOutputDouble64(
     uint16_t size,
     read_func_t_in_Serializer_for_AnalogOutputDouble64 read_func,
     write_func_t_in_Serializer_for_AnalogOutputDouble64 write_func);
-
 
 //------------------------Serializer_for_AnalogOutputDouble64----------------------------------------------------
 

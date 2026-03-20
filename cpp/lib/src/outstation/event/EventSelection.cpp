@@ -835,7 +835,6 @@ uint32_t SelectByType_for_AnalogOutputStatusSpec_in_EventSelection_staticOver2(E
          max);
 }
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
 //----------------------------------OctetStringSpec-----------------------------------------------
 boolean select__for__TypedEventRecord_for_OctetStringSpec_in_EventSelection(EventLists* lists,
     TypedEventRecord_for_OctetStringSpec* node,
@@ -853,12 +852,11 @@ boolean select__for__TypedEventRecord_for_OctetStringSpec_in_EventSelection(Even
 {
   uint32_t* pnum_selected = (uint32_t*)pPointerGlobal1;
 
-  if ((*pnum_selected) == maxEv)
-    return false;
+  if ((*pnum_selected) == maxEv) return false;
 
-  if (node->record->value.state == EventState_unselected)
+  if (node->record->value_in_Node_for_EventRecord.state_in_EventRecord == EventState_unselected)
   {
-    node->record->value.state = EventState_selected;
+    node->record->value_in_Node_for_EventRecord.state_in_EventRecord = EventState_selected;
     node->selectedVariation = useDefaultVariation ? node->defaultVariation : variation;
 ////            lists.counters.OnSelect();
     OnSelect_in_EventClassCounters(&(lists->counters_in_EventLists));
@@ -925,4 +923,4 @@ uint32_t SelectByType_for_OctetStringSpec_in_EventSelection_staticOver2(EventLis
          max);
 }
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+

@@ -26,7 +26,7 @@
 ////#include "opendnp3/gen/FlagsType.h"
 
 #include "MeasurementTypes.h"
-//#include "OctetString.h"
+#include "OctetString.h"
 #include "EventMode.h"
 #include "FlagsType.h"
 
@@ -153,7 +153,7 @@ boolean Update_Counter_in_IUpdateHandler(IUpdateHandler*, Counter* meas, uint16_
 boolean FreezeCounter_in_IUpdateHandler(IUpdateHandler*, uint16_t index, boolean clear, EventMode_uint8_t mode);//bool clear = false, EventMode mode = EventMode::Detect) = 0;
 boolean Update_BinaryOutputStatus_in_IUpdateHandler(IUpdateHandler*, BinaryOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);// = EventMode::Detect) = 0;
 boolean Update_AnalogOutputStatus_in_IUpdateHandler(IUpdateHandler*, AnalogOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);// = EventMode::Detect) = 0;
-//boolean Update_OctetString_in_IUpdateHandler(IUpdateHandler*, OctetString* meas, uint16_t index, EventMode_uint8_t mode);// = EventMode::Detect) = 0;
+boolean Update_OctetString_in_IUpdateHandler(IUpdateHandler*, OctetString* meas, uint16_t index, EventMode_uint8_t mode);// = EventMode::Detect) = 0;
 boolean Update_TimeAndInterval_in_IUpdateHandler(IUpdateHandler*, TimeAndInterval* meas, uint16_t index);// = 0;
 boolean Modify_in_IUpdateHandler(IUpdateHandler*, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags);// = 0;
 

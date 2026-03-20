@@ -8,7 +8,7 @@
 #include "Node_TypedEventRecord_for_CounterSpec.h"
 #include "Node_TypedEventRecord_for_DoubleBitBinarySpec.h"
 #include "Node_TypedEventRecord_for_FrozenCounterSpec.h"
-//#include "Node_TypedEventRecord_for_OctetStringSpec.h"
+#include "Node_TypedEventRecord_for_OctetStringSpec.h"
 #include <string.h>
 
 void Node_for_int_in_Node_for_int(Node_for_int *pNode_for_int)
@@ -74,11 +74,11 @@ void Node_TypedEventRecord_for_FrozenCounterSpec_in_Node_TypedEventRecord_for_Fr
   pNode_TypedEventRecord_for_FrozenCounterSpec->prev = NULL;
   pNode_TypedEventRecord_for_FrozenCounterSpec->next = NULL;
 }
-/*
+
 void Node_TypedEventRecord_for_OctetStringSpec_in_Node_TypedEventRecord_for_OctetStringSpec(Node_TypedEventRecord_for_OctetStringSpec *pNode_TypedEventRecord_for_OctetStringSpec)
 {
   TypedEventRecord_for_OctetStringSpec_in_TypedEventRecord_for_OctetStringSpecOver1(&(pNode_TypedEventRecord_for_OctetStringSpec->value));
   pNode_TypedEventRecord_for_OctetStringSpec->prev = NULL;
   pNode_TypedEventRecord_for_OctetStringSpec->next = NULL;
 }
-*/
+

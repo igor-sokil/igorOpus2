@@ -45,7 +45,7 @@
 #include "StaticDataMap_for_Counter.h"
 #include "StaticDataMap_for_DoubleBitBinary.h"
 #include "StaticDataMap_for_FrozenCounter.h"
-//#include "StaticDataMap_for_OctetString.h"
+#include "StaticDataMap_for_OctetString.h"
 #include "StaticDataMap_for_TimeAndInterval.h"
 
 #include "FlagsType.h"
@@ -113,7 +113,7 @@ typedef struct
   StaticDataMap_for_BinaryOutputStatusSpec    binary_output_status;
   StaticDataMap_for_AnalogOutputStatusSpec    analog_output_status;
   StaticDataMap_for_TimeAndIntervalSpec       time_and_interval;
-//  StaticDataMap_for_OctetStringSpec           octet_string;
+  StaticDataMap_for_OctetStringSpec           octet_string;
 ////
   // ----- helper methods ------
 
@@ -171,7 +171,7 @@ boolean Update_for_Counter_in_Database(Database *pDatabase, Counter* meas, uint1
 boolean FreezeCounter_in_Database(Database *pDatabase, uint16_t index, boolean clear, EventMode_uint8_t mode);
 boolean Update_for_BinaryOutputStatus_in_Database(Database *pDatabase, BinaryOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);
 boolean Update_for_AnalogOutputStatus_in_Database(Database *pDatabase, AnalogOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);
-//boolean Update_for_OctetString_in_Database(Database *pDatabase, OctetString* meas, uint16_t index, EventMode_uint8_t mode);
+boolean Update_for_OctetString_in_Database(Database *pDatabase, OctetString* meas, uint16_t index, EventMode_uint8_t mode);
 boolean Update_for_TimeAndInterval_in_Database(Database *pDatabase, TimeAndInterval* meas, uint16_t index);
 boolean Modify_in_Database(Database *pDatabase, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags);
 
@@ -182,7 +182,7 @@ boolean Update_for_Counter_in_Database_override(void *pIUpdateHandler, Counter* 
 boolean FreezeCounter_in_Database_override(void *pIUpdateHandler, uint16_t index, boolean clear, EventMode_uint8_t mode);
 boolean Update_for_BinaryOutputStatus_in_Database_override(void *pIUpdateHandler, BinaryOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);
 boolean Update_for_AnalogOutputStatus_in_Database_override(void *pIUpdateHandler, AnalogOutputStatus* meas, uint16_t index, EventMode_uint8_t mode);
-//boolean Update_for_OctetString_in_Database_override(void *pIUpdateHandler, OctetString* meas, uint16_t index, EventMode_uint8_t mode);
+boolean Update_for_OctetString_in_Database_override(void *pIUpdateHandler, OctetString* meas, uint16_t index, EventMode_uint8_t mode);
 boolean Update_for_TimeAndInterval_in_Database_override(void *pIUpdateHandler, TimeAndInterval* meas, uint16_t index);
 boolean Modify_in_Database_override(void *pIUpdateHandler, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags);
 
@@ -265,10 +265,15 @@ IINField select_indices_for_FrozenCounterSpec_in_Database_staticOver2(StaticData
 IINField select_range_for_FrozenCounterSpec_in_Database_staticOver1(StaticDataMap_for_FrozenCounterSpec* map, Range* range);
 IINField select_range_for_FrozenCounterSpec_in_Database_staticOver2(StaticDataMap_for_FrozenCounterSpec* map, Range* range, StaticFrozenCounterVariation_uint8_t variation);
 
-//boolean load_type_for_OctetString_in_Database_static(StaticDataMap_for_OctetStringSpec& map, HeaderWriter* writer);
-//void select_all_class_zero_StaticDataMap_for_OctetStringSpec(Database *pDatabase, StaticDataMap_for_OctetStringSpec* map);
-//IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map);
-//IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, StaticOctetStringVariation_uint8_t var);
+boolean load_type_for_OctetString_in_Database_static(StaticDataMap_for_OctetStringSpec* map, HeaderWriter* writer);
+void select_all_class_zero_StaticDataMap_for_OctetStringSpec(Database *pDatabase, StaticDataMap_for_OctetStringSpec* map);
+IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map);
+IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, StaticOctetStringVariation_uint8_t var);
+IINField select_range_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, Range* range, StaticOctetStringVariation_uint8_t variation);
+IINField select_indices_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map,
+                        ICollection_for_uint16* indices,
+                        StaticOctetStringVariation_uint8_t variation);
+//IINField select_indices_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, ICollection_for_uint16* indices);
 
 boolean load_type_for_TimeAndInterval_in_Database_static(StaticDataMap_for_TimeAndIntervalSpec* map, HeaderWriter* writer);
 void select_all_class_zero_StaticDataMap_for_TimeAndIntervalSpec(Database *pDatabase, StaticDataMap_for_TimeAndIntervalSpec* map);
@@ -278,7 +283,6 @@ IINField select_indices_for_TimeAndIntervalSpec_in_Database_staticOver1(StaticDa
                         ICollection_for_uint16* indices,
                         StaticTimeAndIntervalVariation_uint8_t variation);
 IINField select_indices_for_TimeAndIntervalSpec_in_Database_staticOver2(StaticDataMap_for_TimeAndIntervalSpec* map, ICollection_for_uint16* indices);
-//IINField select_range_for_TimeAndIntervalSpec_in_Database_staticOver1(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range);
 IINField select_range_for_TimaAndIntervalSpec_in_Database_staticOver1(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range);
 IINField select_range_for_TimeAndIntervalSpec_in_Database_staticOver2(StaticDataMap_for_TimeAndIntervalSpec* map, Range* range, StaticTimeAndIntervalVariation_uint8_t variation);
 

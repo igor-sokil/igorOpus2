@@ -9,5 +9,6 @@
 #define SIZE_StaticDataMap_for_DoubleBitBinarySpec    10
 #define SIZE_StaticDataMap_for_FrozenCounterSpec      10
 #define SIZE_StaticDataMap_for_TimeAndIntervalSpec    10
+#define SIZE_StaticDataMap_for_OctetStringSpec        10
 
 #endif

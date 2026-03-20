@@ -73,11 +73,9 @@ void EventLists_in_EventLists(EventLists *pEventLists, EventBufferConfig* config
 ////      analogOutputStatus(config.maxAnalogOutputStatusEvents),
   List_TypedEventRecord_for_AnalogOutputStatusSpec_in_List_TypedEventRecord_for_AnalogOutputStatusSpecOver2(&(pEventLists->analogOutputStatus),
       config->maxAnalogOutputStatusEvents);
-/*
 ////      octetString(config.maxOctetStringEvents)
   List_TypedEventRecord_for_OctetStringSpec_in_List_TypedEventRecord_for_OctetStringSpecOver2(&(pEventLists->octetString),
       config->maxOctetStringEvents);
-*/
 }
 
 boolean IsAnyTypeFull_in_EventLists(EventLists *pEventLists)
@@ -151,7 +149,7 @@ List_TypedEventRecord_for_AnalogOutputStatusSpec* GetList_for_AnalogOutputStatus
 ////{
 ////    return this->analogOutputStatus;
 ////}
-/*
+
 List_TypedEventRecord_for_OctetStringSpec*        GetList_for_OctetStringSpec_in_EventLists(EventLists *pEventLists)
 {
   return &(pEventLists->octetString);
@@ -161,4 +159,4 @@ List_TypedEventRecord_for_OctetStringSpec*        GetList_for_OctetStringSpec_in
 ////    return this->octetString;
 ////}
 ////} // namespace opendnp3
-*/
+

@@ -238,7 +238,6 @@ void TypedEventRecord_for_AnalogOutputStatusSpec_in_TypedEventRecord_for_AnalogO
     Node_for_EventRecord* record);
 
 //----------------------------------AnalogOutputStatusSpec-----------------------------------------------
-/*
 //----------------------------------OctetStringSpec-----------------------------------------------
 ////template<class T> struct TypedEventRecord
 typedef struct
@@ -264,7 +263,6 @@ void TypedEventRecord_for_OctetStringSpec_in_TypedEventRecord_for_OctetStringSpe
 ////                   typename T::event_variation_t defaultVariation,
     event_variation_t_in_OctetStringInfo  defaultVariation,
     Node_for_EventRecord* record);
-
 //----------------------------------OctetStringSpec-----------------------------------------------
-*/
+
 #endif

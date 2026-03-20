@@ -298,7 +298,6 @@ void  setParentPointer_in_IEventCollection_for_DoubleBitBinary(IEventCollection_
   pIEventCollection_for_DoubleBitBinary->pParentPointer_in_IEventCollection_for_DoubleBitBinary = pParentPointer;
 }
 //---------------------------------DoubleBitBinary---------------------------------
-/*
 //---------------------------------OctetString---------------------------------
 uint16_t Write_in_IEventWriter_for_OctetString(IEventWriter_for_OctetString *pIEventWriter_for_OctetString, OctetString* meas, uint16_t index)
 {
@@ -328,7 +327,6 @@ void  setParentPointer_in_IEventCollection_for_OctetString(IEventCollection_for_
   pIEventCollection_for_OctetString->pParentPointer_in_IEventCollection_for_OctetString = pParentPointer;
 }
 //---------------------------------OctetString---------------------------------
-*/
 //---------------------------------IEventWriteHandler---------------------------------
 uint16_t Write_for_Binary_in_IEventWriteHandler(IEventWriteHandler *pIEventWriteHandler, EventBinaryVariation_uint8_t variation, Binary* first, IEventCollection_for_Binary* items)
 {
@@ -378,7 +376,7 @@ uint16_t Write_for_AnalogOutputStatus_in_IEventWriteHandler(IEventWriteHandler *
 //  return (pIEventWriteHandler->pWrite_for_AnalogOutputStatus_in_IEventWriteHandler)(pIEventWriteHandler, variation, first, items);
   return Write_for_AnalogOutputStatus_in_ASDUEventWriteHandler_override(pIEventWriteHandler, variation, first, items);
 }
-/*
+
 uint16_t Write_for_OctetString_in_IEventWriteHandler(IEventWriteHandler *pIEventWriteHandler, EventOctetStringVariation_uint8_t variation,
     OctetString* first,
     IEventCollection_for_OctetString* items)
@@ -387,7 +385,7 @@ uint16_t Write_for_OctetString_in_IEventWriteHandler(IEventWriteHandler *pIEvent
          first,
          items);
 }
-*/
+
 void* getParentPointer_in_IEventWriteHandler(IEventWriteHandler* pIEventWriteHandler)
 {
   return pIEventWriteHandler->pParentPointer_in_IEventWriteHandler;

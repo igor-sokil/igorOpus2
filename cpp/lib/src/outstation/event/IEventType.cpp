@@ -44,6 +44,9 @@ void SelectDefaultVariation_in_IEventType(IEventType *pIEventType, EventRecord* 
     case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec:
       SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override(pIEventType, record);
       break;
+    case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_OctetStringSpec:
+      SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override(pIEventType, record);
+      break;
   }
 }
 uint16_t WriteSome_in_IEventType(IEventType *pIEventType,
@@ -68,6 +71,9 @@ uint16_t WriteSome_in_IEventType(IEventType *pIEventType,
        return WriteSome_in_EventTypeImpl_TypedEventRecord_for_CounterSpec_override(pIEventType, iterator, lists, handler);
     case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec:
        return WriteSome_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override(pIEventType, iterator, lists, handler);
+    case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_OctetStringSpec:
+       return WriteSome_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override(pIEventType, iterator, lists, handler);
+      break;
   }
   return 0;
 }
@@ -97,6 +103,9 @@ void RemoveTypeFromStorage_in_IEventType(IEventType *pIEventType, EventRecord* r
       break;
     case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec:
       RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec_override(pIEventType, record, lists);
+      break;
+    case IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_OctetStringSpec:
+      RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override(pIEventType, record, lists);
       break;
   }
 }

@@ -45,7 +45,7 @@
 #include "List_TypedEventRecord_for_FrozenCounterSpec.h"
 #include "List_TypedEventRecord_for_BinaryOutputStatusSpec.h"
 #include "List_TypedEventRecord_for_AnalogOutputStatusSpec.h"
-//#include "List_TypedEventRecord_for_OctetStringSpec.h"
+#include "List_TypedEventRecord_for_OctetStringSpec.h"
 
 ////namespace opendnp3
 ////{
@@ -89,10 +89,8 @@ typedef struct
   List_TypedEventRecord_for_BinaryOutputStatusSpec binaryOutputStatus;
 ////    List<TypedEventRecord<AnalogOutputStatusSpec>> analogOutputStatus;
   List_TypedEventRecord_for_AnalogOutputStatusSpec analogOutputStatus;
-/*
 ////    List<TypedEventRecord<OctetStringSpec>> octetString;
   List_TypedEventRecord_for_OctetStringSpec octetString;
-*/
 } EventLists;
 
 void EventLists_in_EventLists(EventLists *pEventLists, EventBufferConfig* config);
@@ -103,9 +101,8 @@ List_TypedEventRecord_for_CounterSpec*            GetList_for_CounterSpec_in_Eve
 List_TypedEventRecord_for_FrozenCounterSpec*      GetList_for_FrozenCounterSpec_in_EventLists(EventLists *pEventLists);
 List_TypedEventRecord_for_BinaryOutputStatusSpec* GetList_for_BinaryOutputStatusSpec_in_EventLists(EventLists *pEventLists);
 List_TypedEventRecord_for_AnalogOutputStatusSpec* GetList_for_AnalogOutputStatusSpec_in_EventLists(EventLists *pEventLists);
-/*
 List_TypedEventRecord_for_OctetStringSpec*        GetList_for_OctetStringSpec_in_EventLists(EventLists *pEventLists);
-*/
+
 boolean IsAnyTypeFull_in_EventLists(EventLists *pEventLists);
 void  ForeachWhile_in_List_TypedEventRecord_for_AnalogOutputStatusSpec(List_TypedEventRecord_for_AnalogOutputStatusSpec *pList_TypedEventRecord_for_AnalogOutputStatusSpec,
     EventLists* lists,
@@ -163,7 +160,7 @@ void  ForeachWhile_in_List_TypedEventRecord_for_FrozenCounterSpec(List_TypedEven
     boolean useDefaultVariation,
     boolean (*select_match)(EventLists* lists, TypedEventRecord_for_FrozenCounterSpec* node, //uint32_t num_selected,
            uint32_t maxEv, event_variation_t_in_BinaryInfo variation, boolean useDefaultVariation));
-/*
+
 void  ForeachWhile_in_List_TypedEventRecord_for_OctetStringSpec(List_TypedEventRecord_for_OctetStringSpec *pList_TypedEventRecord_for_OctetStringSpec,
     EventLists* lists,
     //uint32_t num_selected,
@@ -172,7 +169,7 @@ void  ForeachWhile_in_List_TypedEventRecord_for_OctetStringSpec(List_TypedEventR
     boolean useDefaultVariation,
     boolean (*select_match)(EventLists* lists, TypedEventRecord_for_OctetStringSpec* node, //uint32_t num_selected,
         uint32_t maxEv, event_variation_t_in_BinaryInfo variation, boolean useDefaultVariation));
-*/
+
 
 ////} // namespace opendnp3
 

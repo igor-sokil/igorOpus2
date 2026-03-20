@@ -74,6 +74,20 @@ int main(int argc, char *argv[])
   std::cout<<"+***TransportLayerMrzs transport= "<<sizeof(transport)<<'\n';
   std::cout<<"+***OutstationConfig config= "<<sizeof(config)<<'\n';
   std::cout<<"+***OutstationMrzsObject t= "<<sizeof(t)<<'\n';
+  std::cout<<"+   ***OContext context= "<<sizeof(t.context)<<'\n';
+  std::cout<<"+      ***ResponseContext rspContext_in_OContext= "<<sizeof(t.context.rspContext_in_OContext)<<'\n';
+  std::cout<<"+      ***EventBuffer eventBuffer_in_OContext= "<<sizeof(t.context.eventBuffer_in_OContext)<<'\n';
+  std::cout<<"+         ***EventStorage storage= "<<sizeof(t.context.eventBuffer_in_OContext.storage)<<'\n';
+  std::cout<<"+            ***EventLists state= "<<sizeof(t.context.eventBuffer_in_OContext.storage.state)<<'\n';
+  std::cout<<"+               ***List_for_EventRecord events_in_EventLists= "<<sizeof(t.context.eventBuffer_in_OContext.storage.state.events_in_EventLists)<<'\n';
+  std::cout<<"+               ***EventClassCounters counters_in_EventLists= "<<sizeof(t.context.eventBuffer_in_OContext.storage.state.counters_in_EventLists)<<'\n';
+  std::cout<<"+               ***List_TypedEventRecord_for_BinarySpec binary= "<<sizeof(t.context.eventBuffer_in_OContext.storage.state.binary)<<'\n';
+  std::cout<<"+               ***List_TypedEventRecord_for_DoubleBitBinarySpec doubleBinary= "<<sizeof(t.context.eventBuffer_in_OContext.storage.state.doubleBinary)<<'\n';
+  std::cout<<"+      ***Database database_in_OContext= "<<sizeof(t.context.database_in_OContext)<<'\n';
+  std::cout<<"+         ***StaticDataMap_for_BinarySpec binary_input= "<<sizeof(t.context.database_in_OContext.binary_input)<<'\n';
+  std::cout<<"+         ***StaticDataMap_for_DoubleBitBinarySpec double_binary= "<<sizeof(t.context.database_in_OContext.double_binary)<<'\n';
+  std::cout<<"+         ***StaticDataMap_for_AnalogSpec analog_input= "<<sizeof(t.context.database_in_OContext.analog_input)<<'\n';
+  std::cout<<"+   ***MrzsOutstationApplication application= "<<sizeof(t.application)<<'\n';
   std::cout<<"+***MrzsFrameSink  mMrzsFrameSink= "<<sizeof(mMrzsFrameSink)<<'\n';
   std::cout<<"+***DatabaseConfig dDatabaseConfig= "<<sizeof(dDatabaseConfig)<<'\n';
 

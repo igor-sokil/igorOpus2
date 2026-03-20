@@ -3,7 +3,7 @@
 #include "header_dnp3.h"
 #include "EventTypeImpl.h"
 
-//EventTypeImpl_TypedEventRecord_for_OctetStringSpec instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec;
+EventTypeImpl_TypedEventRecord_for_OctetStringSpec instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec;
 EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec;
 EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec instance_in_EventTypeImpl_TypedEventRecord_for_BinaryOutputStatusSpec;
 EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec instance_in_EventTypeImpl_TypedEventRecord_for_FrozenCounterSpec;
@@ -635,7 +635,6 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputS
   Remove_in_List_TypedEventRecord_for_AnalogOutputStatusSpec(temp, node);
 }
 //----------------------------------AnalogOutputStatus-------------------------------------------
-/*
 //----------------------------------OctetString-------------------------------------------
 
 IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_static(void)
@@ -648,14 +647,18 @@ IEventType* Instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_stati
   decrement_stack_info();
 #endif
   IEventType_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType, EventType_OctetString);
-  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec.iIEventType, &instance_in_EventTypeImpl_TypedEventRecord_for_AnalogOutputStatusSpec);
+//  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType,
+//                      &instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec);
+  setParentPointer_in_IEventType(&instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType, 
+    &instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec, IEventTypeSELECTOR_for_EventTypeImpl_TypedEventRecord_for_OctetStringSpec);
 
-  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
-    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pWriteSome_in_IEventType =
-    WriteSome_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
-  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
-    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pSelectDefaultVariation_in_IEventType =
+//    SelectDefaultVariation_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pWriteSome_in_IEventType =
+//    WriteSome_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
+//  instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType.pRemoveTypeFromStorage_in_IEventType =
+//    RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec_override;
+
   return &(instance_in_EventTypeImpl_TypedEventRecord_for_OctetStringSpec.iIEventType);
 }
 
@@ -718,4 +721,4 @@ void   RemoveTypeFromStorage_in_EventTypeImpl_TypedEventRecord_for_OctetStringSp
   Remove_in_List_TypedEventRecord_for_OctetStringSpec(temp, node);
 }
 //----------------------------------OctetString-------------------------------------------
-*/
+
