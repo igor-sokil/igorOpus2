@@ -9,7 +9,7 @@
 #include "MainWindow.h"
 #include "key_filter.h"
 
-#include "../../../header.h"
+#include "../../../header_dnp3.h"
 
 #include "OutstationConfig.h"
 #include "OutstationTestObject.h"
@@ -62,10 +62,12 @@ qDebug()<<"********SUITE('57read g1v2 using qualifer 0x17')********";
 //    uint16_t num_time_and_interval,
 //    uint16_t num_octet_string);
 ////    OutstationTestObject t(config, configure::database_by_sizes(3, 0, 0, 0, 0, 0, 0, 0, 0));
-    getDataMapKeys_for_BinarySpec()[0] = 0;
-    getDataMapKeys_for_BinarySpec()[1] = 1;
-    getDataMapKeys_for_BinarySpec()[2] = 2;
-DatabaseConfig tmp = database_by_sizes_in_DatabaseHelpers(0, 3);
+DatabaseConfig tmp = database_by_sizes_in_DatabaseHelpers(0, 5);
+    setDataMapKeys_for_BinarySpec(&tmp, 0, 10);
+    setDataMapKeys_for_BinarySpec(&tmp, 1, 11);
+    setDataMapKeys_for_BinarySpec(&tmp, 2, 12);
+    setDataMapKeys_for_BinarySpec(&tmp, 3, 13);
+    setDataMapKeys_for_BinarySpec(&tmp, 4, 14);
 //    0,
 //    0,
 //    0,

@@ -778,7 +778,7 @@ Indexed_for_OctetString read_for_OctetString_in_CountIndexParser(RSeq_for_Uint16
 
 ////      return WithIndex(octets, index);
   return WithIndex_in_Indexed_for_OctetString(&octets, index);
-};
+}
 
 ////ParseResult CountIndexParser::ParseIndexPrefixedOctetData(ser4cpp::rseq_t& buffer,
 ////    const HeaderRecord& record,

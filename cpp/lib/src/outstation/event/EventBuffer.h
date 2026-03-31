@@ -163,7 +163,7 @@ void Update_CounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_Coun
 void Update_FrozenCounterSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_FrozenCounterSpec* evt);
 void Update_BinaryOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_BinaryOutputStatusSpec* evt);
 void Update_AnalogOutputStatusSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_AnalogOutputStatusSpec* evt);
-//void Update_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec* evt);
+void Update_OctetStringSpec_in_EventBuffer(EventBuffer *pEventBuffer, Event_for_OctetStringSpec* evt);
 
 void Update_BinarySpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_BinarySpec *evt);
 void Update_DoubleBitBinarySpec_in_EventBuffer_override(void *pIEventReceiver, Event_for_DoubleBitBinarySpec* evt);

@@ -589,6 +589,22 @@ Range assign_class_in_StaticDataMap_for_BinarySpecOver1(StaticDataMap_for_Binary
 
 Range assign_class_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_BinarySpec *pStaticDataMap_for_BinarySpec, PointClass_uint8_t clazz, Range* range)
 {
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  increment_stack_info();
+  std::cout<<getString_stack_info();
+  std::cout<<"{assign_class_in_StaticDataMap_for_BinarySpecOver2_1"<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*PointClass_uint8_t clazz= "<<(uint16_t)clazz<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*Range* range= "<<(uint32_t)range<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*StaticDataMap_for_BinarySpec *pStaticDataMap_for_BinarySpec= "<<(uint32_t)pStaticDataMap_for_BinarySpec<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*pStaticDataMap_for_BinarySpec->db_config= "<<(uint32_t)pStaticDataMap_for_BinarySpec->db_config<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*range->start= "<<(uint32_t)range->start<<'\n';
+#endif
 //  for (auto iter = pStaticDataMap_for_BinarySpec->map.lower_bound(range->start); iter != pStaticDataMap_for_BinarySpec->map.end() &&
 ////             range.Contains(iter->first);
 //       Contains_in_Range(range, iter->first); iter++)
@@ -596,7 +612,14 @@ Range assign_class_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_Binary
 //    iter->second.config_in_StaticDataCell.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, range->start);
+  uint16_t next_index = KeyMap2IndexMass_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, range->start);
+#ifdef  LOG_INFO
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*assign_class_in_StaticDataMap_for_BinarySpecOver2_2"<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*uint16_t next_index= "<<next_index<<'\n';
+#endif
+
   while((next_index < MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, next_index)))
   {
@@ -608,6 +631,13 @@ Range assign_class_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_Binary
 //Range Intersection_in_Range(Range *pRange, Range* other);
 ////    return range.Intersection(this->get_full_range());
   Range temp = get_full_range_in_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec);
+
+#ifdef  LOG_INFO
+  std::cout<<'\n';
+  std::cout<<getString_stack_info();
+  std::cout<<"}assign_class_in_StaticDataMap_for_BinarySpecOver2__"<<'\n';
+  decrement_stack_info();
+#endif
   return Intersection_in_Range(range, &temp);
 }
 

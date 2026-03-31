@@ -21,7 +21,7 @@ void MrzsLowerLayer_in_MrzsLowerLayer(MrzsLowerLayer *pMrzsLowerLayer)
 
   pMrzsLowerLayer->isResponse_in_MrzsLowerLayer = false;
 }
-
+/*
 ////bool MrzsLowerLayer::HasNoData() const
 boolean HasNoData_in_MrzsLowerLayer(MrzsLowerLayer *pMrzsLowerLayer)
 {
@@ -39,6 +39,7 @@ uint16_t NumWrites_in_MrzsLowerLayer(MrzsLowerLayer *pMrzsLowerLayer)
 {
   return 0;//pMrzsLowerLayer->sendQueue.size();
 }
+*/
 /*
 //Message mMessage1_global_in_MrzsLowerLayer;
 ////std::string MrzsLowerLayer::PopWriteAsHex()
@@ -79,8 +80,8 @@ boolean BeginTransmit_in_MrzsLowerLayer_override(void* pILowerLayer, Message* me
 
 boolean BeginTransmit_in_MrzsLowerLayer(MrzsLowerLayer* pMrzsLowerLayer, Message* message)
 {
-  Message temp = *message;
 #ifdef  LOG_INFO
+  Message temp = *message;
   std::cout<<'\n';
   std::cout<<"{BeginTransmit_in_MrzsLowerLayer1"<<'\n';
   inspect_RSeq(&(temp.payload));

@@ -1,30 +1,163 @@
 *******
 *Read Analog Grp30Var1[354,357]
-+ 05_64_0f_c4_03_00_01_00_05_ab_c2_c0_01_1e_01_01_62_01_65_01_31_bb
++ 05_64_0f_c4_03_00_01_00[05_ab]c2_c0{01{1e_01{01{62_01_65_01}31_bb
 
 *Link RESET
 + 05_64_05_c0_01_00_02_00_74_e3
 
 *Reset Bit
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_02_50_01_00_07_07_00_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{02{50{01{00_07{07_00}f3_95
 
 *Read Event Class1
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_3C_02_06_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{06}f3_95
 
 *Read Event Class1 1Event
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_3C_02_07_01_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{07{01}f3_95
 
 *Read Event (Class1 1Event) & (Class2 1Event)
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_3C_02_07_01_3C_03_07_01_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{07{01{3C_03{07{01}f3_95
 
-*Confirm Event 
-+  05_64_0e_c4_01_00_02_00_e0_66_c2_c2_00_f3_95
+*Confirm 
++  05_64_0e_c4_01_00_02_00[e0_66]c2_c2{00}f3_95
 
 *Read
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01}f3_95
 
 *Read Event 13ReadGrp2Var0
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_02_00_06_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{02_00{06}f3_95
 
 *Read Event 23ReadGrp2Var3
-+ 05_64_0e_c4_01_00_02_00_e0_66_c2_c2_01_02_03_06_f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{02_03{06}f3_95
+
+* delay measure // response, Grp51Var2, count 1, value == 00 00
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{17}f3_95 
+
+* write Grp50Var1, value = 1234 ms after epoch
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_01{07_01_D2_04_00_00_00_00}f3_95 
+
+* record current time
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{18}f3_95 
+
+* write Grp50Var3, value = 1234 ms after epoch
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_03{07_01_D2_04_00_00_00_00}f3_95 
+
+*35RreadGrp20Var1ViaIntegrity
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{01{14_01{06}f3_95
+
+*40ReadByRangeHeader
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C2{01{1E_02{00{05_06}f3_95
+
+*57read g1v2 using qualifer 0x17
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{01{01_02{17{02{00_02}f3_95
+
+* assign binaries to class 2
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{16{3C_03{06{01_00{06}f3_95
+
+* assign binaries 0 -> 5 (invalid range) to class 2
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{16{3C_03{06{01_00{01{00_00_05_00}f3_95
+
+* assign binaries 2 - 3 to class 2
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{16{3C_03{06{01_00{01{02_00_03_00}f3_95
+
+* assign binaries 2 - 3 to class 2 - assign all analogs to class 3
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{16{3C_03{06{01_00{01{02_00_03_00{3C_04{06[FF_FF]1E_00{06}f3_95
+
+*Read Event 23ReadGrp2Var3
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_c4{01{02_03{06}f3_95
+
+/*
+//Типы могут быть исключены из класса 0 через конфигурацию
+    StaticTypeBitField stb = AllTypes_in_StaticTypeBitField_static();
+    config.params.typesAllowedInClass0 = Except_in_StaticTypeBitField(&stb, StaticTypeBitmask_DoubleBinaryInput);
+*/
+/*
+    uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
+  if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class1;
+  else flg &= 0;
+////    database.analog_input[0].clazz = PointClass::Class2;
+  iter_first = KeyMap2IndexMass_for_AnalogSpec(&dDatabaseConfig, 350);
+  if(iter_first < 0xFF00) dDatabaseConfig.analog_input_config[iter_first].dDeadbandConfig_for_AnalogInfo.eEventConfig.clazz = PointClass_Class2;
+  else flg &= 0;
+////    database.counter[0].clazz = PointClass::Class3;
+  iter_first = KeyMap2IndexMass_for_CounterSpec(&dDatabaseConfig, 10315);
+  if(iter_first < 0xFF00)
+  {
+           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.clazz = PointClass_Class3;
+           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var5;
+  }
+  else flg &= 0;
+*/
+/*
+//  Counter cCounter1;
+//  Counter_in_CounterOver2(&cCounter1, 10);
+//  int flg = Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10315, EventMode_Detect);
+ Binary bBinary;
+ Binary_in_BinaryOver2(&bBinary, true);
+
+ Analog aAnalog;
+ Analog_in_AnalogOver2(&aAnalog, 3.0);
+
+// Counter cCounter;
+// Counter_in_CounterOver2(&cCounter, 7);
+ Flags fFlags;
+ Flags_In_FlagsOver2(&fFlags, 1);
+
+ DNPTime dDNPTime;
+ DNPTime_in_DNPTimeOver2(&dDNPTime, 1512595515000);
+
+//void Counter_in_CounterOver4(Counter *pCounter, uint32_t value, Flags flags, DNPTime timeDNPTime);
+ Counter cCounter;
+ Counter_in_CounterOver4(&cCounter, 23, fFlags, dDNPTime);
+
+ flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50000, EventMode_Detect);
+ flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50001, EventMode_Detect);
+ flg &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
+ flg &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter, 10315, EventMode_Detect);
+*/
+      case 7://TimeOut
+      {
+void timeout_RestartSolConfirmTimer_in_OContext(void);
+extern void *pPointerGlobal1_in_RestartSolConfirmTimer;
+ pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
+     &(t.context);
+ timeout_RestartSolConfirmTimer_in_OContext();
+      lLogHandler.LogEntry(QString("+ TimeOut OK\n"));
+      }//case 7://TimeOut
+      break;
+/*
+    OctetString data;
+//boolean Set_in_OctetDataOver2(OctetData *pOctetData,  char* input);
+////    REQUIRE(data.Set("a"));
+boolean btmp = Set_in_OctetDataOver2(&(data.oOctetData),  (char*) "a");
+qDebug()<<"REQUIRE(data.Set('a'))";
+std::cout << "btmp= " << btmp<<'\n';
+
+//IUpdateHandler* GetUpdateHandler_in_OContext(OContext *pOContext);
+//boolean Update_OctetString_in_IUpdateHandler(IUpdateHandler*, OctetString* meas, uint16_t index, EventMode_uint8_t mode);// = EventMode::Detect) = 0;
+////    REQUIRE(t.context.GetUpdateHandler().Update(data, 0));
+IUpdateHandler* itmp = GetUpdateHandler_in_OContext(&(t.context));
+btmp = Update_OctetString_in_IUpdateHandler(itmp, &data, 0, EventMode_Detect);// = EventMode::Detect) = 0;
+qDebug()<<"REQUIRE(t.context.GetUpdateHandler().Update(data, 0))";
+std::cout << "btmp= " << btmp<<'\n';
+
+////    REQUIRE(data.Set("bb"));
+ btmp = Set_in_OctetDataOver2(&(data.oOctetData),  (char*) "bb");
+qDebug()<<"REQUIRE(data.Set('bb'))";
+std::cout << "btmp= " << btmp<<'\n';
+
+////    REQUIRE(t.context.GetUpdateHandler().Update(data, 1));
+//IUpdateHandler* itmp = GetUpdateHandler_in_OContext(&(t.context));
+btmp = Update_OctetString_in_IUpdateHandler(itmp, &data, 1, EventMode_Detect);// = EventMode::Detect) = 0;
+*/
+/*
+void apply_in_41ReadGrp1Var1(IUpdateHandler* handler)
+{
+    // set all the values to ONLINE so that they don't get promoted
+// Установить все значения в ONLINE, чтобы они не получили повышение
+//boolean Modify_in_IUpdateHandler(IUpdateHandler*, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags);// = 0;
+////    t.Transaction([](IUpdateHandler& handler) { handler.Modify(FlagsType::BinaryInput, 0, 9, 0x01); });
+  Modify_in_IUpdateHandler(handler, FlagsType_BinaryInput, 0, 9, 0x01);
+}
+*/
+
+

@@ -2237,7 +2237,7 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
 #endif
     return tmp;
   }
-/*
+
   case (FunctionCode_COLD_RESTART):
   {
 //   IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, boolean isWarmRestart, HeaderWriter* pWriter);
@@ -2270,7 +2270,7 @@ IINField HandleNonReadResponse_in_OContext(OContext *pOContext, APDUHeader* head
 #endif
     return tmp;
   }
-*/
+
   case (FunctionCode_ASSIGN_CLASS):
   {
 //   IINField HandleAssignClass_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects);
@@ -3001,7 +3001,7 @@ IINField HandleRecordCurrentTime_in_OContext(OContext *pOContext)
 ////    return IINField::Empty();
   return Empty_in_IINField_static();
 }
-/*
+
 ////IINField OContext::HandleRestart(const ser4cpp::rseq_t& objects, bool isWarmRestart, HeaderWriter* pWriter)
 IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects, boolean isWarmRestart, HeaderWriter* pWriter)
 {
@@ -3120,7 +3120,7 @@ IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objec
   }
   }
 }
-*/
+
 ////IINField OContext::HandleAssignClass(const ser4cpp::rseq_t& objects)
 IINField HandleAssignClass_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objects)
 {

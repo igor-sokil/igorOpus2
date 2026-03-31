@@ -38,9 +38,10 @@ Flags GetBinaryFlags_in_QualityFlagsOver2(Flags flags, boolean value)
                       flags.value | ((BinaryQuality_uint8_t)BinaryQuality_STATE)
                      );
   Flags fFlags2;
+  BinaryQuality_uint8_t tmp = (BinaryQuality_uint8_t)~(int)BinaryQuality_STATE;
   Flags_In_FlagsOver2(&fFlags2,
-                      flags.value & (~((BinaryQuality_uint8_t)BinaryQuality_STATE))
-                     );
+                      flags.value & tmp);
+                     
 ////        return (value) ? Flags(flags.value | static_cast<uint8_t>(BinaryQuality::STATE))
 ////                       : Flags(flags.value & (~static_cast<uint8_t>(BinaryQuality::STATE)));
   return (value) ? fFlags1 : fFlags2;

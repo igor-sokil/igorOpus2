@@ -5,6 +5,7 @@ void make_ekran_data_and_time_elem_d_p_a_registrator(unsigned int type_of_regist
 /*****************************************************/
 void make_ekran_list_registrators(void)
 {
+/*
   static const unsigned char name_string[MAX_NAMBER_LANGUAGE][MAX_ROW_FOR_LIST_REGISTRATORS][MAX_COL_LCD] = 
   {
     {
@@ -64,6 +65,7 @@ void make_ekran_list_registrators(void)
   current_ekran.cursor_blinking_on = 0;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 
@@ -72,6 +74,7 @@ void make_ekran_list_registrators(void)
 /*****************************************************/
 void make_ekran_list_records_registrator_ar()
 {
+/*
   int index_language = index_language_in_array(current_settings.language);
   
   unsigned int position_temp = current_ekran.index_position;
@@ -205,11 +208,11 @@ void make_ekran_list_records_registrator_ar()
             if (buffer_for_manu_read_record[0] == LABEL_START_RECORD_AR) 
             {
               __HEADER_AR header_ar_tmp;
-              /*
+              
               У перших байтах зчитаного буферу є заголовок аналоговог ореєстратора.
               Для зручності на цю адресу ставим структуру заголовку аналогового реєстратора
               щоб легше було можливість читати поля
-              */
+              
               header_ar_tmp = *((__HEADER_AR*)buffer_for_manu_read_record);
               time_dat_tmp = header_ar_tmp.time_dat;
               time_ms_tmp = header_ar_tmp.time_ms;
@@ -373,6 +376,7 @@ void make_ekran_list_records_registrator_ar()
   current_ekran.cursor_blinking_on = 0;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 
@@ -381,6 +385,7 @@ void make_ekran_list_records_registrator_ar()
 /*****************************************************/
 void make_ekran_list_records_registrator(unsigned int type_registrator)
 {
+/*
   int index_language = index_language_in_array(current_settings.language);
   
   unsigned int position_temp = current_ekran.index_position;
@@ -592,6 +597,7 @@ void make_ekran_list_records_registrator(unsigned int type_registrator)
   current_ekran.cursor_blinking_on = 0;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 
@@ -600,6 +606,7 @@ void make_ekran_list_records_registrator(unsigned int type_registrator)
 /*****************************************************/
 void make_ekran_list_titles_for_record_of_digital_registrator(void)
 {
+/*
   int index_language = index_language_in_array(current_settings.language);
 
   if ((control_tasks_dataflash & TASK_MAMORY_READ_DATAFLASH_FOR_DR_MENU) == 0)
@@ -779,6 +786,7 @@ void make_ekran_list_titles_for_record_of_digital_registrator(void)
   current_ekran.cursor_blinking_on = 0;
   //Обновити повністю весь екран
   current_ekran.current_action = ACTION_WITH_CARRENT_EKRANE_FULL_UPDATE;
+*/
 }
 /*****************************************************/
 

@@ -1,6 +1,8 @@
 #include "header_dnp3.h"
 #include "OutstationMrzsObject.h"
 
+boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
+
 boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig)
 {
   uint16_t index = 0;
@@ -102,3 +104,28 @@ boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig)
 */
   return 0;
 }
+
+boolean  updateMrzsDataMapKeys_for_AnalogSpec(Database* pDatabase);
+
+boolean  updateMrzsDataMapKeys_for_AnalogSpec(Database* pDatabase)
+{
+  Analog aAnalog;
+  Analog_in_AnalogOver2(&aAnalog, 350.0);
+  boolean tmp = Update_for_Analog_in_Database(pDatabase, &aAnalog, 350, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 351.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 351, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 352.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 352, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 353.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 353, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 354.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 354, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 355.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 355, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 356.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 356, EventMode_Suppress);
+  Analog_in_AnalogOver2(&aAnalog, 357.0);
+  tmp &= Update_for_Analog_in_Database(pDatabase, &aAnalog, 357, EventMode_Suppress);
+  return tmp;
+}
+

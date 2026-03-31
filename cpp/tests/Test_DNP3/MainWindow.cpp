@@ -232,54 +232,7 @@ void MiniButtonWidget::downClicked()
       break;
       case 6://Update
       {
-  int flg = 1;
-/*
-    uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
-  if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class1;
-  else flg &= 0;
-////    database.analog_input[0].clazz = PointClass::Class2;
-  iter_first = KeyMap2IndexMass_for_AnalogSpec(&dDatabaseConfig, 350);
-  if(iter_first < 0xFF00) dDatabaseConfig.analog_input_config[iter_first].dDeadbandConfig_for_AnalogInfo.eEventConfig.clazz = PointClass_Class2;
-  else flg &= 0;
-////    database.counter[0].clazz = PointClass::Class3;
-  iter_first = KeyMap2IndexMass_for_CounterSpec(&dDatabaseConfig, 10315);
-  if(iter_first < 0xFF00)
-  {
-           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.clazz = PointClass_Class3;
-           dDatabaseConfig.counter_config[iter_first].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var5;
-  }
-  else flg &= 0;
-*/
- StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(&t.context.database_in_OContext.analog_input, &dDatabaseConfig);
- StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(&t.context.database_in_OContext.binary_input, &dDatabaseConfig);
- StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2(&t.context.database_in_OContext.counter, &dDatabaseConfig);
-/*
-//  Counter cCounter1;
-//  Counter_in_CounterOver2(&cCounter1, 10);
-//  int flg = Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter1, 10315, EventMode_Detect);
- Binary bBinary;
- Binary_in_BinaryOver2(&bBinary, true);
-
- Analog aAnalog;
- Analog_in_AnalogOver2(&aAnalog, 3.0);
-
-// Counter cCounter;
-// Counter_in_CounterOver2(&cCounter, 7);
- Flags fFlags;
- Flags_In_FlagsOver2(&fFlags, 1);
-
- DNPTime dDNPTime;
- DNPTime_in_DNPTimeOver2(&dDNPTime, 1512595515000);
-
-//void Counter_in_CounterOver4(Counter *pCounter, uint32_t value, Flags flags, DNPTime timeDNPTime);
- Counter cCounter;
- Counter_in_CounterOver4(&cCounter, 23, fFlags, dDNPTime);
-
- flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50000, EventMode_Detect);
- flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary, 50001, EventMode_Detect);
- flg &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
- flg &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter, 10315, EventMode_Detect);
-*/
+ int flg = 1;
  Flags fFlags;
  Flags_In_FlagsOver2(&fFlags, 1);
 
@@ -292,7 +245,7 @@ void MiniButtonWidget::downClicked()
  Binary_in_BinaryOver6(&bBinary1, false, fFlags, dDNPTime1);
 
  Binary bBinary2;
- Binary_in_BinaryOver6(&bBinary2, true, fFlags, dDNPTime2);
+ Binary_in_BinaryOver6(&bBinary2, false, fFlags, dDNPTime2);
 
  flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50000, EventMode_Detect);// = EventMode::Detect) = 0;
  flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary2, 50001, EventMode_Detect);// = EventMode::Detect) = 0;
@@ -302,20 +255,10 @@ void MiniButtonWidget::downClicked()
       }//case 6://Update
       break;
 
-      case 7://TimeOut
-      {
-void timeout_RestartSolConfirmTimer_in_OContext(void);
-extern void *pPointerGlobal1_in_RestartSolConfirmTimer;
- pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
-     &(t.context);
- timeout_RestartSolConfirmTimer_in_OContext();
-      lLogHandler.LogEntry(QString("+ TimeOut OK\n"));
-      }//case 7://TimeOut
-      break;
-
       default:
         qDebug() <<"ERROR_byteResult= "<<(unsigned short)byteResult.data()[0];
      }//switch
+
       flag = 0;
       break;
   }//while

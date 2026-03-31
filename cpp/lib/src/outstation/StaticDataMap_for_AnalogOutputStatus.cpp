@@ -528,7 +528,7 @@ Range assign_class_in_StaticDataMap_for_AnalogOutputStatusSpecOver2(StaticDataMa
 //    iter->second.config_in_StaticDataCell.dDeadbandConfig_for_AnalogOutputStatusInfo.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, range->start);
+  uint16_t next_index = KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, next_index)))
   {

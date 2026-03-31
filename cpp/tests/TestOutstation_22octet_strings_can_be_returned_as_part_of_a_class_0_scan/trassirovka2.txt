@@ -1,0 +1,856 @@
+********SUITE('23static')********
+
+{OutstationTestObject_in_OutstationTestObject1
+
+{MockExecutor_in_MockExecutor1
+*MockExecutor *pMockExecutor= 6393648
+}MockExecutor_in_MockExecutor_
+
+    {MockOutstationApplication_in_MockOutstationApplication1
+
+    }MockOutstationApplication_in_MockOutstationApplication_
+
+    {OContext_in_OContext1
+
+        EventLists_in_EventLists1
+
+        List_for_EventRecord_in_List_for_EventRecordOver2_1
+*        *uint32_t maxSize= 0
+
+        List_for_EventRecord_in_List_for_EventRecordOver1_1
+
+        {Database_in_Database1
+
+            {StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+*            *StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_3
+*            *pStaticDataMap->selected.start= 1
+*            *pStaticDataMap->selected.stop= 0
+
+*            *StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2_2
+*            **config->binary_input_count= 0
+
+            }StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2__
+
+            StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            {StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+*            *StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_3
+*            *pStaticDataMap->selected.start= 1
+*            *pStaticDataMap->selected.stop= 0
+
+*            *StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_2
+*            **config->analog_input_count= 0
+*            *pStaticDataMap->map[0].selection_in_StaticDataCell.variation= 0
+            }StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2_1
+
+            StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            StaticDataMap_for_TimeAndIntervalSpec_in_StaticDataMap_for_TimeAndIntervalSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+
+            StaticDataMap_for_OctetStringSpec_in_StaticDataMap_for_OctetStringSpecOver2_1
+
+                {Range_in_RangeOver1_1*
+                }Range_in_RangeOver1__*
+*        *(pDatabase->analog_input).map[0].selection_in_StaticDataCell.variation= 0
+        }Database_in_Database_
+
+        DeferredRequest_in_DeferredRequest1
+*        *uint32_t maxAPDUSize =292
+
+        BufferSer4_in_BufferSer4Over2_1
+*        *uint16_t length=292
+*        *sizeof(BufferSer4)=300
+*        *uint8_t bytes[SIZE_BufferSer4]=6421138
+
+        {OutstationSolState_in_OutstationSolState1
+
+            TxBuffer_in_TxBuffer1
+*            *uint32_t maxTxSize =292
+
+            BufferSer4_in_BufferSer4Over2_1
+*            *uint16_t length=292
+*            *sizeof(BufferSer4)=300
+*            *uint8_t bytes[SIZE_BufferSer4]=6421522
+        }OutstationSolState_in_OutstationSolState_
+
+        {Inst_in_StateIdle_static1
+
+            {StateIdle_in_StateIdle1
+
+                {OutstationState_in_OutstationState1
+
+                }OutstationState_in_OutstationState_
+            }StateIdle_in_StateIdle_
+        }Inst_in_StateIdle_static_
+*    *((pOContext->database_in_OContext).analog_input).map[0].selection_in_StaticDataCell.variation= 0
+    }OContext_in_OContext_
+}OutstationTestObject_in_OutstationTestObject_
+
+    {SendToOutstation_in_OutstationTestObject1
+
+        {OnReceive_in_OContext1
+*        **inspect_Message**
+*        **inspect_Addresses**
+*        @*uint16_t source= 0
+*        @*uint16_t destination= 0
++        **inspect_RSeq**
++        @*buffer->buffer_[i]= 6392699<- c0 1 3c 1 6
+
+            {ProcessMessage_in_OContext1
+
+                {ParseRequest_in_APDUHeaderParser_static1
++                **inspect_RSeq**
++                @*buffer->buffer_[i]= 6392699<- c0 1 3c 1 6
+                }ParseRequest_in_APDUHeaderParser_static2_
+
+                {ProcessObjects_in_OContext1
+*                **inspect_ParsedRequest**
+*                **inspect_Addresses**
+*                @*uint16_t source= 0
+*                @*uint16_t destination= 0
+*                **inspect_APDUHeader**
+*                **inspect_AppControlField**
+*                @*boolean FIR= 1
+*                @*boolean FIN= 1
+*                @*boolean CON= 0
+*                @*boolean UNS= 0
+*                @*uint8_t SEQ= 0
+*                @*FunctionCode_uint8_t function= 1
++                **inspect_RSeq**
++                @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                    {ProcessRequest_in_OContext1
+
+                        {OnReceiveSolRequest_in_OContext1
+
+                            {ProcessNewRequest_in_OContext1
+@@@@                            *FunctionCode_READ
+
+                                {OnNewReadRequest_in_StateIdle_override1
+
+                                    {RespondToReadRequest_in_OContext1
+
+                                        {RecordLastProcessedRequest_in_RequestHistory1
+
+                                        }RecordLastProcessedRequest_in_RequestHistory_
+
+                                        {Start_in_TxBuffer1
+
+                                        }Start_in_TxBuffer_
+@@@@                                        *length_in_HasLength_for_Uint16_t(&(temp.hHasLength))= 292
+
+                                        {HeaderWriter_in_HeaderWriter1
+*                                        *length_in_HasLength_for_Uint16_t(&(position_->hHasLength))= 288
+
+                                        }HeaderWriter_in_HeaderWriter_
+
+                                        {SetFunction_in_APDUWrapper1
+@@@@                                        *write_uint8=6421523->129
+                                        }SetFunction_in_APDUWrapper_
+
+                                        {HandleRead_in_OContext1
++                                        **inspect_RSeq**
++                                        @*buffer->buffer_[i]= 6392701<- 3c 1 6
+*                                        *((pOContext->database_in_OContext).analog_input).map[0].selection_in_StaticDataCell.variation= 0
+*                                        *HandleRead_in_OContext2
+
+                                            {Unselect_in_EventStorage1
+
+                                                Foreach_in_List_for_EventRecord1
+
+                                                    Iterate_in_List_for_EventRecord1
+*                                                    *pList_for_EventRecord->head= 0
+
+                                                        From__in__Iterator_in_List_for_EventRecord_static1
+*                                                        *Node_for_EventRecord* start= 0
+
+                                                        Iterator_in_List_for_EventRecord__in__Iterator_in_List_for_EventRecord1
+*                                                        *Node_for_EventRecord* start= 0
+                                            }Unselect_in_EventStorage_
+
+                                            {Unselect_in_Database1
+
+                                                {clear_selection_in_StaticDataMap_for_BinarySpec1
+
+                                                    {Range_in_RangeOver1_1*
+                                                    }Range_in_RangeOver1__*
+                                                }clear_selection_in_StaticDataMap_for_BinarySpec_
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {clear_selection_in_StaticDataMap_for_AnalogSpec1
+
+                                                    {Range_in_RangeOver1_1*
+                                                    }Range_in_RangeOver1__*
+                                                }clear_selection_in_StaticDataMap_for_AnalogSpec_
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+
+                                                {Range_in_RangeOver1_1*
+                                                }Range_in_RangeOver1__*
+                                            }Unselect_in_Database_
+*                                        *HandleRead_in_OContext3
+*                                        *((pOContext->database_in_OContext).analog_input).map[0].selection_in_StaticDataCell.variation= 0
+
+                                            {Parse_in_APDUParser_static1
++                                            **inspect_RSeq**
++                                            @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                                                {ParseSinglePass_in_APDUParser_static1
+*                                                *IWhiteList* pWhiteList=6391652
++                                                **inspect_RSeq**
++                                                @*buffer->buffer_[i]= 6392701<- 3c 1 6
+*                                                *copy1
++                                                **inspect_RSeq**
++                                                @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                                                    {ParseHeader_in_APDUParser_static1
++                                                    **inspect_RSeq**
++                                                    @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                                                        {ParseObjectHeader_in_ObjectHeaderParser_static1
++                                                        **inspect_RSeq**
++                                                        @*buffer->buffer_[i]= 6392701<- 3c 1 6
+@@@@                                                        *read_in_UInt8_static = 6392701<-60
+@@@@                                                        *read_in_UInt8_static = 6392702<-1
+@@@@                                                        *read_in_UInt8_static = 6392703<-6
+                                                        }ParseObjectHeader_in_ObjectHeaderParser_static2_
+
+                                                        {GetRecord_in_GroupVariationRecord_static1
+*                                                        *uint8_t group= 60
+*                                                        *uint8_t variation= 1
+
+                                                            {GetEnumAndType_in_GroupVariationRecord_static1
+*                                                            *uint8_t group= 60
+*                                                            *uint8_t variation= 1
+
+                                                                {GetType_in_GroupVariationRecord_static1
+*                                                                *uint8_t group= 60
+*                                                                *uint8_t variation= 1
+*                                                                *GroupVariationType_STATIC
+                                                                }GetType_in_GroupVariationRecord_static20_
+*                                                            *GroupVariation_uint16_t enumeration= 3c01
+                                                            GetEnumAndType_in_GroupVariationRecord_static2
+
+                                                            }GetEnumAndType_in_GroupVariationRecord_static_
+                                                        }GetRecord_in_GroupVariationRecord_static_
+
+                                                        {ParseQualifier_in_APDUParser_static1
+*                                                        *QualifierCode_uint8_t tmp =6
+@@@@                                                        *QualifierCode_ALL_OBJECTS*
+
+                                                            {HandleAllObjectsHeader_in_APDUParser_static1
+*                                                            ***FORMAT_LOGGER_BLOCK(pLogger, settings.LoggingLevel(), '%03u,%03u - %s - %s', record.group, record.variation***
+*                                                            *record->gGroupVariationRecord.group=60
+*                                                            *record->gGroupVariationRecord.variation=1
+*                                                            *record->gGroupVariationRecord.enumeration=3c01
+*                                                            *IAPDUHandler* pHandler=0
+                                                            }HandleAllObjectsHeader_in_APDUParser_static_
+                                                        }ParseQualifier_in_APDUParser_static1_
+*                                                        *ParseResult_uint8_t tmp= 0
+                                                    }ParseHeader_in_APDUParser_static4_
+*                                                    *ParseResult_uint8_t tmp= 0
+                                                }ParseSinglePass_in_APDUParser_static2_
+
+*                                            *Parse_in_APDUParser_static2
+*                                            *ParseResult_uint8_t result= 0
+
+                                                {ParseSinglePass_in_APDUParser_static1
+*                                                *IWhiteList* pWhiteList=0
++                                                **inspect_RSeq**
++                                                @*buffer->buffer_[i]= 6392701<- 3c 1 6
+*                                                *copy1
++                                                **inspect_RSeq**
++                                                @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                                                    {ParseHeader_in_APDUParser_static1
++                                                    **inspect_RSeq**
++                                                    @*buffer->buffer_[i]= 6392701<- 3c 1 6
+
+                                                        {ParseObjectHeader_in_ObjectHeaderParser_static1
++                                                        **inspect_RSeq**
++                                                        @*buffer->buffer_[i]= 6392701<- 3c 1 6
+@@@@                                                        *read_in_UInt8_static = 6392701<-60
+@@@@                                                        *read_in_UInt8_static = 6392702<-1
+@@@@                                                        *read_in_UInt8_static = 6392703<-6
+                                                        }ParseObjectHeader_in_ObjectHeaderParser_static2_
+
+                                                        {GetRecord_in_GroupVariationRecord_static1
+*                                                        *uint8_t group= 60
+*                                                        *uint8_t variation= 1
+
+                                                            {GetEnumAndType_in_GroupVariationRecord_static1
+*                                                            *uint8_t group= 60
+*                                                            *uint8_t variation= 1
+
+                                                                {GetType_in_GroupVariationRecord_static1
+*                                                                *uint8_t group= 60
+*                                                                *uint8_t variation= 1
+*                                                                *GroupVariationType_STATIC
+                                                                }GetType_in_GroupVariationRecord_static20_
+*                                                            *GroupVariation_uint16_t enumeration= 3c01
+                                                            GetEnumAndType_in_GroupVariationRecord_static2
+
+                                                            }GetEnumAndType_in_GroupVariationRecord_static_
+                                                        }GetRecord_in_GroupVariationRecord_static_
+
+                                                        {ParseQualifier_in_APDUParser_static1
+*                                                        *QualifierCode_uint8_t tmp =6
+@@@@                                                        *QualifierCode_ALL_OBJECTS*
+
+                                                            {HandleAllObjectsHeader_in_APDUParser_static1
+*                                                            ***FORMAT_LOGGER_BLOCK(pLogger, settings.LoggingLevel(), '%03u,%03u - %s - %s', record.group, record.variation***
+*                                                            *record->gGroupVariationRecord.group=60
+*                                                            *record->gGroupVariationRecord.variation=1
+*                                                            *record->gGroupVariationRecord.enumeration=3c01
+*                                                            *IAPDUHandler* pHandler=6391652
+                                                            HandleAllObjectsHeader_in_APDUParser_static2
+
+                                                                {OnHeader_AllObjectsHeader_in_IAPDUHandler1
+
+                                                                    ProcessHeader_AllObjectsHeader_in_ReadHandler_override1
+*                                                                    *(header->hHeaderRecord).gGroupVariationRecord.type= 0
+@@@@                                                                    *GroupVariationType_STATIC
+
+                                                                        SelectAll_in_Database1
+*                                                                        *GroupVariation_Group60Var1
+
+                                                                            select_all_in_StaticDataMap_for_BinarySpecOver3_1
+*                                                                            *pStaticDataMap_for_BinarySpec= 6402232
+*                                                                            *pStaticDataMap_for_BinarySpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_BinarySpec->selected.stop= 0
+                                                                            select_all_in_StaticDataMap_for_BinarySpecOver3_2
+
+                                                                            select_all_in_StaticDataMap_for_DoubleBitBinarySpecOver3_1
+*                                                                            *pStaticDataMap_for_DoubleBitBinarySpec= 6403608
+*                                                                            *pStaticDataMap_for_DoubleBitBinarySpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_DoubleBitBinarySpec->selected.stop= 0
+                                                                            select_all_in_StaticDataMap_for_DoubleBitBinarySpecOver3_2
+
+                                                                            {select_all_in_StaticDataMap_for_BinaryOutputStatusSpecOver3_1
+*                                                                            *pStaticDataMap_for_BinaryOutputStatusSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_BinaryOutputStatusSpec->selected.stop= 0
+                                                                            }select_all_in_StaticDataMap_for_BinaryOutputStatusSpecOver3_1_
+
+                                                                            {select_all_in_StaticDataMap_for_CounterSpecOver3_1
+*                                                                            *pStaticDataMap_for_CounterSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_CounterSpec->selected.stop= 0
+                                                                            }select_all_in_StaticDataMap_for_CounterSpecOver3_1_
+
+                                                                            select_all_in_StaticDataMap_for_FrozenCounterSpecOver3_1
+*                                                                            *pStaticDataMap_for_FrozenCounterSpec= 6407816
+*                                                                            *pStaticDataMap_for_FrozenCounterSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_FrozenCounterSpec->selected.stop= 0
+                                                                            select_all_in_StaticDataMap_for_FrozenCounterSpecOver3_2
+
+                                                                            {select_all_in_StaticDataMap_for_AnalogSpecOver3_1
+*                                                                            *pStaticDataMap_for_AnalogSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_AnalogSpec->selected.stop= 0
+                                                                            }select_all_in_StaticDataMap_for_AnalogSpecOver3_1_
+
+                                                                            {select_all_in_StaticDataMap_for_AnalogOutputStatusSpecOver3_1
+*                                                                            *pStaticDataMap_for_AnalogOutputStatusSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_AnalogOutputStatusSpec->selected.stop= 0
+                                                                            }select_all_in_StaticDataMap_for_AnalogOutputStatusSpecOver3_1_
+
+                                                                            select_all_in_StaticDataMap_for_TimeAndIntervalSpecOver3_1
+*                                                                            *pStaticDataMap_for_TimeAndIntervalSpec= 6412024
+*                                                                            *pStaticDataMap_for_TimeAndIntervalSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_TimeAndIntervalSpec->selected.stop= 0
+                                                                            select_all_in_StaticDataMap_for_TimeAndIntervalSpecOver3_2
+
+                                                                            select_all_in_StaticDataMap_for_OctetStringSpecOver3_1
+*                                                                            *pStaticDataMap_for_OctetStringSpec= 6413080
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.start= 1
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.stop= 0
+                                                                            select_all_in_StaticDataMap_for_OctetStringSpecOver3_3
+*                                                                            *sSelectedValue_for_OctetStringSpec.variation= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.start= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.stop= 2
+                                                                            select_all_in_StaticDataMap_for_OctetStringSpecOver3_3
+*                                                                            *sSelectedValue_for_OctetStringSpec.variation= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.start= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.stop= 2
+                                                                            select_all_in_StaticDataMap_for_OctetStringSpecOver3_3
+*                                                                            *sSelectedValue_for_OctetStringSpec.variation= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.start= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.stop= 2
+                                                                            select_all_in_StaticDataMap_for_OctetStringSpecOver3_4
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.start= 0
+*                                                                            *pStaticDataMap_for_OctetStringSpec->selected.stop= 2
+
+                                                                        SelectAll_in_Database1_
+
+                                                                    {Record_in_IAPDUHandler1
+*                                                                    **inspect_IINField**
+*                                                                    @*uint8_t LSB= 0
+*                                                                    @*uint8_t MSB= 0
+                                                                    *Record_in_IAPDUHandler2
+*                                                                    **inspect_IINField**
+*                                                                    @*uint8_t LSB= 0
+*                                                                    @*uint8_t MSB= 0
+                                                                    *Record_in_IAPDUHandler3
+                                                                    }Record_in_IAPDUHandler_
+
+                                                                }OnHeader_AllObjectsHeader_in_IAPDUHandler_
+*                                                                **inspect_IINField**
+*                                                                @*uint8_t LSB= 0
+*                                                                @*uint8_t MSB= 0
+                                                            }HandleAllObjectsHeader_in_APDUParser_static_
+                                                        }ParseQualifier_in_APDUParser_static1_
+*                                                        *ParseResult_uint8_t tmp= 0
+                                                    }ParseHeader_in_APDUParser_static4_
+*                                                    *ParseResult_uint8_t tmp= 0
+                                                }ParseSinglePass_in_APDUParser_static2_
+*                                            *ParseResult_uint8_t tmp= 0
+                                            }Parse_in_APDUParser_static_
+                                        *HandleRead_in_OContext5
+*                                        *ParseResult_uint8_t result =0
+*                                        *((pOContext->database_in_OContext).analog_input).map[0].selection_in_StaticDataCell.variation= 0
+
+                                            {LoadResponse_in_ResponseContext1
+                                            *LoadResponse_in_ResponseContext2
+*                                            *uint16_t startingSize= 288
+
+                                                {Load_in_EventBuffer1
+
+                                                    {Write_in_EventWriting_static1
+
+                                                        Iterate_in_List_for_EventRecord1
+*                                                        *pList_for_EventRecord->head= 0
+
+                                                            From__in__Iterator_in_List_for_EventRecord_static1
+*                                                            *Node_for_EventRecord* start= 0
+
+                                                            Iterator_in_List_for_EventRecord__in__Iterator_in_List_for_EventRecord1
+*                                                            *Node_for_EventRecord* start= 0
+
+                                                        WriteSome_in_EventWriting_static1
+*                                                        *lists->counters.selected_in_EventClassCounters= 0
+*                                                    *uint16_t num_written =0
+                                                    }Write_in_EventWriting_static1_
+
+                                                    NumSelected_in_EventStorage1
+*                                                    *(pEventStorage->state).counters.selected_in_EventClassCounters= 0
+                                                }Load_in_EventBuffer_
+                                            *LoadResponse_in_ResponseContext3
+*                                            *boolean someEventsWritten= 0
+
+                                                {Load_in_Database_override1
+
+                                                    Load_in_Database1
+
+                                                    {load_type_for_Analog_in_Database_static1
+*                                                    *map->db_config->analog_input_count= 0
+*                                                    *uint16_t start= 1
+*                                                    *uint16_t stop= 0
+                                                    *load_type_for_Analog_in_Database_static2
+                                                    }load_type_for_Analog_in_Database_static1_
+
+                                                    {load_type_for_Binary_in_Database_static1
+*                                                    *map->db_config->binary_input_count= 0
+*                                                    *uint16_t start= 1
+*                                                    *uint16_t stop= 0
+                                                    *load_type_for_Binary_in_Database_static2
+*                                                    *load_type_for_Binary_in_Database_static2a
+                                                    }load_type_for_Binary_in_Database_static1_
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_BinaryOutputStatus_in_Database_static1
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_AnalogOutputStatus_in_Database_static1
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_DoubleBitBinary_in_Database_static1
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_Counter_in_Database_static1
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_FrozenCounter_in_Database_static1
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_TimeAndInterval_in_Database_static1
+                                                    load_type_for_TimeAndInterval_in_Database_static2
+*                                                    *if (iter == map.end())
+
+                                                    load_type_for_OctetString_in_Database_static1
+*                                                    *uint16_t start= 0
+*                                                    *uint16_t stop= 2
+                                                    *load_type_for_Analog_in_Database_static2
+
+                                                        get_for_OctetStringSpec_in_StaticWriters_static1
+
+                                                        {write_octet_strings_in_StaticWriters_static1
+*                                                        *write_octet_strings_in_StaticWriters_static2
+*                                                        **inspect_Range**
+*                                                        @*uint16_t start= 0
+*                                                        @*uint16_t stop= 2
+*                                                        *write_octet_strings_in_StaticWriters_static3
+*                                                        *uint16_t i= 0
+
+                                                            IterateOverRange_for_UInt8_OctetString_in_HeaderWriter1
+*                                                            *qc= 0
+*                                                            *start= 0
+
+                                                            WriteHeaderWithReserve_in_HeaderWriter1
+*                                                            *qc= 0
+*                                                            *reserve= 3
+
+                                                            {WriteHeader_in_HeaderWriter1
+*                                                            *id.group= 110
+*                                                            *id.variation= 1
+*                                                            *qc= 0
+*                                                            *length_in_HasLength_for_Uint16_t(&(pHeaderWriter->position->hHasLength)= 288
+@@@@                                                            *write_in_UInt8_static = 6421526->110
+@@@@                                                            *write_in_UInt8_static = 6421527->1
+@@@@                                                            *write_in_UInt8_static = 6421528->0
+
+                                                            }WriteHeader_in_HeaderWriter2_
+
+                                                            RangeWriteIterator_for_UInt8_OctetString_in_RangeWriteIterator_for_UInt8_OctetStringOver2_1
+@@@@                                                        *write_in_UInt8_static = 6421529->0
+
+                                                            {write_some_octet_strings_for_UInt8_in_StaticWriters_static1
+*                                                            *write_some_octet_strings_for_UInt8_in_StaticWriters_static2
+*                                                            *boolean first= 1
+*                                                            *uint16_t next_index= 0
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.size= 1
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.buffer[0]= 4
+
+                                                                {Write_in_RangeWriteIterator_for_UInt8_OctetString1
+
+                                                                    {Write_in_OctetStringSerializer_static1
+*                                                                    *Write_in_OctetStringSerializer_static2
++                                                                    **inspect_RSeq**
++                                                                    @*buffer->buffer_[i]= 6390684<- 4
+
+                                                                        {transfer_fromMemcpy_in_WSeq_for_Uint16_t1
++                                                                        **inspect_RSeq**
++                                                                        @*buffer->buffer_[i]= 6390684<- 4
+                                                                        }transfer_fromMemcpy_in_WSeq_for_Uint16_t2_
+
+                                                                    }Write_in_OctetStringSerializer_static2_
+
+                                                                }Write_in_RangeWriteIterator_for_UInt8_OctetString1_
+
+                                                                {operator++
+                                                                *operator++1
+                                                                *iter->first= 1
+                                                                }operator++2_
+                                                                *iter->first= 1
+*                                                            *write_some_octet_strings_for_UInt8_in_StaticWriters_static2
+*                                                            *boolean first= 0
+*                                                            *uint16_t next_index= 1
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.size= 1
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.buffer[0]= 4
+
+                                                                {Write_in_RangeWriteIterator_for_UInt8_OctetString1
+
+                                                                    {Write_in_OctetStringSerializer_static1
+*                                                                    *Write_in_OctetStringSerializer_static2
++                                                                    **inspect_RSeq**
++                                                                    @*buffer->buffer_[i]= 6390684<- 4
+
+                                                                        {transfer_fromMemcpy_in_WSeq_for_Uint16_t1
++                                                                        **inspect_RSeq**
++                                                                        @*buffer->buffer_[i]= 6390684<- 4
+                                                                        }transfer_fromMemcpy_in_WSeq_for_Uint16_t2_
+
+                                                                    }Write_in_OctetStringSerializer_static2_
+
+                                                                }Write_in_RangeWriteIterator_for_UInt8_OctetString1_
+
+                                                                {operator++
+                                                                *operator++1
+                                                                *iter->first= 2
+                                                                }operator++2_
+                                                                *iter->first= 2
+*                                                            *write_some_octet_strings_for_UInt8_in_StaticWriters_static2
+*                                                            *boolean first= 0
+*                                                            *uint16_t next_index= 2
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.size= 1
+*                                                            *SelectedValue_for_OctetStringSpec elem.value.oOctetData.buffer[0]= 4
+
+                                                                {Write_in_RangeWriteIterator_for_UInt8_OctetString1
+
+                                                                    {Write_in_OctetStringSerializer_static1
+*                                                                    *Write_in_OctetStringSerializer_static2
++                                                                    **inspect_RSeq**
++                                                                    @*buffer->buffer_[i]= 6390684<- 4
+
+                                                                        {transfer_fromMemcpy_in_WSeq_for_Uint16_t1
++                                                                        **inspect_RSeq**
++                                                                        @*buffer->buffer_[i]= 6390684<- 4
+                                                                        }transfer_fromMemcpy_in_WSeq_for_Uint16_t2_
+
+                                                                    }Write_in_OctetStringSerializer_static2_
+
+                                                                }Write_in_RangeWriteIterator_for_UInt8_OctetString1_
+
+                                                                {operator++
+
+                                                                    {Invalid_in_Range_static1
+                                                                    }Invalid_in_Range_static_
+                                                                }operator++1_
+                                                                *iter->first= 3
+
+                                                            }write_some_octet_strings_for_UInt8_in_StaticWriters_static4_
+
+                                                            RangeWriteIterator_for_UInt8_OctetString_destr_RangeWriteIterator_for_UInt8_OctetString1
+@@@@                                                        *write_in_UInt8_static = 6421530->2
+
+                                                        }write_octet_strings_in_StaticWriters_static1_
+*                                                    *uint16_t start= 1
+*                                                    *uint16_t stop= 0
+                                                    *load_type_for_Analog_in_Database_static2
+                                                    load_type_for_OctetString_in_Database_static1_
+                                                }Load_in_Database_override_
+*                                            **inspect_AppControlField**
+*                                            @*boolean FIR= 1
+*                                            @*boolean FIN= 1
+*                                            @*boolean CON= 0
+*                                            @*boolean UNS= 0
+*                                            @*uint8_t SEQ= 0
+
+                                            }LoadResponse_in_ResponseContext1_
+                                        *HandleRead_in_OContext6
+*                                        *ParseResult_uint8_t result =0
+*                                        **inspect_AppControlField**
+*                                        @*boolean FIR= 1
+*                                        @*boolean FIN= 1
+*                                        @*boolean CON= 0
+*                                        @*boolean UNS= 0
+*                                        @*uint8_t SEQ= 0
+                                        }HandleRead_in_OContext1_
+*                                        **inspect_IINField**
+*                                        @*uint8_t LSB= 0
+*                                        @*uint8_t MSB= 0
+
+                                        {ToByte_in_AppControlField1
+*                                        *ret |= AppControlField_FIR_MASK
+*                                        *ret |= AppControlField_FIN_MASK
+                                        *uint8_t ret =192
+                                        *uint8_t seq =0
+                                        }ToByte_in_AppControlField_
+
+                                        {SetControl_in_APDUWrapper1
+@@@@                                        *write_uint8=6421522->192
+                                        }SetControl_in_APDUWrapper_
+
+                                        {GetResponseIIN_in_OContext1
+*                                        *LSBMask_BROADCAST = 0x01
+*                                        *LSBMask_CLASS1_EVENTS = 0x02
+*                                        *LSBMask_CLASS2_EVENTS = 0x04
+*                                        *LSBMask_CLASS3_EVENTS = 0x08
+*                                        *LSBMask_NEED_TIME = 0x10
+*                                        *LSBMask_LOCAL_CONTROL = 0x20
+*                                        *LSBMask_DEVICE_TROUBLE = 0x40
+*                                        *LSBMask_DEVICE_RESTART = 0x80
+*
+*                                        *MSBMask_FUNC_NOT_SUPPORTED = 0x01
+*                                        *MSBMask_OBJECT_UNKNOWN = 0x02
+*                                        *MSBMask_PARAM_ERROR = 0x04
+*                                        *MSBMask_EVENT_BUFFER_OVERFLOW = 0x08
+*                                        *MSBMask_ALREADY_EXECUTING = 0x10
+*                                        *MSBMask_CONFIG_CORRUPT = 0x20
+*                                        *MSBMask_RESERVED1 = 0x40
+*                                        *MSBMask_RESERVED2 = 0x80
+*
+
+                                            IsOverflown_in_EventBuffer1
+*                                            *pEventBuffer->overflow= 0
+                                        GetResponseIIN_in_OContext2
+*                                        **inspect_IINField**
+*                                        @*uint8_t LSB= 0
+*                                        @*uint8_t MSB= 0
+                                        GetResponseIIN_in_OContext3
+*                                        **inspect_IINField**
+*                                        @*uint8_t LSB= 128
+*                                        @*uint8_t MSB= 0
+                                        GetResponseIIN_in_OContext4
+*                                        **inspect_IINField**
+*                                        @*uint8_t LSB= 0
+*                                        @*uint8_t MSB= 0
+                                        GetResponseIIN_in_OContext5
+*                                        **inspect_IINField**
+*                                        @*uint8_t LSB= 128
+*                                        @*uint8_t MSB= 0
+                                        }GetResponseIIN_in_OContext_
+*                                    *RespondToReadRequest_in_OContext2
+*                                    **inspect_IINField**
+*                                    @*uint8_t LSB= 128
+*                                    @*uint8_t MSB= 0
+*                                    *RespondToReadRequest_in_OContext3
+*                                    **inspect_IINField**
+*                                    @*uint8_t LSB= 128
+*                                    @*uint8_t MSB= 0
+
+                                        {SetIIN_in_APDUResponse1
+@@@@                                        *write_uint8=6421524->128
+@@@@                                        *write_uint8=6421525->0
+                                        }SetIIN_in_APDUResponse_
+
+                                        {BeginResponseTx_in_OContext1
+
+                                            {GetControl_in_APDUWrapper1
+*                                            **inspect_AppControlField**
+*                                            @*boolean FIR= 1
+*                                            @*boolean FIN= 1
+*                                            @*boolean CON= 0
+*                                            @*boolean UNS= 0
+*                                            @*uint8_t SEQ= 0
+                                            }GetControl_in_APDUWrapper_
+
+                                            {CheckForBroadcastConfirmation_in_OContext1
+                                            }CheckForBroadcastConfirmation_in_OContext_
+*                                        *BeginResponseTx_in_OContext2
++                                        **inspect_RSeq**
++                                        @*buffer->buffer_[i]= 6421522<- c0 81 80 0 6e 1 0 0 2 4 4 4
+
+                                            {GetControl_in_APDUWrapper1
+*                                            **inspect_AppControlField**
+*                                            @*boolean FIR= 1
+*                                            @*boolean FIN= 1
+*                                            @*boolean CON= 0
+*                                            @*boolean UNS= 0
+*                                            @*uint8_t SEQ= 0
+                                            }GetControl_in_APDUWrapper_
+*                                        *BeginResponseTx_in_OContext3
++                                        **inspect_RSeq**
++                                        @*buffer->buffer_[i]= 6421522<- c0 81 80 0 6e 1 0 0 2 4 4 4
+
+                                            {GetControl_in_APDUWrapper1
+*                                            **inspect_AppControlField**
+*                                            @*boolean FIR= 1
+*                                            @*boolean FIN= 1
+*                                            @*boolean CON= 0
+*                                            @*boolean UNS= 0
+*                                            @*uint8_t SEQ= 0
+                                            }GetControl_in_APDUWrapper_
+*                                        *BeginResponseTx_in_OContext4
++                                        **inspect_RSeq**
++                                        @*buffer->buffer_[i]= 6421522<- c0 81 80 0 6e 1 0 0 2 4 4 4
+
+                                            {BeginTx_in_OContext1
+
+{BeginTransmit_in_MockLowerLayer1
++                                            **inspect_RSeq**
++                                            @*buffer->buffer_[i]= 6421522<- c0 81 80 0 6e 1 0 0 2 4 4 4
+}BeginTransmit_in_MockLowerLayer_
+*                                            **inspect_Message**
+*                                            **inspect_Addresses**
+*                                            @*uint16_t source= 0
+*                                            @*uint16_t destination= 0
++                                            **inspect_RSeq**
++                                            @*buffer->buffer_[i]= 6421522<- c0 81 80 0 6e 1 0 0 2 4 4 4
+                                            }BeginTx_in_OContext_
+
+                                            {GetControl_in_APDUWrapper1
+*                                            **inspect_AppControlField**
+*                                            @*boolean FIR= 1
+*                                            @*boolean FIN= 1
+*                                            @*boolean CON= 0
+*                                            @*boolean UNS= 0
+*                                            @*uint8_t SEQ= 0
+                                            }GetControl_in_APDUWrapper_
+
+                                            {Inst_in_StateIdle_static1
+
+                                                {StateIdle_in_StateIdle1
+
+                                                    {OutstationState_in_OutstationState1
+
+                                                    }OutstationState_in_OutstationState_
+                                                }StateIdle_in_StateIdle_
+                                            }Inst_in_StateIdle_static_
+                                        }BeginResponseTx_in_OContext2_
+                                    }RespondToReadRequest_in_OContext_
+                                }OnNewReadRequest_in_StateIdle_override_
+                            }ProcessNewRequest_in_OContext1_
+                        }OnReceiveSolRequest_in_OContext5_
+                    }ProcessRequest_in_OContext_
+                }ProcessObjects_in_OContext5_
+            }ProcessMessage_in_OContext6_
+
+            {CheckForTaskStart_in_OContext1
+
+                {CheckForDeferredRequest_in_OContext1
+
+                    {CanTransmit_in_OContext1
+*                    *pOContext->isOnline= 0
+*                    *pOContext->isTransmitting= 1
+*                    *boolean ret= 0
+                    }CanTransmit_in_OContext_
+                }CheckForDeferredRequest_in_OContext_
+*            CheckForTaskStart_in_OContext2
+
+                {CheckForUnsolicitedNull_in_OContext1
+
+                    {CanTransmit_in_OContext1
+*                    *pOContext->isOnline= 0
+*                    *pOContext->isTransmitting= 1
+*                    *boolean ret= 0
+                    }CanTransmit_in_OContext_
+                }CheckForUnsolicitedNull_in_OContext_
+*            CheckForTaskStart_in_OContext3
+
+                {CheckForUnsolicited_in_OContext1
+
+                    {CanTransmit_in_OContext1
+*                    *pOContext->isOnline= 0
+*                    *pOContext->isTransmitting= 1
+*                    *boolean ret= 0
+                    }CanTransmit_in_OContext_
+                }CheckForUnsolicited_in_OContext_
+            }CheckForTaskStart_in_OContext_
+        }OnReceive_in_OContext_
+}SendToOutstation_in_OutstationTestObject_
+REQUIRE(t.lower->PopWriteAsHex() == 'C0 81 80 00 6E 01 00 00 02 00 00 00')

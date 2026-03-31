@@ -270,6 +270,7 @@ void select_all_class_zero_StaticDataMap_for_OctetStringSpec(Database *pDatabase
 IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map);
 IINField select_all_StaticDataMap_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, StaticOctetStringVariation_uint8_t var);
 IINField select_range_for_OctetStringSpec_in_Database_staticOver2(StaticDataMap_for_OctetStringSpec* map, Range* range, StaticOctetStringVariation_uint8_t variation);
+IINField select_range_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map, Range* range);
 IINField select_indices_for_OctetStringSpec_in_Database_staticOver1(StaticDataMap_for_OctetStringSpec* map,
                         ICollection_for_uint16* indices,
                         StaticOctetStringVariation_uint8_t variation);

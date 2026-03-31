@@ -588,7 +588,7 @@ Range assign_class_in_StaticDataMap_for_DoubleBitBinarySpecOver2(StaticDataMap_f
 //    iter->second.config_in_StaticDataCell.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, range->start);
+  uint16_t next_index = KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, next_index)))
   {

@@ -2239,6 +2239,9 @@
                                             <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_IINValue.cpp</name>
                                         </file>
                                         <file>
+                                            <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_OctetString.cpp</name>
+                                        </file>
+                                        <file>
                                             <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\app\parsing\ICollection_Indexed_for_TimeAndInterval.cpp</name>
                                         </file>
                                     </group>
@@ -2259,6 +2262,12 @@
                                     </file>
                                     <file>
                                         <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\app\Indexed.cpp</name>
+                                    </file>
+                                    <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\src\app\OctetData.cpp</name>
+                                    </file>
+                                    <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\app\OctetString.cpp</name>
                                     </file>
                                 </group>
                                 <group>
@@ -2311,6 +2320,9 @@
                                 </group>
                                 <group>
                                     <name>util</name>
+                                    <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\util\Buffer.cpp</name>
+                                    </file>
                                     <file>
                                         <name>$PROJ_DIR$\..\..\cpp\lib\include\opendnp3\util\UTCTimestamp.cpp</name>
                                     </file>
@@ -2460,6 +2472,9 @@
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\HeaderWriter_for_FrozenCounter.cpp</name>
                                 </file>
                                 <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\app\HeaderWriter_for_OctetString.cpp</name>
+                                </file>
+                                <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\HeaderWriter_for_TimeAndInterval.cpp</name>
                                 </file>
                                 <file>
@@ -2517,6 +2532,9 @@
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\PrefixedWriteIterator_for_FrozenCounter.cpp</name>
                                 </file>
                                 <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\app\PrefixedWriteIterator_for_OctetString.cpp</name>
+                                </file>
+                                <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\PrefixedWriteIterator_for_TimeAndInterval.cpp</name>
                                 </file>
                                 <file>
@@ -2545,6 +2563,9 @@
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\RangeWriteIterator_for_FrozenCounter.cpp</name>
+                                </file>
+                                <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\app\RangeWriteIterator_for_OctetString.cpp</name>
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\app\RangeWriteIterator_for_TimeAndInterval.cpp</name>
@@ -2750,6 +2771,9 @@
                                         <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\EventWriters_for_FrozenCounter.cpp</name>
                                     </file>
                                     <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\EventWriters_for_OctetString.cpp</name>
+                                    </file>
+                                    <file>
                                         <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\EventWriting.cpp</name>
                                     </file>
                                     <file>
@@ -2805,6 +2829,12 @@
                                     </file>
                                     <file>
                                         <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\List_TypedEventRecord_for_FrozenCounterSpec_part2.cpp</name>
+                                    </file>
+                                    <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\List_TypedEventRecord_for_OctetStringSpec_part1.cpp</name>
+                                    </file>
+                                    <file>
+                                        <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\List_TypedEventRecord_for_OctetStringSpec_part2.cpp</name>
                                     </file>
                                     <file>
                                         <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\event\Nodes.cpp</name>
@@ -2874,6 +2904,9 @@
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\Database_for_FrozenCounter.cpp</name>
                                 </file>
                                 <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\Database_for_OctetString.cpp</name>
+                                </file>
+                                <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\Database_for_TimeAndInterval.cpp</name>
                                 </file>
                                 <file>
@@ -2917,6 +2950,9 @@
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\NumRetries.cpp</name>
+                                </file>
+                                <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\OctetStringSerializer.cpp</name>
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\OutstationChannelStates.cpp</name>
@@ -2973,6 +3009,9 @@
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticDataMap_for_FrozenCounter.cpp</name>
                                 </file>
                                 <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticDataMap_for_OctetString.cpp</name>
+                                </file>
+                                <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticDataMap_for_TimeAndInterval.cpp</name>
                                 </file>
                                 <file>
@@ -2995,6 +3034,9 @@
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticWriters_for_FrozenCounter.cpp</name>
+                                </file>
+                                <file>
+                                    <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticWriters_for_OctetString.cpp</name>
                                 </file>
                                 <file>
                                     <name>$PROJ_DIR$\..\..\cpp\lib\src\outstation\StaticWriters_for_TimeAndInterval.cpp</name>
@@ -3114,7 +3156,16 @@
                         <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\OutstationMrzsObject.cpp</name>
                     </file>
                     <file>
+                        <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\setMrzsApplication.cpp</name>
+                    </file>
+                    <file>
                         <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\setMrzsDataMapKeys_for_AnalogSpec.cpp</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\setMrzsDataMapKeys_for_BinarySpec.cpp</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\setMrzsDataMapKeys_for_CounterSpec.cpp</name>
                     </file>
                     <file>
                         <name>$PROJ_DIR$\..\..\cpp\tests\Test_DNP3\Mrzs_cpp\TransportLayerMrzs.cpp</name>
@@ -3149,10 +3200,16 @@
                             <name>$PROJ_DIR$\..\..\ser4cpp\container\Array__for__Node_TypedEventRecord_for_FrozenCounterSpec.cpp</name>
                         </file>
                         <file>
+                            <name>$PROJ_DIR$\..\..\ser4cpp\container\Array__for__Node_TypedEventRecord_for_OctetStringSpec.cpp</name>
+                        </file>
+                        <file>
                             <name>$PROJ_DIR$\..\..\ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_AnalogOutputStatusSpec.cpp</name>
                         </file>
                         <file>
                             <name>$PROJ_DIR$\..\..\ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_DoubleBitBinarySpec.cpp</name>
+                        </file>
+                        <file>
+                            <name>$PROJ_DIR$\..\..\ser4cpp\container\ArrayView__for__Node_TypedEventRecord_for_OctetStringSpec.cpp</name>
                         </file>
                         <file>
                             <name>$PROJ_DIR$\..\..\ser4cpp\container\BufferSer4.cpp</name>

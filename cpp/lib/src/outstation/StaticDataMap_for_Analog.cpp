@@ -597,7 +597,7 @@ Range assign_class_in_StaticDataMap_for_AnalogSpecOver2(StaticDataMap_for_Analog
 //              iter != pStaticDataMap_for_AnalogSpec->map.end() &&
   ////             range.Contains(iter->first);
 //         Contains_in_Range(range, iter->first); iter++)
-  uint16_t next_index = IndexMass2KeyMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, range->start);
+  uint16_t next_index = KeyMap2IndexMass_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, next_index)))
   {

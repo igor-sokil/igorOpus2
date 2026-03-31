@@ -28,7 +28,6 @@ ApplicationIIN GetApplicationIIN_in_IOutstationApplication(IOutstationApplicatio
 //  return GetApplicationIIN_in_IOutstationApplication_override(pIOutstationApplication);
 }
 
-/*
 RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication)
 {
   return (pIOutstationApplication->pColdRestartSupport_in_IOutstationApplication)(pIOutstationApplication);
@@ -48,7 +47,7 @@ uint16_t WarmRestart_in_IOutstationApplication(IOutstationApplication* pIOutstat
 {
   return (pIOutstationApplication->pWarmRestart_in_IOutstationApplication)(pIOutstationApplication);
 }
-*/
+
 void OnConfirmProcessed_in_IOutstationApplication(IOutstationApplication* pIOutstationApplication, boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
   (pIOutstationApplication->pOnConfirmProcessed_in_IOutstationApplication)(pIOutstationApplication, is_unsolicited, num_class1, num_class2, num_class3);
@@ -84,12 +83,12 @@ void IOutstationApplication_in_IOutstationApplication(IOutstationApplication* pI
   pIOutstationApplication->pSupportsAssignClass_in_IOutstationApplication = SupportsAssignClass_in_IOutstationApplication_override;
   pIOutstationApplication->pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_IOutstationApplication_override;
   pIOutstationApplication->pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_IOutstationApplication_override;
-/*
+
   pIOutstationApplication->pColdRestartSupport_in_IOutstationApplication = ColdRestartSupport_in_IOutstationApplication_override;
   pIOutstationApplication->pWarmRestartSupport_in_IOutstationApplication = WarmRestartSupport_in_IOutstationApplication_override;
   pIOutstationApplication->pColdRestart_in_IOutstationApplication = ColdRestart_in_IOutstationApplication_override;
   pIOutstationApplication->pWarmRestart_in_IOutstationApplication = WarmRestart_in_IOutstationApplication_override;
-*/
+
   pIOutstationApplication->pOnConfirmProcessed_in_IOutstationApplication = OnConfirmProcessed_in_IOutstationApplication_override;
   pIOutstationApplication->pIOutstationApplication_destr_IOutstationApplication = IOutstationApplication_destr_IOutstationApplication_override;
 
@@ -142,7 +141,7 @@ ApplicationIIN GetApplicationIIN_in_IOutstationApplication_override(void* v)
   ApplicationIIN_in_ApplicationIIN(&aApplicationIIN);
   return aApplicationIIN;
 }
-/*
+
 RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication_override(void* v)
 {
   UNUSED(v);
@@ -165,7 +164,6 @@ uint16_t WarmRestart_in_IOutstationApplication_override(void* v)
   UNUSED(v);
   return 65535;
 }
-*/
 
 void OnConfirmProcessed_in_IOutstationApplication_override(void* v, boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {

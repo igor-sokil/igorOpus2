@@ -38,7 +38,7 @@
 #include "ICollection.h"
 #include "AssignClassType.h"
 #include "PointClass.h"
-//#include "RestartMode.h"
+#include "RestartMode.h"
 //#include "ILinkListener.h"
 #include "ApplicationIIN.h"
 #include "IDnpTimeSource.h"
@@ -153,7 +153,7 @@ typedef struct
   /// Query the outstation for the cold restart mode it supports
 
 /// «апросить у удаленной станции режим холодного перезапуска, который она поддерживает
-//  RestartMode_uint8_t (*pColdRestartSupport_in_IOutstationApplication)(void*);
+  RestartMode_uint8_t (*pColdRestartSupport_in_IOutstationApplication)(void*);
 ////    virtual RestartMode ColdRestartSupport() const
 ////    {
 ////        return RestartMode::UNSUPPORTED;
@@ -161,7 +161,7 @@ typedef struct
 
   /// Query the outstation for the warm restart mode it supports
 /// «апросить у удаленной станции режим теплого перезапуска, который она поддерживает
-//  RestartMode_uint8_t (*pWarmRestartSupport_in_IOutstationApplication)(void*);
+  RestartMode_uint8_t (*pWarmRestartSupport_in_IOutstationApplication)(void*);
 ////    virtual RestartMode WarmRestartSupport() const
 ////    {
 ////        return RestartMode::UNSUPPORTED;
@@ -227,8 +227,8 @@ boolean WriteTimeAndInterval_in_IOutstationApplication(IOutstationApplication*, 
 boolean SupportsAssignClass_in_IOutstationApplication(IOutstationApplication*);
 void RecordClassAssignment_in_IOutstationApplication(IOutstationApplication*, AssignClassType_uint8_t type, PointClass_uint8_t clazz, uint16_t start, uint16_t stop);
 ApplicationIIN GetApplicationIIN_in_IOutstationApplication(IOutstationApplication*);
-//RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication(IOutstationApplication*);
-//RestartMode_uint8_t WarmRestartSupport_in_IOutstationApplication(IOutstationApplication*);
+RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication(IOutstationApplication*);
+RestartMode_uint8_t WarmRestartSupport_in_IOutstationApplication(IOutstationApplication*);
 uint16_t ColdRestart_in_IOutstationApplication(IOutstationApplication*);
 uint16_t WarmRestart_in_IOutstationApplication(IOutstationApplication*);
 void OnConfirmProcessed_in_IOutstationApplication(IOutstationApplication*, boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3);
@@ -241,8 +241,8 @@ boolean WriteTimeAndInterval_in_IOutstationApplication_override(void*, ICollecti
 boolean SupportsAssignClass_in_IOutstationApplication_override(void*);
 void RecordClassAssignment_in_IOutstationApplication_override(void*, AssignClassType_uint8_t type, PointClass_uint8_t clazz, uint16_t start, uint16_t stop);
 ApplicationIIN GetApplicationIIN_in_IOutstationApplication_override(void*);
-//RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication_override(void*);
-//RestartMode_uint8_t WarmRestartSupport_in_IOutstationApplication_override(void*);
+RestartMode_uint8_t ColdRestartSupport_in_IOutstationApplication_override(void*);
+RestartMode_uint8_t WarmRestartSupport_in_IOutstationApplication_override(void*);
 uint16_t ColdRestart_in_IOutstationApplication_override(void*);
 uint16_t WarmRestart_in_IOutstationApplication_override(void*);
 void OnConfirmProcessed_in_IOutstationApplication_override(void*, boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3);

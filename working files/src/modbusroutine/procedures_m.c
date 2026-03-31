@@ -103,13 +103,45 @@ void inputPacketParserUSB(void)
 //  for(int m=0; m<10; m++) inputPacket[m] = hex[m];
 //  usb_received_count = 10;
   if(*received_count==10) inputPacket[2] = 5;
-  else inputPacket[2] = *received_count - 5 - 2;
+//  else inputPacket[2] = *received_count - 5 - 2;
+  else //rst.buffer_[2] = rst.hHasLength.m_length - 5 - 2;
+  {
+   if(((*received_count)-10) > 18)
+   {
+//    std::cout<<'\n';
+//    std::cout<<"*rst.hHasLength.m_length= "<<rst.hHasLength.m_length<<'\n';
+     inputPacket[2] = (*received_count) - 5 - 2 - (((*received_count)-10 -2)/16)*2;
+   }//if
+   else inputPacket[2] = (*received_count) - 5 - 2;
+  }
+  if(*received_count < 10)
+  {
+     Flags fFlags;
+ Flags_In_FlagsOver2(&fFlags, 1);
 
+ DNPTime dDNPTime1;
+ DNPTime_in_DNPTimeOver3(&dDNPTime1, 0x4571, TimestampQuality_SYNCHRONIZED);
+ DNPTime dDNPTime2;
+ DNPTime_in_DNPTimeOver3(&dDNPTime2, 0x4570, TimestampQuality_SYNCHRONIZED);
+
+ Binary bBinary1;
+ Binary_in_BinaryOver6(&bBinary1, false, fFlags, dDNPTime1);
+
+ Binary bBinary2;
+ Binary_in_BinaryOver6(&bBinary2, false, fFlags, dDNPTime2);
+
+  Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50000, EventMode_Detect);// = EventMode::Detect) = 0;
+  Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary2, 50001, EventMode_Detect);// = EventMode::Detect) = 0;
+
+    return;
+  }//*received_count
+  
   RSeq_for_Uint16_t rst;
   RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, inputPacket, *received_count);
   RepairCRC_in_DNPHelpers(&rst);
 
-  WriteData_in_LinkParserMrzsOver2(&parser, &mMrzsFrameSink, inputPacket, (uint32_t)(*received_count));
+  WriteData_in_LinkParserMrzsOver1(&parser, &mMrzsFrameSink, &rst);
+  
   uint8_t writeTo_buf[300];
   WSeq_for_Uint16_t writeTo;
   WSeq_for_Uint16_t_in_WSeq_for_Uint16_tOver2(&writeTo, writeTo_buf, 250);

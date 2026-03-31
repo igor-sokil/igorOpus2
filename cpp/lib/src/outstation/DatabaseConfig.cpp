@@ -34,6 +34,9 @@ void initialize_BinaryConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
   if(count > SIZE_StaticDataMap_for_BinarySpec) count = SIZE_StaticDataMap_for_BinarySpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->binary_input_config[i] = bBinaryConfig;
   pDatabaseConfig->binary_input_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_BinarySpec; index++) 
+                 setDataMapKeys_for_BinarySpec(pDatabaseConfig, index, 65535);
 }
 ////template<class T>
 void initialize_DoubleBitBinaryConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
@@ -43,6 +46,9 @@ void initialize_DoubleBitBinaryConfig(DatabaseConfig *pDatabaseConfig, uint16_t 
   if(count > SIZE_StaticDataMap_for_DoubleBitBinarySpec) count = SIZE_StaticDataMap_for_DoubleBitBinarySpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->double_binary_config[i] = dDoubleBitBinaryConfig;
   pDatabaseConfig->double_binary_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_DoubleBitBinarySpec; index++) 
+                 setDataMapKeys_for_DoubleBitBinarySpec(pDatabaseConfig, index, 65535);
 }
 ////template<class T>
 void initialize_AnalogConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
@@ -52,6 +58,9 @@ void initialize_AnalogConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
   if(count > SIZE_StaticDataMap_for_AnalogSpec) count = SIZE_StaticDataMap_for_AnalogSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->analog_input_config[i] = aAnalogConfig;
   pDatabaseConfig->analog_input_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_AnalogSpec; index++) 
+                 setDataMapKeys_for_AnalogSpec(pDatabaseConfig, index, 65535);
 }
 ////template<class T>
 void initialize_CounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
@@ -61,6 +70,9 @@ void initialize_CounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
   if(count > SIZE_StaticDataMap_for_CounterSpec) count = SIZE_StaticDataMap_for_CounterSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->counter_config[i] = cCounterConfig;
   pDatabaseConfig->counter_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_CounterSpec; index++) 
+                 setDataMapKeys_for_CounterSpec(pDatabaseConfig, index, 65535);
 }
 ////template<class T>
 void initialize_FrozenCounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
@@ -70,6 +82,9 @@ void initialize_FrozenCounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t co
   if(count > SIZE_StaticDataMap_for_FrozenCounterSpec) count = SIZE_StaticDataMap_for_FrozenCounterSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->frozen_counter_config[i] = fFrozenCounterConfig;
   pDatabaseConfig->frozen_counter_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_FrozenCounterSpec; index++) 
+                 setDataMapKeys_for_FrozenCounterSpec(pDatabaseConfig, index, 65535);
 }
 void initialize_BOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
 {
@@ -78,6 +93,9 @@ void initialize_BOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
   if(count > SIZE_StaticDataMap_for_BinaryOutputStatusSpec) count = SIZE_StaticDataMap_for_BinaryOutputStatusSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->binary_output_status_config[i] = bBOStatusConfig;
   pDatabaseConfig->binary_output_status_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_BinaryOutputStatusSpec; index++) 
+                 setDataMapKeys_for_BinaryOutputStatusSpec(pDatabaseConfig, index, 65535);
 }
 void initialize_AOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
 {
@@ -86,6 +104,9 @@ void initialize_AOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
   if(count > SIZE_StaticDataMap_for_AnalogOutputStatusSpec) count = SIZE_StaticDataMap_for_AnalogOutputStatusSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->analog_output_status_config[i] = aAOStatusConfig;
   pDatabaseConfig->analog_output_status_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_AnalogOutputStatusSpec; index++) 
+                 setDataMapKeys_for_AnalogOutputStatusSpec(pDatabaseConfig, index, 65535);
 }
 void initialize_TimeAndIntervalConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
 {
@@ -94,6 +115,9 @@ void initialize_TimeAndIntervalConfig(DatabaseConfig *pDatabaseConfig, uint16_t 
   if(count > SIZE_StaticDataMap_for_TimeAndIntervalSpec) count = SIZE_StaticDataMap_for_TimeAndIntervalSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->time_and_interval_config[i] = tTimeAndIntervalConfig;
   pDatabaseConfig->time_and_interval_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_TimeAndIntervalSpec; index++) 
+                 setDataMapKeys_for_TimeAndIntervalSpec(pDatabaseConfig, index, 65535);
 }
 void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig, uint16_t count)
 {
@@ -102,6 +126,9 @@ void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig, uint16_t coun
   if(count > SIZE_StaticDataMap_for_OctetStringSpec) count = SIZE_StaticDataMap_for_OctetStringSpec;
   for(int i = 0; i < count; i++) pDatabaseConfig->octet_string_config[i] = oOctetStringConfig;
   pDatabaseConfig->octet_string_count = count;
+
+  for(int index = 0; index < SIZE_StaticDataMap_for_OctetStringSpec; index++) 
+                 setDataMapKeys_for_OctetStringSpec(pDatabaseConfig, index, 65535);
 }
 
 uint16_t KeyMap2IndexMass_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t key)

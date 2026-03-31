@@ -525,7 +525,7 @@ Range assign_class_in_StaticDataMap_for_FrozenCounterSpecOver2(StaticDataMap_for
 //    iter->second.config_in_StaticDataCell.dDeadbandConfig_for_FrozenCounterInfo.eEventConfig.clazz = clazz;
 //  }
 
-  uint16_t next_index = IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, range->start);
+  uint16_t next_index = KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, range->start);
   while((next_index < MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, next_index)))
   {

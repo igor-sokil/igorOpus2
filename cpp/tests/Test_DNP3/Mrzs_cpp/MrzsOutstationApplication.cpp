@@ -200,8 +200,8 @@ boolean WriteAbsoluteTime_in_MrzsOutstationApplication(MrzsOutstationApplication
 #endif
   if (pMrzsOutstationApplication->allowTimeWrite)
   {
-    UTCTimestamp Timestamp;
-    Timestamp = *timestamp;
+//    UTCTimestamp Timestamp;
+//    Timestamp = *timestamp;
 
 //  std::cout<<"*UTCTimestamp.msSinceEpoch= "<<std::hex<<Timestamp.msSinceEpoch<<std::dec<<'\n';
 

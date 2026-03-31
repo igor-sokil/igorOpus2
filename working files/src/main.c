@@ -784,39 +784,56 @@ int main(void)
   watchdog_l2 = true;
 //void global_component_installation(void);
 //  global_component_installation();  
-  
+boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_BinarySpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_CounterSpec(DatabaseConfig* pDatabaseConfig);
+boolean  updateMrzsDataMapKeys_for_AnalogSpec(Database* pDatabase);
+boolean  updateMrzsDataMapKeys_for_BinarySpec(Database* pDatabase);
+boolean  updateMrzsDataMapKeys_for_CounterSpec(Database* pDatabase);
+void     setMrzsApplication(MrzsOutstationApplication *application);
+ 
   LinkLayerParser_in_LinkLayerParser(&parser);
   TransportLayerMrzs_in_TransportLayerMrzs(&transport, 292);
   OutstationConfig_in_OutstationConfig(&config);
-  initialize_BinaryConfig(&dDatabaseConfig, 2);
-  initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 2);
+  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
+  
+  initialize_BinaryConfig(&dDatabaseConfig, 10);
+  initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 10);
   initialize_AnalogConfig(&dDatabaseConfig, 10);
-  initialize_CounterConfig(&dDatabaseConfig, 2);
-  initialize_FrozenCounterConfig(&dDatabaseConfig, 2);
-  initialize_BOStatusConfig(&dDatabaseConfig, 2);
-  initialize_AOStatusConfig(&dDatabaseConfig, 2);
-  initialize_TimeAndIntervalConfig(&dDatabaseConfig, 2);
+  initialize_CounterConfig(&dDatabaseConfig, 10);
+  initialize_FrozenCounterConfig(&dDatabaseConfig, 10);
+  initialize_BOStatusConfig(&dDatabaseConfig, 10);
+  initialize_AOStatusConfig(&dDatabaseConfig, 10);
+  initialize_TimeAndIntervalConfig(&dDatabaseConfig, 10);
+  initialize_OctetStringConfig(&dDatabaseConfig, 10);
+
+  EventBufferConfig etemp;
+  EventBufferConfig_in_EventBufferConfigOver2(&etemp,
+    10,//uint16_t maxBinaryEvents,
+    10,//uint16_t maxDoubleBinaryEvents,
+    10,//uint16_t maxAnalogEvents,
+    10,//uint16_t maxCounterEvents,
+    10,//uint16_t maxFrozenCounterEvents,
+    10,//uint16_t maxBinaryOutputStatusEvents,
+    10,//uint16_t maxAnalogOutputStatusEvents,
+    10//uint16_t maxOctetStringEvents
+    );
+  config.eventBufferConfig = etemp;
+  config.params.maxTxFragSize = 20; // override to use a fragment length of 20
 
   OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
-  MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
 
   setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
+  setMrzsDataMapKeys_for_BinarySpec(&dDatabaseConfig);
+  setMrzsDataMapKeys_for_CounterSpec(&dDatabaseConfig);
+  updateMrzsDataMapKeys_for_AnalogSpec(&t.context.database_in_OContext);
+  updateMrzsDataMapKeys_for_BinarySpec(&t.context.database_in_OContext);
+  updateMrzsDataMapKeys_for_CounterSpec(&t.context.database_in_OContext);
 
-  Analog aAnalog;
-  Analog_in_AnalogOver2(&aAnalog, 350.0);
-boolean tt = Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 350, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 351.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 351, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 352.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 352, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 353.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 353, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 354.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 354, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 355.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 355, EventMode_Detect);
-  Analog_in_AnalogOver2(&aAnalog, 357.0);
- tt &= Update_for_Analog_in_Database(&t.context.database_in_OContext, &aAnalog, 357, EventMode_Detect);
+  uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
+  if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class0;
+
+  setMrzsApplication(&t.application);
 
   LowerLayerUp_in_OutstationMrzsObject(&t);
 
