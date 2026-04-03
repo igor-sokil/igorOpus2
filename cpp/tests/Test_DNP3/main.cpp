@@ -100,16 +100,7 @@ int main(int argc, char *argv[])
   TransportLayerMrzs_in_TransportLayerMrzs(&transport, 292);
   OutstationConfig_in_OutstationConfig(&config);
   MrzsFrameSink_in_MrzsFrameSink(&mMrzsFrameSink);
-
-  initialize_BinaryConfig(&dDatabaseConfig, 65);
-  initialize_DoubleBitBinaryConfig(&dDatabaseConfig, 10);
-  initialize_AnalogConfig(&dDatabaseConfig, 65);
-  initialize_CounterConfig(&dDatabaseConfig, 65);
-  initialize_FrozenCounterConfig(&dDatabaseConfig, 10);
-  initialize_BOStatusConfig(&dDatabaseConfig, 10);
-  initialize_AOStatusConfig(&dDatabaseConfig, 10);
-  initialize_TimeAndIntervalConfig(&dDatabaseConfig, 10);
-  initialize_OctetStringConfig(&dDatabaseConfig, 10);
+  DatabaseConfig_in_DatabaseConfig(&dDatabaseConfig);
 
   EventBufferConfig etemp;
   EventBufferConfig_in_EventBufferConfigOver2(&etemp,
@@ -123,19 +114,20 @@ int main(int argc, char *argv[])
     10//uint16_t maxOctetStringEvents
     );
   config.eventBufferConfig = etemp;
-  config.params.maxTxFragSize = 20; // override to use a fragment length of 20
-
-  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
+  config.params.maxTxFragSize = 100; // override to use a fragment length of 20
 
   setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
   setMrzsDataMapKeys_for_BinarySpec(&dDatabaseConfig);
   setMrzsDataMapKeys_for_CounterSpec(&dDatabaseConfig);
-  updateMrzsDataMapKeys_for_AnalogSpec(&t.context.database_in_OContext);
-  updateMrzsDataMapKeys_for_BinarySpec(&t.context.database_in_OContext);
-  updateMrzsDataMapKeys_for_CounterSpec(&t.context.database_in_OContext);
 
   uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
   if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class0;
+
+  OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
+
+  updateMrzsDataMapKeys_for_AnalogSpec(&t.context.database_in_OContext);
+  updateMrzsDataMapKeys_for_BinarySpec(&t.context.database_in_OContext);
+  updateMrzsDataMapKeys_for_CounterSpec(&t.context.database_in_OContext);
 
   setMrzsApplication(&t.application);
 

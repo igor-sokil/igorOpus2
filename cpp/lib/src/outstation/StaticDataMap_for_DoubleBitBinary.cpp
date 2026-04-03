@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_Dou
   return pStaticDataMap_for_DoubleBitBinarySpec->db_config->double_binary_count;
 }
 
+void setMapSize_DatabaseConfig_for_DoubleBitBinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->double_binary_count = db_size;
+}
+
 void StaticDataMap_for_DoubleBitBinarySpec_in_StaticDataMap_for_DoubleBitBinarySpecOver1(StaticDataMap_for_DoubleBitBinarySpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));

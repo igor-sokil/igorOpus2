@@ -42,6 +42,8 @@ QString Send_To_Outstation(RSeq_for_Uint16_t rst)
   std::cout<<"{***Send_To_Outstation***"<<'\n';
   std::cout<<"+***Send_To_Outstation***"<<'\n';
 
+  mMrzsFrameSink.m_last_header.func = LinkFunction_INVALID;
+
   WriteData_in_LinkParserMrzsOver1(&parser, &mMrzsFrameSink, &rst);
 
   uint8_t writeTo_buf[300];

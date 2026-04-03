@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_
   return pStaticDataMap_for_BinaryOutputStatusSpec->db_config->binary_output_status_count;
 }
 
+void setMapSize_DatabaseConfig_for_BinaryOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->binary_output_status_count = db_size;
+}
+
 void StaticDataMap_for_BinaryOutputStatusSpec_in_StaticDataMap_for_BinaryOutputStatusSpecOver1(StaticDataMap_for_BinaryOutputStatusSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));

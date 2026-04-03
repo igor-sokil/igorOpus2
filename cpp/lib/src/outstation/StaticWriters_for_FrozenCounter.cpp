@@ -35,6 +35,7 @@ boolean LoadWithRangeIterator_FrozenCounterSpec_for_UInt8_in_StaticWriters(Stati
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_FrozenCounterSpec(map->db_config, next_index);
+
   while(i < MapSize_for_StaticDataMap_for_FrozenCounterSpec(map))
   {
     SelectedValue_for_FrozenCounterSpec elem = map->map[i].selection_in_StaticDataCell;
@@ -102,6 +103,7 @@ boolean LoadWithRangeIterator_FrozenCounterSpec_for_UInt16_in_StaticWriters(Stat
 
 //  for (const auto& elem : map)
   int i = KeyMap2IndexMass_for_FrozenCounterSpec(map->db_config, next_index);
+
   while(i < MapSize_for_StaticDataMap_for_FrozenCounterSpec(map))
   {
     SelectedValue_for_FrozenCounterSpec elem = map->map[i].selection_in_StaticDataCell;

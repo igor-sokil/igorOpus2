@@ -9,6 +9,11 @@ uint16_t MapSize_for_StaticDataMap_for_AnalogSpec(StaticDataMap_for_AnalogSpec *
   return pStaticDataMap_for_AnalogSpec->db_config->analog_input_count;
 }
 
+void setMapSize_DatabaseConfig_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->analog_input_count = db_size;
+}
+
 ////template<class Spec> StaticDataMap<Spec>::StaticDataMap(const std::map<uint16_t, typename Spec::config_t>& config)
 //void StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(StaticDataMap_for_AnalogSpec *pStaticDataMap, std::map<uint16_t, AnalogConfig>& config)
 void StaticDataMap_for_AnalogSpec_in_StaticDataMap_for_AnalogSpecOver2(StaticDataMap_for_AnalogSpec *pStaticDataMap, DatabaseConfig* config)

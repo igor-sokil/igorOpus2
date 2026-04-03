@@ -95,17 +95,17 @@ typedef struct
 } DatabaseConfig;
 
 void DatabaseConfig_in_DatabaseConfig_default(DatabaseConfig *pDatabaseConfig);
-void DatabaseConfig_in_DatabaseConfig(DatabaseConfig *pDatabaseConfig, uint16_t all_types);
+void DatabaseConfig_in_DatabaseConfig(DatabaseConfig *pDatabaseConfig);
 
-void initialize_BinaryConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_DoubleBitBinaryConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_AnalogConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_CounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_FrozenCounterConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_BOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_AOStatusConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_TimeAndIntervalConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
-void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig, uint16_t count);
+void initialize_BinaryConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_DoubleBitBinaryConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_AnalogConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_CounterConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_FrozenCounterConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_BOStatusConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_AOStatusConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_TimeAndIntervalConfig(DatabaseConfig *pDatabaseConfig);
+void initialize_OctetStringConfig(DatabaseConfig *pDatabaseConfig);
 
 uint16_t KeyMap2IndexMass_for_BinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t key);
 uint16_t KeyMap2IndexMass_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t key);
@@ -136,7 +136,15 @@ boolean setDataMapKeys_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfi
 boolean setDataMapKeys_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
 boolean setDataMapKeys_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t index, uint16_t data);
 
-//boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
+void setMapSize_DatabaseConfig_for_AnalogSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_BinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_BinaryOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_CounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_DoubleBitBinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
+void setMapSize_DatabaseConfig_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size);
 
 ////} // namespace opendnp3
 

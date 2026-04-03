@@ -110,41 +110,41 @@ DatabaseConfig tmp = analog_input_in_DatabaseHelpers(8);
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == 'A0 81 80 00 1E 01 00 00 01 01 00 00 00 00 01 00 00 00 00')";
 //std::cout << "temp= " << temp<<'\n';
-/*
+
 //uint16_t OnTxReady_in_OutstationTestObject(OutstationTestObject *pOutstationTestObject);
 ////    t.OnTxReady();
  OnTxReady_in_OutstationTestObject(&t);
 
 ////    t.SendToOutstation("C0 00");
-    std::string name1("C0 00");       
+//    std::string name1("C0 00");       
     SendToOutstation_in_OutstationTestObject(&t, name1);  
 
-    std::string temp1 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp1 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == '21 81 80 00 1E 01 00 02 03 01 00 00 00 00 01 00 00 00 00')";
-std::cout << "temp1= " << temp1<<'\n';
+//std::cout << "temp1= " << temp1<<'\n';
 
  OnTxReady_in_OutstationTestObject(&t);
 
 ////    t.SendToOutstation("C1 00");
-    std::string name2("C1 00");       
+//    std::string name2("C1 00");       
     SendToOutstation_in_OutstationTestObject(&t, name2);  
 
-    std::string temp2 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp2 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == '22 81 80 00 1E 01 00 04 05 01 00 00 00 00 01 00 00 00 00')";
-std::cout << "temp2= " << temp2<<'\n';
+//std::cout << "temp2= " << temp2<<'\n';
 
  OnTxReady_in_OutstationTestObject(&t);
 
 ////    t.SendToOutstation("C2 00");
-    std::string name3("C2 00");       
+//    std::string name3("C2 00");       
     SendToOutstation_in_OutstationTestObject(&t, name3);  
 
-    std::string temp3 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
+//    std::string temp3 = PopWriteAsHex_in_MockLowerLayer(&(t.lower));
 
 qDebug()<<"REQUIRE(t.lower->PopWriteAsHex() == '43 81 80 00 1E 01 00 06 07 01 00 00 00 00 01 00 00 00 00')";
-std::cout << "temp3= " << temp3<<'\n';
+//std::cout << "temp3= " << temp3<<'\n';
 
  OnTxReady_in_OutstationTestObject(&t);
 

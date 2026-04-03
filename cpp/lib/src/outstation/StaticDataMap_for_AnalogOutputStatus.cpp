@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_
   return pStaticDataMap_for_AnalogOutputStatusSpec->db_config->analog_output_status_count;
 }
 
+void setMapSize_DatabaseConfig_for_AnalogOutputStatusSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->analog_output_status_count = db_size;
+}
+
 void StaticDataMap_for_AnalogOutputStatusSpec_in_StaticDataMap_for_AnalogOutputStatusSpecOver1(StaticDataMap_for_AnalogOutputStatusSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));

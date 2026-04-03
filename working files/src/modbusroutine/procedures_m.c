@@ -139,7 +139,9 @@ void inputPacketParserUSB(void)
   RSeq_for_Uint16_t rst;
   RSeq_for_Uint16_t_in_RSeq_for_Uint16_tOver2(&rst, inputPacket, *received_count);
   RepairCRC_in_DNPHelpers(&rst);
-
+  
+  mMrzsFrameSink.m_last_header.func = LinkFunction_INVALID;
+  
   WriteData_in_LinkParserMrzsOver1(&parser, &mMrzsFrameSink, &rst);
   
   uint8_t writeTo_buf[300];
@@ -178,6 +180,7 @@ void inputPacketParserUSB(void)
       Addresses aAddresses;
       Addresses_in_AddressesOver1(&aAddresses);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
+      t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 
       if(OnReceive_in_TransportLayerMrzs(&transport, &mMessage))
         if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
@@ -226,6 +229,7 @@ void inputPacketParserUSB(void)
       Addresses aAddresses;
       Addresses_in_AddressesOver1(&aAddresses);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
+      t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 
       if(OnReceive_in_TransportLayerMrzs(&transport, &mMessage))
         if(is_not_empty_in_HasLength_for_Uint16_t(&(transport.asdu.payload.hHasLength)))
@@ -259,6 +263,10 @@ void inputPacketParserUSB(void)
         }//if(is_not_empty_in_HasLength_for_Uint16_t(&(pTransportLayer->asdu.payload.hHasLength)))
     }//if(mMrzsFrameSink.userdata)
     break;
+  case LinkFunction_INVALID:// = 0xFF
+//    std::cout<<'\n';
+//    std::cout<<"+***LinkFunction_INVALID***"<<'\n';
+    return;
   }//switch
 
 //  usb_transmiting_count = sizeOutputPacket;

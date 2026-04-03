@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec
   return pStaticDataMap_for_CounterSpec->db_config->counter_count;
 }
 
+void setMapSize_DatabaseConfig_for_CounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->counter_count = db_size;
+}
+
 void StaticDataMap_for_CounterSpec_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));
@@ -88,14 +93,14 @@ StaticCounterVariation_uint8_t check_for_promotion_for_CounterSpec_static(Counte
   return variation;
 }
 
-StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap_for_AnalogSpec, int index);
-StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_CounterSpec *pStaticDataMap_for_AnalogSpec, int index);
+StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int index);
+StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int index);
 
 StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver1(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int index)
 {
   return pStaticDataMap_for_CounterSpec->map[index].config_in_StaticDataCell.dDeadbandConfig_for_CounterInfo.eEventConfig.svariation;
 }
-StaticAnalogVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int index)
+StaticCounterVariation_uint8_t get_variation_in_StaticDataMap_for_CounterSpecOver2(StaticDataMap_for_CounterSpec *pStaticDataMap_for_CounterSpec, int index)
 {
   UNUSED(pStaticDataMap_for_CounterSpec);
   UNUSED(index);

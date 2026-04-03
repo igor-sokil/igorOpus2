@@ -9,6 +9,11 @@ uint16_t MapSize_for_StaticDataMap_for_TimeAndIntervalSpec(StaticDataMap_for_Tim
   return pStaticDataMap_for_TimeAndIntervalSpec->db_config->time_and_interval_count;
 }
 
+void setMapSize_DatabaseConfig_for_TimeAndIntervalSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->time_and_interval_count = db_size;
+}
+
 void StaticDataMap_for_TimeAndInterval_in_StaticDataMap_for_TimeAndIntervalOver1(StaticDataMap_for_TimeAndIntervalSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));

@@ -9,6 +9,11 @@ uint16_t MapSize_for_StaticDataMap_for_OctetStringSpec(StaticDataMap_for_OctetSt
   return pStaticDataMap_for_OctetStringSpec->db_config->octet_string_count;
 }
 
+void setMapSize_DatabaseConfig_for_OctetStringSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->octet_string_count = db_size;
+}
+
 void StaticDataMap_for_OctetString_in_StaticDataMap_for_OctetStringOver1(StaticDataMap_for_OctetStringSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));

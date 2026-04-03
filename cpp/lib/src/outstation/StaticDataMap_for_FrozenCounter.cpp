@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_Froze
   return pStaticDataMap_for_FrozenCounterSpec->db_config->frozen_counter_count;
 }
 
+void setMapSize_DatabaseConfig_for_FrozenCounterSpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->frozen_counter_count = db_size;
+}
+
 void StaticDataMap_for_FrozenCounterSpec_in_StaticDataMap_for_FrozenCounterSpecOver1(StaticDataMap_for_FrozenCounterSpec *pStaticDataMap)
 {
   Range_in_RangeOver1(&(pStaticDataMap->selected));
@@ -130,8 +135,6 @@ uint16_t select_all_in_StaticDataMap_for_FrozenCounterSpecOver3(StaticDataMap_fo
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"select_all_in_StaticDataMap_for_FrozenCounterSpecOver3_1"<<'\n';
-  std::cout<<"*"<<getString_stack_info();
-  std::cout<<"*pStaticDataMap_for_FrozenCounterSpec= "<<(uint32_t)pStaticDataMap_for_FrozenCounterSpec<<'\n';
   std::cout<<"*"<<getString_stack_info();
   std::cout<<"*pStaticDataMap_for_FrozenCounterSpec->selected.start= "<<(uint16_t)pStaticDataMap_for_FrozenCounterSpec->selected.start<<'\n';
   std::cout<<"*"<<getString_stack_info();
@@ -526,6 +529,7 @@ Range assign_class_in_StaticDataMap_for_FrozenCounterSpecOver2(StaticDataMap_for
 //  }
 
   uint16_t next_index = KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, range->start);
+
   while((next_index < MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec)) &&
         Contains_in_Range(range, KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, next_index)))
   {

@@ -8,6 +8,11 @@ uint16_t MapSize_for_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec *
   return pStaticDataMap_for_BinarySpec->db_config->binary_input_count;
 }
 
+void setMapSize_DatabaseConfig_for_BinarySpec(DatabaseConfig *pDatabaseConfig, uint16_t db_size)
+{
+  pDatabaseConfig->binary_input_count = db_size;
+}
+
 ////template<class Spec> StaticDataMap<Spec>::StaticDataMap(const std::map<uint16_t, typename Spec::config_t>& config)
 //void StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_BinarySpec *pStaticDataMap, std::map<uint16_t, BinaryConfig>& config)
 void StaticDataMap_for_BinarySpec_in_StaticDataMap_for_BinarySpecOver2(StaticDataMap_for_BinarySpec *pStaticDataMap, DatabaseConfig* config)
