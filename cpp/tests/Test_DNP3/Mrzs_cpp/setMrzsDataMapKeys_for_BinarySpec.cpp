@@ -14,6 +14,9 @@ boolean  setMrzsDataMapKeys_for_BinarySpec(DatabaseConfig* pDatabaseConfig)
   setDataMapKeys_for_BinarySpec(pDatabaseConfig, index++, 50005);
   setDataMapKeys_for_BinarySpec(pDatabaseConfig, index++, 50006);
   setDataMapKeys_for_BinarySpec(pDatabaseConfig, index++, 50007);
+
+  uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(pDatabaseConfig, 50000);
+  if(iter_first < 0xFF00) pDatabaseConfig->binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class1;
   return 0;
 }
 

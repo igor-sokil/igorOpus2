@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-//#include "log_info.h"
+#include "log_info.h"
 
 ////#include "opendnp3/app/ControlRelayOutputBlock.h"
 #include "header_dnp3.h"

@@ -5,14 +5,22 @@
 *Link RESET
 + 05_64_05_c0_01_00_02_00_74_e3
 
+*LinkBroadcastAddress_ShallConfirm
 *Reset Bit
-+ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{02{50{01{00_07{07_00}f3_95
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{02{50_01{00{07_07{00}f3_95
++ 05_64_0e_c4_00_00_FE_FF[e0_66]c2_c2{02{50_01{00{07_07{00}f3_95
 
 *Read Event Class1
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{06}f3_95
 
-*Read Event Class1 1Event
+*Read Event Class1
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c3{01{02_03{06}f3_95
+
+*reads a single event, IIB bit indicates more events present
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{07{01}f3_95
+
+*reads a single event, IIB bit indicates more events present
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{08{01_00}f3_95
 
 *Read Event (Class1 1Event) & (Class2 1Event)
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_c2{01{3C_02{07{01{3C_03{07{01}f3_95
@@ -33,13 +41,13 @@
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{17}f3_95 
 
 * write Grp50Var1, value = 1234 ms after epoch
-+ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_01{07_01_D2_04_00_00_00_00}f3_95 
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_01{07{01{D2_04_00_00_00_00}f3_95 
 
 * record current time
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{18}f3_95 
 
 * write Grp50Var3, value = 1234 ms after epoch
-+ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_03{07_01_D2_04_00_00_00_00}f3_95 
++ 05_64_0e_c4_01_00_02_00[e0_66]c2_C1{02{32_03{07{01{D2_04_00_00_00_00}f3_95 
 
 *35RreadGrp20Var1ViaIntegrity
 + 05_64_0e_c4_01_00_02_00[e0_66]c2_C0{01{14_01{06}f3_95
@@ -64,6 +72,51 @@
 
 *Read Event 23ReadGrp2Var3
 + 05_64_0e_c4_01_00_02_00[e0_66]c4_c4{01{02_03{06}f3_95
+
+*read 01 var 2, [02 : 02]; read 01 var 2, [04 : 05]
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{01{01_02{00{02_02{01_02{00{04_05}f3_95
+
+*14ReadGrp22Var0
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{01{16_00{06}f3_95
+
+* Select group 12 Var 1, count = 1, index = 3
+*012,001 Binary Command - CROB, 8-bit count and prefix [1]
+*[3] - code: 0x01 (op type: PULSE_ON, tcc: NUL, cr: 0) count: 1 on-time: 1 off-time: 1 status: SUCCESS
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{03{0C_01{17{01{03{01_01_01_00_00_00_01_00[00_00]00_00_00}f3_95
+
+*Select group 12 Var 1, count = 1, index = 3, QU set
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{03{0C_01{17{01{03{51_01_01_00_00_00_01_00[00_00]00_00_00}f3_95
+
+* Select group 12 Var 1, count = 2, index = 3 & 4
+*012,001 Binary Command - CROB, 8-bit count and prefix [2]
+*[3] - code: 0x01 (op type: PULSE_ON, tcc: NUL, cr: 0) count: 1 on-time: 1 off-time: 1 status: SUCCESS
+*[4] - code: 0x01 (op type: PULSE_ON, tcc: NUL, cr: 0) count: 1 on-time: 1 off-time: 1 status: SUCCESS
++ 05_64_24_c4_01_00_02_00[09_2b]c4_c0{03{0c_01{17{02{03{01_01_01_00_00_00_01_00[dd_b3]00_00_00{04{01_01_01_00_00_00_01_00_00_00_00}c3_b3
+
+* Select group 12 Var 1, count = 1, index = 3
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{03{0C_01{17{01{03{01_01_01_00_00_00_01_00[00_00]00_00_00}f3_95
+*operate
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C1{04{0C_01{17{01{03{01_01_01_00_00_00_01_00[00_00]00_00_00}f3_95
+
+* Select group 41 Var 1, count = 1, index = 3
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{03{29_03{17{01{03{00_00_C8_42_00}f3_95
+*operate
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C1{04{29_03{17{01{03{00_00_C8_42_00}f3_95
+
+* Direct operate (no response) group 12 Var 1, count = 1, index = 3
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C1{06{0C_01{17{01{03{01_01_01_00_00_00_01_00[00_00]00_00_00}f3_95
+
+* Direct operate group 41 Var 1, count = 1, index = 3
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C1{05{29_01{17{01{03{00_00_00_00_00}f3_95
+
+*2Freeze No Ack 0x08
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{08{14_00{06}f3_95
+
+*3Freeze And Clear 0x09
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C0{09{14_00{06}f3_95
+
+*4ColdRestart
++ 05_64_0e_c4_01_00_02_00[e0_66]c4_C1{0D}f3_95
 
 /*
 //Типы могут быть исключены из класса 0 через конфигурацию
@@ -104,6 +157,9 @@
 
  DNPTime dDNPTime;
  DNPTime_in_DNPTimeOver2(&dDNPTime, 1512595515000);
+
+ DNPTime dDNPTime;
+ DNPTime_in_DNPTimeOver3(&dDNPTime, 0x4571, TimestampQuality_UNSYNCHRONIZED);
 
 //void Counter_in_CounterOver4(Counter *pCounter, uint32_t value, Flags flags, DNPTime timeDNPTime);
  Counter cCounter;
@@ -150,6 +206,17 @@ std::cout << "btmp= " << btmp<<'\n';
 btmp = Update_OctetString_in_IUpdateHandler(itmp, &data, 1, EventMode_Detect);// = EventMode::Detect) = 0;
 */
 /*
+ uint8_t bytes[2] = {0xCA, 0xFE};
+ Buffer bBuffer;
+ Buffer_in_BufferOver2(&bBuffer, bytes, 2);
+
+ OctetString data;
+ OctetString_in_OctetStringOver3(&data, &bBuffer);
+
+ flg &= Update_for_OctetString_in_Database(&t.context.database_in_OContext, &data, 2, EventMode_Detect);
+ flg &= Update_for_OctetString_in_Database(&t.context.database_in_OContext, &data, 1, EventMode_Detect);
+*/
+/*
 void apply_in_41ReadGrp1Var1(IUpdateHandler* handler)
 {
     // set all the values to ONLINE so that they don't get promoted
@@ -158,6 +225,31 @@ void apply_in_41ReadGrp1Var1(IUpdateHandler* handler)
 ////    t.Transaction([](IUpdateHandler& handler) { handler.Modify(FlagsType::BinaryInput, 0, 9, 0x01); });
   Modify_in_IUpdateHandler(handler, FlagsType_BinaryInput, 0, 9, 0x01);
 }
+*/
+/*
+void configure_in_11reports(DatabaseConfig* db)
+{
+////    auto configure = [](DatabaseConfig& db) { db.counter[0].evariation = EventCounterVariation::Group22Var5; };
+        db->counter[0].dDeadbandConfig_for_CounterInfo.eEventConfig.evariation = EventCounterVariation_Group22Var5;
+}
+*/
+/*
+//boolean Modify_in_IUpdateHandler(IUpdateHandler*, FlagsType_uint8_t type, uint16_t start, uint16_t stop, uint8_t flags);// = 0;
+////    t.Transaction([](IUpdateHandler& db) {
+////        db.Modify(FlagsType::Counter, 0, 0, 0x01);
+////        db.Modify(FlagsType::FrozenCounter, 0, 0, 0x01);
+////    });
+ Modify_in_IUpdateHandler(db, FlagsType_Counter, 0, 0, 0x01);
+ Modify_in_IUpdateHandler(db, FlagsType_FrozenCounter, 0, 0, 0x01);
+*/
+/*
+    // Change time of application
+////const DNPTime freezeTimestamp(240607800000, TimestampQuality::SYNCHRONIZED);
+        DNPTime freezeTimestamp;
+        DNPTime_in_DNPTimeOver3(&freezeTimestamp, 240607800000, TimestampQuality_SYNCHRONIZED);
+//void SetTime_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication, DNPTime timeDNPTime);
+////    t.application->SetTime(freezeTimestamp);
+        SetTime_in_MrzsOutstationApplication(&(t.application), freezeTimestamp);
 */
 
 

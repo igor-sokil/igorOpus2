@@ -248,4 +248,18 @@ void inspect_Range(Range *b)
   std::cout<<"@*uint16_t stop= "<<(uint16_t)b->stop<<'\n';
 }
 
+void inspect_Timestamp(Timestamp *b)
+{
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"**inspect_Timestamp**"<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"@*uint64_t time_point_value= "<<(uint64_t)b->time_point_value<<'\n';
+}
 
+void inspect_TimeDuration(TimeDuration *b)
+{
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"**inspect_TimeDuration**"<<'\n';
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"@*int64_t duration_value= "<<(int64_t)b->duration_value<<'\n';
+}

@@ -9,45 +9,52 @@ void  MrzsCommandHandler_in_MrzsCommandHandler(MrzsCommandHandler *pMrzsCommandH
 ////        : opendnp3::SimpleCommandHandler(status)
   SimpleCommandHandler_in_SimpleCommandHandler(&(pMrzsCommandHandler->sSimpleCommandHandler), status);
 
-//  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_ControlRelayOutputBlock_in_SimpleCommandHandler = DoOperate_ControlRelayOutputBlock_in_MockCommandHandler_override;
-//  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputInt16_in_SimpleCommandHandler = DoOperate_AnalogOutputInt16_in_MockCommandHandler_override;
-//  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputInt32_in_SimpleCommandHandler = DoOperate_AnalogOutputInt32_in_MockCommandHandler_override;
-//  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputFloat32_in_SimpleCommandHandler = DoOperate_AnalogOutputFloat32_in_MockCommandHandler_override;
-//  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputDouble64_in_SimpleCommandHandler = DoOperate_AnalogOutputDouble64_in_MockCommandHandler_override;
+  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_ControlRelayOutputBlock_in_SimpleCommandHandler = DoOperate_ControlRelayOutputBlock_in_MrzsCommandHandler_override;
+  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputInt16_in_SimpleCommandHandler = DoOperate_AnalogOutputInt16_in_MrzsCommandHandler_override;
+  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputInt32_in_SimpleCommandHandler = DoOperate_AnalogOutputInt32_in_MrzsCommandHandler_override;
+  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputFloat32_in_SimpleCommandHandler = DoOperate_AnalogOutputFloat32_in_MrzsCommandHandler_override;
+  pMrzsCommandHandler->sSimpleCommandHandler.pDoOperate_AnalogOutputDouble64_in_SimpleCommandHandler = DoOperate_AnalogOutputDouble64_in_MrzsCommandHandler_override;
 
   setParentPointer_in_SimpleCommandHandler(&(pMrzsCommandHandler->sSimpleCommandHandler), pMrzsCommandHandler);
 }
-/*
-void DoOperate_ControlRelayOutputBlock_in_MockCommandHandler_override(void* pSimpleCommandHandler, ControlRelayOutputBlock* command, uint16_t index, OperateType_uint8_t opType)
+
+void DoOperate_ControlRelayOutputBlock_in_MrzsCommandHandler_override(void* pSimpleCommandHandler, ControlRelayOutputBlock* command, uint16_t index, OperateType_uint8_t opType)
 {
-  MockCommandHandler* parent = (MockCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
-  DoOperate_ControlRelayOutputBlock_in_MockCommandHandler(parent, command, index, opType);
+  MrzsCommandHandler* parent = (MrzsCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
+  DoOperate_ControlRelayOutputBlock_in_MrzsCommandHandler(parent, command, index, opType);
 }
-void DoOperate_AnalogOutputInt16_in_MockCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputInt16* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputInt16_in_MrzsCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputInt16* command, uint16_t index, OperateType_uint8_t opType)
 {
-  MockCommandHandler* parent = (MockCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
-  DoOperate_AnalogOutputInt16_in_MockCommandHandler(parent, command, index, opType);
+  MrzsCommandHandler* parent = (MrzsCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
+  DoOperate_AnalogOutputInt16_in_MrzsCommandHandler(parent, command, index, opType);
 }
-void DoOperate_AnalogOutputInt32_in_MockCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputInt32* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputInt32_in_MrzsCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputInt32* command, uint16_t index, OperateType_uint8_t opType)
 {
-  MockCommandHandler* parent = (MockCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
-  DoOperate_AnalogOutputInt32_in_MockCommandHandler(parent, command, index, opType);
+  MrzsCommandHandler* parent = (MrzsCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
+  DoOperate_AnalogOutputInt32_in_MrzsCommandHandler(parent, command, index, opType);
 }
-void DoOperate_AnalogOutputFloat32_in_MockCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputFloat32* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputFloat32_in_MrzsCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputFloat32* command, uint16_t index, OperateType_uint8_t opType)
 {
-  MockCommandHandler* parent = (MockCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
-  DoOperate_AnalogOutputFloat32_in_MockCommandHandler(parent, command, index, opType);
+  MrzsCommandHandler* parent = (MrzsCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
+  DoOperate_AnalogOutputFloat32_in_MrzsCommandHandler(parent, command, index, opType);
 }
-void DoOperate_AnalogOutputDouble64_in_MockCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputDouble64* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputDouble64_in_MrzsCommandHandler_override(void* pSimpleCommandHandler, AnalogOutputDouble64* command, uint16_t index, OperateType_uint8_t opType)
 {
-  MockCommandHandler* parent = (MockCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
-  DoOperate_AnalogOutputDouble64_in_MockCommandHandler(parent, command, index, opType);
+  MrzsCommandHandler* parent = (MrzsCommandHandler*)getParentPointer_in_SimpleCommandHandler((SimpleCommandHandler*) pSimpleCommandHandler);
+  DoOperate_AnalogOutputDouble64_in_MrzsCommandHandler(parent, command, index, opType);
 }
 
-void DoOperate_ControlRelayOutputBlock_in_MockCommandHandler(MockCommandHandler* pMockCommandHandler, ControlRelayOutputBlock* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_ControlRelayOutputBlock_in_MrzsCommandHandler(MrzsCommandHandler* pMrzsCommandHandler, ControlRelayOutputBlock* command, uint16_t index, OperateType_uint8_t opType)
 {
+#ifdef  LOG_INFO
    std::cout<<'\n';
-   std::cout<<"DoOperate_ControlRelayOutputBlock_in_MockCommandHandler1"<<'\n';
+   std::cout<<"DoOperate_ControlRelayOutputBlock_in_MrzsCommandHandler1"<<'\n';
+   std::cout<<"uint16_t index= "<<index<<'\n';
+   std::cout<<"OperateType_uint8_t opType= "<<(uint16_t)opType<<'\n';
+   std::cout<<"CommandStatus_uint8_t commandStatus= "<<(uint16_t)pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler<<'\n';
+#else
+  UNUSED(pMrzsCommandHandler);
+#endif
 // void Operation_for_ControlRelayOutputBlock_in_Operation_for_ControlRelayOutputBlock(Operation_for_ControlRelayOutputBlock *pOperation_for_ControlRelayOutputBlock,
 //                                           ControlRelayOutputBlock value,
 //                                           uint16_t index,
@@ -58,14 +65,20 @@ void DoOperate_ControlRelayOutputBlock_in_MockCommandHandler(MockCommandHandler*
   Operation_for_ControlRelayOutputBlock_in_Operation_for_ControlRelayOutputBlock(&temp,
       *command,
       index,
-      opType
-                                                                                );
-  pMockCommandHandler->crobOps.push_back(temp);
+      opType);
+//  pMrzsCommandHandler->crobOps.push_back(temp);
 }
-void DoOperate_AnalogOutputInt16_in_MockCommandHandler(MockCommandHandler* pMockCommandHandler, AnalogOutputInt16* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputInt16_in_MrzsCommandHandler(MrzsCommandHandler* pMrzsCommandHandler, AnalogOutputInt16* command, uint16_t index, OperateType_uint8_t opType)
 {
+#ifdef  LOG_INFO
    std::cout<<'\n';
-   std::cout<<"DoOperate_AnalogOutputInt16_in_MockCommandHandler1"<<'\n';
+   std::cout<<"DoOperate_AnalogOutputInt16_in_MrzsCommandHandler1"<<'\n';
+   std::cout<<"uint16_t index= "<<index<<'\n';
+   std::cout<<"OperateType_uint8_t opType= "<<(uint16_t)opType<<'\n';
+   std::cout<<"CommandStatus_uint8_t commandStatus= "<<(uint16_t)pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler<<'\n';
+#else
+  UNUSED(pMrzsCommandHandler);
+#endif
 // void Operation_for_AnalogOutputInt16_in_Operation_for_AnalogOutputInt16(Operation_for_AnalogOutputInt16 *pOperation_for_AnalogOutputInt16,
 //                                           AnalogOutputInt16 value,
 //                                           uint16_t index,
@@ -76,14 +89,20 @@ void DoOperate_AnalogOutputInt16_in_MockCommandHandler(MockCommandHandler* pMock
   Operation_for_AnalogOutputInt16_in_Operation_for_AnalogOutputInt16(&temp,
       *command,
       index,
-      opType
-                                                                    );
-  pMockCommandHandler->aoInt16Ops.push_back(temp);
+      opType);
+//  pMrzsCommandHandler->aoInt16Ops.push_back(temp);
 }
-void DoOperate_AnalogOutputInt32_in_MockCommandHandler(MockCommandHandler* pMockCommandHandler, AnalogOutputInt32* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputInt32_in_MrzsCommandHandler(MrzsCommandHandler* pMrzsCommandHandler, AnalogOutputInt32* command, uint16_t index, OperateType_uint8_t opType)
 {
+#ifdef  LOG_INFO
    std::cout<<'\n';
-   std::cout<<"DoOperate_AnalogOutputInt32_in_MockCommandHandler1"<<'\n';
+   std::cout<<"DoOperate_AnalogOutputInt32_in_MrzsCommandHandler1"<<'\n';
+   std::cout<<"uint16_t index= "<<index<<'\n';
+   std::cout<<"OperateType_uint8_t opType= "<<(uint16_t)opType<<'\n';
+   std::cout<<"CommandStatus_uint8_t commandStatus= "<<(uint16_t)pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler<<'\n';
+#else
+  UNUSED(pMrzsCommandHandler);
+#endif
 // void Operation_for_AnalogOutputInt32_in_Operation_for_AnalogOutputInt32(Operation_for_AnalogOutputInt32 *pOperation_for_AnalogOutputInt32,
 //                                           AnalogOutputInt32 value,
 //                                           uint16_t index,
@@ -94,14 +113,20 @@ void DoOperate_AnalogOutputInt32_in_MockCommandHandler(MockCommandHandler* pMock
   Operation_for_AnalogOutputInt32_in_Operation_for_AnalogOutputInt32(&temp,
       *command,
       index,
-      opType
-                                                                    );
-  pMockCommandHandler->aoInt32Ops.push_back(temp);
+      opType);
+//  pMrzsCommandHandler->aoInt32Ops.push_back(temp);
 }
-void DoOperate_AnalogOutputFloat32_in_MockCommandHandler(MockCommandHandler* pMockCommandHandler, AnalogOutputFloat32* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputFloat32_in_MrzsCommandHandler(MrzsCommandHandler* pMrzsCommandHandler, AnalogOutputFloat32* command, uint16_t index, OperateType_uint8_t opType)
 {
+#ifdef  LOG_INFO
    std::cout<<'\n';
-   std::cout<<"DoOperate_AnalogOutputFloat32_in_MockCommandHandler1"<<'\n';
+   std::cout<<"DoOperate_AnalogOutputFloat32_in_MrzsCommandHandler1"<<'\n';
+   std::cout<<"uint16_t index= "<<index<<'\n';
+   std::cout<<"OperateType_uint8_t opType= "<<(uint16_t)opType<<'\n';
+   std::cout<<"CommandStatus_uint8_t commandStatus= "<<(uint16_t)pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler<<'\n';
+#else
+  UNUSED(pMrzsCommandHandler);
+#endif
 // void Operation_for_AnalogOutputFloat32_in_Operation_for_AnalogOutputFloat32(Operation_for_AnalogOutputFloat32 *pOperation_for_AnalogOutputFloat32,
 //                                           AnalogOutputFloat32 value,
 //                                           uint16_t index,
@@ -112,14 +137,20 @@ void DoOperate_AnalogOutputFloat32_in_MockCommandHandler(MockCommandHandler* pMo
   Operation_for_AnalogOutputFloat32_in_Operation_for_AnalogOutputFloat32(&temp,
       *command,
       index,
-      opType
-                                                                        );
-  pMockCommandHandler->aoFloat32Ops.push_back(temp);
+      opType);
+//  pMrzsCommandHandler->aoFloat32Ops.push_back(temp);
 }
-void DoOperate_AnalogOutputDouble64_in_MockCommandHandler(MockCommandHandler* pMockCommandHandler, AnalogOutputDouble64* command, uint16_t index, OperateType_uint8_t opType)
+void DoOperate_AnalogOutputDouble64_in_MrzsCommandHandler(MrzsCommandHandler* pMrzsCommandHandler, AnalogOutputDouble64* command, uint16_t index, OperateType_uint8_t opType)
 {
+#ifdef  LOG_INFO
    std::cout<<'\n';
-   std::cout<<"DoOperate_AnalogOutputDouble64_in_MockCommandHandler1"<<'\n';
+   std::cout<<"DoOperate_AnalogOutputDouble64_in_MrzsCommandHandler1"<<'\n';
+   std::cout<<"uint16_t index= "<<index<<'\n';
+   std::cout<<"OperateType_uint8_t opType= "<<(uint16_t)opType<<'\n';
+   std::cout<<"CommandStatus_uint8_t commandStatus= "<<(uint16_t)pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler<<'\n';
+#else
+  UNUSED(pMrzsCommandHandler);
+#endif
 // void Operation_for_AnalogOutputDouble64_in_Operation_for_AnalogOutputDouble64(Operation_for_AnalogOutputDouble64 *pOperation_for_AnalogOutputDouble64,
 //                                           AnalogOutputDouble64 value,
 //                                           uint16_t index,
@@ -130,9 +161,8 @@ void DoOperate_AnalogOutputDouble64_in_MockCommandHandler(MockCommandHandler* pM
   Operation_for_AnalogOutputDouble64_in_Operation_for_AnalogOutputDouble64(&temp,
       *command,
       index,
-      opType
-                                                                          );
-  pMockCommandHandler->aoDouble64Ops.push_back(temp);
+      opType);
+//  pMrzsCommandHandler->aoDouble64Ops.push_back(temp);
 }
 
 //-------------------ControlRelayOutputBlock--------------------------------
@@ -216,23 +246,23 @@ void Operation_for_AnalogOutputDouble64_in_Operation_for_AnalogOutputDouble64(Op
 }
 //-------------------AnalogOutputDouble64--------------------------------
 
-void SetResponse_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler, CommandStatus status_)
+void SetResponse_in_MrzsCommandHandler(MrzsCommandHandler *pMrzsCommandHandler, CommandStatus_uint8_t status_)
 {
-  pMockCommandHandler->sSimpleCommandHandler.status = status_;
+  pMrzsCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler = status_;
 }
 
-uint32_t NumInvocations_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler)
+uint32_t NumInvocations_in_MrzsCommandHandler(MrzsCommandHandler *pMrzsCommandHandler)
 {
-  return pMockCommandHandler->sSimpleCommandHandler.numSelect + pMockCommandHandler->sSimpleCommandHandler.numOperate;
+  return pMrzsCommandHandler->sSimpleCommandHandler.numSelect + pMrzsCommandHandler->sSimpleCommandHandler.numOperate;
 }
 
-uint32_t NumSelect_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler)
+uint32_t NumSelect_in_MrzsCommandHandler(MrzsCommandHandler *pMrzsCommandHandler)
 {
-  return pMockCommandHandler->sSimpleCommandHandler.numSelect;
+  return pMrzsCommandHandler->sSimpleCommandHandler.numSelect;
 }
 
-uint32_t NumOperate_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler)
+uint32_t NumOperate_in_MrzsCommandHandler(MrzsCommandHandler *pMrzsCommandHandler)
 {
-  return pMockCommandHandler->sSimpleCommandHandler.numOperate;
+  return pMrzsCommandHandler->sSimpleCommandHandler.numOperate;
 }
-*/
+

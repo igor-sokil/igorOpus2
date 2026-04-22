@@ -13,6 +13,8 @@
 #include "APDUHeader.h"
 #include "AppControlField.h"
 #include "ParsedRequest.h"
+#include "Timestamp.h"
+#include "TimeDuration.h"
 //#include "APDUHeaderParser.h"
 //#include "ParsedRequest.h"
 //#include "EventLists.h"
@@ -39,6 +41,8 @@ void inspect_IINValue(IINValue *b);
 void inspect_DNPTime(DNPTime *b);
 //void inspect_Indexed_for_Binary(Indexed_for_Binary *b);
 void inspect_ClassField(ClassField *b);
+void inspect_Timestamp(Timestamp *b);
+void inspect_TimeDuration(TimeDuration *b);
 /*
 //-------------------RSeq------------------------
 typedef struct

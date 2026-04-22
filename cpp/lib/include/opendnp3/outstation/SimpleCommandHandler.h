@@ -56,7 +56,7 @@ typedef struct
 
 ////protected:
 
-  CommandStatus_uint8_t status;
+  CommandStatus_uint8_t status_in_SimpleCommandHandler;
 
 ////public:
   uint32_t numOperate;

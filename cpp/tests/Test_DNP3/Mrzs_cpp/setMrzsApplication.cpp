@@ -14,6 +14,11 @@ void setMrzsApplication(MrzsOutstationApplication *application)
   application -> allowTimeWrite = true;
   application -> supportsAssignClass = true;
 
+  application -> warmRestartSupport = RestartMode_SUPPORTED_DELAY_COARSE;
+  application -> warmRestartTimeDelay = 65535;
+
+  application -> coldRestartSupport = RestartMode_SUPPORTED_DELAY_FINE;
+  application -> coldRestartTimeDelay = 1;
 
 }
 

@@ -448,12 +448,16 @@ boolean modify_in_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCo
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec))
+  uint16_t iter = KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec))
   {
     return false;
   }
-
-  uint16_t iter = KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, start);
+  iter = KeyMap2IndexMass_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec))
+  {
+    return false;
+  }
 
 //  for (auto iter = pStaticDataMap_for_FrozenCounterSpec->map.lower_bound(start); iter != pStaticDataMap_for_FrozenCounterSpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec); ++iter)
@@ -461,7 +465,7 @@ boolean modify_in_StaticDataMap_for_FrozenCounterSpec(StaticDataMap_for_FrozenCo
 //    if (iter->first > stop)
     if(IndexMass2KeyMap_for_FrozenCounterSpec(pStaticDataMap_for_FrozenCounterSpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //    FrozenCounter new_value = iter->second.value_in_StaticDataCell;

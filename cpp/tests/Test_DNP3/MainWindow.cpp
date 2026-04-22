@@ -220,6 +220,17 @@ void MiniButtonWidget::downClicked()
       parseHexString(cleaned, byteResult);
       switch(byteResult.data()[0])
      {
+      case 7://TimeOut
+      {
+void timeout_RestartSolConfirmTimer_in_OContext(void);
+extern void *pPointerGlobal1_in_RestartSolConfirmTimer;
+ pPointerGlobal1_in_RestartSolConfirmTimer = //pOContext;
+     &(t.context);
+ timeout_RestartSolConfirmTimer_in_OContext();
+      lLogHandler.LogEntry(QString("+ TimeOut OK\n"));
+      }//case 7://TimeOut
+      break;
+
       case 5://Send_To_Outstation
       {
       RSeq_for_Uint16_t rst;
@@ -233,6 +244,7 @@ void MiniButtonWidget::downClicked()
       case 6://Update
       {
  int flg = 1;
+/*
  Flags fFlags;
  Flags_In_FlagsOver2(&fFlags, 1);
 
@@ -249,6 +261,24 @@ void MiniButtonWidget::downClicked()
 
  flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary1, 50000, EventMode_Detect);// = EventMode::Detect) = 0;
  flg &= Update_for_Binary_in_Database(&t.context.database_in_OContext, &bBinary2, 50001, EventMode_Detect);// = EventMode::Detect) = 0;
+
+ DNPTime dDNPTime;
+ DNPTime_in_DNPTimeOver2(&dDNPTime, 1512595515000);
+
+ Counter cCounter;
+ Counter_in_CounterOver4(&cCounter, 23, fFlags, dDNPTime);
+
+ flg &= Update_for_Counter_in_Database(&t.context.database_in_OContext, &cCounter, 10315, EventMode_Detect);// = EventMode::Detect) = 0;
+*/
+ uint8_t bytes[2] = {0xCA, 0xFE};
+ Buffer bBuffer;
+ Buffer_in_BufferOver2(&bBuffer, bytes, 2);
+
+ OctetString data;
+ OctetString_in_OctetStringOver3(&data, &bBuffer);
+
+ flg &= Update_for_OctetString_in_Database(&t.context.database_in_OContext, &data, 2, EventMode_Detect);
+ flg &= Update_for_OctetString_in_Database(&t.context.database_in_OContext, &data, 1, EventMode_Detect);
 
      if(flg) lLogHandler.LogEntry(QString("+ Update OK\n"));
      else lLogHandler.LogEntry(QString("+ Update FALSE\n"));

@@ -28,7 +28,7 @@
 
 void SimpleCommandHandler_in_SimpleCommandHandler(SimpleCommandHandler *pSimpleCommandHandler, CommandStatus_uint8_t status)
 {
-  pSimpleCommandHandler->status = status;
+  pSimpleCommandHandler->status_in_SimpleCommandHandler = status;
   pSimpleCommandHandler->numOperate = 0;
   pSimpleCommandHandler->numSelect = 0;
   pSimpleCommandHandler->numStart = 0;
@@ -195,7 +195,7 @@ CommandStatus_uint8_t Select_ControlRelayOutputBlock_in_SimpleCommandHandler(Sim
 ////    this->DoSelect(command, index);
   DoSelect_ControlRelayOutputBlock_in_SimpleCommandHandler(pSimpleCommandHandler, command, index);
   ++(((SimpleCommandHandler*)pSimpleCommandHandler)->numSelect);
-  return ((SimpleCommandHandler*)pSimpleCommandHandler)->status;
+  return ((SimpleCommandHandler*)pSimpleCommandHandler)->status_in_SimpleCommandHandler;
 }
 CommandStatus_uint8_t Operate_ControlRelayOutputBlock_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, ControlRelayOutputBlock* command,
     uint16_t index,
@@ -214,7 +214,7 @@ CommandStatus_uint8_t Operate_ControlRelayOutputBlock_in_SimpleCommandHandler(Si
 ////    this->DoOperate(command, index, opType);
   DoOperate_ControlRelayOutputBlock_in_SimpleCommandHandler(pSimpleCommandHandler, command, index, opType);
   ++(pSimpleCommandHandler->numOperate);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Select_AnalogOutputInt16_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputInt16* command, uint16_t index)
@@ -222,7 +222,7 @@ CommandStatus_uint8_t Select_AnalogOutputInt16_in_SimpleCommandHandler(SimpleCom
 ////    this->DoSelect(command, index);
   DoSelect_AnalogOutputInt16_in_SimpleCommandHandler(pSimpleCommandHandler, command, index);
   ++(pSimpleCommandHandler->numSelect);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Operate_AnalogOutputInt16_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputInt16* command,
@@ -234,7 +234,7 @@ CommandStatus_uint8_t Operate_AnalogOutputInt16_in_SimpleCommandHandler(SimpleCo
 ////    this->DoOperate(command, index, opType);
   DoOperate_AnalogOutputInt16_in_SimpleCommandHandler(pSimpleCommandHandler, command, index, opType);
   ++(pSimpleCommandHandler->numOperate);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Select_AnalogOutputInt32_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputInt32* command, uint16_t index)
@@ -242,7 +242,7 @@ CommandStatus_uint8_t Select_AnalogOutputInt32_in_SimpleCommandHandler(SimpleCom
 ////    this->DoSelect(command, index);
   DoSelect_AnalogOutputInt32_in_SimpleCommandHandler(pSimpleCommandHandler, command, index);
   ++(pSimpleCommandHandler->numSelect);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 CommandStatus_uint8_t Operate_AnalogOutputInt32_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputInt32* command,
     uint16_t index,
@@ -253,7 +253,7 @@ CommandStatus_uint8_t Operate_AnalogOutputInt32_in_SimpleCommandHandler(SimpleCo
 ////    this->DoOperate(command, index, opType);
   DoOperate_AnalogOutputInt32_in_SimpleCommandHandler(pSimpleCommandHandler, command, index, opType);
   ++(pSimpleCommandHandler->numOperate);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Select_AnalogOutputFloat32_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputFloat32* command, uint16_t index)
@@ -261,7 +261,7 @@ CommandStatus_uint8_t Select_AnalogOutputFloat32_in_SimpleCommandHandler(SimpleC
 ////    this->DoSelect(command, index);
   DoSelect_AnalogOutputFloat32_in_SimpleCommandHandler(pSimpleCommandHandler, command, index);
   ++(pSimpleCommandHandler->numSelect);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 CommandStatus_uint8_t Operate_AnalogOutputFloat32_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputFloat32* command,
     uint16_t index,
@@ -272,7 +272,7 @@ CommandStatus_uint8_t Operate_AnalogOutputFloat32_in_SimpleCommandHandler(Simple
 ////    this->DoOperate(command, index, opType);
   DoOperate_AnalogOutputFloat32_in_SimpleCommandHandler(pSimpleCommandHandler, command, index, opType);
   ++(pSimpleCommandHandler->numOperate);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Select_AnalogOutputDouble64_in_SimpleCommandHandler(SimpleCommandHandler* pSimpleCommandHandler, AnalogOutputDouble64* command, uint16_t index)
@@ -280,7 +280,7 @@ CommandStatus_uint8_t Select_AnalogOutputDouble64_in_SimpleCommandHandler(Simple
 ////    this->DoSelect(command, index);
   DoSelect_AnalogOutputDouble64_in_SimpleCommandHandler(pSimpleCommandHandler, command, index);
   ++(pSimpleCommandHandler->numSelect);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 CommandStatus_uint8_t Operate_AnalogOutputDouble64_in_SimpleCommandHandler(SimpleCommandHandler *pSimpleCommandHandler, AnalogOutputDouble64* command,
@@ -292,7 +292,7 @@ CommandStatus_uint8_t Operate_AnalogOutputDouble64_in_SimpleCommandHandler(Simpl
 ////    this->DoOperate(command, index, opType);
   DoOperate_AnalogOutputDouble64_in_SimpleCommandHandler(pSimpleCommandHandler, command, index, opType);
   ++(pSimpleCommandHandler->numOperate);
-  return pSimpleCommandHandler->status;
+  return pSimpleCommandHandler->status_in_SimpleCommandHandler;
 }
 
 //} // namespace opendnp3

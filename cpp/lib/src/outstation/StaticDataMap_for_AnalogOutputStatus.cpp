@@ -454,19 +454,24 @@ boolean modify_in_StaticDataMap_for_AnalogOutputStatusSpec(StaticDataMap_for_Ana
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec))
+  uint16_t iter = KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec))
+  {
+    return false;
+  }
+  iter = KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec))
   {
     return false;
   }
 
-  uint16_t iter = KeyMap2IndexMass_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, start);
 //  for (auto iter = pStaticDataMap_for_AnalogOutputStatusSpec->map.lower_bound(start); iter != pStaticDataMap_for_AnalogOutputStatusSpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec); ++iter)
   {
 //    if (iter->first > stop)
     if(IndexMass2KeyMap_for_AnalogOutputStatusSpec(pStaticDataMap_for_AnalogOutputStatusSpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //    AnalogOutputStatus new_value = iter->second.value_in_StaticDataCell;

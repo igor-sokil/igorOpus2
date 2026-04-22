@@ -29,7 +29,7 @@
 // limitations under the License.
 //
 
-//#include "log_info.h"
+#include "log_info.h"
 
 #include "header_dnp3.h"
 #include "Group22.h"

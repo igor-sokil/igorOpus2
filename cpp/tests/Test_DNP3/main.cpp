@@ -18,10 +18,12 @@
 #include "TransportLayerMrzs.h"
 
 void RepairCRC_in_DNPHelpers(RSeq_for_Uint16_t* rseq);
-//DatabaseConfig all_types_in_DatabaseHelpers(uint16_t num);
 boolean  setMrzsDataMapKeys_for_AnalogSpec(DatabaseConfig* pDatabaseConfig);
 boolean  setMrzsDataMapKeys_for_BinarySpec(DatabaseConfig* pDatabaseConfig);
 boolean  setMrzsDataMapKeys_for_CounterSpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_FrozenCounterSpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_OctetStringSpec(DatabaseConfig* pDatabaseConfig);
+boolean  setMrzsDataMapKeys_for_BinaryOutputStatusSpec(DatabaseConfig* pDatabaseConfig);
 boolean  updateMrzsDataMapKeys_for_AnalogSpec(Database* pDatabase);
 boolean  updateMrzsDataMapKeys_for_BinarySpec(Database* pDatabase);
 boolean  updateMrzsDataMapKeys_for_CounterSpec(Database* pDatabase);
@@ -115,13 +117,15 @@ int main(int argc, char *argv[])
     );
   config.eventBufferConfig = etemp;
   config.params.maxTxFragSize = 100; // override to use a fragment length of 20
+/// Максимальное количество элементов управления, которые удаленная станция попытается обработать из одного APDU
+  config.params.maxControlsPerRequest = 1;
 
   setMrzsDataMapKeys_for_AnalogSpec(&dDatabaseConfig);
   setMrzsDataMapKeys_for_BinarySpec(&dDatabaseConfig);
   setMrzsDataMapKeys_for_CounterSpec(&dDatabaseConfig);
-
-  uint16_t iter_first = KeyMap2IndexMass_for_BinarySpec(&dDatabaseConfig, 50000);
-  if(iter_first < 0xFF00) dDatabaseConfig.binary_input_config[iter_first].eEventConfig.clazz = PointClass_Class0;
+//  setMrzsDataMapKeys_for_FrozenCounterSpec(&dDatabaseConfig);
+  setMrzsDataMapKeys_for_OctetStringSpec(&dDatabaseConfig);
+//  setMrzsDataMapKeys_for_BinaryOutputStatusSpec(&dDatabaseConfig);
 
   OutstationMrzsObject_in_OutstationMrzsObject(&t, &config, &dDatabaseConfig);
 
@@ -132,6 +136,8 @@ int main(int argc, char *argv[])
   setMrzsApplication(&t.application);
 
   LowerLayerUp_in_OutstationMrzsObject(&t);
+
+//  SetResponse_in_MrzsCommandHandler(&(t.cmdHandler), CommandStatus_NOT_SUPPORTED);
 
   std::cout<<"}***START "<<'\n';
   std::cout<<'\n';

@@ -511,19 +511,24 @@ boolean modify_in_StaticDataMap_for_AnalogSpec(StaticDataMap_for_AnalogSpec *pSt
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec))
+  uint16_t iter = KeyMap2IndexMass_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec))
+  {
+    return false;
+  }
+  iter = KeyMap2IndexMass_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec))
   {
     return false;
   }
 
-  uint16_t iter = KeyMap2IndexMass_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, start);
 //    for (auto iter = pStaticDataMap_for_AnalogSpec->map.lower_bound(start); iter != pStaticDataMap_for_AnalogSpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec); ++iter)
   {
 //      if (iter->first > stop)
     if(IndexMass2KeyMap_for_AnalogSpec(pStaticDataMap_for_AnalogSpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //      Analog new_value = iter->second.value_in_StaticDataCell;

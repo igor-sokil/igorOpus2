@@ -24,7 +24,10 @@ SOURCES      += MainWindow.cpp \
                 Send_To_Outstation.cpp \
                 Mrzs_cpp/setMrzsDataMapKeys_for_AnalogSpec.cpp \
                 Mrzs_cpp/setMrzsDataMapKeys_for_BinarySpec.cpp \
+                Mrzs_cpp/setMrzsDataMapKeys_for_BinaryOutputStatusSpec.cpp \
                 Mrzs_cpp/setMrzsDataMapKeys_for_CounterSpec.cpp \
+                Mrzs_cpp/setMrzsDataMapKeys_for_FrozenCounterSpec.cpp \
+                Mrzs_cpp/setMrzsDataMapKeys_for_OctetStringSpec.cpp \
                 Mrzs_cpp/setMrzsApplication.cpp \
                 Mrzs_cpp/LinkParserMrzs.cpp \
                 Mrzs_cpp/MrzsFrameSink.cpp \

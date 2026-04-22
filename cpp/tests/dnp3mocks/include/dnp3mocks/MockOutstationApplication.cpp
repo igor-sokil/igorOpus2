@@ -39,13 +39,13 @@ void MockOutstationApplication_in_MockOutstationApplication(MockOutstationApplic
   pMockOutstationApplication->supportsAssignClass = false;
   pMockOutstationApplication->supportsWriteTimeAndInterval = false;
   pMockOutstationApplication->allowTimeWrite = true;
-/*
+
   pMockOutstationApplication->warmRestartSupport = RestartMode_UNSUPPORTED;
   pMockOutstationApplication->coldRestartSupport = RestartMode_UNSUPPORTED;
 
   pMockOutstationApplication->warmRestartTimeDelay = 0;
   pMockOutstationApplication->coldRestartTimeDelay = 0;
-
+/*
   pMockOutstationApplication->iIOutstationApplication.iILinkListener.pOnStateChange_in_ILinkListener = OnStateChange_in_MockOutstationApplication_override;
 */
   pMockOutstationApplication->iIOutstationApplication.iIDnpTimeSource.pNow_in_IDnpTimeSource_static = Now_in_MockOutstationApplication_override;
@@ -58,12 +58,12 @@ void MockOutstationApplication_in_MockOutstationApplication(MockOutstationApplic
   pMockOutstationApplication->iIOutstationApplication.pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_MockOutstationApplication_override;
 
   pMockOutstationApplication->iIOutstationApplication.pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_MockOutstationApplication_override;
-/*
+
   pMockOutstationApplication->iIOutstationApplication.pColdRestartSupport_in_IOutstationApplication = ColdRestartSupport_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWarmRestartSupport_in_IOutstationApplication = WarmRestartSupport_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pColdRestart_in_IOutstationApplication = ColdRestart_in_MockOutstationApplication_override;
   pMockOutstationApplication->iIOutstationApplication.pWarmRestart_in_IOutstationApplication = WarmRestart_in_MockOutstationApplication_override;
-*/
+
   pMockOutstationApplication->iIOutstationApplication.pOnConfirmProcessed_in_IOutstationApplication = OnConfirmProcessed_in_MockOutstationApplication_override;
 
   setParentPointer_in_IDnpTimeSource(&(pMockOutstationApplication->iIOutstationApplication.iIDnpTimeSource), pMockOutstationApplication);
@@ -146,7 +146,7 @@ ApplicationIIN GetApplicationIIN_in_MockOutstationApplication_override(void *pIO
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return GetApplicationIIN_in_MockOutstationApplication(parent);
 }
-/*
+
 RestartMode_uint8_t ColdRestartSupport_in_MockOutstationApplication_override(void *pIOutstationApplication)
 {
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
@@ -170,7 +170,7 @@ uint16_t WarmRestart_in_MockOutstationApplication_override(void *pIOutstationApp
   MockOutstationApplication* parent = (MockOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return WarmRestart_in_MockOutstationApplication(parent);
 }
-*/
+
 void OnConfirmProcessed_in_MockOutstationApplication_override(void *pIOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
@@ -303,7 +303,7 @@ ApplicationIIN GetApplicationIIN_in_MockOutstationApplication(MockOutstationAppl
 {
   return pMockOutstationApplication->appIIN;
 }
-/*
+
 RestartMode_uint8_t ColdRestartSupport_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication)
 {
   return pMockOutstationApplication->coldRestartSupport;
@@ -323,7 +323,7 @@ uint16_t WarmRestart_in_MockOutstationApplication(MockOutstationApplication *pMo
 {
   return pMockOutstationApplication->warmRestartTimeDelay;
 }
-*/
+
 void OnConfirmProcessed_in_MockOutstationApplication(MockOutstationApplication *pMockOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {

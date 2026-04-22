@@ -41,7 +41,8 @@ void OutstationMrzsObject_in_OutstationMrzsObject(OutstationMrzsObject *pOutstat
 //  void Addresses_in_AddressesOver1(Addresses *pAddresses);
 ////      context(Addresses(), config, db_config, log.logger, exe, lower, cmdHandler, application)
   Addresses aAddresses;
-  Addresses_in_AddressesOver1(&aAddresses);
+//  Addresses_in_AddressesOver1(&aAddresses);
+  Addresses_in_AddressesOver2(&aAddresses, 1, 2);
 
   OContext_in_OContext(&(pOutstationMrzsObject->context),
 ///             Addresses* addresses,

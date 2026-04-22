@@ -513,12 +513,16 @@ boolean modify_in_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_Double
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec))
+  uint16_t iter = KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec))
   {
     return false;
   }
-
-  uint16_t iter = KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, start);
+  iter = KeyMap2IndexMass_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec))
+  {
+    return false;
+  }
 
 //  for (auto iter = pStaticDataMap_for_DoubleBitBinarySpec->map.lower_bound(start); iter != pStaticDataMap_for_DoubleBitBinarySpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec); ++iter)
@@ -526,7 +530,7 @@ boolean modify_in_StaticDataMap_for_DoubleBitBinarySpec(StaticDataMap_for_Double
 //    if (iter->first > stop)
     if(IndexMass2KeyMap_for_DoubleBitBinarySpec(pStaticDataMap_for_DoubleBitBinarySpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //    DoubleBitBinary new_value = iter->second.value_in_StaticDataCell;

@@ -3010,6 +3010,8 @@ IINField HandleRestart_in_OContext(OContext *pOContext, RSeq_for_Uint16_t* objec
   increment_stack_info();
   std::cout<<getString_stack_info();
   std::cout<<"{HandleRestart_in_OContext1"<<std::endl;
+  std::cout<<"*"<<getString_stack_info();
+  std::cout<<"*boolean isWarmRestart= "<<isWarmRestart<<std::endl;
 #endif
 //    boolean is_not_empty_in_HasLength_for_Uint16_t(HasLength_for_Uint16_t *pHasLength);
 ////    if (objects.is_not_empty())

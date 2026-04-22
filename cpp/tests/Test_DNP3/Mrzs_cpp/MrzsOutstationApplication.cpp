@@ -36,13 +36,13 @@ void MrzsOutstationApplication_in_MrzsOutstationApplication(MrzsOutstationApplic
   pMrzsOutstationApplication->supportsAssignClass = false;
   pMrzsOutstationApplication->supportsWriteTimeAndInterval = false;
   pMrzsOutstationApplication->allowTimeWrite = true;
-/*
+
   pMrzsOutstationApplication->warmRestartSupport = RestartMode_UNSUPPORTED;
   pMrzsOutstationApplication->coldRestartSupport = RestartMode_UNSUPPORTED;
 
   pMrzsOutstationApplication->warmRestartTimeDelay = 0;
   pMrzsOutstationApplication->coldRestartTimeDelay = 0;
-
+/*
   pMrzsOutstationApplication->iIOutstationApplication.iILinkListener.pOnStateChange_in_ILinkListener = OnStateChange_in_MrzsOutstationApplication_override;
 */
   pMrzsOutstationApplication->iIOutstationApplication.iIDnpTimeSource.pNow_in_IDnpTimeSource_static = Now_in_MrzsOutstationApplication_override;
@@ -55,12 +55,12 @@ void MrzsOutstationApplication_in_MrzsOutstationApplication(MrzsOutstationApplic
   pMrzsOutstationApplication->iIOutstationApplication.pRecordClassAssignment_in_IOutstationApplication = RecordClassAssignment_in_MrzsOutstationApplication_override;
 
   pMrzsOutstationApplication->iIOutstationApplication.pGetApplicationIIN_in_IOutstationApplication = GetApplicationIIN_in_MrzsOutstationApplication_override;
-/*
+
   pMrzsOutstationApplication->iIOutstationApplication.pColdRestartSupport_in_IOutstationApplication = ColdRestartSupport_in_MrzsOutstationApplication_override;
   pMrzsOutstationApplication->iIOutstationApplication.pWarmRestartSupport_in_IOutstationApplication = WarmRestartSupport_in_MrzsOutstationApplication_override;
   pMrzsOutstationApplication->iIOutstationApplication.pColdRestart_in_IOutstationApplication = ColdRestart_in_MrzsOutstationApplication_override;
   pMrzsOutstationApplication->iIOutstationApplication.pWarmRestart_in_IOutstationApplication = WarmRestart_in_MrzsOutstationApplication_override;
-*/
+
   pMrzsOutstationApplication->iIOutstationApplication.pOnConfirmProcessed_in_IOutstationApplication = OnConfirmProcessed_in_MrzsOutstationApplication_override;
 
   setParentPointer_in_IDnpTimeSource(&(pMrzsOutstationApplication->iIOutstationApplication.iIDnpTimeSource), pMrzsOutstationApplication);
@@ -143,7 +143,7 @@ ApplicationIIN GetApplicationIIN_in_MrzsOutstationApplication_override(void *pIO
   MrzsOutstationApplication* parent = (MrzsOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return GetApplicationIIN_in_MrzsOutstationApplication(parent);
 }
-/*
+
 RestartMode_uint8_t ColdRestartSupport_in_MrzsOutstationApplication_override(void *pIOutstationApplication)
 {
   MrzsOutstationApplication* parent = (MrzsOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
@@ -167,7 +167,7 @@ uint16_t WarmRestart_in_MrzsOutstationApplication_override(void *pIOutstationApp
   MrzsOutstationApplication* parent = (MrzsOutstationApplication*)getParentPointer_in_IOutstationApplication((IOutstationApplication*)pIOutstationApplication);
   return WarmRestart_in_MrzsOutstationApplication(parent);
 }
-*/
+
 void OnConfirmProcessed_in_MrzsOutstationApplication_override(void *pIOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {
@@ -297,7 +297,7 @@ ApplicationIIN GetApplicationIIN_in_MrzsOutstationApplication(MrzsOutstationAppl
 {
   return pMrzsOutstationApplication->appIIN;
 }
-/*
+
 RestartMode_uint8_t ColdRestartSupport_in_MrzsOutstationApplication(MrzsOutstationApplication *pMrzsOutstationApplication)
 {
   return pMrzsOutstationApplication->coldRestartSupport;
@@ -317,7 +317,7 @@ uint16_t WarmRestart_in_MrzsOutstationApplication(MrzsOutstationApplication *pMr
 {
   return pMrzsOutstationApplication->warmRestartTimeDelay;
 }
-*/
+
 void OnConfirmProcessed_in_MrzsOutstationApplication(MrzsOutstationApplication *pMrzsOutstationApplication,
     boolean is_unsolicited, uint32_t num_class1, uint32_t num_class2, uint32_t num_class3)
 {

@@ -521,12 +521,16 @@ boolean modify_in_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec *pSt
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec))
+  uint16_t iter = KeyMap2IndexMass_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec))
   {
     return false;
   }
-
-  uint16_t iter = KeyMap2IndexMass_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, start);
+  iter = KeyMap2IndexMass_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec))
+  {
+    return false;
+  }
 
 //  for (auto iter = pStaticDataMap_for_BinarySpec->map.lower_bound(start); iter != pStaticDataMap_for_BinarySpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_BinarySpec(pStaticDataMap_for_BinarySpec); ++iter)
@@ -534,7 +538,7 @@ boolean modify_in_StaticDataMap_for_BinarySpec(StaticDataMap_for_BinarySpec *pSt
 //    if (iter->first > stop)
     if(IndexMass2KeyMap_for_BinarySpec(pStaticDataMap_for_BinarySpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //    Binary new_value = iter->second.value_in_StaticDataCell;

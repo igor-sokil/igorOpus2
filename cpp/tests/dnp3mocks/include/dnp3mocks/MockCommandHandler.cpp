@@ -220,7 +220,7 @@ void Operation_for_AnalogOutputDouble64_in_Operation_for_AnalogOutputDouble64(Op
 
 void SetResponse_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler, CommandStatus status_)
 {
-  pMockCommandHandler->sSimpleCommandHandler.status = status_;
+  pMockCommandHandler->sSimpleCommandHandler.status_in_SimpleCommandHandler = status_;
 }
 
 uint32_t NumInvocations_in_MockCommandHandler(MockCommandHandler *pMockCommandHandler)

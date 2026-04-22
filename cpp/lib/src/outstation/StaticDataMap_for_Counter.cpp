@@ -504,12 +504,26 @@ boolean modify_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *p
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec))
+  uint16_t iter = KeyMap2IndexMass_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec))
   {
+#ifdef  LOG_INFO
+    std::cout<<getString_stack_info();
+    std::cout<<"}modify_in_StaticDataMap_for_CounterSpec2_"<<'\n';
+    decrement_stack_info();
+#endif
     return false;
   }
-
-  uint16_t iter = KeyMap2IndexMass_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, start);
+  iter = KeyMap2IndexMass_for_CounterSpec(pStaticDataMap_for_CounterSpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec))
+  {
+#ifdef  LOG_INFO
+    std::cout<<getString_stack_info();
+    std::cout<<"}modify_in_StaticDataMap_for_CounterSpec3_"<<'\n';
+    decrement_stack_info();
+#endif
+    return false;
+  }
 
 //  for (auto iter = pStaticDataMap_for_CounterSpec->map.lower_bound(start); iter != pStaticDataMap_for_CounterSpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_CounterSpec(pStaticDataMap_for_CounterSpec); ++iter)
@@ -519,10 +533,10 @@ boolean modify_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *p
     {
 #ifdef  LOG_INFO
       std::cout<<getString_stack_info();
-      std::cout<<"}modify_in_StaticDataMap_for_CounterSpec2_"<<'\n';
+      std::cout<<"}modify_in_StaticDataMap_for_CounterSpec4_"<<'\n';
       decrement_stack_info();
 #endif
-      return false;
+      return true;//false;
     }
 
 //    Counter new_value = iter->second.value_in_StaticDataCell;
@@ -552,7 +566,7 @@ boolean modify_in_StaticDataMap_for_CounterSpec(StaticDataMap_for_CounterSpec *p
 
 #ifdef  LOG_INFO
   std::cout<<getString_stack_info();
-  std::cout<<"}modify_in_StaticDataMap_for_CounterSpec3_"<<'\n';
+  std::cout<<"}modify_in_StaticDataMap_for_CounterSpec5_"<<'\n';
   decrement_stack_info();
 #endif
   return true;

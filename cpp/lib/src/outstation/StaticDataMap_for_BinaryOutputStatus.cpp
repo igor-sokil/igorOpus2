@@ -453,12 +453,16 @@ boolean modify_in_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_Bin
     return false;
   }
 
-  if (start >= MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec))
+  uint16_t iter = KeyMap2IndexMass_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, stop);
+  if (iter >= MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec))
   {
     return false;
   }
-
-  uint16_t iter = KeyMap2IndexMass_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, start);
+  iter = KeyMap2IndexMass_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, start);
+  if (iter >= MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec))
+  {
+    return false;
+  }
 
 //  for (auto iter = pStaticDataMap_for_BinaryOutputStatusSpec->map.lower_bound(start); iter != pStaticDataMap_for_BinaryOutputStatusSpec->map.end(); ++iter)
   for (; iter != MapSize_for_StaticDataMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec); ++iter)
@@ -466,7 +470,7 @@ boolean modify_in_StaticDataMap_for_BinaryOutputStatusSpec(StaticDataMap_for_Bin
 //    if (iter->first > stop)
     if(IndexMass2KeyMap_for_BinaryOutputStatusSpec(pStaticDataMap_for_BinaryOutputStatusSpec->db_config, iter) > stop)
     {
-      return false;
+      return true;//false;
     }
 
 //    BinaryOutputStatus new_value = iter->second.value_in_StaticDataCell;

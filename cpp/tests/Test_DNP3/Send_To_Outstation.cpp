@@ -31,7 +31,7 @@ QString Send_To_Outstation(RSeq_for_Uint16_t rst)
    {
     std::cout<<'\n';
     std::cout<<"*rst.hHasLength.m_length= "<<rst.hHasLength.m_length<<'\n';
-     rst.buffer_[2] = rst.hHasLength.m_length - 5 - 2 - ((rst.hHasLength.m_length-10 -2)/16)*2;
+     rst.buffer_[2] = rst.hHasLength.m_length - 5 - 2 - ((rst.hHasLength.m_length-10 -2)/18)*2;
    }//if
    else rst.buffer_[2] = rst.hHasLength.m_length - 5 - 2;
   }
@@ -83,7 +83,7 @@ QString Send_To_Outstation(RSeq_for_Uint16_t rst)
       inspect_RSeq(mMrzsFrameSink.userdata);
       Message mMessage;
       Addresses aAddresses;
-      Addresses_in_AddressesOver1(&aAddresses);
+      Addresses_in_AddressesOver2(&aAddresses, mMrzsFrameSink.m_last_header.addresses.source, mMrzsFrameSink.m_last_header.addresses.destination);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
       t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 
@@ -134,7 +134,7 @@ QString Send_To_Outstation(RSeq_for_Uint16_t rst)
       inspect_RSeq(mMrzsFrameSink.userdata);
       Message mMessage;
       Addresses aAddresses;
-      Addresses_in_AddressesOver1(&aAddresses);
+      Addresses_in_AddressesOver2(&aAddresses, mMrzsFrameSink.m_last_header.addresses.source, mMrzsFrameSink.m_last_header.addresses.destination);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
       t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 

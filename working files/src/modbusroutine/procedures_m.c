@@ -178,7 +178,7 @@ void inputPacketParserUSB(void)
 //      inspect_RSeq(mMrzsFrameSink.userdata);
       Message mMessage;
       Addresses aAddresses;
-      Addresses_in_AddressesOver1(&aAddresses);
+      Addresses_in_AddressesOver2(&aAddresses, mMrzsFrameSink.m_last_header.addresses.source, mMrzsFrameSink.m_last_header.addresses.destination);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
       t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 
@@ -227,7 +227,7 @@ void inputPacketParserUSB(void)
 //      inspect_RSeq(mMrzsFrameSink.userdata);
       Message mMessage;
       Addresses aAddresses;
-      Addresses_in_AddressesOver1(&aAddresses);
+      Addresses_in_AddressesOver2(&aAddresses, mMrzsFrameSink.m_last_header.addresses.source, mMrzsFrameSink.m_last_header.addresses.destination);
       Message_in_Message(&mMessage, &aAddresses, mMrzsFrameSink.userdata);
       t.lower.mMessage_in_MrzsLowerLayer.payload.hHasLength.m_length = 0;
 
